@@ -3,6 +3,7 @@
 import { use, useState } from "react";
 import Navbar from "@/components/Navbar";
 import CustomSelect from "@/components/CustomSelect";
+import Footer from "@/components/Footer";
 
 type Lang = "ro" | "en";
 
@@ -143,6 +144,7 @@ export default function ContactPage({
           </aside>
         </section>
       </main>
+      <Footer lang={lang} />
     </>
   );
 }

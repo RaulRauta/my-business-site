@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { translations } from "@/lib/translations";
+import Footer from "@/components/Footer";
 
 type Lang = "ro" | "en";
 
@@ -152,6 +153,7 @@ export default async function ServicesPage({
           </div>
         </section>
       </main>
+      <Footer lang={lang} />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 type Lang = "ro" | "en";
 
@@ -136,6 +137,7 @@ export default async function ProcessPage({
           </div>
         </section>
       </main>
+      <Footer lang={lang} />
     </>
   );
 }
