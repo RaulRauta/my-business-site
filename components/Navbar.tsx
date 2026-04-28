@@ -21,6 +21,13 @@ export default function Navbar({ lang }: { lang: Lang }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      setHidden(false);
+      return;
+    }
+
     const previous = scrollY.getPrevious() ?? 0;
 
     if (latest > previous && latest > 120 && !menuOpen) {
