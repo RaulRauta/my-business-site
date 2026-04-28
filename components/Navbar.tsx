@@ -10,7 +10,6 @@ type Lang = "ro" | "en";
 export default function Navbar({ lang }: { lang: Lang }) {
   const pathname = usePathname();
 
-  // nu afișăm pe homepage
   if (pathname === `/${lang}`) return null;
 
   const t = translations[lang];
@@ -27,9 +26,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
   }
 
   return (
-    <header className="fixed left-0 top-5 z-50 w-full px-4">
-      <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/10 bg-black/80 px-4 py-3 shadow-2xl shadow-black/30 md:px-5">
-        {/* LOGO */}
+    <header className="fixed left-0 top-0 z-50 w-full">
+      <div className="mx-auto mt-3 flex max-w-5xl items-center justify-between rounded-full border border-white/10 bg-black/80 px-4 py-3 shadow-2xl shadow-black/30 md:px-5">
         <Link
           href={`/${lang}`}
           className="group flex items-center gap-3 font-semibold tracking-tight"
@@ -44,7 +42,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
           </span>
         </Link>
 
-        {/* DESKTOP NAV */}
         <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -76,9 +73,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           })}
         </nav>
 
-        {/* RIGHT SIDE */}
         <div className="flex items-center gap-2">
-          {/* LANGUAGE SWITCH */}
           <div className="flex items-center rounded-full border border-white/10 bg-white/[0.04] p-1">
             <Link
               href={switchLang("ro")}
