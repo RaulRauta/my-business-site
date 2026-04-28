@@ -26,23 +26,24 @@ export default function Navbar({ lang }: { lang: Lang }) {
   }
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full">
-      <div className="mx-auto mt-3 flex max-w-5xl items-center justify-between rounded-full border border-white/10 bg-black/80 px-4 py-3 shadow-2xl shadow-black/30 md:px-5">
-        <Link
-          href={`/${lang}`}
-          className="group flex items-center gap-3 font-semibold tracking-tight"
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-400 text-sm font-bold text-black transition group-hover:scale-105">
+    <header className="w-full border-b border-white/10 bg-[#080808]/95">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <Link href={`/${lang}`} className="group flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400 text-sm font-black text-black transition group-hover:scale-105">
             R
           </span>
 
-          <span className="hidden text-sm text-white sm:block">
-            Raul
-            <span className="ml-1 text-zinc-500"> / Web Growth</span>
-          </span>
+          <div className="hidden leading-tight sm:block">
+            <p className="text-base font-semibold tracking-tight text-white">
+              Raul
+            </p>
+            <p className="text-[11px] tracking-wide text-zinc-500">
+              Web Growth
+            </p>
+          </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
+        <nav className="hidden items-center rounded-full border border-white/10 bg-white/[0.03] p-1 md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -50,8 +51,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
-                  isActive ? "text-black" : "text-zinc-400 hover:text-white"
+                className={`relative rounded-full px-4 py-2 text-[14px] font-semibold tracking-tight transition-colors duration-300 ${
+                  isActive ? "text-black" : "text-zinc-500 hover:text-white"
                 }`}
               >
                 {isActive && (
@@ -73,7 +74,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <div className="flex items-center rounded-full border border-white/10 bg-white/[0.04] p-1">
             <Link
               href={switchLang("ro")}
@@ -121,6 +122,13 @@ export default function Navbar({ lang }: { lang: Lang }) {
               <span className="relative z-10">EN</span>
             </Link>
           </div>
+
+          <Link
+            href={`/${lang}/contact`}
+            className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black transition hover:bg-emerald-400 lg:block"
+          >
+            {lang === "ro" ? "Discutăm" : "Let’s talk"}
+          </Link>
         </div>
       </div>
     </header>
