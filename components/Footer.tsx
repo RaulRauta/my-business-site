@@ -6,13 +6,13 @@ export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/5 bg-[#070707] px-6 py-16 text-zinc-400">
-      {/* subtle gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.12),transparent_35%)]" />
+    <footer className="relative overflow-hidden border-t border-emerald-400/10 bg-black/50 px-6 py-16 text-zinc-400 backdrop-blur-xl">
+      {/* NEON GRADIENT BACKGROUND */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_85%_35%,rgba(34,211,238,0.12),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* mini CTA */}
-        <div className="mb-14 rounded-3xl border border-white/10 bg-white/4 p-8 shadow-2xl shadow-black/20 md:flex md:items-center md:justify-between md:p-10">
+        {/* CTA */}
+        <div className="mb-14 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.1)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {lang === "ro" ? "Următorul pas" : "Next step"}
@@ -33,17 +33,18 @@ export default function Footer({ lang }: { lang: Lang }) {
 
           <Link
             href={`/${lang}/contact`}
-            className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 text-sm font-semibold text-black transition hover:scale-[1.03] hover:bg-emerald-300 hover:shadow-[0_0_35px_rgba(52,211,153,0.35)] md:mt-0"
+            className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 text-sm font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.35)] transition hover:scale-[1.04] hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.55)] md:mt-0"
           >
             {lang === "ro" ? "Hai să discutăm" : "Let’s talk"}
           </Link>
         </div>
 
-        {/* animated divider */}
-        <div className="mb-5 relative h-px w-full overflow-hidden bg-white/10">
+        {/* SCAN LINE */}
+        <div className="relative mb-12 h-px w-full overflow-hidden bg-emerald-400/10">
           <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
         </div>
 
+        {/* CONTENT */}
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
           <div>
             <p className="text-xl font-semibold tracking-tight text-white">
@@ -84,7 +85,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="w-fit transition hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+                  className="w-fit transition hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
                 >
                   {item.label}
                 </Link>
@@ -98,14 +99,14 @@ export default function Footer({ lang }: { lang: Lang }) {
             <div className="mt-4 grid gap-3 text-sm">
               <a
                 href="mailto:your@email.com"
-                className="w-fit transition hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+                className="w-fit transition hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
               >
                 your@email.com
               </a>
 
               <Link
                 href={`/${lang}/contact`}
-                className="w-fit transition hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+                className="w-fit transition hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
               >
                 {lang === "ro" ? "Trimite un mesaj" : "Send a message"}
               </Link>
@@ -113,8 +114,9 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/5 pt-6">
-          <div className="mx-auto flex max-w-7x1 flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
+        {/* BOTTOM */}
+        <div className="mt-12 border-t border-emerald-400/10 pt-6">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
             <p className="text-zinc-500">© {year} Raul. All rights reserved.</p>
 
             <p className="text-zinc-600">

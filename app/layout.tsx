@@ -30,7 +30,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-screen bg-[#030303] text-white overflow-x-hidden">
+        {/* CYBER BACKGROUND */}
+        <div className="pointer-events-none fixed inset-0 z-0">
+          {/* GRID */}
+          <div className="absolute inset-0 opacity-[0.07]">
+            <div className="h-full w-full bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:40px_40px] animate-[gridMove_6s_linear_infinite]" />
+          </div>
+
+          {/* GLOW 1 */}
+          <div className="absolute top-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-emerald-400/30 blur-[140px] animate-[neonFloat_14s_ease-in-out_infinite]" />
+
+          {/* GLOW 2 */}
+          <div className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-cyan-400/25 blur-[160px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
+
+          {/* GLOW 3 */}
+          <div className="absolute top-[30%] left-[40%] h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-[140px] animate-[neonFloat_20s_ease-in-out_infinite]" />
+
+          {/* LIGHT SWEEP */}
+          <div className="absolute inset-0">
+            <div className="h-full w-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[lightSweep_8s_linear_infinite]" />
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="relative z-10">{children}</div>
+      </body>
     </html>
   );
 }

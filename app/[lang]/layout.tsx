@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#080808] text-white">
+    <div className="min-h-screen text-white">
       <motion.div
         key={pathname}
         initial={{ opacity: 0.85 }}

@@ -116,7 +116,7 @@ export default function ContactPage({
                   type="text"
                   required
                   placeholder={t.name}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
                 />
 
                 <input
@@ -124,7 +124,7 @@ export default function ContactPage({
                   type="email"
                   required
                   placeholder={t.email}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
                 />
               </div>
 
@@ -133,14 +133,14 @@ export default function ContactPage({
                   name="phone"
                   type="text"
                   placeholder={t.phone}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
                 />
 
                 <input
                   name="business"
                   type="text"
                   placeholder={t.business}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
                 />
               </div>
 
@@ -153,7 +153,7 @@ export default function ContactPage({
                 required
                 placeholder={t.message}
                 rows={7}
-                className="resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                className="resize-none rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
               />
 
               {status === "success" && (
@@ -178,7 +178,7 @@ export default function ContactPage({
             </form>
           </div>
 
-          <aside className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 lg:sticky lg:top-28 lg:h-fit">
+          <aside className="rounded-3xl border border-white/10 bg-white/4 p-8 lg:sticky lg:top-28 lg:h-fit">
             <h2 className="text-2xl font-bold">{t.sideTitle}</h2>
 
             <div className="mt-8 space-y-6">
