@@ -103,8 +103,17 @@ export default function ContactPage({
                   setStatus("success");
                   form.reset();
                   setService("");
+
+                  form.scrollIntoView({ behavior: "smooth", block: "start" });
+
+                  setTimeout(() => {
+                    setStatus("idle");
+                  }, 4000);
                 } else {
                   setStatus("error");
+
+                  form.scrollIntoView({ behavior: "smooth", block: "start" });
+                  setTimeout(() => setStatus("idle"), 4000);
                 }
 
                 setLoading(false);
@@ -116,7 +125,7 @@ export default function ContactPage({
                   type="text"
                   required
                   placeholder={t.name}
-                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
                 />
 
                 <input
@@ -124,7 +133,7 @@ export default function ContactPage({
                   type="email"
                   required
                   placeholder={t.email}
-                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
                 />
               </div>
 
@@ -133,14 +142,14 @@ export default function ContactPage({
                   name="phone"
                   type="text"
                   placeholder={t.phone}
-                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
                 />
 
                 <input
                   name="business"
                   type="text"
                   placeholder={t.business}
-                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
                 />
               </div>
 
@@ -157,22 +166,25 @@ export default function ContactPage({
               />
 
               {status === "success" && (
-                <p className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300">
+                <div className="animate-[fadeIn_0.4s_ease] rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300">
                   {t.success}
-                </p>
+                </div>
               )}
-
               {status === "error" && (
-                <p className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300">
+                <div className="animate-[fadeIn_0.4s_ease] rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300">
                   {t.error}
-                </p>
+                </div>
               )}
 
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:opacity-60"
+                className="relative flex items-center justify-center gap-2 rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 disabled:opacity-60"
               >
+                {loading && (
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
+                )}
+
                 {loading ? t.loading : t.button}
               </button>
             </form>
