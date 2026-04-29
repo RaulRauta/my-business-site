@@ -22,6 +22,10 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
     { href: `/${lang}/contact`, label: "Contact" },
   ];
 
+  function switchLang(newLang: Lang) {
+    return `/${newLang}`;
+  }
+
   return (
     <div className="fixed right-6 top-6 z-50">
       <button
@@ -52,7 +56,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-3 w-64 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/65 p-3 shadow-[0_0_45px_rgba(52,211,153,0.12)] backdrop-blur-xl"
+            className="absolute right-0 mt-3 w-64 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/70 p-3 shadow-[0_0_45px_rgba(52,211,153,0.12)] backdrop-blur-xl"
           >
             <div className="grid gap-2">
               {links.map((link) => (
@@ -70,7 +74,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
             <div className="mt-3 border-t border-white/10 pt-3">
               <div className="flex gap-2">
                 <Link
-                  href="/ro"
+                  href={switchLang("ro")}
                   className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
                     lang === "ro"
                       ? "bg-emerald-400 text-black"
@@ -81,7 +85,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
                 </Link>
 
                 <Link
-                  href="/en"
+                  href={switchLang("en")}
                   className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
                     lang === "en"
                       ? "bg-emerald-400 text-black"
