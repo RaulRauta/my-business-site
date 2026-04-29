@@ -39,23 +39,23 @@ export default function Intro() {
             }}
             className="relative text-center"
           >
-            <motion.p
-              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.7 }}
-              className="text-sm font-semibold uppercase tracking-[0.5em] text-emerald-400 drop-shadow-[0_0_12px_rgba(52,211,153,0.75)]"
-            >
-              Flowcraft
-            </motion.p>
-
             <motion.h1
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl font-black tracking-tight text-white md:text-7xl"
+            >
+              Flowcraft
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flow-text mt-5 text-5xl font-black tracking-tight md:text-7xl"
+              className="flow-text mt-4 text-sm font-semibold tracking-[0.45em]"
             >
               by Raul
-            </motion.h1>
+            </motion.p>
 
             <motion.div
               initial={{ width: 0, opacity: 0 }}
