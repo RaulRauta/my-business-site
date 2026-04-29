@@ -85,6 +85,71 @@ export default async function HomePage({
                 : "A good website is not just design."}
             </h2>
 
+            <div className="mt-16">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {lang === "ro" ? "Explorează" : "Explore"}
+              </p>
+
+              <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                {lang === "ro"
+                  ? "Vezi exact ce pot construi pentru business-ul tău."
+                  : "See exactly what I can build for your business."}
+              </h2>
+
+              <div className="mt-10 grid gap-6 md:grid-cols-2">
+                {[
+                  {
+                    href: `/${lang}/services`,
+                    title: lang === "ro" ? "Servicii" : "Services",
+                    text:
+                      lang === "ro"
+                        ? "Site-uri de prezentare, landing pages, redesign, mentenanță și CMS."
+                        : "Presentation websites, landing pages, redesign, maintenance and CMS.",
+                  },
+                  {
+                    href: `/${lang}/process`,
+                    title: lang === "ro" ? "Cum lucrez" : "Process",
+                    text:
+                      lang === "ro"
+                        ? "Pașii clari prin care transformăm ideea ta într-un site funcțional."
+                        : "The clear steps that turn your idea into a working website.",
+                  },
+                  {
+                    href: `/${lang}/portfolio`,
+                    title: lang === "ro" ? "Portofoliu" : "Portfolio",
+                    text:
+                      lang === "ro"
+                        ? "Proiecte și concepte construite cu scop, nu doar pentru aspect."
+                        : "Projects and concepts built with purpose, not just looks.",
+                  },
+                  {
+                    href: `/${lang}/contact`,
+                    title: "Contact",
+                    text:
+                      lang === "ro"
+                        ? "Trimite-mi detaliile și îți răspund cu o direcție clară."
+                        : "Send me the details and I’ll reply with a clear direction.",
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group rounded-3xl border border-emerald-400/10 bg-black/35 p-7 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_55px_rgba(52,211,153,0.12)]"
+                  >
+                    <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-400 ring-1 ring-emerald-400/20 transition group-hover:bg-emerald-400 group-hover:text-black">
+                      →
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-4 leading-7 text-zinc-400">{item.text}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <p className="mt-4 max-w-2xl text-zinc-400">
               {lang === "ro"
                 ? "Este modul în care explici ce faci, cum ajuți și de ce cineva ar trebui să te aleagă."
