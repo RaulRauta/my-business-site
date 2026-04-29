@@ -40,8 +40,8 @@ export default function Footer({ lang }: { lang: Lang }) {
         </div>
 
         {/* animated divider */}
-        <div className="mb-12 h-px w-full overflow-hidden bg-white/10">
-          <div className="h-full w-1/3 animate-[footerLine_3s_ease-in-out_infinite] bg-linear-to-r from-transparent via-emerald-400 to-transparent" />
+        <div className="mb-5 relative h-px w-full overflow-hidden bg-white/10">
+          <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
         </div>
 
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
@@ -114,7 +114,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         </div>
 
         <div className="mt-12 border-t border-white/5 pt-6">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex max-w-7x1 flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
             <p className="text-zinc-500">© {year} Raul. All rights reserved.</p>
 
             <p className="text-zinc-600">
