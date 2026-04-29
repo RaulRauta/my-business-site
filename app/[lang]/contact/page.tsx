@@ -126,7 +126,7 @@ export default function ContactPage({
                   type="text"
                   required
                   placeholder={t.name}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
+                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
 
                 <input
@@ -134,7 +134,7 @@ export default function ContactPage({
                   type="email"
                   required
                   placeholder={t.email}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
+                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
               </div>
 
@@ -143,7 +143,7 @@ export default function ContactPage({
                   name="phone"
                   type="text"
                   placeholder={t.phone}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
+                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
 
                 <input
@@ -173,7 +173,7 @@ export default function ContactPage({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300"
+                    className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                   >
                     {t.success}
                   </motion.div>
@@ -187,7 +187,7 @@ export default function ContactPage({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300"
+                    className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                   >
                     {t.error}
                   </motion.div>
@@ -197,18 +197,22 @@ export default function ContactPage({
               <button
                 type="submit"
                 disabled={loading}
-                className="relative flex items-center justify-center gap-2 rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 disabled:opacity-60"
+                className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 hover:shadow-[0_0_45px_rgba(52,211,153,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
               >
+                <span className="absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+
                 {loading && (
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
+                  <span className="relative z-10 h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
                 )}
 
-                {loading ? t.loading : t.button}
+                <span className="relative z-10">
+                  {loading ? t.loading : t.button}
+                </span>
               </button>
             </form>
           </div>
 
-          <aside className="rounded-3xl border border-white/10 bg-white/4 p-8 lg:sticky lg:top-28 lg:h-fit">
+          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_55px_rgba(52,211,153,0.08)] backdrop-blur-xl lg:sticky lg:top-28 lg:h-fit">
             <h2 className="text-2xl font-bold">{t.sideTitle}</h2>
 
             <div className="mt-8 space-y-6">
