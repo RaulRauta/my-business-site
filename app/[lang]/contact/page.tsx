@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import CustomSelect from "@/components/CustomSelect";
 import Footer from "@/components/Footer";
@@ -165,16 +166,33 @@ export default function ContactPage({
                 className="resize-none rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
               />
 
-              {status === "success" && (
-                <div className="animate-[fadeIn_0.4s_ease] rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300">
-                  {t.success}
-                </div>
-              )}
-              {status === "error" && (
-                <div className="animate-[fadeIn_0.4s_ease] rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300">
-                  {t.error}
-                </div>
-              )}
+              <AnimatePresence>
+                {status === "success" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300"
+                  >
+                    {t.success}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence>
+                {status === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300"
+                  >
+                    {t.error}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <button
                 type="submit"
