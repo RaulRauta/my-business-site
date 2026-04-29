@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,6 +8,24 @@ type Lang = "ro" | "en";
 
 export default function HomeMenu({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(false);
+
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   const links = [
     {
@@ -27,7 +45,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div className="fixed right-6 top-6 z-50">
+    <div ref={menuRef} className="fixed right-6 top-6 z-50">
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
