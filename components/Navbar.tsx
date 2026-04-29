@@ -39,19 +39,16 @@ export default function Navbar({ lang }: { lang: Lang }) {
           className="group flex items-center gap-3"
         >
           <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/30 bg-black/40 text-sm font-black text-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.25)] transition group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(52,211,153,0.45)]">
-            {/* glow background */}
             <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.25),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
-
-            {/* letter */}
             <span className="relative z-10">F</span>
           </span>
 
           <div className="hidden leading-tight sm:block">
-            <p className="text-base font-semibold tracking-tight text-white">
+            <p className="text-base font-semibold tracking-tight text-white transition group-hover:text-emerald-400">
               Flowcraft
             </p>
 
-            <p className="text-[10px] tracking-[0.25em] text-zinc-500">
+            <p className="flow-text text-[10px] font-semibold tracking-[0.35em]">
               by Raul
             </p>
           </div>
@@ -148,7 +145,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             href={`/${lang}/contact`}
             className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_25px_rgba(255,255,255,0.12)] transition hover:bg-emerald-400 hover:shadow-[0_0_35px_rgba(52,211,153,0.55)] lg:block"
           >
-            {lang === "ro" ? "Let’s talk" : "Let’s talk"}
+            {lang === "ro" ? "Discutăm" : "Let’s talk"}
           </Link>
 
           {/* MOBILE HAMBURGER */}

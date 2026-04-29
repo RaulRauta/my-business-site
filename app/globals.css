@@ -132,3 +132,28 @@ body {
     opacity: 0;
   }
 }
+
+.flow-text {
+  background: linear-gradient(
+    90deg,
+    #3f3f46 0%,
+    #34d399 35%,
+    #22d3ee 50%,
+    #34d399 65%,
+    #3f3f46 100%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: flowText 3.5s ease-in-out infinite;
+}
+
+@keyframes flowText {
+  0% {
+    background-position: 220% 50%;
+  }
+  100% {
+    background-position: -220% 50%;
+  }
+}
