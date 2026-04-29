@@ -150,7 +150,7 @@ export default function ContactPage({
                   name="business"
                   type="text"
                   placeholder={t.business}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none transition focus:border-emerald-400 focus:shadow-[0_0_15px_rgba(52,211,153,0.25)]"
+                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
               </div>
 
