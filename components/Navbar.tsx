@@ -38,16 +38,21 @@ export default function Navbar({ lang }: { lang: Lang }) {
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-400 text-sm font-black text-black shadow-[0_0_28px_rgba(52,211,153,0.45)] transition group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(52,211,153,0.65)]">
-            R
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/30 bg-black/40 text-sm font-black text-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.25)] transition group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(52,211,153,0.45)]">
+            {/* glow background */}
+            <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.25),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
+
+            {/* letter */}
+            <span className="relative z-10">F</span>
           </span>
 
           <div className="hidden leading-tight sm:block">
             <p className="text-base font-semibold tracking-tight text-white">
-              Raul
+              Flowcraft
             </p>
-            <p className="text-[11px] tracking-wide text-zinc-500">
-              Web Growth
+
+            <p className="text-[10px] tracking-[0.25em] text-zinc-500">
+              by Raul
             </p>
           </div>
         </Link>
