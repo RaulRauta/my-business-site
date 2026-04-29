@@ -23,58 +23,78 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <>
-      {/* FLOATING BUTTON */}
+    <div className="fixed right-6 top-6 z-50">
       <button
-        onClick={() => setOpen(true)}
-        className="fixed top-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-emerald-400/20 bg-black/40 backdrop-blur-xl shadow-[0_0_25px_rgba(52,211,153,0.2)] transition hover:scale-105"
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-emerald-400/20 bg-black/45 shadow-[0_0_25px_rgba(52,211,153,0.18)] backdrop-blur-xl transition hover:scale-105"
       >
-        <div className="flex flex-col gap-[4px]">
-          <span className="h-[2px] w-5 bg-emerald-400" />
-          <span className="h-[2px] w-5 bg-emerald-400" />
-          <span className="h-[2px] w-5 bg-emerald-400" />
-        </div>
+        <span className="relative h-4 w-5">
+          <motion.span
+            animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }}
+            className="absolute left-0 top-0 h-[2px] w-5 rounded-full bg-emerald-400"
+          />
+          <motion.span
+            animate={{ opacity: open ? 0 : 1 }}
+            className="absolute left-0 top-[7px] h-[2px] w-5 rounded-full bg-emerald-400"
+          />
+          <motion.span
+            animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }}
+            className="absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-emerald-400"
+          />
+        </span>
       </button>
 
-      {/* FULLSCREEN MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[999] bg-[#05070c] flex flex-col justify-center items-center"
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.2 }}
+            className="absolute right-0 mt-3 w-64 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/65 p-3 shadow-[0_0_45px_rgba(52,211,153,0.12)] backdrop-blur-xl"
           >
-            {/* CLOSE */}
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute top-6 right-6 text-white text-2xl"
-            >
-              ✕
-            </button>
-
-            {/* LINKS */}
-            <div className="flex flex-col items-center gap-8 text-3xl font-bold">
-              {links.map((link, i) => (
-                <motion.div
+            <div className="grid gap-2">
+              {links.map((link) => (
+                <Link
                   key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-zinc-300 transition hover:bg-emerald-400 hover:text-black"
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="text-white transition hover:text-emerald-400"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                  {link.label}
+                </Link>
               ))}
+            </div>
+
+            <div className="mt-3 border-t border-white/10 pt-3">
+              <div className="flex gap-2">
+                <Link
+                  href="/ro"
+                  className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
+                    lang === "ro"
+                      ? "bg-emerald-400 text-black"
+                      : "bg-white/[0.04] text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  RO
+                </Link>
+
+                <Link
+                  href="/en"
+                  className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
+                    lang === "en"
+                      ? "bg-emerald-400 text-black"
+                      : "bg-white/[0.04] text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  EN
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
