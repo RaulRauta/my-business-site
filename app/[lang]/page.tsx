@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HomeMenu from "@/components/HomeMenu";
 
 type Lang = "ro" | "en";
 
@@ -44,7 +45,7 @@ export default async function HomePage({
 
   return (
     <>
-      <Navbar lang={lang} />
+      <HomeMenu lang={lang} />
 
       <main className="px-6 py-28">
         <section className="mx-auto max-w-7xl">
