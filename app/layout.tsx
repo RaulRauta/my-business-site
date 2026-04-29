@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Intro from "@/components/Intro";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,6 +49,8 @@ export default function RootLayout({
           {/* SOFT VIGNETTE */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
         </div>
+
+        <Intro />
 
         {/* CONTENT */}
         <div className="relative z-10">{children}</div>

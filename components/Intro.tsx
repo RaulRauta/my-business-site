@@ -1,16 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Intro() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 1600);
-
+    const timer = setTimeout(() => setShow(false), 1600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -18,23 +15,22 @@ export default function Intro() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black"
           initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-[#06090f]"
         >
           <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             className="text-center"
           >
             <p className="text-sm uppercase tracking-[0.4em] text-emerald-400">
               Web Growth
             </p>
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white">
               Raul
             </h1>
           </motion.div>
