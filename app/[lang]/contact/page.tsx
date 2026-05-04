@@ -16,7 +16,7 @@ export default function ContactPage({
   const { lang } = use(params);
 
   const [service, setService] = useState("");
-  const [phone, setPhone] = useState("+40");
+  const [phone, setPhone] = useState("+40 ");
   const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -69,14 +69,18 @@ export default function ContactPage({
   }[lang];
 
   function handlePhoneChange(value: string) {
-    let cleaned = value.replace(/[^\d+]/g, "");
+    let digits = value.replace(/\D/g, "");
 
-    if (!cleaned.startsWith("+40")) {
-      cleaned = "+40" + cleaned.replace(/^\+?40?/, "");
+    if (digits.startsWith("40")) {
+      digits = digits.slice(2);
     }
 
-    const rest = cleaned.slice(3).replace(/\D/g, "").slice(0, 9);
-    setPhone("+40" + rest);
+    digits = digits.slice(0, 9);
+
+    const parts = digits.match(/.{1,3}/g) || [];
+    const formatted = "+40 " + parts.join(" ");
+
+    setPhone(formatted.trimEnd());
     setPhoneError("");
   }
 
@@ -111,41 +115,43 @@ export default function ContactPage({
                 const data = Object.fromEntries(formData.entries());
 
                 const phoneValue = String(data.phone || "").trim();
+                const cleanedPhone = phoneValue.replace(/\s/g, "");
                 const phoneRegex = /^\+40\d{9}$/;
 
-                if (!phoneRegex.test(phoneValue)) {
+                if (!phoneRegex.test(cleanedPhone)) {
                   setPhoneError(t.phoneError);
                   setLoading(false);
                   return;
                 }
 
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data),
-                });
+                try {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                  });
 
-                if (res.ok) {
-                  setStatus("success");
-                  form.reset();
-                  setService("");
-                  setPhone("+40");
+                  if (res.ok) {
+                    setStatus("success");
+                    form.reset();
+                    setService("");
+                    setPhone("+40 ");
 
-                  form.scrollIntoView({ behavior: "smooth", block: "start" });
+                    form.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
 
-                  setTimeout(() => {
-                    setStatus("idle");
-                  }, 4000);
-                } else {
+                    setTimeout(() => setStatus("idle"), 4000);
+                  } else {
+                    setStatus("error");
+                    setTimeout(() => setStatus("idle"), 4000);
+                  }
+                } catch {
                   setStatus("error");
-
-                  form.scrollIntoView({ behavior: "smooth", block: "start" });
-
-                  setTimeout(() => {
-                    setStatus("idle");
-                  }, 4000);
+                  setTimeout(() => setStatus("idle"), 4000);
                 }
 
                 setLoading(false);
@@ -174,12 +180,11 @@ export default function ContactPage({
                   <input
                     name="phone"
                     type="tel"
-                    inputMode="numeric"
                     value={phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
-                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:bg-black/40 ${
+                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition ${
                       phoneError
-                        ? "border-red-400/60 focus:border-red-400"
+                        ? "border-red-400/60"
                         : "border-white/10 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                     }`}
                   />
@@ -211,13 +216,7 @@ export default function ContactPage({
 
               <AnimatePresence>
                 {status === "success" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300"
-                  >
+                  <motion.div className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300">
                     {t.success}
                   </motion.div>
                 )}
@@ -225,13 +224,7 @@ export default function ContactPage({
 
               <AnimatePresence>
                 {status === "error" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300"
-                  >
+                  <motion.div className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300">
                     {t.error}
                   </motion.div>
                 )}
@@ -240,31 +233,22 @@ export default function ContactPage({
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 hover:shadow-[0_0_45px_rgba(52,211,153,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 disabled:opacity-60"
               >
-                <span className="absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
-
-                {loading && (
-                  <span className="relative z-10 h-4 w-4 animate-spin rounded-full border-2 border-black border-t-transparent" />
-                )}
-
-                <span className="relative z-10">
-                  {loading ? t.loading : t.button}
-                </span>
+                {loading ? t.loading : t.button}
               </button>
             </form>
           </div>
 
-          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_55px_rgba(52,211,153,0.08)] backdrop-blur-xl lg:sticky lg:top-28 lg:h-fit">
+          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 backdrop-blur-xl lg:sticky lg:top-28">
             <h2 className="text-2xl font-bold">{t.sideTitle}</h2>
 
             <div className="mt-8 space-y-6">
               {t.steps.map((step, index) => (
                 <div key={step} className="flex gap-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-400 font-bold text-black">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-400 font-bold text-black">
                     {index + 1}
                   </div>
-
                   <p className="pt-1 text-zinc-300">{step}</p>
                 </div>
               ))}
