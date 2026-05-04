@@ -16,6 +16,7 @@ export default function ContactPage({
   const { lang } = use(params);
 
   const [service, setService] = useState("");
+  const [serviceError, setServiceError] = useState("");
   const [phone, setPhone] = useState("+40 ");
   const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,7 @@ export default function ContactPage({
       success: "Mesaj trimis cu succes. Îți voi răspunde cât de curând.",
       error: "A apărut o eroare. Încearcă din nou.",
       phoneError: "Număr invalid. Folosește formatul +407xxxxxxxx.",
+      serviceError: "Selectează ce ai nevoie.",
       sideTitle: "Ce se întâmplă după?",
       steps: [
         "Îmi trimiți detaliile despre business.",
@@ -59,6 +61,7 @@ export default function ContactPage({
       success: "Message sent successfully. I’ll get back to you soon.",
       error: "Something went wrong. Please try again.",
       phoneError: "Invalid number. Use the format +407xxxxxxxx.",
+      serviceError: "Please select what you need.",
       sideTitle: "What happens next?",
       steps: [
         "You send me the details about your business.",
@@ -108,6 +111,7 @@ export default function ContactPage({
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
 
             <form
+              autoComplete="off"
               className="mt-12 grid gap-5"
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -115,6 +119,7 @@ export default function ContactPage({
                 setLoading(true);
                 setStatus("idle");
                 setPhoneError("");
+                setServiceError("");
 
                 const form = e.currentTarget;
                 const formData = new FormData(form);
@@ -126,6 +131,12 @@ export default function ContactPage({
 
                 if (!phoneRegex.test(cleanedPhone)) {
                   setPhoneError(t.phoneError);
+                  setLoading(false);
+                  return;
+                }
+
+                if (!service) {
+                  setServiceError(t.serviceError);
                   setLoading(false);
                   return;
                 }
@@ -168,6 +179,7 @@ export default function ContactPage({
                   name="name"
                   type="text"
                   required
+                  autoComplete="off"
                   placeholder={t.name}
                   className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
@@ -176,6 +188,7 @@ export default function ContactPage({
                   name="email"
                   type="email"
                   required
+                  autoComplete="off"
                   placeholder={t.email}
                   className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
@@ -186,6 +199,8 @@ export default function ContactPage({
                   <input
                     name="phone"
                     type="tel"
+                    inputMode="numeric"
+                    autoComplete="off"
                     value={phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
                     className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition ${
@@ -203,18 +218,32 @@ export default function ContactPage({
                 <input
                   name="business"
                   type="text"
+                  autoComplete="off"
                   placeholder={t.business}
                   className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
               </div>
 
-              <CustomSelect lang={lang} onChange={setService} />
+              <div>
+                <CustomSelect
+                  lang={lang}
+                  onChange={(value) => {
+                    setService(value);
+                    setServiceError("");
+                  }}
+                />
+
+                {serviceError && (
+                  <p className="mt-2 text-sm text-red-400">{serviceError}</p>
+                )}
+              </div>
 
               <input type="hidden" name="service" value={service} />
 
               <textarea
                 name="message"
                 required
+                autoComplete="off"
                 placeholder={t.message}
                 rows={7}
                 className="resize-none rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
@@ -222,7 +251,13 @@ export default function ContactPage({
 
               <AnimatePresence>
                 {status === "success" && (
-                  <motion.div className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300"
+                  >
                     {t.success}
                   </motion.div>
                 )}
@@ -230,7 +265,13 @@ export default function ContactPage({
 
               <AnimatePresence>
                 {status === "error" && (
-                  <motion.div className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25 }}
+                    className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300"
+                  >
                     {t.error}
                   </motion.div>
                 )}
