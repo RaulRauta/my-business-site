@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HomeMenu from "@/components/HomeMenu";
 
@@ -20,7 +19,10 @@ export default async function HomePage({
         "Construiesc site-uri care explică rapid ce oferi, inspiră încredere și duc vizitatorii spre acțiune.",
       cta: "Hai să discutăm",
       secondary: "Vezi serviciile",
-      sectionTitle: "De ce contează",
+      sloganLabel: "Flowcraft concept",
+      slogan: "Flow-ul care îți aduce rezultate.",
+      explore: "Explorează",
+      exploreTitle: "Vezi exact ce pot construi pentru business-ul tău.",
       points: [
         "Primul impact decide dacă omul rămâne",
         "Claritatea bate design-ul complicat",
@@ -34,7 +36,10 @@ export default async function HomePage({
         "I build websites that explain your offer fast, build trust and guide visitors toward action.",
       cta: "Let’s talk",
       secondary: "View services",
-      sectionTitle: "Why it matters",
+      sloganLabel: "Flowcraft concept",
+      slogan: "The flow that brings you results.",
+      explore: "Explore",
+      exploreTitle: "See exactly what I can build for your business.",
       points: [
         "First impression decides if people stay",
         "Clarity beats complexity",
@@ -42,6 +47,41 @@ export default async function HomePage({
       ],
     },
   }[lang];
+
+  const exploreItems = [
+    {
+      href: `/${lang}/services`,
+      title: lang === "ro" ? "Servicii" : "Services",
+      text:
+        lang === "ro"
+          ? "Site-uri de prezentare, landing pages, redesign, mentenanță și CMS."
+          : "Presentation websites, landing pages, redesign, maintenance and CMS.",
+    },
+    {
+      href: `/${lang}/process`,
+      title: lang === "ro" ? "Cum lucrez" : "Process",
+      text:
+        lang === "ro"
+          ? "Pașii clari prin care transformăm ideea ta într-un site funcțional."
+          : "The clear steps that turn your idea into a working website.",
+    },
+    {
+      href: `/${lang}/portfolio`,
+      title: lang === "ro" ? "Portofoliu" : "Portfolio",
+      text:
+        lang === "ro"
+          ? "Proiecte și concepte construite cu scop, nu doar pentru aspect."
+          : "Projects and concepts built with purpose, not just looks.",
+    },
+    {
+      href: `/${lang}/contact`,
+      title: "Contact",
+      text:
+        lang === "ro"
+          ? "Trimite-mi detaliile și îți răspund cu o direcție clară."
+          : "Send me the details and I’ll reply with a clear direction.",
+    },
+  ];
 
   return (
     <>
@@ -54,7 +94,7 @@ export default async function HomePage({
             <span className="h-px w-10 bg-emerald-400/40" />
 
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              WEB DESIGN
+              {t.badge}
             </p>
           </div>
 
@@ -84,58 +124,33 @@ export default async function HomePage({
 
           {/* HERO CARD */}
           <div className="mt-16 rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <h2 className="text-2xl font-bold text-white">
-              {lang === "ro"
-                ? "Un site bun nu este doar design."
-                : "A good website is not just design."}
-            </h2>
+            <div className="space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-400/70">
+                {t.sloganLabel}
+              </p>
+
+              <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white drop-shadow-[0_0_12px_rgba(52,211,153,0.2)] md:text-4xl">
+                {t.slogan}
+              </h2>
+
+              <p className="max-w-2xl text-zinc-400">
+                {lang === "ro"
+                  ? "Design clar. Experiență fluidă. Rezultate reale."
+                  : "Clear design. Smooth experience. Real results."}
+              </p>
+            </div>
 
             <div className="mt-16">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-                {lang === "ro" ? "Explorează" : "Explore"}
+                {t.explore}
               </p>
 
               <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-                {lang === "ro"
-                  ? "Vezi exact ce pot construi pentru business-ul tău."
-                  : "See exactly what I can build for your business."}
+                {t.exploreTitle}
               </h2>
 
               <div className="mt-10 grid gap-6 md:grid-cols-2">
-                {[
-                  {
-                    href: `/${lang}/services`,
-                    title: lang === "ro" ? "Servicii" : "Services",
-                    text:
-                      lang === "ro"
-                        ? "Site-uri de prezentare, landing pages, redesign, mentenanță și CMS."
-                        : "Presentation websites, landing pages, redesign, maintenance and CMS.",
-                  },
-                  {
-                    href: `/${lang}/process`,
-                    title: lang === "ro" ? "Cum lucrez" : "Process",
-                    text:
-                      lang === "ro"
-                        ? "Pașii clari prin care transformăm ideea ta într-un site funcțional."
-                        : "The clear steps that turn your idea into a working website.",
-                  },
-                  {
-                    href: `/${lang}/portfolio`,
-                    title: lang === "ro" ? "Portofoliu" : "Portfolio",
-                    text:
-                      lang === "ro"
-                        ? "Proiecte și concepte construite cu scop, nu doar pentru aspect."
-                        : "Projects and concepts built with purpose, not just looks.",
-                  },
-                  {
-                    href: `/${lang}/contact`,
-                    title: "Contact",
-                    text:
-                      lang === "ro"
-                        ? "Trimite-mi detaliile și îți răspund cu o direcție clară."
-                        : "Send me the details and I’ll reply with a clear direction.",
-                  },
-                ].map((item) => (
+                {exploreItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -154,12 +169,6 @@ export default async function HomePage({
                 ))}
               </div>
             </div>
-
-            <p className="mt-4 max-w-2xl text-zinc-400">
-              {lang === "ro"
-                ? "Design clar. Experiență fluidă. Rezultate reale."
-                : "Clear design. Smooth experience. Real results."}
-            </p>
           </div>
 
           {/* WHY SECTION */}
@@ -169,7 +178,7 @@ export default async function HomePage({
                 key={point}
                 className="rounded-3xl border border-white/10 bg-black/30 p-6 text-zinc-300 backdrop-blur-xl transition hover:border-emerald-400/40 hover:shadow-[0_0_40px_rgba(52,211,153,0.1)]"
               >
-                <span className="text-emerald-400 text-lg">✦</span>
+                <span className="text-lg text-emerald-400">✦</span>
                 <p className="mt-3">{point}</p>
               </div>
             ))}
