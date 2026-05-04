@@ -306,29 +306,23 @@ export default function ContactPage({
               </p>
 
               <div className="mt-7 grid gap-3">
-                <a
-                  href="mailto:your@email.com"
-                  className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4 transition hover:border-emerald-400/40 hover:bg-black/45"
-                >
+                <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
                   <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                     Email
                   </p>
-                  <p className="mt-1 font-semibold text-white transition group-hover:text-emerald-400">
+                  <p className="mt-1 font-semibold text-white">
                     your@email.com
                   </p>
-                </a>
+                </div>
 
-                <a
-                  href="tel:+40712345678"
-                  className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4 transition hover:border-emerald-400/40 hover:bg-black/45"
-                >
+                <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
                   <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                     {lang === "ro" ? "Telefon" : "Phone"}
                   </p>
-                  <p className="mt-1 font-semibold text-white transition group-hover:text-emerald-400">
+                  <p className="mt-1 font-semibold text-white">
                     +40 712 345 678
                   </p>
-                </a>
+                </div>
               </div>
             </div>
 

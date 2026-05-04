@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function CustomSelect({
@@ -13,6 +13,8 @@ export default function CustomSelect({
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const options =
     lang === "ro"
       ? [
@@ -24,8 +26,25 @@ export default function CustomSelect({
         ]
       : ["New website", "Redesign", "Landing page", "Maintenance", "Not sure"];
 
+  // 🔥 CLICK OUTSIDE
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div ref={wrapperRef} className="relative">
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
