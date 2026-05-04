@@ -71,6 +71,12 @@ export default function ContactPage({
   function handlePhoneChange(value: string) {
     let digits = value.replace(/\D/g, "");
 
+    if (digits === "" || digits === "4" || digits === "40") {
+      setPhone("+40 ");
+      setPhoneError("");
+      return;
+    }
+
     if (digits.startsWith("40")) {
       digits = digits.slice(2);
     }
@@ -240,18 +246,65 @@ export default function ContactPage({
             </form>
           </div>
 
-          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 backdrop-blur-xl lg:sticky lg:top-28">
-            <h2 className="text-2xl font-bold">{t.sideTitle}</h2>
+          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl lg:sticky lg:top-28 lg:h-fit">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {lang === "ro" ? "Contact direct" : "Direct contact"}
+              </p>
 
-            <div className="mt-8 space-y-6">
-              {t.steps.map((step, index) => (
-                <div key={step} className="flex gap-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-400 font-bold text-black">
-                    {index + 1}
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
+                {lang === "ro"
+                  ? "Preferi să vorbești direct?"
+                  : "Prefer to talk directly?"}
+              </h2>
+
+              <p className="mt-4 leading-7 text-zinc-400">
+                {lang === "ro"
+                  ? "Poți folosi formularul sau mă poți contacta direct prin email ori telefon."
+                  : "You can use the form or contact me directly by email or phone."}
+              </p>
+
+              <div className="mt-7 grid gap-3">
+                <a
+                  href="mailto:your@email.com"
+                  className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4 transition hover:border-emerald-400/40 hover:bg-black/45"
+                >
+                  <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                    Email
+                  </p>
+                  <p className="mt-1 font-semibold text-white transition group-hover:text-emerald-400">
+                    your@email.com
+                  </p>
+                </a>
+
+                <a
+                  href="tel:+40712345678"
+                  className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4 transition hover:border-emerald-400/40 hover:bg-black/45"
+                >
+                  <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                    {lang === "ro" ? "Telefon" : "Phone"}
+                  </p>
+                  <p className="mt-1 font-semibold text-white transition group-hover:text-emerald-400">
+                    +40 712 345 678
+                  </p>
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <h3 className="text-xl font-bold text-white">{t.sideTitle}</h3>
+
+              <div className="mt-6 space-y-5">
+                {t.steps.map((step, index) => (
+                  <div key={step} className="flex gap-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-400 font-bold text-black shadow-[0_0_20px_rgba(52,211,153,0.35)]">
+                      {index + 1}
+                    </div>
+
+                    <p className="pt-1 leading-7 text-zinc-300">{step}</p>
                   </div>
-                  <p className="pt-1 text-zinc-300">{step}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </aside>
         </section>
