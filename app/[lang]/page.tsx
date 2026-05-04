@@ -50,9 +50,13 @@ export default async function HomePage({
       <main className="px-6 py-28">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-            {t.badge}
-          </p>
+          <div className="flex items-center gap-4">
+            <span className="h-px w-10 bg-emerald-400/40" />
+
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              WEB DESIGN
+            </p>
+          </div>
 
           <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
             {t.title}
@@ -153,8 +157,8 @@ export default async function HomePage({
 
             <p className="mt-4 max-w-2xl text-zinc-400">
               {lang === "ro"
-                ? "Este modul în care explici ce faci, cum ajuți și de ce cineva ar trebui să te aleagă."
-                : "It’s how you explain what you do, how you help and why someone should choose you."}
+                ? "Design clar. Experiență fluidă. Rezultate reale."
+                : "Clear design. Smooth experience. Real results."}
             </p>
           </div>
 
