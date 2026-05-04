@@ -298,6 +298,22 @@ export default async function ServicesPage({
               {lang === "ro"
                 ? "Îmi spui ce business ai și îți pot propune o structură potrivită, fără să te pierd în termeni tehnici."
                 : "Tell me about your business and I can suggest the right structure without drowning you in technical terms."}
+              <h2 className="text-3xl font-bold text-white mt-20">
+                {lang === "ro" ? "Pentru cine este" : "Who this is for"}
+              </h2>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {[
+                  "Business-uri locale fără site",
+                  "Site-uri vechi care nu aduc clienți",
+                  "Oameni care vor ceva simplu și clar",
+                  "Startup-uri care au nevoie de prezență online rapid",
+                ].map((item) => (
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-zinc-300">
+                    ✦ {item}
+                  </div>
+                ))}
+              </div>
             </p>
 
             <Link

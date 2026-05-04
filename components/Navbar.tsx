@@ -145,7 +145,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             href={`/${lang}/contact`}
             className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_25px_rgba(255,255,255,0.12)] transition hover:bg-emerald-400 hover:shadow-[0_0_35px_rgba(52,211,153,0.55)] lg:block"
           >
-            {lang === "ro" ? "Discutăm" : "Let’s talk"}
+            {lang === "ro" ? "Let’s talk" : "Let’s talk"}
           </Link>
 
           {/* MOBILE HAMBURGER */}

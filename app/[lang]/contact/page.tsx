@@ -16,6 +16,8 @@ export default function ContactPage({
   const { lang } = use(params);
 
   const [service, setService] = useState("");
+  const [phone, setPhone] = useState("+40");
+  const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -34,6 +36,7 @@ export default function ContactPage({
       loading: "Se trimite...",
       success: "Mesaj trimis cu succes. Îți voi răspunde cât de curând.",
       error: "A apărut o eroare. Încearcă din nou.",
+      phoneError: "Număr invalid. Folosește formatul +407xxxxxxxx.",
       sideTitle: "Ce se întâmplă după?",
       steps: [
         "Îmi trimiți detaliile despre business.",
@@ -55,6 +58,7 @@ export default function ContactPage({
       loading: "Sending...",
       success: "Message sent successfully. I’ll get back to you soon.",
       error: "Something went wrong. Please try again.",
+      phoneError: "Invalid number. Use the format +407xxxxxxxx.",
       sideTitle: "What happens next?",
       steps: [
         "You send me the details about your business.",
@@ -63,6 +67,18 @@ export default function ContactPage({
       ],
     },
   }[lang];
+
+  function handlePhoneChange(value: string) {
+    let cleaned = value.replace(/[^\d+]/g, "");
+
+    if (!cleaned.startsWith("+40")) {
+      cleaned = "+40" + cleaned.replace(/^\+?40?/, "");
+    }
+
+    const rest = cleaned.slice(3).replace(/\D/g, "").slice(0, 9);
+    setPhone("+40" + rest);
+    setPhoneError("");
+  }
 
   return (
     <>
@@ -85,12 +101,23 @@ export default function ContactPage({
               className="mt-12 grid gap-5"
               onSubmit={async (e) => {
                 e.preventDefault();
+
                 setLoading(true);
                 setStatus("idle");
+                setPhoneError("");
 
                 const form = e.currentTarget;
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
+
+                const phoneValue = String(data.phone || "").trim();
+                const phoneRegex = /^\+40\d{9}$/;
+
+                if (!phoneRegex.test(phoneValue)) {
+                  setPhoneError(t.phoneError);
+                  setLoading(false);
+                  return;
+                }
 
                 const res = await fetch("/api/contact", {
                   method: "POST",
@@ -104,6 +131,7 @@ export default function ContactPage({
                   setStatus("success");
                   form.reset();
                   setService("");
+                  setPhone("+40");
 
                   form.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -114,7 +142,10 @@ export default function ContactPage({
                   setStatus("error");
 
                   form.scrollIntoView({ behavior: "smooth", block: "start" });
-                  setTimeout(() => setStatus("idle"), 4000);
+
+                  setTimeout(() => {
+                    setStatus("idle");
+                  }, 4000);
                 }
 
                 setLoading(false);
@@ -139,12 +170,24 @@ export default function ContactPage({
               </div>
 
               <div className="grid gap-5 md:grid-cols-2">
-                <input
-                  name="phone"
-                  type="text"
-                  placeholder={t.phone}
-                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
-                />
+                <div>
+                  <input
+                    name="phone"
+                    type="tel"
+                    inputMode="numeric"
+                    value={phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:bg-black/40 ${
+                      phoneError
+                        ? "border-red-400/60 focus:border-red-400"
+                        : "border-white/10 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                    }`}
+                  />
+
+                  {phoneError && (
+                    <p className="mt-2 text-sm text-red-400">{phoneError}</p>
+                  )}
+                </div>
 
                 <input
                   name="business"
@@ -163,7 +206,7 @@ export default function ContactPage({
                 required
                 placeholder={t.message}
                 rows={7}
-                className="resize-none rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400"
+                className="resize-none rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
               />
 
               <AnimatePresence>
@@ -173,7 +216,7 @@ export default function ContactPage({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                    className="rounded-2xl border border-emerald-400/30 bg-emerald-400/10 px-5 py-4 text-sm text-emerald-300"
                   >
                     {t.success}
                   </motion.div>
@@ -187,7 +230,7 @@ export default function ContactPage({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25 }}
-                    className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                    className="rounded-2xl border border-red-400/30 bg-red-400/10 px-5 py-4 text-sm text-red-300"
                   >
                     {t.error}
                   </motion.div>
