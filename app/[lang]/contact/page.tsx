@@ -194,23 +194,6 @@ export default function ContactPage({
                 </div>
               </div>
             )}
-            {selectedPackageInfo && (
-              <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6 shadow-[0_0_40px_rgba(52,211,153,0.08)]">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
-                  {lang === "ro" ? "Pachet selectat" : "Selected package"}
-                </p>
-
-                <h2 className="mt-3 text-3xl font-bold text-white">
-                  {selectedPackageInfo.label}
-                </h2>
-
-                <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
-                  {lang === "ro"
-                    ? selectedPackageInfo.ro
-                    : selectedPackageInfo.en}
-                </p>
-              </div>
-            )}
 
             <form
               autoComplete="off"
