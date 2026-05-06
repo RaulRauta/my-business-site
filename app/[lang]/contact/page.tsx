@@ -426,7 +426,7 @@ export default function ContactPage({
                     Email
                   </p>
                   <p className="mt-1 font-semibold text-white">
-                    your@email.com
+                    raulflorinrauta@gmail.com
                   </p>
                 </div>
 
@@ -435,7 +435,7 @@ export default function ContactPage({
                     {lang === "ro" ? "Telefon" : "Phone"}
                   </p>
                   <p className="mt-1 font-semibold text-white">
-                    +40 712 345 678
+                    +40 000 000 000
                   </p>
                 </div>
               </div>
