@@ -36,6 +36,15 @@ export default function ContactPage({
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
+  const initialPackage =
+    selectedPackage === "start" ||
+    selectedPackage === "growth" ||
+    selectedPackage === "custom"
+      ? selectedPackage
+      : "";
+
+  const [chosenPackage, setChosenPackage] = useState(initialPackage);
+
   const t = {
     ro: {
       badge: "Contact",
@@ -134,7 +143,40 @@ export default function ContactPage({
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
+            {selectedPackageInfo && (
+              <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6 shadow-[0_0_40px_rgba(52,211,153,0.08)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                  {lang === "ro" ? "Pachet selectat" : "Selected package"}
+                </p>
 
+                <select
+                  value={chosenPackage}
+                  onChange={(e) => setChosenPackage(e.target.value)}
+                  className="mt-4 w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none focus:border-emerald-400/70"
+                >
+                  <option value="start">Start</option>
+                  <option value="growth">Growth</option>
+                  <option value="custom">Custom</option>
+                </select>
+
+                <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
+                  {chosenPackage === "start" &&
+                    (lang === "ro"
+                      ? "Perfect pentru business-uri care au nevoie de un site clar, rapid și profesionist."
+                      : "Perfect for businesses that need a clear, fast and professional website.")}
+
+                  {chosenPackage === "growth" &&
+                    (lang === "ro"
+                      ? "Ideal pentru business-uri care vor o structură mai puternică și orientată spre conversie."
+                      : "Ideal for businesses that want a stronger, conversion-focused structure.")}
+
+                  {chosenPackage === "custom" &&
+                    (lang === "ro"
+                      ? "Pentru proiecte premium cu funcționalități și structură complet personalizate."
+                      : "For premium projects with fully custom structure and functionality.")}
+                </p>
+              </div>
+            )}
             {selectedPackageInfo && (
               <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6 shadow-[0_0_40px_rgba(52,211,153,0.08)]">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
@@ -177,7 +219,7 @@ export default function ContactPage({
                   return;
                 }
 
-                if (!service) {
+                if (!selectedPackageInfo && !service) {
                   setServiceError(t.serviceError);
                   setLoading(false);
                   return;
@@ -286,21 +328,28 @@ export default function ContactPage({
                 />
               </div>
 
-              <div>
-                <CustomSelect
-                  lang={lang}
-                  onChange={(value) => {
-                    setService(value);
-                    setServiceError("");
-                  }}
-                />
+              {!selectedPackageInfo && (
+                <div>
+                  <CustomSelect
+                    lang={lang}
+                    onChange={(value) => {
+                      setService(value);
+                      setServiceError("");
+                    }}
+                  />
 
-                {serviceError && (
-                  <p className="mt-2 text-sm text-red-400">{serviceError}</p>
-                )}
-              </div>
+                  {serviceError && (
+                    <p className="mt-2 text-sm text-red-400">{serviceError}</p>
+                  )}
+                </div>
+              )}
 
               <input type="hidden" name="service" value={service} />
+              <input
+                type="hidden"
+                name="selectedPackage"
+                value={chosenPackage}
+              />
               <input
                 type="hidden"
                 name="selectedPackage"

@@ -5,7 +5,8 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, email, phone, business, service, message } = body;
+    const { name, email, phone, business, service, selectedPackage, message } =
+      body;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -21,15 +22,19 @@ export async function POST(req: Request) {
       replyTo: email,
       subject: `New website message from ${name}`,
       html: `
-        <h2>New contact message</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone || "-"}</p>
-        <p><b>Business:</b> ${business || "-"}</p>
-        <p><b>Service:</b> ${service || "-"}</p>
-        <p><b>Message:</b></p>
-        <p>${message}</p>
-      `,
+  <h2>Mesaj nou</h2>
+
+  <p><b>Nume:</b> ${name}</p>
+  <p><b>Email:</b> ${email}</p>
+  <p><b>Telefon:</b> ${phone}</p>
+  <p><b>Business:</b> ${business}</p>
+
+  <p><b>Pachet selectat:</b> ${selectedPackage || "-"}</p>
+  <p><b>Service:</b> ${service || "-"}</p>
+
+  <p><b>Mesaj:</b></p>
+  <p>${message}</p>
+`,
     });
 
     return NextResponse.json({ success: true });
