@@ -144,37 +144,54 @@ export default function ContactPage({
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
             {selectedPackageInfo && (
-              <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6 shadow-[0_0_40px_rgba(52,211,153,0.08)]">
+              <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
                   {lang === "ro" ? "Pachet selectat" : "Selected package"}
                 </p>
 
-                <select
-                  value={chosenPackage}
-                  onChange={(e) => setChosenPackage(e.target.value)}
-                  className="mt-4 w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none focus:border-emerald-400/70"
-                >
-                  <option value="start">Start</option>
-                  <option value="growth">Growth</option>
-                  <option value="custom">Custom</option>
-                </select>
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {(["start", "growth", "custom"] as const).map((pack) => (
+                    <button
+                      key={pack}
+                      type="button"
+                      onClick={() => setChosenPackage(pack)}
+                      className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
+                        chosenPackage === pack
+                          ? "border-emerald-400 bg-emerald-400 text-black shadow-[0_0_30px_rgba(52,211,153,0.35)]"
+                          : "border-white/10 bg-black/30 text-zinc-300 hover:border-emerald-400/40 hover:bg-white/[0.04] hover:text-white"
+                      }`}
+                    >
+                      {pack === "start" && "Start"}
+                      {pack === "growth" && "Growth"}
+                      {pack === "custom" && "Custom"}
+                    </button>
+                  ))}
+                </div>
 
-                <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
-                  {chosenPackage === "start" &&
-                    (lang === "ro"
-                      ? "Perfect pentru business-uri care au nevoie de un site clar, rapid și profesionist."
-                      : "Perfect for businesses that need a clear, fast and professional website.")}
+                <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                  <h2 className="text-3xl font-bold text-white">
+                    {chosenPackage === "start" && "Start"}
+                    {chosenPackage === "growth" && "Growth"}
+                    {chosenPackage === "custom" && "Custom"}
+                  </h2>
 
-                  {chosenPackage === "growth" &&
-                    (lang === "ro"
-                      ? "Ideal pentru business-uri care vor o structură mai puternică și orientată spre conversie."
-                      : "Ideal for businesses that want a stronger, conversion-focused structure.")}
+                  <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
+                    {chosenPackage === "start" &&
+                      (lang === "ro"
+                        ? "Perfect pentru business-uri care au nevoie de un site clar, rapid și profesionist."
+                        : "Perfect for businesses that need a clear, fast and professional website.")}
 
-                  {chosenPackage === "custom" &&
-                    (lang === "ro"
-                      ? "Pentru proiecte premium cu funcționalități și structură complet personalizate."
-                      : "For premium projects with fully custom structure and functionality.")}
-                </p>
+                    {chosenPackage === "growth" &&
+                      (lang === "ro"
+                        ? "Ideal pentru business-uri care vor o structură mai puternică și orientată spre conversie."
+                        : "Ideal for businesses that want a stronger, conversion-focused structure.")}
+
+                    {chosenPackage === "custom" &&
+                      (lang === "ro"
+                        ? "Pentru proiecte premium cu funcționalități și structură complet personalizate."
+                        : "For premium projects with fully custom structure and functionality.")}
+                  </p>
+                </div>
               </div>
             )}
             {selectedPackageInfo && (
@@ -353,7 +370,7 @@ export default function ContactPage({
               <input
                 type="hidden"
                 name="selectedPackage"
-                value={selectedPackageInfo?.label || ""}
+                value={chosenPackage}
               />
               <textarea
                 name="message"
