@@ -266,14 +266,14 @@ export default async function ServicesPage({
 
   function packageCardClass(pack: PackageItem) {
     if (pack.featured) {
-      return "border border-emerald-400/40 bg-emerald-400/[0.07] shadow-[0_0_80px_rgba(52,211,153,0.16)]";
+      return "border border-emerald-400/40 bg-emerald-400/[0.07] shadow-[0_0_80px_rgba(52,211,153,0.16)] hover:border-emerald-400/60 hover:shadow-[0_0_90px_rgba(52,211,153,0.22)]";
     }
 
     if (pack.name === "Custom") {
-      return "border border-cyan-400/20 bg-black/45 shadow-[0_0_70px_rgba(34,211,238,0.08)]";
+      return "border border-cyan-400/20 bg-black/45 shadow-[0_0_70px_rgba(34,211,238,0.08)] hover:border-cyan-400/40 hover:shadow-[0_0_90px_rgba(34,211,238,0.18)]";
     }
 
-    return "border border-emerald-400/10 bg-black/35 hover:border-emerald-400/40 hover:shadow-[0_0_55px_rgba(52,211,153,0.12)]";
+    return "border border-emerald-400/10 bg-black/35 hover:border-emerald-400/40 hover:shadow-[0_0_80px_rgba(52,211,153,0.18)]";
   }
 
   function packageButtonClass(pack: PackageItem) {
