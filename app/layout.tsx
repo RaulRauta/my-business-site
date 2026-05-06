@@ -56,15 +56,15 @@ export default function RootLayout({
 
         {/* CONTENT */}
         <div className="relative z-10">{children}</div>
-        <body className="relative min-h-screen overflow-x-hidden bg-[#08111c] text-white">
-          {/* BACKGROUND SYSTEM */}
-          <div className="pointer-events-none fixed inset-0 z-0">...</div>
+      </body>
+      <body className="relative min-h-screen overflow-x-hidden bg-[#08111c] text-white">
+        {/* BACKGROUND SYSTEM */}
+        <div className="pointer-events-none fixed inset-0 z-0">...</div>
 
-          {/* CONTENT */}
-          <div className="relative z-10">{children}</div>
+        {/* CONTENT */}
+        <div className="relative z-10">{children}</div>
 
-          <Analytics />
-        </body>
+        <Analytics />
       </body>
     </html>
   );
