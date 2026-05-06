@@ -17,7 +17,7 @@ export default function ContactPage({
 
   const [service, setService] = useState("");
   const [serviceError, setServiceError] = useState("");
-  const [phone, setPhone] = useState("+40 ");
+  const [phoneDigits, setPhoneDigits] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -37,7 +37,7 @@ export default function ContactPage({
       loading: "Se trimite...",
       success: "Mesaj trimis cu succes. Îți voi răspunde cât de curând.",
       error: "A apărut o eroare. Încearcă din nou.",
-      phoneError: "Număr invalid. Folosește formatul +407xxxxxxxx.",
+      phoneError: "Număr invalid. Folosește formatul +40 7xx xxx xxx.",
       serviceError: "Selectează ce ai nevoie.",
       sideTitle: "Ce se întâmplă după?",
       steps: [
@@ -60,7 +60,7 @@ export default function ContactPage({
       loading: "Sending...",
       success: "Message sent successfully. I’ll get back to you soon.",
       error: "Something went wrong. Please try again.",
-      phoneError: "Invalid number. Use the format +407xxxxxxxx.",
+      phoneError: "Invalid number. Use the format +40 7xx xxx xxx.",
       serviceError: "Please select what you need.",
       sideTitle: "What happens next?",
       steps: [
@@ -71,27 +71,13 @@ export default function ContactPage({
     },
   }[lang];
 
-  function handlePhoneChange(value: string) {
-    let digits = value.replace(/\D/g, "");
+  const formattedPhone = phoneDigits
+    .replace(/\D/g, "")
+    .slice(0, 9)
+    .replace(/(\d{3})(?=\d)/g, "$1 ")
+    .trim();
 
-    if (digits === "" || digits === "4" || digits === "40") {
-      setPhone("+40 ");
-      setPhoneError("");
-      return;
-    }
-
-    if (digits.startsWith("40")) {
-      digits = digits.slice(2);
-    }
-
-    digits = digits.slice(0, 9);
-
-    const parts = digits.match(/.{1,3}/g) || [];
-    const formatted = "+40 " + parts.join(" ");
-
-    setPhone(formatted.trimEnd());
-    setPhoneError("");
-  }
+  const fullPhone = `+40 ${formattedPhone}`.trim();
 
   return (
     <>
@@ -125,11 +111,10 @@ export default function ContactPage({
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
-                const phoneValue = String(data.phone || "").trim();
-                const cleanedPhone = phoneValue.replace(/\s/g, "");
-                const phoneRegex = /^\+40\d{9}$/;
+                const digitsOnly = phoneDigits.replace(/\D/g, "");
+                const phoneRegex = /^\d{9}$/;
 
-                if (!phoneRegex.test(cleanedPhone)) {
+                if (!phoneRegex.test(digitsOnly)) {
                   setPhoneError(t.phoneError);
                   setLoading(false);
                   return;
@@ -140,6 +125,8 @@ export default function ContactPage({
                   setLoading(false);
                   return;
                 }
+
+                data.phone = `+40 ${formattedPhone}`;
 
                 try {
                   const res = await fetch("/api/contact", {
@@ -154,7 +141,7 @@ export default function ContactPage({
                     setStatus("success");
                     form.reset();
                     setService("");
-                    setPhone("+40 ");
+                    setPhoneDigits("");
 
                     form.scrollIntoView({
                       behavior: "smooth",
@@ -196,19 +183,37 @@ export default function ContactPage({
 
               <div className="grid gap-5 md:grid-cols-2">
                 <div>
-                  <input
-                    name="phone"
-                    type="tel"
-                    inputMode="numeric"
-                    autoComplete="off"
-                    value={phone}
-                    onChange={(e) => handlePhoneChange(e.target.value)}
-                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition ${
+                  <div
+                    className={`flex items-center rounded-2xl border bg-black/30 transition ${
                       phoneError
                         ? "border-red-400/60"
-                        : "border-white/10 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                        : "border-white/10 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                     }`}
-                  />
+                  >
+                    <span className="select-none pl-5 font-medium text-zinc-400">
+                      +40
+                    </span>
+
+                    <input
+                      name="phone"
+                      type="tel"
+                      inputMode="numeric"
+                      autoComplete="off"
+                      value={formattedPhone}
+                      onChange={(e) => {
+                        const digits = e.target.value
+                          .replace(/\D/g, "")
+                          .slice(0, 9);
+
+                        setPhoneDigits(digits);
+                        setPhoneError("");
+                      }}
+                      placeholder="712 345 678"
+                      className="w-full bg-transparent px-3 py-4 outline-none placeholder:text-zinc-500"
+                    />
+                  </div>
+
+                  <input type="hidden" name="phoneFull" value={fullPhone} />
 
                   {phoneError && (
                     <p className="mt-2 text-sm text-red-400">{phoneError}</p>
