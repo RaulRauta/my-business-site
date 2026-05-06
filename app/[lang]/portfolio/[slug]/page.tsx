@@ -13,7 +13,7 @@ const projects = {
       type: "Blog / CMS / SEO",
       description:
         "Platformă de conținut construită pentru claritate, structură și scalare.",
-      liveUrl: "#",
+      liveUrl: "https://blog-plum-nine-49.vercel.app",
       challenge:
         "Provocarea a fost construirea unei structuri clare pentru un proiect bazat pe articole, categorii și conținut editabil.",
       solution:
@@ -78,7 +78,7 @@ const projects = {
       type: "Blog / CMS / SEO",
       description:
         "A content platform built for clarity, structure and scalability.",
-      liveUrl: "#",
+      liveUrl: "https://blog-plum-nine-49.vercel.app",
       challenge:
         "The challenge was building a clear structure for a project based on articles, categories and editable content.",
       solution:
