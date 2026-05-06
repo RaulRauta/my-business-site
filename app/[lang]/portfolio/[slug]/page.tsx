@@ -220,12 +220,12 @@ export default async function PortfolioProjectPage({
               rel="noopener noreferrer"
               className="mt-20 block overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_90px_rgba(52,211,153,0.16)]"
             >
-              <div className="flex items-center gap-2 border-b border-white/10 bg-black/50 px-5 py-4">
+              <div className="flex items-center gap-2 border-b border-white/10 bg-black/50 px-4 py-4 md:px-5">
                 <span className="h-3 w-3 rounded-full bg-red-400/70" />
                 <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
                 <span className="h-3 w-3 rounded-full bg-emerald-400/70" />
 
-                <div className="ml-4 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500">
+                <div className="ml-2 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500 md:ml-4">
                   {project.liveUrl}
                 </div>
 
@@ -234,13 +234,38 @@ export default async function PortfolioProjectPage({
                 </span>
               </div>
 
-              <div className="h-[520px] overflow-hidden bg-black">
+              {/* DESKTOP PREVIEW */}
+              <div className="hidden h-[560px] overflow-hidden bg-black md:block">
                 <iframe
                   src={project.liveUrl}
-                  className="h-full w-full border-0"
                   title={project.title}
                   loading="lazy"
+                  scrolling="no"
+                  className="h-[900px] w-full border-0"
                 />
+              </div>
+
+              {/* MOBILE PREVIEW */}
+              <div className="block bg-black p-5 md:hidden">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                  <p className="text-sm font-semibold text-emerald-400">
+                    {lang === "ro" ? "Preview disponibil" : "Preview available"}
+                  </p>
+
+                  <h3 className="mt-3 text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-zinc-400">
+                    {lang === "ro"
+                      ? "Apasă pentru a deschide proiectul live într-o fereastră separată."
+                      : "Tap to open the live project in a separate window."}
+                  </p>
+
+                  <div className="mt-6 rounded-2xl border border-emerald-400/10 bg-emerald-400/10 px-5 py-4 text-center font-semibold text-emerald-300">
+                    {lang === "ro" ? "Deschide live ↗" : "Open live ↗"}
+                  </div>
+                </div>
               </div>
             </Link>
           ) : (
