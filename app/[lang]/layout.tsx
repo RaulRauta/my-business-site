@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Analytics } from "@vercel/analytics/next";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
