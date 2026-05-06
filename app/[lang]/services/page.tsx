@@ -418,6 +418,12 @@ export default async function ServicesPage({
                     </p>
                   )}
 
+                  {pack.name === "Start" && (
+                    <p className="mb-5 w-fit rounded-full border border-white/10 bg-white/[0.05] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-zinc-300">
+                      Basic
+                    </p>
+                  )}
+
                   {pack.name === "Custom" && (
                     <p className="mb-5 w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">
                       Premium
