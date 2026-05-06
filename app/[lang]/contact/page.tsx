@@ -132,7 +132,7 @@ export default function ContactPage({
       <Navbar lang={lang} />
 
       <main className="min-h-screen px-5 py-20 md:px-6 md:py-28">
-        <section className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
+        <section className="grid w-full max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
           <div className="text-center lg:text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
@@ -144,7 +144,7 @@ export default function ContactPage({
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
             {selectedPackageInfo && (
-              <div className="mx-auto mt-10 w-full max-w-[340px] rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:max-w-md md:max-w-2xl lg:mx-0 lg:max-w-none">
+              <div className="mt-10 w-full rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl lg:mx-0">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
                   {lang === "ro" ? "Pachet selectat" : "Selected package"}
                 </p>
@@ -197,7 +197,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mx-auto mt-12 grid w-full max-w-[340px] gap-5 text-left sm:max-w-md md:max-w-2xl lg:mx-0 lg:max-w-none"
+              className="mt-12 grid w-full gap-5 text-left lg:mx-0"
               onSubmit={async (e) => {
                 e.preventDefault();
 
