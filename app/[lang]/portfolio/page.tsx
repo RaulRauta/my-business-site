@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ProjectPreview from "@/components/ProjectPreview";
 
 type Lang = "ro" | "en";
+type PreviewVariant = "blog" | "restaurant" | "landing";
 
 export default async function PortfolioPage({
   params,
@@ -23,6 +25,7 @@ export default async function PortfolioPage({
         {
           title: "Enciclopedia Florilor",
           slug: "enciclopedia-florilor",
+          preview: "blog" as PreviewVariant,
           type: "Blog / CMS / SEO",
           text: "Platformă de conținut construită pentru claritate, structură și scalare.",
           status: "Proiect real",
@@ -31,6 +34,7 @@ export default async function PortfolioPage({
         {
           title: "Restaurant Concept",
           slug: "restaurant-concept",
+          preview: "restaurant" as PreviewVariant,
           type: "Model site restaurant",
           text: "Model pentru restaurante care vor să prezinte experiența, meniul și rezervările într-un mod clar.",
           status: "Model demo",
@@ -39,6 +43,7 @@ export default async function PortfolioPage({
         {
           title: "Business Landing",
           slug: "business-landing",
+          preview: "landing" as PreviewVariant,
           type: "Model landing page",
           text: "Pagină orientată spre conversie pentru servicii locale, oferte sau campanii rapide.",
           status: "Model demo",
@@ -58,6 +63,7 @@ export default async function PortfolioPage({
         {
           title: "Flower Encyclopedia",
           slug: "enciclopedia-florilor",
+          preview: "blog" as PreviewVariant,
           type: "Blog / CMS / SEO",
           text: "A content platform built for clarity, structure and scalability.",
           status: "Real project",
@@ -66,6 +72,7 @@ export default async function PortfolioPage({
         {
           title: "Restaurant Concept",
           slug: "restaurant-concept",
+          preview: "restaurant" as PreviewVariant,
           type: "Restaurant website model",
           text: "A model for restaurants that want to present their experience, menu and bookings clearly.",
           status: "Demo model",
@@ -74,6 +81,7 @@ export default async function PortfolioPage({
         {
           title: "Business Landing",
           slug: "business-landing",
+          preview: "landing" as PreviewVariant,
           type: "Landing page model",
           text: "A conversion-focused page for local services, offers or fast campaigns.",
           status: "Demo model",
@@ -107,13 +115,7 @@ export default async function PortfolioPage({
                 key={project.slug}
                 className="group overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/35 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_60px_rgba(52,211,153,0.12)]"
               >
-                <div className="relative flex h-56 items-center justify-center border-b border-white/10 bg-gradient-to-br from-white/[0.04] to-emerald-400/[0.08]">
-                  <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.16),transparent_70%)]" />
-
-                  <span className="relative text-sm uppercase tracking-[0.35em] text-zinc-500 transition group-hover:text-emerald-400">
-                    Preview
-                  </span>
-                </div>
+                <ProjectPreview variant={project.preview} />
 
                 <div className="p-7">
                   <div className="flex items-center justify-between gap-4">
