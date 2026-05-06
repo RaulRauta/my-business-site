@@ -129,8 +129,7 @@ export default async function HomePage({
             <div className="relative hidden animate-[heroReveal_0.9s_ease-out_0.25s_both] lg:block">
               <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
 
-              <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
-                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl animate-[softFloat_6s_ease-in-out_infinite]"></div>
+              <div className="relative animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-[scanShine_5s_ease-in-out_infinite]" />
 
                 <div className="relative">
