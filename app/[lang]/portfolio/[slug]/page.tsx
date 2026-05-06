@@ -246,24 +246,42 @@ export default async function PortfolioProjectPage({
               </div>
 
               {/* MOBILE PREVIEW */}
-              <div className="block bg-black p-5 md:hidden">
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <p className="text-sm font-semibold text-emerald-400">
-                    {lang === "ro" ? "Preview disponibil" : "Preview available"}
-                  </p>
+              <div className="block bg-black p-4 md:hidden">
+                <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#e9efe7]">
+                  <div className="flex items-center justify-between bg-white/80 px-4 py-3">
+                    <div>
+                      <p className="text-sm font-bold text-zinc-900">
+                        Enciclopedia Florilor
+                      </p>
+                      <p className="text-[10px] uppercase tracking-[0.25em] text-pink-500">
+                        Blog floral
+                      </p>
+                    </div>
 
-                  <h3 className="mt-3 text-2xl font-bold text-white">
-                    {project.title}
-                  </h3>
+                    <div className="rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold text-pink-600">
+                      Home
+                    </div>
+                  </div>
 
-                  <p className="mt-3 leading-7 text-zinc-400">
-                    {lang === "ro"
-                      ? "Apasă pentru a deschide proiectul live într-o fereastră separată."
-                      : "Tap to open the live project in a separate window."}
-                  </p>
+                  <div className="px-5 py-10 text-center">
+                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-pink-500">
+                      Enciclopedia Florilor
+                    </p>
 
-                  <div className="mt-6 rounded-2xl border border-emerald-400/10 bg-emerald-400/10 px-5 py-4 text-center font-semibold text-emerald-300">
-                    {lang === "ro" ? "Deschide live ↗" : "Open live ↗"}
+                    <h3 className="mt-4 text-3xl font-black leading-tight text-zinc-950">
+                      Flori, inspirație și frumusețe naturală
+                    </h3>
+
+                    <p className="mt-4 text-sm leading-6 text-zinc-600">
+                      Preview live al proiectului. Apasă pentru a deschide
+                      site-ul complet.
+                    </p>
+
+                    <div className="mx-auto mt-8 h-40 max-w-[260px] rounded-3xl bg-gradient-to-br from-pink-300 via-rose-400 to-emerald-300 shadow-2xl" />
+
+                    <div className="mt-8 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white">
+                      Deschide live ↗
+                    </div>
                   </div>
                 </div>
               </div>
