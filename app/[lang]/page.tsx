@@ -90,36 +90,96 @@ export default async function HomePage({
       <main className="px-6 py-28">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
-          <div className="flex items-center gap-4">
-            <span className="h-px w-10 bg-emerald-400/40" />
+          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="flex items-center gap-4">
+                <span className="h-px w-10 bg-emerald-400/40" />
 
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {t.badge}
-            </p>
-          </div>
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                  {t.badge}
+                </p>
+              </div>
 
-          <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-            {t.title}
-          </h1>
+              <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+                {t.title}
+              </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            {t.subtitle}
-          </p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
+                {t.subtitle}
+              </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href={`/${lang}/contact`}
-              className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.5)]"
-            >
-              {t.cta}
-            </Link>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href={`/${lang}/contact`}
+                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.5)]"
+                >
+                  {t.cta}
+                </Link>
 
-            <Link
-              href={`/${lang}/services`}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
-            >
-              {t.secondary}
-            </Link>
+                <Link
+                  href={`/${lang}/services`}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                >
+                  {t.secondary}
+                </Link>
+              </div>
+            </div>
+
+            {/* BRAND BANNER */}
+            <div className="relative hidden lg:block">
+              <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
+
+              <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.14),transparent_40%)]" />
+
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400 text-xl font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.45)]">
+                      F
+                    </div>
+
+                    <p className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">
+                      Web Growth
+                    </p>
+                  </div>
+
+                  <div className="mt-16">
+                    <p className="text-sm font-semibold uppercase tracking-[0.45em] text-emerald-400/70">
+                      Flowcraft
+                    </p>
+
+                    <h2 className="mt-4 text-5xl font-black tracking-tight text-white">
+                      Flowcraft
+                    </h2>
+
+                    <p className="mt-2 text-lg font-semibold italic text-emerald-400">
+                      by Raul
+                    </p>
+
+                    <p className="mt-6 max-w-md leading-7 text-zinc-400">
+                      {lang === "ro"
+                        ? "Structură, design și experiență construite într-un flow clar pentru client."
+                        : "Structure, design and experience built into a clear customer flow."}
+                    </p>
+                  </div>
+
+                  <div className="mt-10 grid grid-cols-3 gap-3">
+                    {[
+                      lang === "ro" ? "Claritate" : "Clarity",
+                      "UX",
+                      lang === "ro" ? "Conversie" : "Conversion",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-center text-sm font-semibold text-zinc-300"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* HERO CARD */}
