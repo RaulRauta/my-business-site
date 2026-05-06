@@ -87,7 +87,7 @@ export default async function HomePage({
     <>
       <HomeMenu lang={lang} />
 
-      <main className="px-6 py-28">
+      <main className="px-6 pt-10 pb-24">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
