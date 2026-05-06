@@ -144,7 +144,7 @@ export default function ContactPage({
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
             {selectedPackageInfo && (
-              <div className="mx-auto mt-10 max-w-2xl rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl lg:mx-0 lg:max-w-none">
+              <div className="mx-auto mt-10 w-full max-w-[340px] rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:max-w-md md:max-w-2xl lg:mx-0 lg:max-w-none">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
                   {lang === "ro" ? "Pachet selectat" : "Selected package"}
                 </p>
@@ -197,7 +197,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mx-auto mt-12 grid max-w-2xl gap-5 text-left lg:mx-0 lg:max-w-none"
+              className="mx-auto mt-12 grid w-full max-w-[340px] gap-5 text-left sm:max-w-md md:max-w-2xl lg:mx-0 lg:max-w-none"
               onSubmit={async (e) => {
                 e.preventDefault();
 
