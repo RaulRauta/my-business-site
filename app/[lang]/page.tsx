@@ -100,15 +100,15 @@ export default async function HomePage({
                 </p>
               </div>
 
-              <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+              <h1 className="mt-5 max-w-4xl animate-[heroReveal_0.8s_ease-out_both] text-4xl font-bold tracking-tight text-white md:text-6xl">
                 {t.title}
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
+              <p className="mt-6 max-w-2xl animate-[heroReveal_0.8s_ease-out_0.12s_both] text-lg leading-8 text-zinc-300">
                 {t.subtitle}
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-10 flex animate-[heroReveal_0.8s_ease-out_0.22s_both] flex-col gap-4 sm:flex-row">
                 <Link
                   href={`/${lang}/contact`}
                   className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.5)]"
@@ -126,15 +126,16 @@ export default async function HomePage({
             </div>
 
             {/* BRAND BANNER */}
-            <div className="relative hidden lg:block">
+            <div className="relative hidden animate-[heroReveal_0.9s_ease-out_0.25s_both] lg:block">
               <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
 
               <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.14),transparent_40%)]" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl animate-[softFloat_6s_ease-in-out_infinite]"></div>
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent animate-[scanShine_5s_ease-in-out_infinite]" />
 
                 <div className="relative">
                   <div className="flex items-center justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400 text-xl font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.45)]">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400 text-xl font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.45)] animate-[glowPulse_3s_ease-in-out_infinite]">
                       F
                     </div>
 
