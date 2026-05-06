@@ -148,6 +148,8 @@ export default async function PortfolioProjectPage({
 
   if (!project) notFound();
 
+  const hasLivePreview = project.liveUrl !== "#";
+
   return (
     <>
       <Navbar lang={lang} />
@@ -198,22 +200,58 @@ export default async function PortfolioProjectPage({
                   : "Built for clarity, structure and experience."}
               </p>
 
-              <Link
-                href={project.liveUrl}
-                className="mt-7 inline-block rounded-full bg-emerald-400 px-6 py-3 font-semibold text-black transition hover:bg-emerald-300"
-              >
-                {lang === "ro" ? "Vezi live" : "View live"}
-              </Link>
+              {hasLivePreview && (
+                <Link
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-7 inline-block rounded-full bg-emerald-400 px-6 py-3 font-semibold text-black transition hover:bg-emerald-300"
+                >
+                  {lang === "ro" ? "Vezi live" : "View live"}
+                </Link>
+              )}
             </div>
           </div>
 
-          <div className="mt-20 overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
-            <div className="flex h-[420px] items-center justify-center bg-gradient-to-br from-white/[0.04] to-emerald-400/[0.08]">
-              <span className="text-sm uppercase tracking-[0.35em] text-zinc-500">
-                Project Preview
-              </span>
+          {hasLivePreview ? (
+            <Link
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-20 block overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_90px_rgba(52,211,153,0.16)]"
+            >
+              <div className="flex items-center gap-2 border-b border-white/10 bg-black/50 px-5 py-4">
+                <span className="h-3 w-3 rounded-full bg-red-400/70" />
+                <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
+                <span className="h-3 w-3 rounded-full bg-emerald-400/70" />
+
+                <div className="ml-4 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500">
+                  {project.liveUrl}
+                </div>
+
+                <span className="hidden text-xs font-semibold text-emerald-400 sm:block">
+                  {lang === "ro" ? "Deschide live ↗" : "Open live ↗"}
+                </span>
+              </div>
+
+              <div className="h-[520px] overflow-hidden bg-black">
+                <iframe
+                  src={project.liveUrl}
+                  className="h-full w-full border-0"
+                  title={project.title}
+                  loading="lazy"
+                />
+              </div>
+            </Link>
+          ) : (
+            <div className="mt-20 overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+              <div className="flex h-[420px] items-center justify-center bg-gradient-to-br from-white/[0.04] to-emerald-400/[0.08]">
+                <span className="text-sm uppercase tracking-[0.35em] text-zinc-500">
+                  {lang === "ro" ? "Preview în lucru" : "Preview in progress"}
+                </span>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="mt-20 grid gap-8 lg:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-black/30 p-8 backdrop-blur-xl">
