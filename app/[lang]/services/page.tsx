@@ -450,7 +450,7 @@ export default async function ServicesPage({
                   </div>
 
                   <Link
-                    href={`/${lang}/contact`}
+                    href={`/${lang}/contact?package=${pack.name.toLowerCase()}`}
                     className={`mt-8 block rounded-full px-6 py-3 text-center font-semibold transition ${packageButtonClass(
                       pack,
                     )}`}

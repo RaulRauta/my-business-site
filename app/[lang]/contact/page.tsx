@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import CustomSelect from "@/components/CustomSelect";
 import Footer from "@/components/Footer";
+import { useSearchParams } from "next/navigation";
 
 type Lang = "ro" | "en";
 
@@ -14,8 +15,21 @@ export default function ContactPage({
   params: Promise<{ lang: Lang }>;
 }) {
   const { lang } = use(params);
+  const searchParams = useSearchParams();
+  const selectedPackage = searchParams.get("package");
 
-  const [service, setService] = useState("");
+  const defaultService =
+    selectedPackage === "start" || selectedPackage === "growth"
+      ? lang === "ro"
+        ? "Website nou"
+        : "New website"
+      : selectedPackage === "custom"
+        ? lang === "ro"
+          ? "Nu sunt sigur"
+          : "Not sure"
+        : "";
+
+  const [service, setService] = useState(defaultService);
   const [serviceError, setServiceError] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
   const [phoneError, setPhoneError] = useState("");
@@ -71,6 +85,31 @@ export default function ContactPage({
     },
   }[lang];
 
+  const packageInfo = {
+    start: {
+      label: "Start",
+      ro: "Perfect pentru business-uri care au nevoie de un site clar, rapid și profesionist.",
+      en: "Perfect for businesses that need a clear, fast and professional website.",
+    },
+    growth: {
+      label: "Growth",
+      ro: "Ideal pentru business-uri care vor o structură mai puternică și orientată spre conversie.",
+      en: "Ideal for businesses that want a stronger, conversion-focused structure.",
+    },
+    custom: {
+      label: "Custom",
+      ro: "Pentru proiecte premium cu funcționalități și structură complet personalizate.",
+      en: "For premium projects with fully custom structure and functionality.",
+    },
+  } as const;
+
+  const selectedPackageInfo =
+    selectedPackage === "start" ||
+    selectedPackage === "growth" ||
+    selectedPackage === "custom"
+      ? packageInfo[selectedPackage]
+      : null;
+
   const formattedPhone = phoneDigits
     .replace(/\D/g, "")
     .slice(0, 9)
@@ -95,6 +134,24 @@ export default function ContactPage({
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
+
+            {selectedPackageInfo && (
+              <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/10 p-6 shadow-[0_0_40px_rgba(52,211,153,0.08)]">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                  {lang === "ro" ? "Pachet selectat" : "Selected package"}
+                </p>
+
+                <h2 className="mt-3 text-3xl font-bold text-white">
+                  {selectedPackageInfo.label}
+                </h2>
+
+                <p className="mt-4 max-w-2xl leading-7 text-zinc-300">
+                  {lang === "ro"
+                    ? selectedPackageInfo.ro
+                    : selectedPackageInfo.en}
+                </p>
+              </div>
+            )}
 
             <form
               autoComplete="off"
@@ -244,7 +301,11 @@ export default function ContactPage({
               </div>
 
               <input type="hidden" name="service" value={service} />
-
+              <input
+                type="hidden"
+                name="selectedPackage"
+                value={selectedPackageInfo?.label || ""}
+              />
               <textarea
                 name="message"
                 required

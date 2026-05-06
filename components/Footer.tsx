@@ -2,16 +2,16 @@ import Link from "next/link";
 
 type Lang = "ro" | "en";
 
+const contactEmail = "your@email.com";
+
 export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
     <footer className="relative overflow-hidden border-t border-emerald-400/10 bg-black/50 px-6 py-16 text-zinc-400 backdrop-blur-xl">
-      {/* NEON GRADIENT BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_85%_35%,rgba(34,211,238,0.12),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* CTA */}
         <div className="mb-14 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.1)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -39,19 +39,22 @@ export default function Footer({ lang }: { lang: Lang }) {
           </Link>
         </div>
 
-        {/* SCAN LINE */}
         <div className="relative mb-12 h-px w-full overflow-hidden bg-emerald-400/10">
           <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
         </div>
 
-        {/* CONTENT */}
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
           <div>
-            <p className="text-xl font-semibold tracking-tight text-white">
-              Raul / Web Growth
-            </p>
+            <div>
+              <p className="text-xl font-semibold tracking-tight text-white">
+                Flowcraft
+              </p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400/70">
+                by Raul
+              </p>
+            </div>
 
-            <p className="mt-3 max-w-sm text-[14px] leading-7 text-zinc-500">
+            <p className="mt-4 max-w-sm text-[14px] leading-7 text-zinc-500">
               {lang === "ro"
                 ? "Site-uri moderne, clare și gândite să transforme vizitatorii în clienți."
                 : "Modern, clear websites designed to turn visitors into customers."}
@@ -98,10 +101,10 @@ export default function Footer({ lang }: { lang: Lang }) {
 
             <div className="mt-4 grid gap-3 text-sm">
               <a
-                href="mailto:your@email.com"
+                href={`mailto:${contactEmail}`}
                 className="w-fit transition hover:text-white hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
               >
-                your@email.com
+                {contactEmail}
               </a>
 
               <Link
@@ -114,10 +117,11 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        {/* BOTTOM */}
         <div className="mt-12 border-t border-emerald-400/10 pt-6">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
-            <p className="text-zinc-500">© {year} Raul. All rights reserved.</p>
+            <p className="text-zinc-500">
+              © {year} Flowcraft by Raul. All rights reserved.
+            </p>
 
             <p className="text-zinc-600">
               Built with Next.js, Tailwind & Sanity.
