@@ -62,9 +62,13 @@ export default function CountryCodeSelect({
           {lang === "ro" ? selected.ro : selected.en}
         </span>
 
-        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400"
+        >
           ▼
-        </span>
+        </motion.span>
       </button>
 
       <AnimatePresence>
