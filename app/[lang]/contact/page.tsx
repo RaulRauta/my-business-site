@@ -196,7 +196,7 @@ export default function ContactPage({
       <Navbar lang={lang} />
 
       <main className="min-h-screen px-4 py-20 md:px-6 md:py-28">
-        <section className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
+        <section className="grid w-full max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
           <div className="w-full text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
