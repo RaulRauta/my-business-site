@@ -122,6 +122,20 @@ export default function ContactPage({
       ? packageInfo[selectedPackage]
       : null;
   const leadSource = source === "services" ? "services-page" : "direct-contact";
+  const phonePlaceholders: Record<string, string> = {
+    "+40": "712 345 678",
+    "+44": "7911 123456",
+    "+353": "85 123 4567",
+    "+49": "151 23456789",
+    "+39": "312 345 6789",
+    "+34": "612 345 678",
+    "+33": "6 12 34 56 78",
+    "+31": "6 12345678",
+    "+32": "470 12 34 56",
+    "+1": "202 555 0182",
+  };
+
+  const phonePlaceholder = phonePlaceholders[countryCode] || "712 345 678";
 
   return (
     <>
@@ -301,7 +315,7 @@ export default function ContactPage({
                       setPhoneNumber(value);
                       setPhoneError("");
                     }}
-                    placeholder={lang === "ro" ? "712 345 678" : "7123 456 789"}
+                    placeholder={phonePlaceholder}
                     className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 ${
                       phoneError
                         ? "border-red-400/60"
