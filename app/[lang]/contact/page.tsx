@@ -18,6 +18,7 @@ export default function ContactPage({
   const { lang } = use(params);
   const searchParams = useSearchParams();
   const selectedPackage = searchParams.get("package");
+  const source = searchParams.get("source");
 
   const defaultService =
     selectedPackage === "start" || selectedPackage === "growth"
@@ -120,6 +121,7 @@ export default function ContactPage({
     selectedPackage === "custom"
       ? packageInfo[selectedPackage]
       : null;
+  const leadSource = source === "services" ? "services-page" : "direct-contact";
 
   return (
     <>
@@ -211,8 +213,15 @@ export default function ContactPage({
                   return;
                 }
 
+                if (!selectedPackageInfo && !service) {
+                  setServiceError(t.serviceError);
+                  setLoading(false);
+                  return;
+                }
+
                 data.phone = `${countryCode} ${phoneNumber}`;
                 data.countryCode = countryCode;
+                data.leadSource = leadSource;
 
                 try {
                   const res = await fetch("/api/contact", {
@@ -328,10 +337,12 @@ export default function ContactPage({
                 name="selectedPackage"
                 value={chosenPackage}
               />
+              <input type="hidden" name="leadSource" value={leadSource} />
+              <input type="hidden" name="countryCode" value={countryCode} />
               <input
                 type="hidden"
-                name="selectedPackage"
-                value={chosenPackage}
+                name="phone"
+                value={`${countryCode} ${phoneNumber}`}
               />
               <textarea
                 name="message"
