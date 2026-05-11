@@ -466,13 +466,13 @@ export default function ContactPage({
 
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
                 {lang === "ro"
-                  ? "Preferi să vorbești direct?"
+                  ? "Preferi să vorbim direct?"
                   : "Prefer to talk directly?"}
               </h2>
 
               <p className="mt-4 leading-7 text-zinc-400">
                 {lang === "ro"
-                  ? "Poți folosi formularul sau mă poți contacta direct prin email ori telefon."
+                  ? "Poți folosi formularul sau mă poți contacta prin email ori telefon."
                   : "You can use the form or contact me directly by email or phone."}
               </p>
 

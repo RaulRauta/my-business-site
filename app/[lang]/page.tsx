@@ -16,13 +16,14 @@ export default async function HomePage({
       badge: "Web Design",
       title: "Site-uri clare, moderne și orientate spre clienți.",
       subtitle:
-        "Construiesc site-uri care explică rapid ce oferi, inspiră încredere și duc vizitatorii spre acțiune.",
+        "Construiesc site-uri care explică rapid ce oferi, inspiră încredere și îi conduc pe vizitatori spre acțiune.",
       cta: "Hai să discutăm",
       secondary: "Vezi serviciile",
       sloganLabel: "Flowcraft concept",
       slogan: "Flow-ul care îți aduce rezultate.",
       explore: "Explorează",
-      exploreTitle: "Vezi exact ce pot construi pentru business-ul tău.",
+      exploreTitle:
+        "Vezi cum îți pot transforma ideea într-un site care vinde.",
       points: [
         "Primul impact decide dacă omul rămâne",
         "Claritatea bate design-ul complicat",

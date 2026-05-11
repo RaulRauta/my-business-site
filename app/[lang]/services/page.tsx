@@ -39,10 +39,10 @@ export default async function ServicesPage({
         badge: "Ideea de bază",
         title:
           "Site-ul tău trebuie să fie un vânzător tăcut, nu doar o carte de vizită.",
-        text: "Fiecare secțiune trebuie să aibă un scop: să explice, să convingă sau să ducă omul spre acțiune.",
+        text: "Fiecare secțiune trebuie să aibă un scop: să explice, să convingă sau să ducă clientul spre acțiune.",
       },
 
-      servicesTitle: "Ce pot construi",
+      servicesTitle: "Ce putem construi împreună",
       servicesText:
         "De la site-uri simple de prezentare până la proiecte custom cu CMS, formular, lead-uri și structură adaptată.",
       services: [

@@ -48,7 +48,7 @@ export default async function ProcessPage({
         {
           number: "04",
           title: "Dezvoltare",
-          text: "Transform designul într-un site rapid, responsive și pregătit pentru lansare.",
+          text: "Transform designul într-un site rapid, flexibil și pregătit pentru lansare.",
         },
         {
           number: "05",
