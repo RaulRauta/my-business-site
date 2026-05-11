@@ -325,14 +325,14 @@ export default function ContactPage({
                 setLoading(false);
               }}
             >
-              <div className="relative flex rounded-2xl border border-white/10 bg-black/30 transition focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
                 <input
                   name="name"
                   type="text"
                   required
                   autoComplete="off"
                   placeholder={t.name}
-                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
 
                 <input
@@ -341,11 +341,11 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.email}
-                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
               </div>
 
-              <div className="flex overflow-hidden rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="relative flex rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
@@ -472,24 +472,20 @@ export default function ContactPage({
                   : "You can use the form or contact me directly by email or phone."}
               </p>
 
-              <div className="mt-7 grid gap-3">
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                  <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
-                    Email
-                  </p>
-                  <p className="mt-1 font-semibold text-white">
-                    raulflorinrauta@gmail.com
-                  </p>
-                </div>
+              <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+                <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                  Email
+                </p>
+                <p className="mt-1 break-words font-semibold text-white">
+                  raulflorinrauta@gmail.com
+                </p>
+              </div>
 
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                  <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
-                    {lang === "ro" ? "Telefon" : "Phone"}
-                  </p>
-                  <p className="mt-1 font-semibold text-white">
-                    +40 000 000 000
-                  </p>
-                </div>
+              <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+                <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                  {lang === "ro" ? "Telefon" : "Phone"}
+                </p>
+                <p className="mt-1 font-semibold text-white">+40 000 000 000</p>
               </div>
             </div>
 
