@@ -148,6 +148,46 @@ export default function ContactPage({
   };
 
   const maxPhoneLength = phoneLengths[countryCode] || 15;
+  const formatPhoneNumber = (value: string) => {
+    const digits = value.replace(/\D/g, "");
+
+    switch (countryCode) {
+      case "+40":
+      case "+34":
+        return digits.replace(/(\d{3})(\d{3})(\d{0,3})/, "$1 $2 $3").trim();
+
+      case "+44":
+        return digits.replace(/(\d{4})(\d{3})(\d{0,3})/, "$1 $2 $3").trim();
+
+      case "+353":
+        return digits.replace(/(\d{2})(\d{3})(\d{0,4})/, "$1 $2 $3").trim();
+
+      case "+49":
+        return digits.replace(/(\d{3})(\d{4})(\d{0,4})/, "$1 $2 $3").trim();
+
+      case "+39":
+        return digits.replace(/(\d{3})(\d{3})(\d{0,4})/, "$1 $2 $3").trim();
+
+      case "+33":
+        return digits
+          .replace(/(\d{1})(\d{2})(\d{2})(\d{2})(\d{0,2})/, "$1 $2 $3 $4 $5")
+          .trim();
+
+      case "+31":
+        return digits.replace(/(\d{1})(\d{4})(\d{0,4})/, "$1 $2 $3").trim();
+
+      case "+32":
+        return digits
+          .replace(/(\d{3})(\d{2})(\d{2})(\d{0,2})/, "$1 $2 $3 $4")
+          .trim();
+
+      case "+1":
+        return digits.replace(/(\d{3})(\d{3})(\d{0,4})/, "$1 $2 $3").trim();
+
+      default:
+        return digits;
+    }
+  };
 
   const phonePlaceholder = phonePlaceholders[countryCode] || "712 345 678";
 
@@ -320,12 +360,11 @@ export default function ContactPage({
                     autoComplete="off"
                     value={phoneNumber}
                     onChange={(e) => {
-                      const value = e.target.value
+                      const digits = e.target.value
                         .replace(/\D/g, "")
-                        .slice(0, maxPhoneLength)
-                        .replace(/(\d{3})(?=\d)/g, "$1 ")
-                        .trim();
+                        .slice(0, maxPhoneLength);
 
+                      const value = formatPhoneNumber(digits);
                       setPhoneNumber(value);
                       setPhoneError("");
                     }}
