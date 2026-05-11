@@ -23,6 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro" className={`${inter.variable} h-full`}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="2SsmGRtGh4gKP3FOorBi-qcr52ovMNVPmENP34oTt0E"
+        />
+      </head>
+
       <body className="relative min-h-screen overflow-x-hidden bg-[#08111c] text-white">
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
