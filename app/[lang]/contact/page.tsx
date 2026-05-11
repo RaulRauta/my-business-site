@@ -195,9 +195,9 @@ export default function ContactPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="min-h-screen px-5 py-20 md:px-6 md:py-28">
+      <main className="min-h-screen px-4 py-20 md:px-6 md:py-28">
         <section className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
-          <div className="text-center lg:text-left">
+          <div className="w-full text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
             </p>
@@ -261,7 +261,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mx-auto mt-12 grid w-full gap-5 text-left lg:mx-0 lg:max-w-none"
+              className="mt-12 grid w-full gap-5 text-left"
               onSubmit={async (e) => {
                 e.preventDefault();
 
