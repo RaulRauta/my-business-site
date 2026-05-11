@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import CustomSelect from "@/components/CustomSelect";
 import Footer from "@/components/Footer";
 import { useSearchParams } from "next/navigation";
+import CountryCodeSelect from "@/components/CountryCodeSelect";
 
 type Lang = "ro" | "en";
 
@@ -31,7 +32,8 @@ export default function ContactPage({
 
   const [service, setService] = useState(defaultService);
   const [serviceError, setServiceError] = useState("");
-  const [phoneDigits, setPhoneDigits] = useState("");
+  const [countryCode, setCountryCode] = useState("+40");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -60,7 +62,7 @@ export default function ContactPage({
       loading: "Se trimite...",
       success: "Mesaj trimis cu succes. Îți voi răspunde cât de curând.",
       error: "A apărut o eroare. Încearcă din nou.",
-      phoneError: "Număr invalid. Folosește formatul +40 7xx xxx xxx.",
+      phoneError: "Număr invalid. Alege prefixul și introdu un număr valid.",
       serviceError: "Selectează ce ai nevoie.",
       sideTitle: "Ce se întâmplă după?",
       steps: [
@@ -83,7 +85,7 @@ export default function ContactPage({
       loading: "Sending...",
       success: "Message sent successfully. I’ll get back to you soon.",
       error: "Something went wrong. Please try again.",
-      phoneError: "Invalid number. Use the format +40 7xx xxx xxx.",
+      phoneError: "Invalid number. Choose the prefix and enter a valid number.",
       serviceError: "Please select what you need.",
       sideTitle: "What happens next?",
       steps: [
@@ -118,14 +120,6 @@ export default function ContactPage({
     selectedPackage === "custom"
       ? packageInfo[selectedPackage]
       : null;
-
-  const formattedPhone = phoneDigits
-    .replace(/\D/g, "")
-    .slice(0, 9)
-    .replace(/(\d{3})(?=\d)/g, "$1 ")
-    .trim();
-
-  const fullPhone = `+40 ${formattedPhone}`.trim();
 
   return (
     <>
@@ -209,22 +203,16 @@ export default function ContactPage({
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
-                const digitsOnly = phoneDigits.replace(/\D/g, "");
-                const phoneRegex = /^\d{9}$/;
+                const digitsOnly = phoneNumber.replace(/\D/g, "");
 
-                if (!phoneRegex.test(digitsOnly)) {
+                if (digitsOnly.length < 6 || digitsOnly.length > 15) {
                   setPhoneError(t.phoneError);
                   setLoading(false);
                   return;
                 }
 
-                if (!selectedPackageInfo && !service) {
-                  setServiceError(t.serviceError);
-                  setLoading(false);
-                  return;
-                }
-
-                data.phone = `+40 ${formattedPhone}`;
+                data.phone = `${countryCode} ${phoneNumber}`;
+                data.countryCode = countryCode;
 
                 try {
                   const res = await fetch("/api/contact", {
@@ -239,7 +227,8 @@ export default function ContactPage({
                     setStatus("success");
                     form.reset();
                     setService("");
-                    setPhoneDigits("");
+                    setPhoneNumber("");
+                    setCountryCode("+40");
 
                     form.scrollIntoView({
                       behavior: "smooth",
@@ -279,52 +268,42 @@ export default function ContactPage({
                 />
               </div>
 
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid gap-3 sm:grid-cols-[0.8fr_1.2fr]">
+                <CountryCodeSelect
+                  lang={lang}
+                  value={countryCode}
+                  onChange={setCountryCode}
+                />
+
                 <div>
-                  <div
-                    className={`flex items-center rounded-2xl border bg-black/30 transition ${
+                  <input
+                    name="phoneNumber"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="off"
+                    value={phoneNumber}
+                    onChange={(e) => {
+                      const value = e.target.value
+                        .replace(/\D/g, "")
+                        .slice(0, 15)
+                        .replace(/(\d{3})(?=\d)/g, "$1 ")
+                        .trim();
+
+                      setPhoneNumber(value);
+                      setPhoneError("");
+                    }}
+                    placeholder={lang === "ro" ? "712 345 678" : "7123 456 789"}
+                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 ${
                       phoneError
                         ? "border-red-400/60"
-                        : "border-white/10 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                        : "border-white/10 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                     }`}
-                  >
-                    <span className="select-none pl-5 font-medium text-zinc-400">
-                      +40
-                    </span>
-
-                    <input
-                      name="phone"
-                      type="tel"
-                      inputMode="numeric"
-                      autoComplete="off"
-                      value={formattedPhone}
-                      onChange={(e) => {
-                        const digits = e.target.value
-                          .replace(/\D/g, "")
-                          .slice(0, 9);
-
-                        setPhoneDigits(digits);
-                        setPhoneError("");
-                      }}
-                      placeholder="712 345 678"
-                      className="w-full bg-transparent px-3 py-4 outline-none placeholder:text-zinc-500"
-                    />
-                  </div>
-
-                  <input type="hidden" name="phoneFull" value={fullPhone} />
+                  />
 
                   {phoneError && (
                     <p className="mt-2 text-sm text-red-400">{phoneError}</p>
                   )}
                 </div>
-
-                <input
-                  name="business"
-                  type="text"
-                  autoComplete="off"
-                  placeholder={t.business}
-                  className="rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
-                />
               </div>
 
               {!selectedPackageInfo && (
