@@ -48,11 +48,14 @@ export default function CountryCodeSelect({
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative">
+    <div
+      ref={wrapperRef}
+      className="relative min-w-[125px] border-r border-white/10"
+    >
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="relative flex w-full items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-4 pr-12 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+        className="relative flex h-full w-full items-center gap-2 bg-transparent px-4 py-4 pr-10 text-left outline-none"
       >
         <span className="shrink-0 font-semibold text-white">
           {selected.code}

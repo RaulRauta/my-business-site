@@ -325,7 +325,7 @@ export default function ContactPage({
                 setLoading(false);
               }}
             >
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="flex overflow-hidden rounded-2xl border border-white/10 bg-black/30 transition focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <input
                   name="name"
                   type="text"
@@ -345,7 +345,7 @@ export default function ContactPage({
                 />
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-[0.8fr_1.2fr]">
+              <div className="flex overflow-hidden rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
@@ -369,11 +369,7 @@ export default function ContactPage({
                       setPhoneError("");
                     }}
                     placeholder={phonePlaceholder}
-                    className={`w-full rounded-2xl border bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 ${
-                      phoneError
-                        ? "border-red-400/60"
-                        : "border-white/10 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
-                    }`}
+                    className="w-full bg-transparent px-5 py-4 outline-none placeholder:text-zinc-500"
                   />
 
                   {phoneError && (
