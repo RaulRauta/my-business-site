@@ -124,9 +124,9 @@ export default function ContactPage({
   const leadSource = source === "services" ? "services-page" : "direct-contact";
   const phonePlaceholders: Record<string, string> = {
     "+40": "712 345 678",
-    "+44": "7911 123456",
+    "+44": "7911 123 456",
     "+353": "85 123 4567",
-    "+49": "151 23456789",
+    "+49": "151 2345 6789",
     "+39": "312 345 6789",
     "+34": "612 345 678",
     "+33": "6 12 34 56 78",
