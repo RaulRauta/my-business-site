@@ -11,9 +11,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Flowcraft",
+  title: "FlowCraft Studio | Web Design & Development",
+
   description:
-    "Flowcraft by Raul — site-uri moderne, clare și orientate spre conversie.",
+    "FlowCraft Studio creează site-uri moderne, rapide și orientate spre conversie pentru business-uri care vor mai mulți clienți.",
+
+  icons: {
+    icon: "/icon.png",
+  },
+
+  openGraph: {
+    title: "FlowCraft Studio",
+    description: "Modern websites built for clarity, trust and conversion.",
+    url: "https://flowcraftstudio.app",
+    siteName: "FlowCraft Studio",
+    locale: "ro_RO",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
