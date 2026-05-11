@@ -2,7 +2,7 @@ import Link from "next/link";
 
 type Lang = "ro" | "en";
 
-const contactEmail = "your@email.com";
+const contactEmail = "raulflorinrauta@gmail.com";
 
 export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
@@ -50,7 +50,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 Flowcraft
               </p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400/70">
-                by Raul
+                Studio
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="mt-12 border-t border-emerald-400/10 pt-6">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
             <p className="text-zinc-500">
-              © {year} Flowcraft by Raul. All rights reserved.
+              © {year} Flowcraft Studio. All rights reserved.
             </p>
 
             <p className="text-zinc-600">

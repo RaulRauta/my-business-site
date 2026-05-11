@@ -119,16 +119,12 @@ export default async function HomePage({
                     </div>
 
                     <div className="mt-8">
-                      <p className="text-xs font-semibold uppercase tracking-[0.45em] text-emerald-400/70">
-                        Flowcraft
-                      </p>
-
                       <h2 className="mt-3 text-4xl font-black tracking-tight text-white">
                         Flowcraft
                       </h2>
 
                       <p className="mt-1 text-base font-semibold italic text-emerald-400">
-                        by Raul
+                        Studio
                       </p>
 
                       <p className="mt-5 leading-7 text-zinc-400">
@@ -188,7 +184,7 @@ export default async function HomePage({
 
                   <div className="mt-16">
                     <p className="text-sm font-semibold uppercase tracking-[0.45em] text-emerald-400/70">
-                      Flowcraft
+                      Find your Flow
                     </p>
 
                     <h2 className="mt-4 text-5xl font-black tracking-tight text-white">
@@ -196,7 +192,7 @@ export default async function HomePage({
                     </h2>
 
                     <p className="mt-2 text-lg font-semibold italic text-emerald-400">
-                      by Raul
+                      Studio
                     </p>
 
                     <p className="mt-6 max-w-md leading-7 text-zinc-400">

@@ -54,7 +54,7 @@ export default function Intro() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flow-text mt-4 text-sm font-semibold tracking-[0.45em]"
             >
-              by Raul
+              Studio
             </motion.p>
 
             <motion.div

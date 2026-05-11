@@ -49,7 +49,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             </p>
 
             <p className="flow-text text-[10px] font-semibold tracking-[0.35em]">
-              by Raul
+              Studio
             </p>
           </div>
         </Link>
