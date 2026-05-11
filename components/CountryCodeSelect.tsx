@@ -52,21 +52,20 @@ export default function CountryCodeSelect({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-center rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)] sm:justify-between"
+        className="relative flex w-full items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-4 pr-12 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
       >
-        <span className="font-semibold text-white">{selected.code}</span>
-        <span className="ml-3 hidden truncate text-sm text-zinc-400 sm:block">
+        <span className="shrink-0 font-semibold text-white">
+          {selected.code}
+        </span>
+
+        <span className="ml-3 min-w-0 flex-1 truncate text-sm text-zinc-400">
           {lang === "ro" ? selected.ro : selected.en}
         </span>
-      </button>
 
-      <motion.div
-        animate={{ rotate: open ? 180 : 0 }}
-        transition={{ duration: 0.2 }}
-        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400"
-      >
-        ▼
-      </motion.div>
+        <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400">
+          ▼
+        </span>
+      </button>
 
       <AnimatePresence>
         {open && (
