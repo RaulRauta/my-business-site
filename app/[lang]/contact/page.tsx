@@ -134,6 +134,20 @@ export default function ContactPage({
     "+32": "470 12 34 56",
     "+1": "202 555 0182",
   };
+  const phoneLengths: Record<string, number> = {
+    "+40": 9,
+    "+44": 10,
+    "+353": 9,
+    "+49": 11,
+    "+39": 10,
+    "+34": 9,
+    "+33": 9,
+    "+31": 9,
+    "+32": 9,
+    "+1": 10,
+  };
+
+  const maxPhoneLength = phoneLengths[countryCode] || 15;
 
   const phonePlaceholder = phonePlaceholders[countryCode] || "712 345 678";
 
@@ -221,7 +235,7 @@ export default function ContactPage({
 
                 const digitsOnly = phoneNumber.replace(/\D/g, "");
 
-                if (digitsOnly.length < 6 || digitsOnly.length > 15) {
+                if (digitsOnly.length !== maxPhoneLength) {
                   setPhoneError(t.phoneError);
                   setLoading(false);
                   return;
@@ -308,7 +322,7 @@ export default function ContactPage({
                     onChange={(e) => {
                       const value = e.target.value
                         .replace(/\D/g, "")
-                        .slice(0, 15)
+                        .slice(0, maxPhoneLength)
                         .replace(/(\d{3})(?=\d)/g, "$1 ")
                         .trim();
 
