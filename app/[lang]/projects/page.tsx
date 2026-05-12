@@ -160,7 +160,11 @@ export default async function ProjectsPage({
           </div>
 
           <Link
-            href={`/${lang}/projects/${project.slug}`}
+            href={
+              project.slug === "restaurant-concept"
+                ? `/${lang}/demo/restaurant`
+                : `/${lang}/projects/${project.slug}`
+            }
             className="mt-7 inline-block text-sm font-semibold text-emerald-400 transition hover:text-emerald-300"
           >
             {t.viewProject} →
