@@ -88,7 +88,7 @@ export default async function HomePage({
     <>
       <Navbar lang={lang} />
 
-      <main className="px-6 pt-28 pb-24">
+      <main className="px-6 pt-10 pb-24 md:pt-14">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
           <div className="grid gap-12 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
@@ -121,12 +121,8 @@ export default async function HomePage({
 
                     <div className="mt-8">
                       <h2 className="mt-3 text-4xl font-black tracking-tight text-white">
-                        Flowcraft
+                        FlowCraft Studio
                       </h2>
-
-                      <p className="mt-1 text-base font-semibold italic text-emerald-400">
-                        Studio
-                      </p>
 
                       <p className="mt-5 leading-7 text-zinc-400">
                         {lang === "ro"
@@ -189,12 +185,8 @@ export default async function HomePage({
                     </p>
 
                     <h2 className="mt-4 text-5xl font-black tracking-tight text-white">
-                      Flowcraft
+                      FlowCraft Studio
                     </h2>
-
-                    <p className="mt-2 text-lg font-semibold italic text-emerald-400">
-                      Studio
-                    </p>
 
                     <p className="mt-6 max-w-md leading-7 text-zinc-400">
                       {lang === "ro"
