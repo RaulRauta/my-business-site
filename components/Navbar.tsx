@@ -17,7 +17,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
   const navItems = [
     { href: `/${lang}/services`, label: t.navServices },
     { href: `/${lang}/process`, label: t.navProcess },
-    { href: `/${lang}/portfolio`, label: t.navPortfolio },
+    { href: `/${lang}/projects`, label: "Projects" },
     { href: `/${lang}/contact`, label: t.navContact },
   ];
 

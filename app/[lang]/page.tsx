@@ -67,8 +67,8 @@ export default async function HomePage({
           : "The clear steps that turn your idea into a working website.",
     },
     {
-      href: `/${lang}/portfolio`,
-      title: lang === "ro" ? "Portofoliu" : "Portfolio",
+      href: `/${lang}/projects`,
+      title: "Projects",
       text:
         lang === "ro"
           ? "Proiecte și concepte construite cu scop, nu doar pentru aspect."

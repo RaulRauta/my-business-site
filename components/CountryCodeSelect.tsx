@@ -55,7 +55,7 @@ export default function CountryCodeSelect({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="relative flex h-full w-full items-center gap-2 bg-transparent px-4 py-4 pr-10 text-left outline-none"
+        className="relative flex w-full items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-4 pr-12 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
       >
         <span className="shrink-0 font-semibold text-white">
           {selected.code}
@@ -81,7 +81,7 @@ export default function CountryCodeSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-0 top-full z-[999] mt-2 max-h-72 w-[280px] overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl"
+            className="absolute z-50 mt-2 max-h-72 w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl"
           >
             {countries.map((country) => (
               <button
