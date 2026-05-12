@@ -137,17 +137,17 @@ export default async function RestaurantDemoPage({
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-32">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24 sm:py-32">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.45em] text-amber-200">
               Restaurant Concept
             </p>
 
-            <h1 className="mt-8 text-6xl font-black leading-[0.95] tracking-tight text-white md:text-8xl">
+            <h1 className="mt-8 text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-6xl md:text-8xl">
               {t.heroTitle}
             </h1>
 
-            <p className="mt-8 max-w-2xl text-xl leading-9 text-zinc-300">
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-300 sm:text-xl sm:leading-9">
               {t.heroText}
             </p>
 
