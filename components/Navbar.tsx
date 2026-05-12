@@ -18,6 +18,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
     { href: `/${lang}/services`, label: t.navServices },
     { href: `/${lang}/process`, label: t.navProcess },
     { href: `/${lang}/projects`, label: "Projects" },
+    { href: `/${lang}/about`, label: "About" },
     { href: `/${lang}/contact`, label: t.navContact },
   ];
 
