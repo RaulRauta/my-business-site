@@ -117,7 +117,7 @@ export default async function HomePage({
                   <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
                   <div className="relative">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-start justify-between">
                       <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-emerald-400/20 bg-black/40 shadow-[0_0_25px_rgba(52,211,153,0.2)]">
                         <img
                           src="/logo-icon.png"
@@ -181,12 +181,12 @@ export default async function HomePage({
                 <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
                 <div className="relative">
-                  <div className="flex items-center justify-between">
-                    <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.35rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_40px_rgba(52,211,153,0.18)]">
+                  <div className="flex items-start justify-between">
+                    <div className="relative mt-1 flex h-14 w-14 items-center justify-center overflow-hidden rounded-[1.2rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_35px_rgba(52,211,153,0.16)]">
                       <img
                         src="/logo-icon.png"
                         alt="Flowcraft logo"
-                        className="h-11 w-11 object-contain"
+                        className="h-9 w-9 object-contain"
                       />
                     </div>
 
