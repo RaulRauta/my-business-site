@@ -121,44 +121,58 @@ export default async function RestaurantDemoPage({
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.12),transparent_45%)]" />
+      <section className="relative min-h-screen overflow-hidden">
+        {/* BACKGROUND IMAGE */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center scale-105" />
 
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-28 lg:grid-cols-[1fr_0.95fr] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-300">
+          {/* DARK OVERLAY */}
+          <div className="absolute inset-0 bg-black/65" />
+
+          {/* CINEMATIC LIGHT */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,220,140,0.18),transparent_40%)]" />
+
+          {/* VIGNETTE */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
+        </div>
+
+        {/* CONTENT */}
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-32">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.45em] text-amber-200">
               Restaurant Concept
             </p>
 
-            <h1 className="mt-6 max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
+            <h1 className="mt-8 text-6xl font-black leading-[0.95] tracking-tight text-white md:text-8xl">
               {t.heroTitle}
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-400">
+            <p className="mt-8 max-w-2xl text-xl leading-9 text-zinc-300">
               {t.heroText}
             </p>
 
-            <button className="mt-10 rounded-full bg-amber-300 px-7 py-4 font-semibold text-black transition hover:bg-amber-200">
-              {t.heroButton}
-            </button>
-          </div>
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+              <button className="rounded-full bg-amber-200 px-8 py-4 text-lg font-semibold text-black transition hover:bg-amber-100">
+                {t.heroButton}
+              </button>
 
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900">
-            <div className="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center" />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-            <div className="absolute bottom-0 left-0 p-8">
-              <p className="text-sm uppercase tracking-[0.3em] text-amber-300">
-                Aurelia
-              </p>
-
-              <p className="mt-3 max-w-sm text-zinc-300">
-                Elegant atmosphere, premium presentation and modern dining
-                experience.
-              </p>
+              <button className="rounded-full border border-white/15 bg-white/5 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition hover:bg-white/10">
+                View Menu
+              </button>
             </div>
           </div>
+        </div>
+
+        {/* FLOATING INFO CARD */}
+        <div className="absolute bottom-10 right-10 hidden rounded-[2rem] border border-white/10 bg-black/40 p-6 backdrop-blur-xl lg:block">
+          <p className="text-sm uppercase tracking-[0.3em] text-amber-200">
+            Aurelia
+          </p>
+
+          <p className="mt-4 max-w-xs text-zinc-300">
+            Fine dining experience with cinematic atmosphere and modern
+            presentation.
+          </p>
         </div>
       </section>
 
