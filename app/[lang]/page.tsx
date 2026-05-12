@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import HomeMenu from "@/components/HomeMenu";
+import Navbar from "@/components/Navbar";
 
 type Lang = "ro" | "en";
 
@@ -86,7 +86,7 @@ export default async function HomePage({
 
   return (
     <>
-      <HomeMenu lang={lang} />
+      <Navbar lang={lang} />
 
       <main className="px-6 pt-10 pb-24">
         <section className="mx-auto max-w-7xl">
@@ -294,7 +294,7 @@ export default async function HomePage({
 
             <p className="mt-4 max-w-2xl text-zinc-400">
               {lang === "ro"
-                ? "Putem construi un site care să lucreze pentru tine, nu doar să existe."
+                ? "Construim un site care lucrează pentru tine, nu doar există."
                 : "We can build a website that works for you, not just exists."}
             </p>
 
