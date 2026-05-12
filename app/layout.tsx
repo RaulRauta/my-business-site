@@ -11,22 +11,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FlowCraft Studio | Web Design & Development",
+  metadataBase: new URL("https://flowcraftstudio.app"),
+
+  title: {
+    default: "FlowCraft Studio | Web Design pentru business-uri moderne",
+    template: "%s | FlowCraft Studio",
+  },
 
   description:
-    "FlowCraft Studio creează site-uri moderne, rapide și orientate spre conversie pentru business-uri care vor mai mulți clienți.",
+    "FlowCraft Studio creează site-uri moderne, rapide și clare pentru restaurante, cafenele și business-uri locale care vor mai mulți clienți.",
 
   icons: {
     icon: "/icon.png",
+    apple: "/icon.png",
   },
 
   openGraph: {
-    title: "FlowCraft Studio",
-    description: "Modern websites built for clarity, trust and conversion.",
+    title: "FlowCraft Studio | Web Design pentru business-uri moderne",
+    description:
+      "Site-uri moderne, rapide și orientate spre conversie pentru business-uri locale.",
     url: "https://flowcraftstudio.app",
     siteName: "FlowCraft Studio",
-    locale: "ro_RO",
     type: "website",
+    locale: "ro_RO",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "FlowCraft Studio",
+    description:
+      "Site-uri moderne, rapide și orientate spre conversie pentru business-uri locale.",
   },
 };
 
