@@ -110,8 +110,8 @@ export default async function HomePage({
               </div>
 
               {/* MOBILE / TABLET BRAND CARD */}
-              <div className="mx-auto mt-8 w-full max-w-[420px] animate-[heroReveal_0.9s_ease-out_0.28s_both] xl:hidden">
-                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/45 p-7 shadow-[0_0_70px_rgba(52,211,153,0.12)] backdrop-blur-xl">
+              <div className="mx-auto mt-8 w-full max-w-[380px] animate-[heroReveal_0.9s_ease-out_0.28s_both] xl:hidden">
+                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/45 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(34,211,238,0.12),transparent_45%)]" />
 
                   <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
@@ -131,12 +131,12 @@ export default async function HomePage({
                       </p>
                     </div>
 
-                    <div className="mt-10">
-                      <h2 className="mt-4 text-[2.7rem] font-black leading-none tracking-tight text-white">
+                    <div className="mt-7">
+                      <h2 className="mt-3 text-4xl font-black leading-none tracking-tight text-white">
                         FlowCraft Studio
                       </h2>
 
-                      <p className="mt-6 max-w-[280px] leading-7 text-zinc-400">
+                      <p className="mt-5 max-w-[280px] text-base leading-7 text-zinc-400">
                         {lang === "ro"
                           ? "Structură, design și experiență construite într-un flow clar pentru client."
                           : "Structure, design and experience built into a clear customer flow."}
