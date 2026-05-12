@@ -50,7 +50,7 @@ export default async function ProjectsPage({
           preview: "restaurant" as PreviewVariant,
           type: "Model site restaurant",
           text: "Model pentru restaurante care vor să prezinte experiența, meniul și rezervările într-un mod clar.",
-          status: "Demo concept",
+          status: "Demo interactiv",
           tags: ["Restaurant", "Rezervări", "UX"],
         },
         {
@@ -101,7 +101,7 @@ export default async function ProjectsPage({
           preview: "restaurant" as PreviewVariant,
           type: "Restaurant website model",
           text: "A model for restaurants that want to present the experience, menu and bookings clearly.",
-          status: "Demo concept",
+          status: "Interactive demo",
           tags: ["Restaurant", "Bookings", "UX"],
         },
         {
@@ -167,7 +167,11 @@ export default async function ProjectsPage({
             }
             className="mt-7 inline-block text-sm font-semibold text-emerald-400 transition hover:text-emerald-300"
           >
-            {t.viewProject} →
+            {project.slug === "restaurant-concept"
+              ? lang === "ro"
+                ? "Explorează demo-ul →"
+                : "Explore demo →"
+              : `${t.viewProject} →`}
           </Link>
         </div>
       </article>
