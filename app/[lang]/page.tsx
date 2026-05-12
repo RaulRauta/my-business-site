@@ -116,7 +116,7 @@ export default async function HomePage({
 
                   <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
-                  <div className="relative">
+                  <div className="relative pt-4">
                     <div className="flex items-start justify-between">
                       <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-emerald-400/20 bg-black/40 shadow-[0_0_25px_rgba(52,211,153,0.2)]">
                         <img
