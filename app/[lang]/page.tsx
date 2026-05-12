@@ -276,6 +276,31 @@ export default async function HomePage({
             ))}
           </div>
 
+          <div className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              {lang === "ro" ? "Inspirație" : "Inspiration"}
+            </p>
+
+            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+              {lang === "ro"
+                ? "Vrei să vezi cum ar putea arăta viitorul tău site?"
+                : "Want to see how your future website could look?"}
+            </h2>
+
+            <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
+              {lang === "ro"
+                ? "Explorează concepte demo și proiecte în lucru construite pentru business-uri moderne."
+                : "Explore demo concepts and work-in-progress projects built for modern businesses."}
+            </p>
+
+            <Link
+              href={`/${lang}/projects`}
+              className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+            >
+              {lang === "ro" ? "Vezi Projects" : "View Projects"}
+            </Link>
+          </div>
+
           {/* FINAL CTA */}
           <div className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
             <h2 className="max-w-2xl text-3xl font-bold text-white">
