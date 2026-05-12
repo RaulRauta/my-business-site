@@ -12,8 +12,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  if (pathname === `/${lang}`) return null;
-
   const t = translations[lang];
 
   const navItems = [
