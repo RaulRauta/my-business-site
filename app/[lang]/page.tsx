@@ -182,11 +182,11 @@ export default async function HomePage({
 
                 <div className="relative">
                   <div className="flex items-center justify-between">
-                    <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-emerald-400/20 bg-black/40 shadow-[0_0_35px_rgba(52,211,153,0.25)]">
+                    <div className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.35rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_40px_rgba(52,211,153,0.18)]">
                       <img
                         src="/logo-icon.png"
                         alt="Flowcraft logo"
-                        className="h-full w-full object-cover scale-125"
+                        className="h-11 w-11 object-contain"
                       />
                     </div>
 
