@@ -88,7 +88,7 @@ export default async function HomePage({
     <>
       <Navbar lang={lang} />
 
-      <main className="px-6 pt-10 pb-24">
+      <main className="px-6 pt-28 pb-24">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
           <div className="grid gap-12 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
