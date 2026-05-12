@@ -59,6 +59,14 @@ export default async function HomePage({
           : "Presentation websites, landing pages, redesign, maintenance and CMS.",
     },
     {
+      href: `/${lang}/about`,
+      title: "About",
+      text:
+        lang === "ro"
+          ? "Află cum a apărut FlowCraft Studio și modul în care construiesc proiectele."
+          : "Learn how FlowCraft Studio started and how I approach building projects.",
+    },
+    {
       href: `/${lang}/process`,
       title: lang === "ro" ? "Cum lucrez" : "Process",
       text:
@@ -111,7 +119,11 @@ export default async function HomePage({
                   <div className="relative">
                     <div className="flex items-center justify-between">
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400 text-lg font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.4)] animate-[glowPulse_3s_ease-in-out_infinite]">
-                        F
+                        <img
+                          src="/logo-icon.png"
+                          alt="Flowcraft logo"
+                          className="h-7 w-7 object-contain"
+                        />
                       </div>
 
                       <p className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
@@ -171,7 +183,11 @@ export default async function HomePage({
                 <div className="relative">
                   <div className="flex items-center justify-between">
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400 text-xl font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.45)] animate-[glowPulse_3s_ease-in-out_infinite]">
-                      F
+                      <img
+                        src="/logo-icon.png"
+                        alt="Flowcraft logo"
+                        className="h-8 w-8 object-contain"
+                      />
                     </div>
 
                     <p className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">

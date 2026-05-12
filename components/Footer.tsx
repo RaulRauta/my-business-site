@@ -77,8 +77,12 @@ export default function Footer({ lang }: { lang: Lang }) {
                   label: lang === "ro" ? "Proces" : "Process",
                 },
                 {
-                  href: `/${lang}/portfolio`,
-                  label: lang === "ro" ? "Portofoliu" : "Portfolio",
+                  href: `/${lang}/projects`,
+                  label: "Projects",
+                },
+                {
+                  href: `/${lang}/about`,
+                  label: "About",
                 },
                 {
                   href: `/${lang}/contact`,
