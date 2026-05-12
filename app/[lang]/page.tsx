@@ -118,11 +118,11 @@ export default async function HomePage({
 
                   <div className="relative">
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400 text-lg font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.4)] animate-[glowPulse_3s_ease-in-out_infinite]">
+                      <div className="relative h-12 w-12 overflow-hidden rounded-2xl border border-emerald-400/20 bg-black/40 shadow-[0_0_25px_rgba(52,211,153,0.2)]">
                         <img
                           src="/logo-icon.png"
                           alt="Flowcraft logo"
-                          className="h-7 w-7 object-contain"
+                          className="h-full w-full object-cover scale-125"
                         />
                       </div>
 
@@ -182,11 +182,11 @@ export default async function HomePage({
 
                 <div className="relative">
                   <div className="flex items-center justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400 text-xl font-black text-black shadow-[0_0_35px_rgba(52,211,153,0.45)] animate-[glowPulse_3s_ease-in-out_infinite]">
+                    <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-emerald-400/20 bg-black/40 shadow-[0_0_35px_rgba(52,211,153,0.25)]">
                       <img
                         src="/logo-icon.png"
                         alt="Flowcraft logo"
-                        className="h-8 w-8 object-contain"
+                        className="h-full w-full object-cover scale-125"
                       />
                     </div>
 
