@@ -38,6 +38,37 @@ export default async function AboutPage({
       ctaText:
         "Spune-mi ce ai în minte și îți pot propune o direcție simplă, modernă și potrivită pentru etapa în care ești.",
       cta: "Hai să discutăm",
+      faqBadge: "Q&A",
+      faqTitle: "Întrebări frecvente",
+      faqText:
+        "Răspunsuri rapide la lucrurile pe care probabil vrei să le știi înainte să începem.",
+      faqItems: [
+        {
+          question: "Cât durează realizarea unui site?",
+          answer:
+            "Depinde de complexitate. Un site simplu poate dura câteva zile, iar un proiect mai complet poate dura câteva săptămâni.",
+        },
+        {
+          question: "Pot cere modificări după ce site-ul este gata?",
+          answer:
+            "Da. Putem stabili o perioadă de ajustări după livrare sau un plan de mentenanță pentru modificări viitoare.",
+        },
+        {
+          question: "Site-ul va funcționa bine pe telefon?",
+          answer:
+            "Da. Site-urile sunt construite mobile-first, pentru că mulți clienți intră prima dată de pe telefon.",
+        },
+        {
+          question: "Mă ajuți și cu domeniul sau lansarea?",
+          answer:
+            "Da. Te pot ghida cu domeniul, hosting-ul, conectarea la Vercel și lansarea site-ului.",
+        },
+        {
+          question: "Pot porni de la un demo concept?",
+          answer:
+            "Da. Dacă îți place un concept din Projects, îl putem adapta cu texte, imagini și structură pentru business-ul tău.",
+        },
+      ],
     },
     en: {
       badge: "About",
@@ -65,6 +96,37 @@ export default async function AboutPage({
       ctaText:
         "Tell me what you have in mind and I can suggest a simple, modern direction that fits your current stage.",
       cta: "Let’s talk",
+      faqBadge: "Q&A",
+      faqTitle: "Frequently asked questions",
+      faqText:
+        "Quick answers to the things you probably want to know before we start.",
+      faqItems: [
+        {
+          question: "How long does a website take?",
+          answer:
+            "It depends on complexity. A simple website can take a few days, while a more complete project can take a few weeks.",
+        },
+        {
+          question: "Can I request changes after the website is done?",
+          answer:
+            "Yes. We can define a revision period after delivery or a maintenance plan for future changes.",
+        },
+        {
+          question: "Will the website work well on mobile?",
+          answer:
+            "Yes. Websites are built mobile-first because many customers visit from their phone first.",
+        },
+        {
+          question: "Can you help with the domain or launch?",
+          answer:
+            "Yes. I can guide you with the domain, hosting, Vercel connection and website launch.",
+        },
+        {
+          question: "Can we start from a demo concept?",
+          answer:
+            "Yes. If you like a concept from Projects, we can adapt it with copy, images and structure for your business.",
+        },
+      ],
     },
   }[lang];
 
@@ -135,7 +197,34 @@ export default async function AboutPage({
               </div>
             </div>
           </div>
+          <div className="mt-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              {t.faqBadge}
+            </p>
 
+            <div className="mt-4 max-w-3xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
+                {t.faqTitle}
+              </h2>
+
+              <p className="mt-5 leading-7 text-zinc-400">{t.faqText}</p>
+            </div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-2">
+              {t.faqItems.map((item) => (
+                <div
+                  key={item.question}
+                  className="rounded-3xl border border-white/10 bg-black/30 p-7 backdrop-blur-xl transition hover:border-emerald-400/30 hover:shadow-[0_0_45px_rgba(52,211,153,0.08)]"
+                >
+                  <h3 className="text-xl font-bold text-white">
+                    {item.question}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-zinc-400">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white md:text-4xl">
               {t.ctaTitle}
