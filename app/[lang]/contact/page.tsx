@@ -196,7 +196,7 @@ export default function ContactPage({
       <Navbar lang={lang} />
 
       <main className="min-h-screen px-4 py-20 md:px-6 md:py-28">
-        <section className="grid w-full min-w-0 max-w-7xl gap-12 overflow-hidden lg:grid-cols-[1fr_0.8fr]">
+        <section className="grid w-full min-w-0 max-w-full gap-12 lg:max-w-7xl lg:grid-cols-[1fr_0.8fr]">
           <div className="min-w-0 w-full text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
@@ -261,7 +261,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mt-12 grid w-full min-w-0 gap-5 text-left"
+              className="mt-12 grid w-full min-w-0 max-w-full gap-5 text-left"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -345,7 +345,7 @@ export default function ContactPage({
                 />
               </div>
 
-              <div className="relative flex w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="relative flex w-full min-w-0 max-w-full rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}

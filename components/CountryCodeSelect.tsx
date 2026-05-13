@@ -50,7 +50,7 @@ export default function CountryCodeSelect({
   return (
     <div
       ref={wrapperRef}
-      className="relative min-w-[125px] border-r border-white/10"
+      className="relative w-[46%] max-w-[180px] shrink-0 border-r border-white/10 sm:w-[38%]"
     >
       <button
         type="button"
