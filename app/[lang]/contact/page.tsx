@@ -196,8 +196,8 @@ export default function ContactPage({
       <Navbar lang={lang} />
 
       <main className="min-h-screen px-4 py-20 md:px-6 md:py-28">
-        <section className="grid w-full max-w-7xl gap-12 lg:grid-cols-[1fr_0.8fr]">
-          <div className="w-full text-left">
+        <section className="grid w-full min-w-0 max-w-7xl gap-12 overflow-hidden lg:grid-cols-[1fr_0.8fr]">
+          <div className="min-w-0 w-full text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
             </p>
@@ -261,7 +261,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mt-12 grid w-full gap-5 text-left"
+              className="mt-12 grid w-full min-w-0 gap-5 text-left"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -325,14 +325,14 @@ export default function ContactPage({
                 setLoading(false);
               }}
             >
-              <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+              <div className="grid w-full min-w-0 grid-cols-1 gap-5 lg:grid-cols-2">
                 <input
                   name="name"
                   type="text"
                   required
                   autoComplete="off"
                   placeholder={t.name}
-                  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
 
                 <input
@@ -341,18 +341,18 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.email}
-                  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
                 />
               </div>
 
-              <div className="relative flex rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="relative flex w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
                   onChange={setCountryCode}
                 />
 
-                <div>
+                <div className="min-w-0 flex-1">
                   <input
                     name="phoneNumber"
                     type="tel"
@@ -369,7 +369,7 @@ export default function ContactPage({
                       setPhoneError("");
                     }}
                     placeholder={phonePlaceholder}
-                    className="w-full bg-transparent px-5 py-4 outline-none placeholder:text-zinc-500"
+                    className="block w-full min-w-0 bg-transparent px-5 py-4 outline-none placeholder:text-zinc-500"
                   />
 
                   {phoneError && (
@@ -413,7 +413,7 @@ export default function ContactPage({
                 autoComplete="off"
                 placeholder={t.message}
                 rows={7}
-                className="resize-none rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                className="block w-full min-w-0 resize-none rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
               />
 
               <AnimatePresence>
