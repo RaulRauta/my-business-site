@@ -310,16 +310,16 @@ export default async function HomePage({
                 : "Interactive concepts and demo experiences built for modern businesses."}
             </p>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
               {/* RESTAURANT DEMO */}
               <Link
                 href={`/${lang}/demo/restaurant`}
-                className="group relative overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/50 p-8 transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.16)]"
+                className="group relative overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/50 p-6 transition sm:p-8 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.16)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,140,0,0.12),transparent_40%)]" />
 
                 <div className="relative">
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
                       Restaurant Demo
                     </span>
@@ -329,8 +329,8 @@ export default async function HomePage({
                     </span>
                   </div>
 
-                  <div className="mt-14">
-                    <h3 className="max-w-xl text-4xl font-black tracking-tight text-white md:text-5xl">
+                  <div className="mt-10 sm:mt-14">
+                    <h3 className="max-w-xl text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
                       {lang === "ro"
                         ? "Experiență premium pentru restaurante moderne."
                         : "Premium experience for modern restaurants."}
@@ -343,12 +343,12 @@ export default async function HomePage({
                     </p>
                   </div>
 
-                  <div className="mt-10 flex flex-wrap gap-3">
+                  <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
                     {["Menu", "Reservations", "Atmosphere", "Mobile UX"].map(
                       (item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300"
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
                         >
                           {item}
                         </span>
@@ -359,7 +359,7 @@ export default async function HomePage({
               </Link>
 
               {/* COFFEE DEMO */}
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-8">
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-6 sm:p-8">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,70,30,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(255,200,120,0.08),transparent_40%)]" />
 
                 <div className="relative flex h-full flex-col justify-between">
@@ -368,7 +368,7 @@ export default async function HomePage({
                       Coffee Shop Demo
                     </span>
 
-                    <h3 className="mt-12 text-3xl font-black tracking-tight text-white">
+                    <h3 className="mt-10 text-2xl font-black tracking-tight text-white sm:mt-12 sm:text-3xl">
                       {lang === "ro"
                         ? "Specialty coffee experience."
                         : "Specialty coffee experience."}
