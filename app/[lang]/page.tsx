@@ -292,29 +292,103 @@ export default async function HomePage({
             ))}
           </div>
 
+          {/* LIVE DEMOS */}
           <div className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {lang === "ro" ? "Inspirație" : "Inspiration"}
+              {lang === "ro" ? "Live Concepts" : "Live Concepts"}
             </p>
 
-            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+            <h2 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl">
               {lang === "ro"
-                ? "Vrei să vezi cum ar putea arăta viitorul tău site?"
-                : "Want to see how your future website could look?"}
+                ? "Vezi cum ar putea arăta viitorul tău site."
+                : "See what your future website could look like."}
             </h2>
 
             <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
               {lang === "ro"
-                ? "Explorează concepte demo și proiecte în lucru construite pentru business-uri moderne."
-                : "Explore demo concepts and work-in-progress projects built for modern businesses."}
+                ? "Concepte interactive și demo-uri construite pentru business-uri moderne."
+                : "Interactive concepts and demo experiences built for modern businesses."}
             </p>
 
-            <Link
-              href={`/${lang}/projects`}
-              className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
-            >
-              {lang === "ro" ? "Vezi Projects" : "View Projects"}
-            </Link>
+            <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+              {/* RESTAURANT DEMO */}
+              <Link
+                href={`/${lang}/demo/restaurant`}
+                className="group relative overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/50 p-8 transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.16)]"
+              >
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,140,0,0.12),transparent_40%)]" />
+
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
+                      Restaurant Demo
+                    </span>
+
+                    <span className="text-sm text-zinc-500 transition group-hover:text-emerald-300">
+                      Open Live Demo →
+                    </span>
+                  </div>
+
+                  <div className="mt-14">
+                    <h3 className="max-w-xl text-4xl font-black tracking-tight text-white md:text-5xl">
+                      {lang === "ro"
+                        ? "Experiență premium pentru restaurante moderne."
+                        : "Premium experience for modern restaurants."}
+                    </h3>
+
+                    <p className="mt-6 max-w-xl leading-8 text-zinc-400">
+                      {lang === "ro"
+                        ? "Concept cinematic construit pentru atmosferă, rezervări și experiență."
+                        : "A cinematic concept built for atmosphere, bookings and experience."}
+                    </p>
+                  </div>
+
+                  <div className="mt-10 flex flex-wrap gap-3">
+                    {["Menu", "Reservations", "Atmosphere", "Mobile UX"].map(
+                      (item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300"
+                        >
+                          {item}
+                        </span>
+                      ),
+                    )}
+                  </div>
+                </div>
+              </Link>
+
+              {/* COFFEE DEMO */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-8">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,70,30,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(255,200,120,0.08),transparent_40%)]" />
+
+                <div className="relative flex h-full flex-col justify-between">
+                  <div>
+                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-300">
+                      Coffee Shop Demo
+                    </span>
+
+                    <h3 className="mt-12 text-3xl font-black tracking-tight text-white">
+                      {lang === "ro"
+                        ? "Specialty coffee experience."
+                        : "Specialty coffee experience."}
+                    </h3>
+
+                    <p className="mt-5 leading-8 text-zinc-400">
+                      {lang === "ro"
+                        ? "Concept cozy & premium construit pentru cafenele moderne."
+                        : "A cozy & premium concept built for modern coffee shops."}
+                    </p>
+                  </div>
+
+                  <div className="mt-10">
+                    <span className="inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300">
+                      Coming Soon
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* FINAL CTA */}
