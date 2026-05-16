@@ -468,6 +468,14 @@ export default async function ServicesPage({
             </div>
 
             <p className="mt-5 text-sm text-zinc-500">{t.packages.note}</p>
+
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
+              <p className="text-sm leading-7 text-zinc-400">
+                {lang === "ro"
+                  ? "Prețurile afișate includ designul și dezvoltarea site-ului. Domeniul, hostingul și eventualele servicii externe sunt separate și alese în funcție de nevoile proiectului."
+                  : "Displayed prices include website design and development. Domain, hosting and any external services are separate and chosen based on the needs of the project."}
+              </p>
+            </div>
           </div>
 
           <div className="mt-20 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
