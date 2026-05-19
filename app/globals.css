@@ -245,3 +245,30 @@ body {
     transform: translate(24px, -18px) scale(1.08);
   }
 }
+
+@keyframes slowZoom {
+  from {
+    transform: scale(1.05);
+  }
+
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes ambientFloat {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(8px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.9;
+  }
+}

@@ -1,15 +1,20 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { notFound } from "next/navigation";
 
 type Lang = "ro" | "en";
 
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ lang: Lang }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+
+  if (lang !== "ro" && lang !== "en") {
+    notFound();
+  }
 
   const t = {
     ro: {
@@ -314,17 +319,19 @@ export default async function HomePage({
               {/* RESTAURANT DEMO */}
               <Link
                 href={`/${lang}/demo/restaurant`}
-                className="group relative overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/50 p-6 transition sm:p-8 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.16)]"
+                className="group relative overflow-hidden rounded-[2rem] border border-amber-300/20 bg-black/55 p-6 shadow-[0_0_80px_rgba(251,191,36,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-amber-300/50 hover:shadow-[0_0_100px_rgba(251,191,36,0.14)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,140,0,0.12),transparent_40%)]" />
 
                 <div className="relative">
                   <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300">
-                      Restaurant Demo
+                    <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">
+                      {lang === "ro"
+                        ? "Flagship Live Demo"
+                        : "Flagship Live Demo"}
                     </span>
 
-                    <span className="text-sm text-zinc-500 transition group-hover:text-emerald-300">
+                    <span className="text-sm font-medium text-zinc-500 transition group-hover:text-amber-200">
                       Open Live Demo →
                     </span>
                   </div>
@@ -332,8 +339,8 @@ export default async function HomePage({
                   <div className="mt-10 sm:mt-14">
                     <h3 className="max-w-xl text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
                       {lang === "ro"
-                        ? "Experiență premium pentru restaurante moderne."
-                        : "Premium experience for modern restaurants."}
+                        ? "Fine dining cinematic construit pentru experiență."
+                        : "Cinematic fine dining built around experience."}
                     </h3>
 
                     <p className="mt-6 max-w-xl leading-8 text-zinc-400">
@@ -344,16 +351,19 @@ export default async function HomePage({
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
-                    {["Menu", "Reservations", "Atmosphere", "Mobile UX"].map(
-                      (item) => (
-                        <span
-                          key={item}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
-                        >
-                          {item}
-                        </span>
-                      ),
-                    )}
+                    {[
+                      "Fine Dining",
+                      "Reservations",
+                      "Atmosphere",
+                      "Mobile UX",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </Link>

@@ -130,7 +130,13 @@ export default async function ProjectsPage({
 
   function ProjectCard({ project }: { project: Project }) {
     return (
-      <article className="group overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/35 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_60px_rgba(52,211,153,0.12)]">
+      <article
+        className={`group overflow-hidden rounded-3xl backdrop-blur-xl transition hover:-translate-y-1 ${
+          project.slug === "restaurant-concept"
+            ? "border border-amber-300/30 bg-black/45 shadow-[0_0_80px_rgba(251,191,36,0.12)] hover:border-amber-300/50 hover:shadow-[0_0_100px_rgba(251,191,36,0.18)]"
+            : "border border-emerald-400/10 bg-black/35 hover:border-emerald-400/40 hover:shadow-[0_0_60px_rgba(52,211,153,0.12)]"
+        }`}
+      >
         <ProjectPreview variant={project.preview} />
 
         <div className="p-7">
@@ -165,7 +171,11 @@ export default async function ProjectsPage({
                 ? `/${lang}/demo/restaurant`
                 : `/${lang}/projects/${project.slug}`
             }
-            className="mt-7 inline-block text-sm font-semibold text-emerald-400 transition hover:text-emerald-300"
+            className={`mt-7 inline-block text-sm font-semibold transition ${
+              project.slug === "restaurant-concept"
+                ? "text-amber-200 hover:text-amber-100"
+                : "text-emerald-400 hover:text-emerald-300"
+            }`}
           >
             {project.slug === "restaurant-concept"
               ? lang === "ro"
