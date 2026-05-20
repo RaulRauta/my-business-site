@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 
 function MorrowNavbar({ t }: { t: any }) {
   return (
-    <header className="fixed left-0 top-0 z-[200] w-full px-4 pt-4">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-[#d9b46f]/15 bg-[#120d0a]/80 px-4 py-3 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:px-5">
-        <a href="#" className="group flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d9b46f]/30 bg-[#d9b46f]/10 text-sm font-bold text-[#d9b46f] shadow-[0_0_30px_rgba(217,180,111,0.18)]">
+    <header className="fixed left-0 top-0 z-[300] w-full px-4 pt-5">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-[2rem] border border-[#d9b46f]/15 bg-[#0f0906]/90 px-5 py-4 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+        <a href="#" className="flex items-center gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d9b46f]/25 bg-[#d9b46f]/10 text-sm font-bold text-[#d9b46f]">
             MC
           </span>
 
-          <div className="leading-tight">
-            <p className="text-sm font-semibold tracking-[0.22em] text-white">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.28em] text-white">
               MORROW
             </p>
             <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#d9b46f]">
@@ -26,7 +26,7 @@ function MorrowNavbar({ t }: { t: any }) {
           </div>
         </a>
 
-        <nav className="hidden items-center rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
           {[
             [t.menu, "#menu"],
             [t.gallery, "#gallery"],
@@ -35,26 +35,21 @@ function MorrowNavbar({ t }: { t: any }) {
             <a
               key={label}
               href={href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-white/60 transition hover:bg-[#d9b46f]/10 hover:text-[#f3d19c]"
+              className="rounded-full px-5 py-2.5 text-sm font-semibold text-white/60 transition hover:bg-[#d9b46f]/10 hover:text-[#f3d19c]"
             >
               {label}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#visit"
-          className="hidden rounded-full bg-[#d9b46f] px-5 py-2.5 text-sm font-semibold text-[#120d0a] shadow-[0_0_35px_rgba(217,180,111,0.2)] transition hover:-translate-y-0.5 hover:bg-white md:inline-block"
-        >
-          {t.reserve}
-        </a>
-
-        <a
-          href="#visit"
-          className="rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold text-[#f3d19c] md:hidden"
-        >
-          {t.reserve}
-        </a>
+        <div className="flex justify-end">
+          <a
+            href="#visit"
+            className="rounded-full bg-[#d9b46f] px-6 py-3 text-sm font-bold text-[#120d0a] shadow-[0_0_35px_rgba(217,180,111,0.2)] transition hover:-translate-y-0.5 hover:bg-white"
+          >
+            {t.reserve}
+          </a>
+        </div>
       </div>
     </header>
   );
