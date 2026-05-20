@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 function MorrowNavbar({ t }: { t: any }) {
   return (
-    <header className="fixed left-0 top-0 z-[300] w-full px-4 pt-5">
-      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-[2rem] border border-[#d9b46f]/15 bg-[#0f0906]/90 px-5 py-4 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+    <header className="fixed left-0 top-0 z-[999] w-full px-4 pt-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-full border border-[#d9b46f]/15 bg-[#0f0906]/90 px-5 py-3 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
         <a href="#" className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d9b46f]/25 bg-[#d9b46f]/10 text-sm font-bold text-[#d9b46f]">
             MC
@@ -293,9 +293,7 @@ export default async function MorrowCafeDemo({
   return (
     <main className="min-h-screen bg-[#120d0a] text-[#f7efe5]">
       <div className="pointer-events-none fixed inset-0 z-[1] opacity-[0.035] [background-image:url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
-      <div className="relative z-10">
-        <MorrowNavbar t={t} />
-      </div>
+      <MorrowNavbar t={t} />
       <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Demo badge */}
       <div className="fixed bottom-4 left-1/2 z-50 w-full -translate-x-1/2 px-4 sm:bottom-5 sm:w-auto">
@@ -314,7 +312,7 @@ export default async function MorrowCafeDemo({
       </div>
       <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-52 md:pt-56">
+      <section className="relative flex min-h-screen items-start overflow-hidden px-6 pb-24 pt-44 md:pt-48">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1800&auto=format&fit=crop"
@@ -328,7 +326,7 @@ export default async function MorrowCafeDemo({
           <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-transparent to-[#120d0a]/40" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl pt-10 md:pt-16">
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
           <div className="max-w-2xl">
             <p className="mb-5 inline-flex rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#f3d19c] backdrop-blur-xl">
               {t.heroBadge}
