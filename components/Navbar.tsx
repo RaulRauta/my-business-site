@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { translations } from "@/lib/translations";
 
 type Lang = "ro" | "en";
@@ -11,6 +11,18 @@ type Lang = "ro" | "en";
 export default function Navbar({ lang }: { lang: Lang }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const t = translations[lang];
 
@@ -27,7 +39,13 @@ export default function Navbar({ lang }: { lang: Lang }) {
   }
 
   return (
-    <header className="relative z-20 w-full border-b border-emerald-400/10 bg-black/55 backdrop-blur-xl">
+    <header
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? "border-b border-emerald-400/10 bg-black/70 shadow-[0_12px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+          : "border-b border-white/5 bg-black/25 backdrop-blur-md"
+      }`}
+    >
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">

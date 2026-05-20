@@ -94,14 +94,14 @@ export default async function RestaurantConceptPage({
         <section className="mx-auto max-w-7xl">
           <Link
             href={`/${lang}/projects`}
-            className="text-sm font-semibold text-emerald-400 transition hover:text-emerald-300"
+            className="text-sm font-semibold text-[#f0b4c5] transition hover:text-emerald-300"
           >
             ← {t.back}
           </Link>
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#f0b4c5]">
                 {t.badge}
               </p>
 
@@ -115,18 +115,18 @@ export default async function RestaurantConceptPage({
 
               <Link
                 href={`/${lang}/contact?package=growth&source=projects`}
-                className="mt-9 inline-block rounded-full bg-emerald-400 px-7 py-3 font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                className="mt-9 inline-block rounded-full bg-[#9f1239] px-7 py-3 font-semibold text-white shadow-[0_0_35px_rgba(159,18,57,0.28)] transition hover:bg-[#be123c] hover:shadow-[0_0_55px_rgba(159,18,57,0.45)]"
               >
                 {t.cta}
               </Link>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/40 p-6 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.14),transparent_40%)]" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#9f1239]/25 bg-black/40 p-6 shadow-[0_0_90px_rgba(159,18,57,0.18)] backdrop-blur-xl">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(159,18,57,0.24),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(120,20,40,0.18),transparent_45%)]" />
 
               <div className="relative rounded-[1.5rem] border border-white/10 bg-black/45 p-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f0b4c5]">
                     Aurelia
                   </p>
 
@@ -140,7 +140,7 @@ export default async function RestaurantConceptPage({
                     Fine dining, warm atmosphere.
                   </h2>
 
-                  <p className="mt-5 max-w-md leading-7 text-zinc-400">
+                  <p className="mt-5 max-w-md leading-7 text-[#f0b4c5]">
                     Seasonal dishes, elegant presentation and a booking flow
                     designed for mobile visitors.
                   </p>
@@ -162,7 +162,7 @@ export default async function RestaurantConceptPage({
 
           <div className="mt-24 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#f0b4c5]">
                 Structure
               </p>
 
@@ -187,8 +187,8 @@ export default async function RestaurantConceptPage({
             </div>
           </div>
 
-          <div className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+          <div className="mt-24 rounded-3xl border border-[#9f1239]/20 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#f0b4c5]">
               Features
             </p>
 
@@ -198,7 +198,7 @@ export default async function RestaurantConceptPage({
                   key={item}
                   className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300"
                 >
-                  <span className="mr-3 text-emerald-400">✦</span>
+                  <span className="mr-3 text-[#f0b4c5]">✦</span>
                   {item}
                 </div>
               ))}
@@ -214,7 +214,7 @@ export default async function RestaurantConceptPage({
               <p className="mt-5 leading-8 text-zinc-400">{t.visualText}</p>
             </div>
 
-            <div className="rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+            <div className="rounded-3xl border border-[#9f1239]/20 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 {t.finalTitle}
               </h2>
@@ -223,7 +223,7 @@ export default async function RestaurantConceptPage({
 
               <Link
                 href={`/${lang}/contact?package=growth&source=projects`}
-                className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                className="mt-8 inline-block rounded-full bg-[#9f1239] px-7 py-3 font-semibold text-white shadow-[0_0_35px_rgba(159,18,57,0.28)] transition hover:bg-[#be123c] hover:shadow-[0_0_55px_rgba(159,18,57,0.45)]"
               >
                 {t.cta}
               </Link>

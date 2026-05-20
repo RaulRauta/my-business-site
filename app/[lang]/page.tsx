@@ -101,7 +101,7 @@ export default async function HomePage({
     <>
       <Navbar lang={lang} />
 
-      <main className="px-6 pt-10 pb-24 md:pt-14">
+      <main className="px-6 pt-28 pb-24 md:pt-32">
         <section className="mx-auto max-w-7xl">
           {/* HERO */}
           <div className="grid gap-12 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
@@ -369,35 +369,54 @@ export default async function HomePage({
               </Link>
 
               {/* COFFEE DEMO */}
-              <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-6 sm:p-8">
+              <Link
+                href={`/${lang}/projects/morrow-cafe`}
+                className="group relative overflow-hidden rounded-[2rem] border border-[#d9b46f]/20 bg-black/35 p-6 shadow-[0_0_70px_rgba(217,180,111,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-[#d9b46f]/45 hover:shadow-[0_0_90px_rgba(217,180,111,0.14)]"
+              >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,70,30,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(255,200,120,0.08),transparent_40%)]" />
 
                 <div className="relative flex h-full flex-col justify-between">
                   <div>
-                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-300">
-                      Coffee Shop Demo
-                    </span>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f3d19c]">
+                        {lang === "ro" ? "Coffee Demo" : "Coffee Demo"}
+                      </span>
+
+                      <span className="text-sm font-medium text-zinc-500 transition group-hover:text-[#f3d19c]">
+                        Open Live Demo →
+                      </span>
+                    </div>
 
                     <h3 className="mt-10 text-2xl font-black tracking-tight text-white sm:mt-12 sm:text-3xl">
                       {lang === "ro"
-                        ? "Specialty coffee experience."
-                        : "Specialty coffee experience."}
+                        ? "Morrow Café — specialty coffee cinematic."
+                        : "Morrow Café — specialty coffee cinematic."}
                     </h3>
 
                     <p className="mt-5 leading-8 text-zinc-400">
                       {lang === "ro"
-                        ? "Concept cozy & premium construit pentru cafenele moderne."
-                        : "A cozy & premium concept built for modern coffee shops."}
+                        ? "Concept premium construit pentru cafenele moderne, branding elegant și experiență hospitality."
+                        : "A premium concept built for modern cafés, elegant branding and hospitality experience."}
                     </p>
                   </div>
 
-                  <div className="mt-10">
-                    <span className="inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-300">
-                      Coming Soon
-                    </span>
+                  <div className="mt-10 flex flex-wrap gap-2">
+                    {[
+                      "Specialty Coffee",
+                      "Hospitality",
+                      "Luxury UI",
+                      "Editorial Style",
+                    ].map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
 

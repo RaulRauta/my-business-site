@@ -53,6 +53,24 @@ export default async function ProjectsPage({
           status: "Demo interactiv",
           tags: ["Restaurant", "Rezervări", "UX"],
         },
+
+        {
+          title: "Morrow Café",
+          slug: "morrow-cafe",
+          preview: "restaurant" as PreviewVariant,
+          type:
+            lang === "ro" ? "Model site cafenea" : "Coffee shop website model",
+          text:
+            lang === "ro"
+              ? "Concept premium pentru cafenele moderne și specialty coffee shops orientate pe atmosferă, branding și experiență."
+              : "Premium concept for modern cafés and specialty coffee shops focused on atmosphere, branding and experience.",
+          status: lang === "ro" ? "Demo interactiv" : "Interactive demo",
+          tags:
+            lang === "ro"
+              ? ["Cafenea", "Specialty Coffee", "Branding"]
+              : ["Café", "Specialty Coffee", "Branding"],
+        },
+
         {
           title: "Business Landing",
           slug: "business-landing",
@@ -104,6 +122,17 @@ export default async function ProjectsPage({
           status: "Interactive demo",
           tags: ["Restaurant", "Bookings", "UX"],
         },
+
+        {
+          title: "Morrow Café",
+          slug: "morrow-cafe",
+          preview: "restaurant" as PreviewVariant,
+          type: "Coffee shop website model",
+          text: "Premium demo for modern cafés and specialty coffee shops focused on atmosphere, branding and experience.",
+          status: "Interactive demo",
+          tags: ["Café", "Specialty Coffee", "Branding"],
+        },
+
         {
           title: "Business Landing",
           slug: "business-landing",
@@ -169,15 +198,19 @@ export default async function ProjectsPage({
             href={
               project.slug === "restaurant-concept"
                 ? `/${lang}/demo/restaurant`
-                : `/${lang}/projects/${project.slug}`
+                : project.slug === "morrow-cafe"
+                  ? `/${lang}/projects/morrow-cafe`
+                  : `/${lang}/projects/${project.slug}`
             }
             className={`mt-7 inline-block text-sm font-semibold transition ${
-              project.slug === "restaurant-concept"
+              project.slug === "restaurant-concept" ||
+              project.slug === "morrow-cafe"
                 ? "text-amber-200 hover:text-amber-100"
                 : "text-emerald-400 hover:text-emerald-300"
             }`}
           >
-            {project.slug === "restaurant-concept"
+            {project.slug === "restaurant-concept" ||
+            project.slug === "morrow-cafe"
               ? lang === "ro"
                 ? "Explorează demo-ul →"
                 : "Explore demo →"

@@ -272,3 +272,26 @@ body {
     opacity: 0.9;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes morrow-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.morrow-float {
+  animation: morrow-float 6s ease-in-out infinite;
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}

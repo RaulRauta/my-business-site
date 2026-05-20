@@ -4,10 +4,17 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Intro from "@/components/Intro";
 import "./globals.css";
+import { Cormorant_Garamond } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -50,7 +57,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ro" className={`${inter.variable} h-full`}>
+    <html
+      lang="ro"
+      className={`${inter.variable} ${cormorant.variable} h-full`}
+    >
       <head>
         <meta
           name="google-site-verification"
