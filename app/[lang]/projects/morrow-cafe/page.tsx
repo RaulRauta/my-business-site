@@ -314,7 +314,7 @@ export default async function MorrowCafeDemo({
       </div>
       <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-36">
+      <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-24 pt-52 md:pt-56">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1800&auto=format&fit=crop"
@@ -328,7 +328,7 @@ export default async function MorrowCafeDemo({
           <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-transparent to-[#120d0a]/40" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto w-full max-w-7xl pt-10 md:pt-16">
           <div className="max-w-2xl">
             <p className="mb-5 inline-flex rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#f3d19c] backdrop-blur-xl">
               {t.heroBadge}
