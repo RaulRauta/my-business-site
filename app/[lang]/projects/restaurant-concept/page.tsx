@@ -90,7 +90,7 @@ export default async function RestaurantConceptPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="px-6 py-28">
+      <main className="px-6 py-28 bg-[radial-gradient(circle_at_20%_10%,rgba(159,18,57,0.22),transparent_32%),radial-gradient(circle_at_80%_30%,rgba(120,53,15,0.18),transparent_35%),linear-gradient(180deg,#12070b_0%,#080406_55%,#030303_100%)]">
         <section className="mx-auto max-w-7xl">
           <Link
             href={`/${lang}/projects`}
@@ -121,10 +121,10 @@ export default async function RestaurantConceptPage({
               </Link>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-[#9f1239]/25 bg-black/40 p-6 shadow-[0_0_90px_rgba(159,18,57,0.18)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#9f1239]/25 bg-[#16070c]/80 p-6 shadow-[0_0_90px_rgba(159,18,57,0.18)] backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(159,18,57,0.24),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(120,20,40,0.18),transparent_45%)]" />
 
-              <div className="relative rounded-[1.5rem] border border-white/10 bg-black/45 p-6">
+              <div className="relative rounded-[1.5rem] border border-white/10 bg-[#220b12]/70 p-6">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f0b4c5]">
                     Aurelia
@@ -214,7 +214,7 @@ export default async function RestaurantConceptPage({
               <p className="mt-5 leading-8 text-zinc-400">{t.visualText}</p>
             </div>
 
-            <div className="rounded-3xl border border-[#9f1239]/20 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+            <div className="rounded-3xl border border-[#9f1239]/20 bg-[#16070c]/80 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 {t.finalTitle}
               </h2>
