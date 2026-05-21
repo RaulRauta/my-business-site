@@ -1,22 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ServicesPackages, {
+  type ServicePackage,
+} from "@/components/ServicesPackages";
 
 type Lang = "ro" | "en";
-type PackageName = "Start" | "Growth" | "Custom";
 
-type ServiceItem = {
+type SimpleItem = {
   title: string;
   text: string;
 };
 
-type PackageItem = {
-  name: PackageName;
-  price: string;
-  desc: string;
-  items: string[];
-  cta: string;
-  featured: boolean;
+type ProcessStep = {
+  step: string;
+  title: string;
+  text: string;
 };
 
 export default async function ServicesPage({
@@ -29,264 +28,460 @@ export default async function ServicesPage({
   const t = {
     ro: {
       badge: "Servicii",
-      title: "Site-uri construite pentru imagine, claritate și clienți.",
+      title: "Pachete clare pentru un site care arată premium și aduce acțiune.",
       subtitle:
-        "Construiesc site-uri care explică rapid ce oferi, inspiră încredere și duc vizitatorii spre acțiune.",
-      cta: "Hai să discutăm",
+        "Alegi direcția potrivită, vezi ce primești și pornești cu o structură construită pentru încredere, claritate și conversie.",
+      cta: "Începe un proiect",
       secondary: "Vezi procesul",
-
-      core: {
-        badge: "Ideea de bază",
-        title:
-          "Site-ul tău trebuie să fie un vânzător tăcut, nu doar o carte de vizită.",
-        text: "Fiecare secțiune trebuie să aibă un scop: să explice, să convingă sau să ducă clientul spre acțiune.",
-      },
-
-      servicesTitle: "Ce putem construi împreună",
-      servicesText:
-        "De la site-uri simple de prezentare până la proiecte custom cu CMS, formular, lead-uri și structură adaptată.",
-      services: [
-        {
-          title: "Site de prezentare",
-          text: "Pentru afaceri care au nevoie de o imagine online serioasă, modernă și ușor de înțeles.",
-        },
-        {
-          title: "Landing page",
-          text: "O pagină concentrată pe un singur scop: cereri, apeluri, rezervări sau vânzări.",
-        },
-        {
-          title: "Redesign",
-          text: "Transform un site vechi, lent sau neclar într-unul curat, rapid și convingător.",
-        },
-        {
-          title: "Optimizare conversii",
-          text: "Îmbunătățesc structura, textele și experiența ca vizitatorii să acționeze mai ușor.",
-        },
-        {
-          title: "Mentenanță",
-          text: "Actualizări, mici modificări, verificări și suport ca site-ul să rămână stabil.",
-        },
-        {
-          title: "CMS / Sanity",
-          text: "Zonă de administrare pentru conținut, mesaje, proiecte sau lead-uri.",
-        },
-      ] as ServiceItem[],
-
-      included: {
-        badge: "Livrabile",
-        title: "Ce primești concret",
-        text: "Fără promisiuni vagi. Aici sunt lucrurile reale pe care le construim în jurul site-ului.",
-        items: [
-          "Design modern și responsive",
-          "Structură clară pentru conversie",
-          "Pagini rapide și curate",
-          "Pregătire pentru SEO basic",
-          "Formular de contact funcțional",
-          "Lansare pe domeniul tău",
-        ],
-      },
+      heroNote: "Ofertă premium, fără haos tehnic",
 
       packages: {
         badge: "Pachete",
-        title: "Alege direcția potrivită pentru business-ul tău.",
-        from: "începând de la",
-        customPrice: "preț personalizat",
-        recommended: "Recomandat",
+        title: "Alege nivelul potrivit pentru business-ul tău.",
+        text: "Pachetele sunt gândite ca puncte clare de pornire. Fiecare poate fi ajustat în funcție de brand, obiectiv și complexitate.",
+        startingFrom: "Începând de la",
+        customPricing: "Preț",
+        mostPopular: "Cel mai ales",
+        viewDetails: "Vezi detalii",
+        perfectFor: "Perfect pentru",
+        included: "Ce include",
+        timeline: "Timeline estimat",
+        extras: "Extra opțional",
+        startProject: "Începe un proiect",
+        close: "Închide",
         note: "Prețurile sunt orientative și pot varia în funcție de complexitatea proiectului.",
         items: [
           {
+            id: "start",
             name: "Start",
+            eyebrow: "Prezență clară",
             price: "300€",
-            desc: "Pentru business-uri care vor o prezență online rapidă, clară și profesionistă.",
-            items: [
-              "Model optimizat",
-              "1–3 pagini",
-              "Text și imagini adaptate",
-              "Design responsive",
-              "Formular de contact",
+            description:
+              "Pentru business-uri mici care au nevoie de o prezență online curată, rapidă și profesionistă.",
+            benefits: [
+              "Landing page sau site mic",
+              "Optimizare mobil",
+              "Buton contact / WhatsApp",
+              "SEO de bază",
             ],
-            cta: "Alege Start",
-            featured: false,
+            perfectFor:
+              "Business-uri mici, servicii locale sau proiecte la început care vor să arate serios online fără să intre într-un proiect complicat.",
+            included: [
+              "Landing page custom sau site mic de prezentare",
+              "Optimizare pentru mobil",
+              "Buton contact / WhatsApp",
+              "Setare SEO de bază",
+              "Structură rapidă la încărcare",
+              "Suport la lansare",
+            ],
+            timeline: "3-5 zile",
+            extras: ["Copywriting", "Secțiune extra", "Galerie", "Monitorizare"],
+            cta: "Vezi detalii",
           },
           {
+            id: "growth",
             name: "Growth",
+            eyebrow: "Focus pe conversie",
             price: "600€",
-            desc: "Pentru business-uri care vor un site mai complet, cu structură mai puternică.",
-            items: [
-              "4–6 pagini",
-              "Structură orientată spre conversie",
-              "CMS / conținut editabil",
-              "Secțiuni extra",
-              "Optimizare basic",
+            description:
+              "Pentru business-uri care vor o prezență mai puternică, mai multă claritate și o structură orientată spre conversie.",
+            benefits: [
+              "Website multi-secțiune",
+              "Direcție vizuală premium",
+              "Microinteracțiuni",
+              "Flow pentru rezervări/contact",
+              "Finisaj mobile-first",
             ],
-            cta: "Alege Growth",
+            perfectFor:
+              "Business-uri care au deja o ofertă clară și vor un site care să prezinte brandul mai bine, să creeze încredere și să conducă vizitatorii spre cerere, rezervare sau contact.",
+            included: [
+              "Website multi-secțiune",
+              "Direcție vizuală premium",
+              "Animații și microinteracțiuni mai puternice",
+              "Secțiune de contact / rezervări",
+              "Structură SEO de bază",
+              "Integrare social media",
+              "Finisaj mobile-first",
+              "Suport la lansare",
+            ],
+            timeline: "1-2 săptămâni",
+            extras: ["CMS", "Pagini extra", "SEO extins", "Integrare analytics"],
+            cta: "Vezi detalii",
             featured: true,
           },
           {
-            name: "Custom",
-            price: "",
-            desc: "Pentru proiecte care au nevoie de o abordare complet personalizată.",
-            items: [
-              "Design construit de la zero",
-              "Structură custom",
-              "Funcționalități speciale",
-              "Integrare backend",
-              "Consultanță și suport",
+            id: "custom",
+            name: "Experiență personalizată",
+            eyebrow: "Sistem personalizat",
+            price: "Personalizat",
+            description:
+              "Pentru branduri care au nevoie de ceva unic, avansat sau construit foarte specific în jurul experienței.",
+            benefits: [
+              "Structură personalizată",
+              "UI/UX avansat",
+              "CMS / blog opțional",
+              "Setup multilingv opțional",
+              "Scalabil pe termen lung",
             ],
-            cta: "Discută Custom",
-            featured: false,
+            perfectFor:
+              "Branduri, concepte premium sau proiecte care au nevoie de o experiență digitală distinctă, funcționalități speciale sau o structură care poate crește în timp.",
+            included: [
+              "Structură personalizată pentru website",
+              "Direcție UI/UX avansată",
+              "CMS / blog opțional",
+              "Setup multilingv opțional",
+              "Rezervări / formulare personalizate opțional",
+              "Animații avansate opțional",
+              "Structură scalabilă",
+              "Suport la lansare",
+            ],
+            timeline: "În funcție de complexitate",
+            extras: [
+              "Strategie conținut",
+              "Integrări personalizate",
+              "Automatizări",
+              "Sistem de design",
+            ],
+            cta: "Vezi detalii",
           },
-        ] as PackageItem[],
+        ] as ServicePackage[],
+      },
+
+      why: {
+        badge: "De ce FlowCraftStudio",
+        title: "De ce să nu folosești doar un template?",
+        text: "Un template poate arăta decent, dar business-ul tău are nevoie de o structură gândită pentru ofertă, client și acțiunea pe care vrei să o obții.",
+        items: [
+          {
+            title: "Construit în jurul business-ului tău",
+            text: "Nu forțez oferta într-un layout generic. Structura pornește de la ce vinzi și cui vinzi.",
+          },
+          {
+            title: "Finisaj mobile-first",
+            text: "Nu doar redimensionare responsive, ci o experiență care se simte naturală pe telefon.",
+          },
+          {
+            title: "Identitate vizuală premium",
+            text: "Culori, ritm, spacing și detalii care fac site-ul să pară coerent și memorabil.",
+          },
+          {
+            title: "Structură pentru conversie",
+            text: "Fiecare secțiune are un rol: explică, construiește încredere sau duce spre contact.",
+          },
+          {
+            title: "Experiență rapidă și modernă",
+            text: "Cod curat, pagini rapide și interacțiuni subtile care nu obosesc vizitatorul.",
+          },
+          {
+            title: "Ghidare până la lansare",
+            text: "Primești suport pentru direcție, conținut, lansare și pașii de după publicare.",
+          },
+        ] as SimpleItem[],
+      },
+
+      process: {
+        badge: "Proces",
+        title: "Un flow clar, de la idee la lansare.",
+        steps: [
+          {
+            step: "01",
+            title: "Discovery",
+            text: "Înțeleg business-ul, oferta, publicul și rezultatul pe care îl urmărești.",
+          },
+          {
+            step: "02",
+            title: "Structure",
+            text: "Așezăm secțiunile, mesajele și flow-ul care conduce vizitatorul spre acțiune.",
+          },
+          {
+            step: "03",
+            title: "Design direction",
+            text: "Construiesc direcția vizuală: premium, clară și potrivită pentru brand.",
+          },
+          {
+            step: "04",
+            title: "Development",
+            text: "Transform designul într-un site rapid, responsive și pregătit pentru lansare.",
+          },
+          {
+            step: "05",
+            title: "Feedback & polish",
+            text: "Rafinăm detaliile: conținut, spacing, mobile, interacțiuni și claritate.",
+          },
+          {
+            step: "06",
+            title: "Launch",
+            text: "Publicăm site-ul și te ghidez prin pașii finali de domeniu, hosting și verificări.",
+          },
+        ] as ProcessStep[],
+      },
+
+      services: {
+        badge: "Ce pot construi",
+        title: "Servicii care pot intra în pachetul potrivit.",
+        text: "Pachetul stabilește direcția, iar serviciile se adaptează în funcție de ce are nevoie business-ul tău.",
+        items: [
+          {
+            title: "Site de prezentare",
+            text: "O prezență serioasă, clară și modernă pentru business-uri care vor să inspire încredere.",
+          },
+          {
+            title: "Landing page",
+            text: "O pagină concentrată pe cereri, apeluri, rezervări sau vânzări.",
+          },
+          {
+            title: "Redesign",
+            text: "Transform un site vechi sau neclar într-o experiență mai curată, rapidă și convingătoare.",
+          },
+          {
+            title: "CMS / Sanity",
+            text: "Administrare pentru conținut, proiecte, articole sau lead-uri, când proiectul are nevoie.",
+          },
+          {
+            title: "Booking / formulare",
+            text: "Flow-uri de contact, rezervare sau cereri adaptate pentru business-ul tău.",
+          },
+          {
+            title: "Mentenanță",
+            text: "Actualizări, mici modificări, verificări și suport după lansare.",
+          },
+        ] as SimpleItem[],
       },
 
       final: {
-        title: "Nu știi exact ce îți trebuie?",
-        text: "Îmi spui ce business ai și îți pot propune o structură potrivită, fără să te pierd în termeni tehnici.",
+        title: "Nu știi exact ce pachet ți se potrivește?",
+        text: "Spune-mi ce business ai și ce vrei să obții, iar eu îți propun o direcție clară fără să te pierd în termeni tehnici.",
       },
     },
 
     en: {
       badge: "Services",
-      title: "Websites built for image, clarity and customers.",
+      title: "Clear packages for a premium website built to drive action.",
       subtitle:
-        "I build websites that explain your offer fast, build trust and guide visitors toward action.",
-      cta: "Let’s talk",
+        "Choose the right direction, understand what you get and start with a structure built for trust, clarity and conversion.",
+      cta: "Start a project",
       secondary: "See process",
-
-      core: {
-        badge: "Core idea",
-        title:
-          "Your website should be a silent salesperson, not just a business card.",
-        text: "Every section needs a purpose: explain, convince or guide people toward action.",
-      },
-
-      servicesTitle: "What I can build",
-      servicesText:
-        "From simple presentation websites to custom projects with CMS, forms, leads and adapted structure.",
-      services: [
-        {
-          title: "Presentation website",
-          text: "For businesses that need a serious, modern and easy-to-understand online presence.",
-        },
-        {
-          title: "Landing page",
-          text: "A focused page built around one goal: requests, calls, bookings or sales.",
-        },
-        {
-          title: "Redesign",
-          text: "I turn old, slow or unclear websites into clean, fast and convincing ones.",
-        },
-        {
-          title: "Conversion optimization",
-          text: "I improve structure, copy and experience so visitors take action more easily.",
-        },
-        {
-          title: "Maintenance",
-          text: "Updates, small changes, checks and support so your website stays stable.",
-        },
-        {
-          title: "CMS / Sanity",
-          text: "An admin area for content, messages, projects or leads.",
-        },
-      ] as ServiceItem[],
-
-      included: {
-        badge: "Deliverables",
-        title: "What you get",
-        text: "No vague promises. These are the real things we build around the website.",
-        items: [
-          "Modern responsive design",
-          "Clear conversion structure",
-          "Fast and clean pages",
-          "Basic SEO preparation",
-          "Working contact form",
-          "Launch on your domain",
-        ],
-      },
+      heroNote: "Premium offer, no technical chaos",
 
       packages: {
         badge: "Packages",
-        title: "Choose the right direction for your business.",
-        from: "starting from",
-        customPrice: "custom pricing",
-        recommended: "Recommended",
+        title: "Choose the right level for your business.",
+        text: "The packages are clear starting points. Each one can be adjusted depending on brand, goals and complexity.",
+        startingFrom: "Starting from",
+        customPricing: "Pricing",
+        mostPopular: "Most Popular",
+        viewDetails: "Explore package",
+        perfectFor: "Perfect for",
+        included: "What is included",
+        timeline: "Estimated timeline",
+        extras: "Optional extras",
+        startProject: "Start a project",
+        close: "Close",
         note: "Prices are guidelines and may vary depending on project complexity.",
         items: [
           {
+            id: "start",
             name: "Start",
+            eyebrow: "Clean presence",
             price: "300€",
-            desc: "For businesses that want a fast, clear and professional online presence.",
-            items: [
-              "Optimized model",
-              "1–3 pages",
-              "Text and images adapted",
-              "Responsive design",
-              "Contact form",
+            description:
+              "For small businesses that need a clean, fast and professional online presence.",
+            benefits: [
+              "Landing page or small website",
+              "Mobile optimization",
+              "Contact / WhatsApp CTA",
+              "Basic SEO",
             ],
-            cta: "Choose Start",
-            featured: false,
+            perfectFor:
+              "Small businesses, local services or early-stage projects that need to look serious online without starting a complex build.",
+            included: [
+              "Custom landing page or small presentation website",
+              "Mobile optimization",
+              "Contact / WhatsApp CTA",
+              "Basic SEO setup",
+              "Fast-loading structure",
+              "Launch support",
+            ],
+            timeline: "3-5 days",
+            extras: ["Copywriting", "Extra section", "Gallery", "Tracking"],
+            cta: "Explore package",
           },
           {
+            id: "growth",
             name: "Growth",
+            eyebrow: "Conversion focus",
             price: "600€",
-            desc: "For businesses that want a more complete website with a stronger structure.",
-            items: [
-              "4–6 pages",
-              "Conversion-focused structure",
-              "CMS / editable content",
-              "Extra sections",
-              "Basic optimization",
+            description:
+              "For businesses that want a stronger brand presence, more clarity and a conversion-focused structure.",
+            benefits: [
+              "Multi-section website",
+              "Premium visual direction",
+              "Microinteractions",
+              "Booking / contact flow",
+              "Mobile-first polish",
             ],
-            cta: "Choose Growth",
+            perfectFor:
+              "Businesses with a clear offer that want a website to present the brand better, build trust and guide visitors toward requests, bookings or contact.",
+            included: [
+              "Multi-section website",
+              "Premium visual direction",
+              "Stronger animations and microinteractions",
+              "Contact / reservation / booking section",
+              "Basic SEO structure",
+              "Social media integration",
+              "Mobile-first polish",
+              "Launch support",
+            ],
+            timeline: "1-2 weeks",
+            extras: ["CMS", "Extra pages", "Extended SEO", "Analytics integration"],
+            cta: "Explore package",
             featured: true,
           },
           {
-            name: "Custom",
-            price: "",
-            desc: "For projects that need a fully personalized approach.",
-            items: [
-              "Design built from zero",
+            id: "custom",
+            name: "Custom Experience",
+            eyebrow: "Tailored system",
+            price: "Custom",
+            description:
+              "For brands that need something unique, advanced or highly tailored around the experience.",
+            benefits: [
               "Custom structure",
-              "Special features",
-              "Backend integration",
-              "Consulting and support",
+              "Advanced UI/UX",
+              "CMS / blog optional",
+              "Multilingual optional",
+              "Scalable long-term",
             ],
-            cta: "Discuss Custom",
-            featured: false,
+            perfectFor:
+              "Brands, premium concepts or projects that need a distinct digital experience, special features or a structure that can scale over time.",
+            included: [
+              "Custom website structure",
+              "Advanced UI/UX direction",
+              "CMS / blog optional",
+              "Multilingual setup optional",
+              "Booking / custom forms optional",
+              "Advanced animations optional",
+              "Scalable structure",
+              "Launch support",
+            ],
+            timeline: "Depends on scope",
+            extras: [
+              "Content strategy",
+              "Custom integrations",
+              "Automations",
+              "Design system",
+            ],
+            cta: "Explore package",
           },
-        ] as PackageItem[],
+        ] as ServicePackage[],
+      },
+
+      why: {
+        badge: "Why FlowCraftStudio",
+        title: "Why not just use a template?",
+        text: "A template can look decent, but your business needs a structure shaped around your offer, your customer and the action you want them to take.",
+        items: [
+          {
+            title: "Built around your business",
+            text: "Your offer is not forced into a generic layout. The structure starts from what you sell and who you sell to.",
+          },
+          {
+            title: "Mobile-first polish",
+            text: "Not just responsive resizing, but an experience that feels natural on a phone.",
+          },
+          {
+            title: "Premium visual identity",
+            text: "Colors, rhythm, spacing and details that make the website feel coherent and memorable.",
+          },
+          {
+            title: "Conversion-focused structure",
+            text: "Every section has a role: explain, build trust or guide people toward contact.",
+          },
+          {
+            title: "Fast, clean, modern experience",
+            text: "Clean code, fast pages and subtle interactions that do not overwhelm visitors.",
+          },
+          {
+            title: "Launch guidance and support",
+            text: "You get support with direction, content, launch and the steps after publishing.",
+          },
+        ] as SimpleItem[],
+      },
+
+      process: {
+        badge: "Process",
+        title: "A clear flow from idea to launch.",
+        steps: [
+          {
+            step: "01",
+            title: "Discovery",
+            text: "I understand the business, the offer, the audience and the result you want.",
+          },
+          {
+            step: "02",
+            title: "Structure",
+            text: "We map the sections, messages and flow that guide visitors toward action.",
+          },
+          {
+            step: "03",
+            title: "Design direction",
+            text: "I build the visual direction: premium, clear and aligned with your brand.",
+          },
+          {
+            step: "04",
+            title: "Development",
+            text: "I turn the direction into a fast, responsive website ready for launch.",
+          },
+          {
+            step: "05",
+            title: "Feedback & polish",
+            text: "We refine content, spacing, mobile behavior, interactions and clarity.",
+          },
+          {
+            step: "06",
+            title: "Launch",
+            text: "We publish the website and I guide you through domain, hosting and final checks.",
+          },
+        ] as ProcessStep[],
+      },
+
+      services: {
+        badge: "What I can build",
+        title: "Services that can shape the right package.",
+        text: "The package sets the direction, and the services adapt to what your business actually needs.",
+        items: [
+          {
+            title: "Presentation website",
+            text: "A serious, clear and modern presence for businesses that want to build trust.",
+          },
+          {
+            title: "Landing page",
+            text: "A focused page built around requests, calls, bookings or sales.",
+          },
+          {
+            title: "Redesign",
+            text: "I turn an old or unclear website into a cleaner, faster and more convincing experience.",
+          },
+          {
+            title: "CMS / Sanity",
+            text: "Content, project, article or lead management when the project needs it.",
+          },
+          {
+            title: "Booking / forms",
+            text: "Contact, reservation or request flows adapted to your business.",
+          },
+          {
+            title: "Maintenance",
+            text: "Updates, small changes, checks and support after launch.",
+          },
+        ] as SimpleItem[],
       },
 
       final: {
-        title: "Not sure exactly what you need?",
-        text: "Tell me about your business and I can suggest the right structure without drowning you in technical terms.",
+        title: "Not sure which package fits?",
+        text: "Tell me about your business and what you want to achieve, and I will suggest a clear direction without burying you in technical terms.",
       },
     },
   }[lang];
-
-  function packageCardClass(pack: PackageItem) {
-    if (pack.featured) {
-      return "border border-emerald-400/40 bg-emerald-400/[0.07] shadow-[0_0_80px_rgba(52,211,153,0.16)] hover:border-emerald-400/60 hover:shadow-[0_0_90px_rgba(52,211,153,0.22)]";
-    }
-
-    if (pack.name === "Custom") {
-      return "border border-cyan-400/20 bg-black/45 shadow-[0_0_70px_rgba(34,211,238,0.08)] hover:border-cyan-400/40 hover:shadow-[0_0_90px_rgba(34,211,238,0.18)]";
-    }
-
-    return "border border-emerald-400/10 bg-black/35 hover:border-emerald-400/40 hover:shadow-[0_0_80px_rgba(52,211,153,0.18)]";
-  }
-
-  function packageButtonClass(pack: PackageItem) {
-    if (pack.featured) {
-      return "bg-emerald-400 text-black hover:bg-emerald-300";
-    }
-
-    if (pack.name === "Custom") {
-      return "border border-cyan-400/20 bg-cyan-400/10 text-cyan-200 hover:bg-cyan-400 hover:text-black";
-    }
-
-    return "border border-white/10 bg-white/[0.04] text-white hover:border-emerald-400/40 hover:bg-white/[0.08]";
-  }
 
   return (
     <>
@@ -294,13 +489,13 @@ export default async function ServicesPage({
 
       <main className="px-6 py-24">
         <section className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-            {t.badge}
-          </p>
-
-          <div className="mt-5 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
-              <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {t.badge}
+              </p>
+
+              <h1 className="mt-5 max-w-5xl text-4xl font-bold tracking-tight text-white md:text-6xl">
                 {t.title}
               </h1>
 
@@ -325,160 +520,121 @@ export default async function ServicesPage({
               </div>
             </div>
 
-            <div className="rounded-3xl border border-emerald-400/10 bg-black/35 p-7 shadow-[0_0_60px_rgba(52,211,153,0.08)] backdrop-blur-xl">
-              <p className="text-sm font-semibold text-emerald-400">
-                {t.core.badge}
-              </p>
+            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/35 p-7 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(34,211,238,0.12),transparent_38%)]" />
+              <div className="relative">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                  {t.heroNote}
+                </p>
 
-              <p className="mt-4 text-2xl font-bold tracking-tight text-white">
-                {t.core.title}
-              </p>
+                <p className="mt-5 text-3xl font-bold tracking-tight text-white">
+                  FlowCraftStudio
+                </p>
 
-              <p className="mt-4 leading-7 text-zinc-400">{t.core.text}</p>
+                <p className="mt-4 leading-7 text-zinc-400">
+                  {lang === "ro"
+                    ? "Strategie, structură, design și dezvoltare într-un flow coerent, construit pentru business-uri care vor să pară mai clare și mai premium online."
+                    : "Strategy, structure, design and development in one coherent flow, built for businesses that want to feel clearer and more premium online."}
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="mt-20">
+          <ServicesPackages
+            lang={lang}
+            packages={t.packages.items}
+            copy={t.packages}
+          />
+
+          <section className="mt-24">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {t.why.badge}
+              </p>
+
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+                {t.why.title}
+              </h2>
+
+              <p className="mt-5 leading-7 text-zinc-400">{t.why.text}</p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {t.why.items.map((item) => (
+                <article
+                  key={item.title}
+                  className="rounded-3xl border border-white/10 bg-black/30 p-6 shadow-[0_0_45px_rgba(0,0,0,0.2)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.12)]"
+                >
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-400 ring-1 ring-emerald-400/20">
+                    ✓
+                  </div>
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-zinc-400">{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/40 p-7 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {lang === "ro" ? "Servicii" : "Services"}
+              {t.process.badge}
             </p>
 
             <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {t.servicesTitle}
+              {t.process.title}
             </h2>
 
-            <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
-              {t.servicesText}
-            </p>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {t.process.steps.map((step) => (
+                <article
+                  key={step.step}
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(52,211,153,0.12),transparent_34%)]" />
+                  <div className="relative">
+                    <p className="text-sm font-black text-emerald-400">
+                      {step.step}
+                    </p>
+                    <h3 className="mt-4 text-xl font-bold text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 leading-7 text-zinc-400">{step.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-24">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {t.services.badge}
+              </p>
+
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+                {t.services.title}
+              </h2>
+
+              <p className="mt-5 leading-7 text-zinc-400">{t.services.text}</p>
+            </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {t.services.map((service) => (
+              {t.services.items.map((service) => (
                 <article
                   key={service.title}
                   className="group rounded-3xl border border-white/10 bg-black/30 p-7 shadow-[0_0_40px_rgba(0,0,0,0.25)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_55px_rgba(52,211,153,0.12)]"
                 >
                   <div className="mb-6 h-10 w-10 rounded-2xl bg-emerald-400/10 shadow-[0_0_25px_rgba(52,211,153,0.12)] ring-1 ring-emerald-400/20 transition group-hover:bg-emerald-400/20" />
-
-                  <h2 className="text-xl font-semibold tracking-tight text-white">
+                  <h3 className="text-xl font-semibold tracking-tight text-white">
                     {service.title}
-                  </h2>
-
+                  </h3>
                   <p className="mt-4 leading-7 text-zinc-400">{service.text}</p>
                 </article>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="mt-20 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-                {t.included.badge}
-              </p>
-
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
-                {t.included.title}
-              </h2>
-
-              <p className="mt-5 leading-7 text-zinc-400">{t.included.text}</p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {t.included.items.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300 backdrop-blur-xl"
-                >
-                  <span className="mr-3 text-emerald-400">✦</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-24">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {t.packages.badge}
-            </p>
-
-            <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {t.packages.title}
-            </h2>
-
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              {t.packages.items.map((pack) => (
-                <article
-                  key={pack.name}
-                  className={`relative rounded-3xl p-7 backdrop-blur-xl transition hover:-translate-y-1 ${packageCardClass(
-                    pack,
-                  )}`}
-                >
-                  {pack.featured && (
-                    <p className="mb-5 w-fit rounded-full bg-emerald-400 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-black">
-                      {t.packages.recommended}
-                    </p>
-                  )}
-
-                  {pack.name === "Start" && (
-                    <p className="mb-5 w-fit rounded-full border border-white/10 bg-white/[0.05] px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-zinc-300">
-                      Basic
-                    </p>
-                  )}
-
-                  {pack.name === "Custom" && (
-                    <p className="mb-5 w-fit rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">
-                      Premium
-                    </p>
-                  )}
-
-                  <h3 className="text-2xl font-bold text-white">{pack.name}</h3>
-
-                  <div className="mt-4">
-                    <p className="text-sm uppercase tracking-[0.25em] text-zinc-500">
-                      {pack.price ? t.packages.from : t.packages.customPrice}
-                    </p>
-
-                    <p className="mt-1 text-4xl font-black tracking-tight text-white">
-                      {pack.price || "Custom"}
-                    </p>
-                  </div>
-
-                  <p className="mt-5 min-h-[84px] leading-7 text-zinc-400">
-                    {pack.desc}
-                  </p>
-
-                  <div className="mt-6 grid gap-3">
-                    {pack.items.map((item) => (
-                      <p key={item} className="text-sm text-zinc-300">
-                        <span className="mr-2 text-emerald-400">✓</span>
-                        {item}
-                      </p>
-                    ))}
-                  </div>
-
-                  <Link
-                    href={`/${lang}/contact?package=${pack.name.toLowerCase()}&source=services`}
-                    className={`mt-8 block rounded-full px-6 py-3 text-center font-semibold transition ${packageButtonClass(
-                      pack,
-                    )}`}
-                  >
-                    {pack.cta}
-                  </Link>
-                </article>
-              ))}
-            </div>
-
-            <p className="mt-5 text-sm text-zinc-500">{t.packages.note}</p>
-
-            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl">
-              <p className="text-sm leading-7 text-zinc-400">
-                {lang === "ro"
-                  ? "Prețurile afișate includ designul și dezvoltarea site-ului. Domeniul, hostingul și eventualele servicii externe sunt separate și alese în funcție de nevoile proiectului."
-                  : "Displayed prices include website design and development. Domain, hosting and any external services are separate and chosen based on the needs of the project."}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-20 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+          <section className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
             <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white md:text-4xl">
               {t.final.title}
             </h2>
@@ -493,7 +649,7 @@ export default async function ServicesPage({
             >
               {t.cta}
             </Link>
-          </div>
+          </section>
         </section>
       </main>
 
