@@ -195,9 +195,9 @@ export default function ContactPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="min-h-screen px-4 py-20 md:px-6 md:py-28">
-        <section className="grid w-full min-w-0 max-w-full gap-12 lg:max-w-7xl lg:grid-cols-[1fr_0.8fr]">
-          <div className="min-w-0 w-full text-left">
+      <main className="min-h-screen overflow-x-hidden px-4 py-20 sm:px-6 md:py-28">
+        <section className="mx-auto grid w-full max-w-7xl min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:gap-12">
+          <div className="w-full min-w-0 text-left">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {t.badge}
             </p>
@@ -208,7 +208,7 @@ export default function ContactPage({
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
             {selectedPackageInfo && (
-              <div className="mx-auto mt-10 w-full rounded-3xl border border-emerald-400/20 bg-black/35 p-6 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl lg:mx-0 lg:max-w-none">
+              <div className="mx-auto mt-10 w-full min-w-0 rounded-3xl border border-emerald-400/20 bg-black/35 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:p-6 lg:mx-0 lg:max-w-none">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
                   {lang === "ro" ? "Pachet selectat" : "Selected package"}
                 </p>
@@ -261,7 +261,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mt-12 grid w-full min-w-0 max-w-full gap-5 text-left"
+              className="mt-12 grid w-full min-w-0 gap-5 text-left"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -345,7 +345,7 @@ export default function ContactPage({
                 />
               </div>
 
-              <div className="relative flex w-full min-w-0 max-w-full rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
@@ -454,13 +454,13 @@ export default function ContactPage({
             </form>
           </div>
 
-          <aside className="rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl lg:sticky lg:top-28 lg:h-fit">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+          <aside className="w-full min-w-0 rounded-3xl border border-emerald-400/10 bg-black/35 p-5 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl sm:p-8 lg:sticky lg:top-28 lg:h-fit">
+            <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                 {lang === "ro" ? "Contact direct" : "Direct contact"}
               </p>
 
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl">
                 {lang === "ro"
                   ? "Preferi să vorbim direct?"
                   : "Prefer to talk directly?"}
@@ -472,7 +472,7 @@ export default function ContactPage({
                   : "You can use the form or contact me directly by email or phone."}
               </p>
 
-              <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+              <div className="group min-w-0 rounded-2xl border border-white/10 bg-black/30 px-4 py-4 sm:px-5">
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   Email
                 </p>
@@ -481,7 +481,7 @@ export default function ContactPage({
                 </p>
               </div>
 
-              <div className="group rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+              <div className="group min-w-0 rounded-2xl border border-white/10 bg-black/30 px-4 py-4 sm:px-5">
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   {lang === "ro" ? "Telefon" : "Phone"}
                 </p>
@@ -489,7 +489,7 @@ export default function ContactPage({
               </div>
             </div>
 
-            <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+            <div className="mt-5 min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
               <h3 className="text-xl font-bold text-white">{t.sideTitle}</h3>
 
               <div className="mt-6 space-y-5">

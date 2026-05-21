@@ -50,25 +50,25 @@ export default function CountryCodeSelect({
   return (
     <div
       ref={wrapperRef}
-      className="relative w-[46%] max-w-[180px] shrink-0 border-r border-white/10 sm:w-[38%]"
+      className="relative w-[112px] shrink-0 border-r border-white/10 sm:w-[180px]"
     >
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="relative flex w-full items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-4 pr-12 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+        className="relative flex w-full items-center rounded-2xl border border-white/10 bg-black/30 px-4 py-4 pr-9 text-left outline-none transition hover:border-emerald-400/40 focus:border-emerald-400/70 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)] sm:px-5 sm:pr-12"
       >
         <span className="shrink-0 font-semibold text-white">
           {selected.code}
         </span>
 
-        <span className="ml-3 min-w-0 flex-1 truncate text-sm text-zinc-400">
+        <span className="ml-3 hidden min-w-0 flex-1 truncate text-sm text-zinc-400 sm:block">
           {lang === "ro" ? selected.ro : selected.en}
         </span>
 
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400"
+          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 sm:right-4"
         >
           ▼
         </motion.span>
@@ -81,7 +81,7 @@ export default function CountryCodeSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute z-50 mt-2 max-h-72 w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl"
+            className="absolute z-50 mt-2 max-h-72 w-[220px] overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl sm:w-full"
           >
             {countries.map((country) => (
               <button
