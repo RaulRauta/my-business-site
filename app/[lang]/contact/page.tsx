@@ -222,7 +222,7 @@ export default function ContactPage({
                       className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
                         chosenPackage === pack
                           ? "border-emerald-400 bg-emerald-400 text-black shadow-[0_0_30px_rgba(52,211,153,0.35)]"
-                          : "border-white/10 bg-black/30 text-zinc-300 hover:border-emerald-400/40 hover:bg-white/[0.04] hover:text-white"
+                          : "border-white/10 bg-black/30 text-zinc-300 hover:border-emerald-400/40 hover:bg-white/4 hover:text-white"
                       }`}
                     >
                       {pack === "start" && "Start"}
@@ -232,7 +232,7 @@ export default function ContactPage({
                   ))}
                 </div>
 
-                <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                <div className="mt-6 rounded-2xl border border-white/10 bg-white/4 p-6">
                   <h2 className="text-3xl font-bold text-white">
                     {chosenPackage === "start" && "Start"}
                     {chosenPackage === "growth" && "Growth"}
@@ -455,7 +455,7 @@ export default function ContactPage({
           </div>
 
           <aside className="w-full min-w-0 rounded-3xl border border-emerald-400/10 bg-black/35 p-5 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl sm:p-8 lg:sticky lg:top-28 lg:h-fit">
-            <div className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
+            <div className="min-w-0 rounded-2xl border border-white/10 bg-white/4 p-5 sm:p-6">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                 {lang === "ro" ? "Contact direct" : "Direct contact"}
               </p>
@@ -476,7 +476,7 @@ export default function ContactPage({
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   Email
                 </p>
-                <p className="mt-1 break-words font-semibold text-white">
+                <p className="mt-1 wrap-break-word font-semibold text-white">
                   raulflorinrauta@gmail.com
                 </p>
               </div>
@@ -489,7 +489,7 @@ export default function ContactPage({
               </div>
             </div>
 
-            <div className="mt-5 min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6">
+            <div className="mt-5 min-w-0 rounded-2xl border border-white/10 bg-white/4 p-5 sm:p-6">
               <h3 className="text-xl font-bold text-white">{t.sideTitle}</h3>
 
               <div className="mt-6 space-y-5">

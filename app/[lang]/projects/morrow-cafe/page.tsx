@@ -17,7 +17,7 @@ type MorrowNavCopy = {
 
 function MorrowNavbar({ t }: { t: MorrowNavCopy }) {
   return (
-    <header className="fixed left-0 top-0 z-[999] w-full px-4 pt-4">
+    <header className="fixed left-0 top-0 z-999 w-full px-4 pt-4">
       <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-full border border-[#d9b46f]/15 bg-[#0f0906]/90 px-5 py-3 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
         <a href="#" className="flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#d9b46f]/25 bg-[#d9b46f]/10 text-sm font-bold text-[#d9b46f]">
@@ -34,7 +34,7 @@ function MorrowNavbar({ t }: { t: MorrowNavCopy }) {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/4 p-1 md:flex">
           {[
             [t.menu, "#menu"],
             [t.gallery, "#gallery"],
@@ -300,9 +300,9 @@ export default async function MorrowCafeDemo({
 
   return (
     <main className="min-h-screen bg-[#120d0a] text-[#f7efe5]">
-      <div className="pointer-events-none fixed inset-0 z-[1] opacity-[0.035] [background-image:url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
+      <div className="pointer-events-none fixed inset-0 z-1 opacity-[0.035] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
       <MorrowNavbar t={t} />
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Demo badge */}
       <div className="fixed bottom-4 left-1/2 z-50 w-full -translate-x-1/2 px-4 sm:bottom-5 sm:w-auto">
         <div className="mx-auto flex max-w-sm items-center justify-center gap-3 rounded-full border border-[#d9b46f]/20 bg-[#120d0a]/75 px-4 py-3 text-xs text-white/65 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
@@ -318,7 +318,7 @@ export default async function MorrowCafeDemo({
           </Link>
         </div>
       </div>
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Hero */}
       <section className="relative flex min-h-screen items-start overflow-hidden px-6 pb-24 pt-44 md:pt-48">
         <div className="absolute inset-0">
@@ -333,8 +333,8 @@ export default async function MorrowCafeDemo({
           <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-[#d9b46f]/10 blur-[140px]" />
 
           <div className="absolute bottom-[10%] right-[10%] h-96 w-96 rounded-full bg-orange-900/20 blur-[160px]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#120d0a] via-[#120d0a]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-transparent to-[#120d0a]/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#120d0a] via-[#120d0a]/80 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#120d0a] via-transparent to-[#120d0a]/40" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
@@ -362,7 +362,7 @@ export default async function MorrowCafeDemo({
               </a>
               <a
                 href="#visit"
-                className="rounded-full border border-white/15 bg-white/[0.03] px-8 py-4 text-center text-sm font-semibold text-white/90 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-[#d9b46f] hover:text-[#d9b46f]"
+                className="rounded-full border border-white/15 bg-white/3 px-8 py-4 text-center text-sm font-semibold text-white/90 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-[#d9b46f] hover:text-[#d9b46f]"
               >
                 {t.bookTable}
               </a>
@@ -370,7 +370,7 @@ export default async function MorrowCafeDemo({
           </div>
         </div>
       </section>
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Menu */}
       <section id="menu" className="relative overflow-hidden px-6 py-28">
         <div className="pointer-events-none absolute left-0 top-1/3 h-96 w-96 rounded-full bg-[#d9b46f]/5 blur-[140px]" />
@@ -397,7 +397,7 @@ export default async function MorrowCafeDemo({
             {t.menuItems.map((item, index) => (
               <article
                 key={item.name}
-                className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#d9b46f]/35 hover:bg-white/[0.06] hover:shadow-[0_25px_90px_rgba(0,0,0,0.35)]"
+                className="group overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#d9b46f]/35 hover:bg-white/6 hover:shadow-[0_25px_90px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -407,7 +407,7 @@ export default async function MorrowCafeDemo({
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-trom-[#120d0a] via-transparent to-transparent" />
 
                   <span className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#f3d19c] backdrop-blur-xl">
                     {item.category}
@@ -428,7 +428,7 @@ export default async function MorrowCafeDemo({
                     {item.desc}
                   </p>
 
-                  <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  <div className="mt-6 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent" />
 
                   <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/35">
                     {t.morrowSelection}
@@ -439,10 +439,10 @@ export default async function MorrowCafeDemo({
           </div>
         </div>
       </section>
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Gallery */}
       <section id="gallery" className="relative overflow-hidden px-6 py-28">
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
 
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-3xl">
@@ -460,7 +460,7 @@ export default async function MorrowCafeDemo({
           </div>
 
           <div className="grid gap-5 md:grid-cols-4 md:grid-rows-[220px_220px]">
-            <div className="group relative h-80 overflow-hidden rounded-[2rem] border border-white/10 md:col-span-2 md:row-span-2 md:h-auto md:min-h-[440px]">
+            <div className="group relative h-80 overflow-hidden rounded-4xl border border-white/10 md:col-span-2 md:row-span-2 md:h-auto md:min-h-110">
               <Image
                 src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1400&auto=format&fit=crop"
                 alt="Coffee shop interior"
@@ -468,7 +468,7 @@ export default async function MorrowCafeDemo({
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#120d0a]/70 via-transparent to-transparent" />
               <p className="absolute bottom-6 left-6 text-sm uppercase tracking-[0.3em] text-[#f3d19c]">
                 {t.galleryImages[0]}
               </p>
@@ -494,7 +494,7 @@ export default async function MorrowCafeDemo({
             ].map((image) => (
               <div
                 key={image.label}
-                className="group relative h-56 overflow-hidden rounded-[2rem] border border-white/10 md:h-auto"
+                className="group relative h-56 overflow-hidden rounded-4xl border border-white/10 md:h-auto"
               >
                 <Image
                   src={image.src}
@@ -503,7 +503,7 @@ export default async function MorrowCafeDemo({
                   sizes="(min-width: 768px) 25vw, 100vw"
                   className="object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a]/65 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#120d0a]/65 via-transparent to-transparent" />
                 <p className="absolute bottom-5 left-5 text-xs uppercase tracking-[0.25em] text-[#f3d19c]">
                   {image.label}
                 </p>
@@ -512,7 +512,7 @@ export default async function MorrowCafeDemo({
           </div>
         </div>
       </section>
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
 
       {/* Reviews */}
       <section className="relative overflow-hidden px-6 py-24">
@@ -537,7 +537,7 @@ export default async function MorrowCafeDemo({
             {t.reviews.map((review) => (
               <article
                 key={review.name}
-                className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#d9b46f]/30 hover:bg-white/[0.06]"
+                className="rounded-4xl border border-white/10 bg-white/4 p-7 shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-[#d9b46f]/30 hover:bg-white/6"
               >
                 <div className="mb-6 flex gap-1 text-[#d9b46f]">★★★★★</div>
 
@@ -558,7 +558,7 @@ export default async function MorrowCafeDemo({
 
         <div className="relative mx-auto max-w-7xl">
           <div className="grid overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1b120d]/85 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[520px] overflow-hidden p-8 md:p-10">
+            <div className="relative min-h-130 overflow-hidden p-8 md:p-10">
               <Image
                 src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1400&auto=format&fit=crop"
                 alt="Morrow Café location"
@@ -567,7 +567,7 @@ export default async function MorrowCafeDemo({
                 className="object-cover opacity-35"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-[#120d0a]/75 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#120d0a] via-[#120d0a]/75 to-transparent" />
 
               <div className="relative z-10 flex h-full flex-col justify-between">
                 <div>
@@ -623,32 +623,32 @@ export default async function MorrowCafeDemo({
               <form className="grid gap-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <input
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                     placeholder={t.name}
                   />
                   <input
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                     placeholder={t.phone}
                   />
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-3">
                   <input
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                     placeholder={t.guests}
                   />
                   <input
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                     placeholder={t.date}
                   />
                   <input
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                     placeholder={t.time}
                   />
                 </div>
 
                 <textarea
-                  className="min-h-32 rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
+                  className="min-h-32 rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-white outline-none transition placeholder:text-white/30 focus:border-[#d9b46f]/50"
                   placeholder={t.request}
                 />
 
@@ -660,7 +660,7 @@ export default async function MorrowCafeDemo({
                 </button>
               </form>
 
-              <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+              <div className="mt-8 rounded-3xl border border-white/10 bg-white/4 p-5">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/35">
                   {t.avgReply}
                 </p>
@@ -670,7 +670,7 @@ export default async function MorrowCafeDemo({
           </div>
         </div>
       </section>
-      <div className="mx-auto h-px max-w-7xl bg-gradient-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
+      <div className="mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-[#d9b46f]/20 to-transparent" />
       {/* Footer */}
       <footer className="relative overflow-hidden border-t border-white/10 px-6 py-16">
         <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#d9b46f]/8 blur-[140px]" />

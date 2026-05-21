@@ -170,7 +170,8 @@ export default async function ProcessPage({
 
       why: {
         badge: "De ce contează",
-        title: "Structura schimbă felul în care oamenii îți percep business-ul.",
+        title:
+          "Structura schimbă felul în care oamenii îți percep business-ul.",
         text: "Utilizatorii judecă rapid. Un site grăbit poate părea neclar, generic sau nesigur. Un proces bun creează o experiență coerentă, în care brandul, mesajul, mobilul și detaliile lucrează împreună.",
         principles: [
           {
@@ -257,12 +258,7 @@ export default async function ProcessPage({
             title: "Design Direction",
             kicker: "Shaping the atmosphere",
             text: "We define the premium visual identity: typography, spacing, colors, rhythm and the interactive feeling of the website.",
-            points: [
-              "visual identity",
-              "typography",
-              "spacing",
-              "atmosphere",
-            ],
+            points: ["visual identity", "typography", "spacing", "atmosphere"],
           },
           {
             number: "04",
@@ -393,7 +389,7 @@ export default async function ProcessPage({
 
                 <Link
                   href={`/${lang}/projects`}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                  className="rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                 >
                   {t.secondary}
                 </Link>
@@ -419,7 +415,7 @@ export default async function ProcessPage({
                   {t.studioCard.items.map((item) => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300"
+                      className="rounded-2xl border border-white/10 bg-white/4 px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300"
                     >
                       {item}
                     </div>
@@ -447,7 +443,7 @@ export default async function ProcessPage({
                 {t.intro.highlights.map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-300"
                   >
                     <span className="mr-3 text-emerald-400">✓</span>
                     {item}
@@ -471,7 +467,7 @@ export default async function ProcessPage({
             </div>
 
             <div className="relative mt-14">
-              <div className="pointer-events-none absolute left-5 top-0 hidden h-full w-px bg-gradient-to-b from-emerald-400/0 via-emerald-400/40 to-emerald-400/0 md:block" />
+              <div className="pointer-events-none absolute left-5 top-0 hidden h-full w-px bg-linear-to-b from-emerald-400/0 via-emerald-400/40 to-emerald-400/0 md:block" />
 
               <div className="grid gap-6">
                 {t.journey.steps.map((step, index) => (
@@ -504,7 +500,7 @@ export default async function ProcessPage({
                         {step.points.map((point) => (
                           <span
                             key={point}
-                            className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300"
+                            className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-zinc-300"
                           >
                             {point}
                           </span>
@@ -559,7 +555,7 @@ export default async function ProcessPage({
               {t.why.principles.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.04] p-5"
+                  className="rounded-3xl border border-white/10 bg-white/4 p-5"
                 >
                   <h3 className="text-xl font-bold text-white">{item.title}</h3>
                   <p className="mt-3 leading-7 text-zinc-400">{item.text}</p>
@@ -587,7 +583,7 @@ export default async function ProcessPage({
 
               <Link
                 href={`/${lang}/projects`}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                className="rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
               >
                 {t.final.secondary}
               </Link>

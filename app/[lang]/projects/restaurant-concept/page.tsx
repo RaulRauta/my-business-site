@@ -121,16 +121,16 @@ export default async function RestaurantConceptPage({
               </Link>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] border border-[#9f1239]/25 bg-[#16070c]/80 p-6 shadow-[0_0_90px_rgba(159,18,57,0.18)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-4xl border border-[#9f1239]/25 bg-[#16070c]/80 p-6 shadow-[0_0_90px_rgba(159,18,57,0.18)] backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(159,18,57,0.24),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(120,20,40,0.18),transparent_45%)]" />
 
-              <div className="relative rounded-[1.5rem] border border-white/10 bg-[#220b12]/70 p-6">
+              <div className="relative rounded-3xl border border-white/10 bg-[#220b12]/70 p-6">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f0b4c5]">
                     Aurelia
                   </p>
 
-                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-400">
+                  <span className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-xs text-zinc-400">
                     Reserve
                   </span>
                 </div>
@@ -150,7 +150,7 @@ export default async function RestaurantConceptPage({
                   {["Menu", "Gallery", "Booking"].map((item) => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-center text-sm font-semibold text-zinc-300"
+                      className="rounded-2xl border border-white/10 bg-white/4 px-4 py-4 text-center text-sm font-semibold text-zinc-300"
                     >
                       {item}
                     </div>
@@ -196,7 +196,7 @@ export default async function RestaurantConceptPage({
               {t.sections.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-300"
                 >
                   <span className="mr-3 text-[#f0b4c5]">✦</span>
                   {item}

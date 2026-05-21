@@ -47,7 +47,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           : "border-b border-white/5 bg-black/25 backdrop-blur-md"
       }`}
     >
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/50 to-transparent" />
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         {/* LOGO */}
@@ -186,12 +186,12 @@ export default function Navbar({ lang }: { lang: Lang }) {
                   rotate: menuOpen ? 45 : 0,
                   y: menuOpen ? 6 : 0,
                 }}
-                className="absolute left-0 top-0 h-[2px] w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
               />
 
               <motion.span
                 animate={{ opacity: menuOpen ? 0 : 1 }}
-                className="absolute left-0 top-[6px] h-[2px] w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
               />
 
               <motion.span
@@ -199,7 +199,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                   rotate: menuOpen ? -45 : 0,
                   y: menuOpen ? -6 : 0,
                 }}
-                className="absolute left-0 top-[12px] h-[2px] w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
               />
             </span>
           </button>
@@ -228,7 +228,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                     className={`rounded-2xl px-5 py-4 text-base font-semibold transition ${
                       isActive
                         ? "bg-emerald-400 text-black shadow-[0_0_24px_rgba(52,211,153,0.35)]"
-                        : "bg-white/[0.04] text-zinc-300 hover:bg-white/[0.08] hover:text-white"
+                        : "bg-white/4 text-zinc-300 hover:bg-white/8 hover:text-white"
                     }`}
                   >
                     {item.label}

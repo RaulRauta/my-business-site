@@ -124,7 +124,7 @@ export default async function RestaurantDemoPage({
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="relative z-[60] bg-amber-200 px-3 py-2 text-center text-[10px] font-semibold leading-5 text-black sm:px-4 sm:text-xs">
+      <div className="relative z-60 bg-amber-200 px-3 py-2 text-center text-[10px] font-semibold leading-5 text-black sm:px-4 sm:text-xs">
         {lang === "ro"
           ? "Demo website creat de FlowCraft Studio — restaurant fictiv folosit pentru prezentare."
           : "Demo website created by FlowCraft Studio — fictional restaurant used for presentation."}
@@ -156,7 +156,7 @@ export default async function RestaurantDemoPage({
             <div className="flex items-center gap-2 md:hidden">
               <a
                 href="#menu"
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-zinc-300"
+                className="rounded-full border border-white/10 bg-white/4 px-3 py-2 text-xs font-semibold text-zinc-300"
               >
                 Menu
               </a>
@@ -216,7 +216,7 @@ export default async function RestaurantDemoPage({
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-300 backdrop-blur-sm sm:px-4 sm:text-sm"
+                  className="rounded-full border border-white/10 bg-white/4 px-3 py-2 text-xs font-medium text-zinc-300 backdrop-blur-sm sm:px-4 sm:text-sm"
                 >
                   {item}
                 </div>
@@ -241,7 +241,7 @@ export default async function RestaurantDemoPage({
         </div>
 
         {/* FLOATING EXPERIENCE CARD */}
-        <div className="absolute bottom-10 right-10 hidden w-[320px] animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-white/10 bg-black/45 shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:block">
+        <div className="absolute bottom-10 right-10 hidden w-[320px] animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-4xl border border-white/10 bg-black/45 shadow-[0_0_60px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:block">
           <div className="h-40 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center" />
 
           <div className="p-6">
@@ -301,9 +301,9 @@ export default async function RestaurantDemoPage({
 
           {/* CHEF HIGHLIGHTS */}
           <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="group relative min-h-[520px] overflow-hidden rounded-[2.5rem] border border-white/10">
+            <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
 
               <div className="absolute bottom-0 left-0 p-8">
                 <p className="text-xs uppercase tracking-[0.35em] text-amber-200">
@@ -351,10 +351,10 @@ export default async function RestaurantDemoPage({
               ].map((item) => (
                 <div
                   key={item.name}
-                  className="group grid overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950/70 md:grid-cols-[0.8fr_1.2fr]"
+                  className="group grid overflow-hidden rounded-4xl border border-white/10 bg-zinc-950/70 md:grid-cols-[0.8fr_1.2fr]"
                 >
                   <div
-                    className="min-h-[220px] bg-cover bg-center transition duration-700 group-hover:scale-105"
+                    className="min-h-55 bg-cover bg-center transition duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${item.image})` }}
                   />
 
@@ -383,7 +383,7 @@ export default async function RestaurantDemoPage({
             {menuCategories.map((category) => (
               <div
                 key={category.title}
-                className="rounded-[2rem] border border-white/10 bg-black/35 p-7 shadow-[0_0_60px_rgba(0,0,0,0.25)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-amber-200/30 hover:shadow-[0_0_70px_rgba(251,191,36,0.08)]"
+                className="rounded-4xl border border-white/10 bg-black/35 p-7 shadow-[0_0_60px_rgba(0,0,0,0.25)] backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-amber-200/30 hover:shadow-[0_0_70px_rgba(251,191,36,0.08)]"
               >
                 <p className="text-xs uppercase tracking-[0.35em] text-amber-200/70">
                   {category.title}
@@ -449,7 +449,7 @@ export default async function RestaurantDemoPage({
                 ].map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-semibold text-zinc-300"
+                    className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-sm font-semibold text-zinc-300"
                   >
                     <span className="mr-3 text-amber-200">✦</span>
                     {item}
@@ -459,9 +459,9 @@ export default async function RestaurantDemoPage({
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="group relative min-h-[520px] overflow-hidden rounded-[2.5rem] border border-white/10 sm:row-span-2">
+              <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10 sm:row-span-2">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-transparent" />
 
                 <div className="absolute bottom-0 left-0 p-7">
                   <p className="text-xs uppercase tracking-[0.35em] text-amber-200">
@@ -475,17 +475,17 @@ export default async function RestaurantDemoPage({
                 </div>
               </div>
 
-              <div className="group relative min-h-[250px] overflow-hidden rounded-[2rem] border border-white/10">
+              <div className="group relative min-h-62.5 overflow-hidden rounded-4xl border border-white/10">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <p className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
                   Bar & wine
                 </p>
               </div>
 
-              <div className="group relative min-h-[250px] overflow-hidden rounded-[2rem] border border-white/10">
+              <div className="group relative min-h-62.5 overflow-hidden rounded-4xl border border-white/10">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <p className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
                   Chef details
                 </p>
@@ -517,9 +517,9 @@ export default async function RestaurantDemoPage({
           </div>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="group relative min-h-[520px] overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/25 hover:shadow-[0_0_90px_rgba(251,191,36,0.08)]">
+            <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/25 hover:shadow-[0_0_90px_rgba(251,191,36,0.08)]">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
               <div className="absolute bottom-0 left-0 p-8">
                 <div className="flex items-center gap-3">
@@ -554,13 +554,13 @@ export default async function RestaurantDemoPage({
               ].map((item) => (
                 <div
                   key={item.image}
-                  className="group relative min-h-[247px] overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/20"
+                  className="group relative min-h-61.75 overflow-hidden rounded-4xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/20"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${item.image})` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/65 via-transparent to-transparent" />
 
                   <p className="absolute bottom-6 left-6 text-sm font-semibold uppercase tracking-[0.3em] text-amber-200">
                     {item.label}
@@ -584,7 +584,7 @@ export default async function RestaurantDemoPage({
         </div>
 
         <div className="relative mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-          <div className="rounded-[2rem] border border-white/10 bg-black/45 p-7 backdrop-blur-xl sm:p-9">
+          <div className="rounded-4xl border border-white/10 bg-black/45 p-7 backdrop-blur-xl sm:p-9">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-200">
               {t.reserveBadge}
             </p>
@@ -610,7 +610,7 @@ export default async function RestaurantDemoPage({
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-semibold text-zinc-300"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-sm font-semibold text-zinc-300"
                 >
                   {item}
                 </div>
@@ -618,31 +618,31 @@ export default async function RestaurantDemoPage({
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-black/55 p-6 shadow-[0_0_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-8">
+          <div className="rounded-4xl border border-white/10 bg-black/55 p-6 shadow-[0_0_80px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="text"
                 placeholder={lang === "ro" ? "Nume" : "Name"}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50"
+                className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50"
               />
 
               <input
                 type="tel"
                 placeholder={lang === "ro" ? "Telefon" : "Phone"}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50"
+                className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50"
               />
 
               <input
                 type="date"
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50"
+                className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50"
               />
 
               <input
                 type="time"
-                className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50"
+                className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50"
               />
 
-              <select className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50 sm:col-span-2">
+              <select className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-400 outline-none focus:border-amber-200/50 sm:col-span-2">
                 <option>{lang === "ro" ? "2 persoane" : "2 guests"}</option>
                 <option>{lang === "ro" ? "3 persoane" : "3 guests"}</option>
                 <option>{lang === "ro" ? "4 persoane" : "4 guests"}</option>
@@ -654,7 +654,7 @@ export default async function RestaurantDemoPage({
                 placeholder={
                   lang === "ro" ? "Mesaj opțional" : "Optional message"
                 }
-                className="resize-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50 sm:col-span-2"
+                className="resize-none rounded-2xl border border-white/10 bg-white/4 px-5 py-4 outline-none placeholder:text-zinc-500 focus:border-amber-200/50 sm:col-span-2"
               />
             </div>
 

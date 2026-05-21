@@ -18,7 +18,7 @@ export default function Intro() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[999] flex items-center justify-center overflow-hidden bg-[#06111c]"
+          className="fixed inset-0 z-999 flex items-center justify-center overflow-hidden bg-[#06111c]"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(52,211,153,0.22),transparent_35%),radial-gradient(circle_at_70%_60%,rgba(34,211,238,0.14),transparent_35%)]" />
 
@@ -26,7 +26,7 @@ export default function Intro() {
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute h-px w-72 origin-center bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_25px_rgba(52,211,153,0.8)]"
+            className="absolute h-px w-72 origin-center bg-linear-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_25px_rgba(52,211,153,0.8)]"
           />
 
           <motion.div
@@ -61,7 +61,7 @@ export default function Intro() {
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "100%", opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="mx-auto mt-6 h-px max-w-40 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+              className="mx-auto mt-6 h-px max-w-40 bg-linear-to-r from-transparent via-cyan-400 to-transparent"
             />
           </motion.div>
         </motion.div>

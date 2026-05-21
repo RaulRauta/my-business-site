@@ -45,8 +45,9 @@ export default function ServicesPackages({
   packages,
   copy,
 }: ServicesPackagesProps) {
-  const [selectedPackage, setSelectedPackage] =
-    useState<ServicePackage | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<ServicePackage | null>(
+    null,
+  );
 
   useEffect(() => {
     if (!selectedPackage) {
@@ -90,19 +91,19 @@ export default function ServicesPackages({
             key={pack.id}
             type="button"
             onClick={() => setSelectedPackage(pack)}
-            className={`group relative flex min-h-[520px] flex-col overflow-hidden rounded-3xl border p-7 text-left backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-emerald-400/60 ${
+            className={`group relative flex min-h-130 flex-col overflow-hidden rounded-3xl border p-7 text-left backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-emerald-400/60 ${
               pack.featured
-                ? "border-emerald-400/45 bg-emerald-400/[0.08] shadow-[0_0_100px_rgba(52,211,153,0.18)] hover:border-emerald-300 hover:shadow-[0_0_120px_rgba(52,211,153,0.28)]"
+                ? "border-emerald-400/45 bg-emerald-400/8 shadow-[0_0_100px_rgba(52,211,153,0.18)] hover:border-emerald-300 hover:shadow-[0_0_120px_rgba(52,211,153,0.28)]"
                 : pack.id === "custom"
                   ? "border-cyan-400/20 bg-black/45 shadow-[0_0_80px_rgba(34,211,238,0.08)] hover:border-cyan-300/50 hover:shadow-[0_0_110px_rgba(34,211,238,0.18)]"
                   : "border-white/10 bg-black/35 shadow-[0_0_70px_rgba(0,0,0,0.25)] hover:border-emerald-400/40 hover:shadow-[0_0_90px_rgba(52,211,153,0.16)]"
             }`}
           >
             <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(52,211,153,0.16),transparent_34%),radial-gradient(circle_at_85%_80%,rgba(34,211,238,0.1),transparent_38%)] opacity-70 transition group-hover:opacity-100" />
-            <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-50" />
+            <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/40 to-transparent opacity-50" />
 
             <span className="relative z-10 flex items-center justify-between gap-4">
-              <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-zinc-300">
+              <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-zinc-300">
                 {pack.eyebrow}
               </span>
 
@@ -126,14 +127,17 @@ export default function ServicesPackages({
                 {pack.price}
               </span>
 
-              <span className="mt-6 block min-h-[84px] leading-7 text-zinc-400">
+              <span className="mt-6 block min-h-21 leading-7 text-zinc-400">
                 {pack.description}
               </span>
             </span>
 
             <span className="relative z-10 mt-7 grid gap-3">
               {pack.benefits.map((benefit) => (
-                <span key={benefit} className="flex gap-3 text-sm text-zinc-300">
+                <span
+                  key={benefit}
+                  className="flex gap-3 text-sm text-zinc-300"
+                >
                   <span className="mt-0.5 text-emerald-400">✓</span>
                   <span>{benefit}</span>
                 </span>
@@ -145,7 +149,7 @@ export default function ServicesPackages({
                 className={`block rounded-full px-6 py-3 text-center font-semibold transition ${
                   pack.featured
                     ? "bg-emerald-400 text-black shadow-[0_0_32px_rgba(52,211,153,0.28)] group-hover:bg-emerald-300"
-                    : "border border-white/10 bg-white/[0.04] text-white group-hover:border-emerald-400/40 group-hover:bg-white/[0.08]"
+                    : "border border-white/10 bg-white/4 text-white group-hover:border-emerald-400/40 group-hover:bg-white/8"
                 }`}
               >
                 {copy.viewDetails}
@@ -164,7 +168,7 @@ export default function ServicesPackages({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[1000] flex items-end justify-center bg-black/75 px-4 py-4 backdrop-blur-xl sm:items-center sm:py-8"
+            className="fixed inset-0 z-1000 flex items-end justify-center bg-black/75 px-4 py-4 backdrop-blur-xl sm:items-center sm:py-8"
             onMouseDown={() => setSelectedPackage(null)}
           >
             <motion.div
@@ -172,7 +176,7 @@ export default function ServicesPackages({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 24, scale: 0.96 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-[2rem] border border-emerald-400/20 bg-[#07111c]/95 p-5 shadow-[0_0_120px_rgba(52,211,153,0.2)] sm:p-8"
+              className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-4xl border border-emerald-400/20 bg-[#07111c]/95 p-5 shadow-[0_0_120px_rgba(52,211,153,0.2)] sm:p-8"
               onMouseDown={(event) => event.stopPropagation()}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_90%_25%,rgba(34,211,238,0.14),transparent_36%)]" />
@@ -193,7 +197,7 @@ export default function ServicesPackages({
                     type="button"
                     onClick={() => setSelectedPackage(null)}
                     aria-label={copy.close}
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/4 text-xl text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                   >
                     ×
                   </button>
@@ -208,7 +212,7 @@ export default function ServicesPackages({
                       {selectedPackage.perfectFor}
                     </p>
 
-                    <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                    <div className="mt-6 rounded-2xl border border-white/10 bg-white/4 p-5">
                       <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                         {copy.timeline}
                       </p>
@@ -225,7 +229,10 @@ export default function ServicesPackages({
 
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                       {selectedPackage.included.map((item) => (
-                        <p key={item} className="flex gap-3 text-sm text-zinc-300">
+                        <p
+                          key={item}
+                          className="flex gap-3 text-sm text-zinc-300"
+                        >
                           <span className="text-emerald-400">✓</span>
                           <span>{item}</span>
                         </p>
@@ -234,7 +241,7 @@ export default function ServicesPackages({
                   </div>
                 </div>
 
-                <div className="mt-5 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="mt-5 rounded-3xl border border-white/10 bg-white/4 p-5">
                   <p className="text-sm font-semibold text-emerald-400">
                     {copy.extras}
                   </p>
@@ -262,7 +269,7 @@ export default function ServicesPackages({
                   <button
                     type="button"
                     onClick={() => setSelectedPackage(null)}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                    className="rounded-full border border-white/10 bg-white/4 px-7 py-3 font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                   >
                     {copy.close}
                   </button>

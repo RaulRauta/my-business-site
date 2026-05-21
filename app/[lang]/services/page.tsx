@@ -28,7 +28,8 @@ export default async function ServicesPage({
   const t = {
     ro: {
       badge: "Servicii",
-      title: "Pachete clare pentru un site care arată premium și aduce acțiune.",
+      title:
+        "Pachete clare pentru un site care arată premium și aduce acțiune.",
       subtitle:
         "Alegi direcția potrivită, vezi ce primești și pornești cu o structură construită pentru încredere, claritate și conversie.",
       cta: "Începe un proiect",
@@ -75,7 +76,12 @@ export default async function ServicesPage({
               "Suport la lansare",
             ],
             timeline: "3-5 zile",
-            extras: ["Copywriting", "Secțiune extra", "Galerie", "Monitorizare"],
+            extras: [
+              "Copywriting",
+              "Secțiune extra",
+              "Galerie",
+              "Monitorizare",
+            ],
             cta: "Vezi detalii",
           },
           {
@@ -105,7 +111,12 @@ export default async function ServicesPage({
               "Suport la lansare",
             ],
             timeline: "1-2 săptămâni",
-            extras: ["CMS", "Pagini extra", "SEO extins", "Integrare analytics"],
+            extras: [
+              "CMS",
+              "Pagini extra",
+              "SEO extins",
+              "Integrare analytics",
+            ],
             cta: "Vezi detalii",
             featured: true,
           },
@@ -333,7 +344,12 @@ export default async function ServicesPage({
               "Launch support",
             ],
             timeline: "1-2 weeks",
-            extras: ["CMS", "Extra pages", "Extended SEO", "Analytics integration"],
+            extras: [
+              "CMS",
+              "Extra pages",
+              "Extended SEO",
+              "Analytics integration",
+            ],
             cta: "Explore package",
             featured: true,
           },
@@ -513,7 +529,7 @@ export default async function ServicesPage({
 
                 <Link
                   href={`/${lang}/process`}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                  className="rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                 >
                   {t.secondary}
                 </Link>
@@ -588,7 +604,7 @@ export default async function ServicesPage({
               {t.process.steps.map((step) => (
                 <article
                   key={step.step}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/4 p-6"
                 >
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(52,211,153,0.12),transparent_34%)]" />
                   <div className="relative">

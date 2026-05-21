@@ -157,7 +157,7 @@ export default async function PortfolioProjectPage({
       <main className="px-6 py-28">
         <section className="mx-auto max-w-7xl">
           <Link
-            href={`/${lang}/portfolio`}
+            href={`/${lang}/projects`}
             className="text-sm font-semibold text-emerald-400 transition hover:text-emerald-300"
           >
             ← {lang === "ro" ? "Înapoi la portofoliu" : "Back to portfolio"}
@@ -181,7 +181,7 @@ export default async function PortfolioProjectPage({
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-zinc-300"
+                    className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-zinc-300"
                   >
                     {item}
                   </span>
@@ -225,7 +225,7 @@ export default async function PortfolioProjectPage({
                 <span className="h-3 w-3 rounded-full bg-yellow-400/70" />
                 <span className="h-3 w-3 rounded-full bg-emerald-400/70" />
 
-                <div className="ml-2 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500 md:ml-4">
+                <div className="ml-2 flex-1 truncate rounded-full border border-white/10 bg-white/4 py-2 text-xs text-zinc-500 md:ml-4">
                   {project.liveUrl}
                 </div>
 
@@ -235,13 +235,13 @@ export default async function PortfolioProjectPage({
               </div>
 
               {/* DESKTOP PREVIEW */}
-              <div className="hidden h-[560px] overflow-hidden bg-black md:block">
+              <div className="hidden h-140rflow-hidden bg-black md:block">
                 <iframe
                   src={project.liveUrl}
                   title={project.title}
                   loading="lazy"
                   scrolling="no"
-                  className="h-[900px] w-full border-0"
+                  className="h-225 w-full border-0"
                 />
               </div>
 
@@ -277,7 +277,7 @@ export default async function PortfolioProjectPage({
                       site-ul complet.
                     </p>
 
-                    <div className="mx-auto mt-8 h-40 max-w-[260px] rounded-3xl bg-gradient-to-br from-pink-300 via-rose-400 to-emerald-300 shadow-2xl" />
+                    <div className="mx-auto mt-8 h-40 max-w-65 rounded-3xl bg-linear-to-br from-pink-300 via-rose-400 to-emerald-300 shadow-2xl" />
 
                     <div className="mt-8 rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white">
                       Deschide live ↗
@@ -288,7 +288,7 @@ export default async function PortfolioProjectPage({
             </Link>
           ) : (
             <div className="mt-20 overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl">
-              <div className="flex h-[420px] items-center justify-center bg-gradient-to-br from-white/[0.04] to-emerald-400/[0.08]">
+              <div className="flex h-105 items-center justify-center bg-linear-to-br from-white/4 to-emerald-400/8">
                 <span className="text-sm uppercase tracking-[0.35em] text-zinc-500">
                   {lang === "ro" ? "Preview în lucru" : "Preview in progress"}
                 </span>
@@ -325,7 +325,7 @@ export default async function PortfolioProjectPage({
               {project.features.map((feature) => (
                 <div
                   key={feature}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300 backdrop-blur-xl"
+                  className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-300 backdrop-blur-xl"
                 >
                   <span className="mr-3 text-emerald-400">✦</span>
                   {feature}

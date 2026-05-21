@@ -54,15 +54,15 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
         <span className="relative h-4 w-5">
           <motion.span
             animate={{ rotate: open ? 45 : 0, y: open ? 7 : 0 }}
-            className="absolute left-0 top-0 h-[2px] w-5 rounded-full bg-emerald-400"
+            className="absolute left-0 top-0 h-0.5 w-5 rounded-full bg-emerald-400"
           />
           <motion.span
             animate={{ opacity: open ? 0 : 1 }}
-            className="absolute left-0 top-[7px] h-[2px] w-5 rounded-full bg-emerald-400"
+            className="absolute left-0 top-1.75 h-0.5 w-5 rounded-full bg-emerald-400"
           />
           <motion.span
             animate={{ rotate: open ? -45 : 0, y: open ? -7 : 0 }}
-            className="absolute left-0 top-[14px] h-[2px] w-5 rounded-full bg-emerald-400"
+            className="absolute left-0 top-3.5 h-0.5 w-5 rounded-full bg-emerald-400"
           />
         </span>
       </button>
@@ -96,7 +96,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
                   className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
                     lang === "ro"
                       ? "bg-emerald-400 text-black"
-                      : "bg-white/[0.04] text-zinc-400 hover:text-white"
+                      : "bg-white/4 text-zinc-400 hover:text-white"
                   }`}
                 >
                   RO
@@ -107,7 +107,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
                   className={`flex-1 rounded-2xl px-4 py-2 text-center text-xs font-semibold transition ${
                     lang === "en"
                       ? "bg-emerald-400 text-black"
-                      : "bg-white/[0.04] text-zinc-400 hover:text-white"
+                      : "bg-white/4 text-zinc-400 hover:text-white"
                   }`}
                 >
                   EN

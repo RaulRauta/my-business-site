@@ -40,7 +40,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         </div>
 
         <div className="relative mb-12 h-px w-full overflow-hidden bg-emerald-400/10">
-          <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-gradient-to-r from-transparent via-emerald-400 to-transparent" />
+          <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-linear-to-r from-transparent via-emerald-400 to-transparent" />
         </div>
 
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">

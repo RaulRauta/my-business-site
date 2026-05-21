@@ -114,11 +114,11 @@ export default async function HomePage({
               </div>
 
               {/* MOBILE / TABLET BRAND CARD */}
-              <div className="mx-auto mt-8 w-full max-w-[380px] animate-[heroReveal_0.9s_ease-out_0.28s_both] xl:hidden">
-                <div className="relative overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/45 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl">
+              <div className="mx-auto mt-8 w-full max-w-95 animate-[heroReveal_0.9s_ease-out_0.28s_both] xl:hidden">
+                <div className="relative overflow-hidden rounded-4xl border border-emerald-400/15 bg-black/45 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(34,211,238,0.12),transparent_45%)]" />
 
-                  <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
+                  <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
                   <div className="relative pt-4">
                     <div className="flex items-start justify-between">
@@ -132,7 +132,7 @@ export default async function HomePage({
                         />
                       </div>
 
-                      <p className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
+                      <p className="rounded-full border border-white/10 bg-white/4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
                         Web Growth
                       </p>
                     </div>
@@ -142,7 +142,7 @@ export default async function HomePage({
                         FlowCraft Studio
                       </h2>
 
-                      <p className="mt-5 max-w-[280px] text-base leading-7 text-zinc-400">
+                      <p className="mt-5 max-w-70 text-base leading-7 text-zinc-400">
                         {lang === "ro"
                           ? "Structură, design și experiență construite într-un flow clar pentru client."
                           : "Structure, design and experience built into a clear customer flow."}
@@ -170,7 +170,7 @@ export default async function HomePage({
 
                 <Link
                   href={`/${lang}/services`}
-                  className="inline-flex w-fit items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                  className="inline-flex w-fit items-center justify-center rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                 >
                   {t.secondary}
                 </Link>
@@ -181,13 +181,13 @@ export default async function HomePage({
             <div className="relative hidden animate-[heroReveal_0.9s_ease-out_0.25s_both] xl:block">
               <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
 
-              <div className="relative animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
+              <div className="relative animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-4xl border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.14),transparent_40%)]" />
 
-                <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
+                <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
                 <div className="relative">
-                  <div className="relative min-h-[82px]">
+                  <div className="relative min-h-20.5">
                     <div className="absolute left-1 top-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.35rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_35px_rgba(52,211,153,0.16)]">
                       <Image
                         src="/logo-icon.png"
@@ -198,7 +198,7 @@ export default async function HomePage({
                       />
                     </div>
 
-                    <p className="absolute right-1 top-5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
+                    <p className="absolute right-1 top-5 rounded-full border border-white/10 bg-white/4 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
                       Web Growth
                     </p>
                   </div>
@@ -227,7 +227,7 @@ export default async function HomePage({
                     ].map((item) => (
                       <div
                         key={item}
-                        className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-center text-sm font-semibold text-zinc-300"
+                        className="rounded-2xl border border-white/10 bg-white/4 px-4 py-4 text-center text-sm font-semibold text-zinc-300"
                       >
                         {item}
                       </div>
@@ -322,7 +322,7 @@ export default async function HomePage({
               {/* RESTAURANT DEMO */}
               <Link
                 href={`/${lang}/demo/restaurant`}
-                className="group relative overflow-hidden rounded-[2rem] border border-amber-300/20 bg-black/55 p-6 shadow-[0_0_80px_rgba(251,191,36,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-amber-300/50 hover:shadow-[0_0_100px_rgba(251,191,36,0.14)]"
+                className="group relative overflow-hidden rounded-4xl border border-amber-300/20 bg-black/55 p-6 shadow-[0_0_80px_rgba(251,191,36,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-amber-300/50 hover:shadow-[0_0_100px_rgba(251,191,36,0.14)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,140,0,0.12),transparent_40%)]" />
 
@@ -362,7 +362,7 @@ export default async function HomePage({
                     ].map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
+                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
                       >
                         {item}
                       </span>
@@ -374,7 +374,7 @@ export default async function HomePage({
               {/* COFFEE DEMO */}
               <Link
                 href={`/${lang}/projects/morrow-cafe`}
-                className="group relative overflow-hidden rounded-[2rem] border border-[#d9b46f]/20 bg-black/35 p-6 shadow-[0_0_70px_rgba(217,180,111,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-[#d9b46f]/45 hover:shadow-[0_0_90px_rgba(217,180,111,0.14)]"
+                className="group relative overflow-hidden rounded-4xl border border-[#d9b46f]/20 bg-black/35 p-6 shadow-[0_0_70px_rgba(217,180,111,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-[#d9b46f]/45 hover:shadow-[0_0_90px_rgba(217,180,111,0.14)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,70,30,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(255,200,120,0.08),transparent_40%)]" />
 
@@ -412,7 +412,7 @@ export default async function HomePage({
                     ].map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300"
+                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs text-zinc-300"
                       >
                         {item}
                       </span>

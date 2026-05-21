@@ -24,7 +24,8 @@ export default async function AboutPage({
   const t = {
     ro: {
       badge: "Despre studio",
-      title: "Experiențe digitale construite cu structură, detaliu și atmosferă.",
+      title:
+        "Experiențe digitale construite cu structură, detaliu și atmosferă.",
       subtitle:
         "FlowCraftStudio creează website-uri moderne, orientate spre prezentare, încredere, claritate și experiențe mobile-first.",
       cta: "Începe un proiect",
@@ -259,7 +260,7 @@ export default async function AboutPage({
 
                 <Link
                   href={`/${lang}/projects`}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                  className="rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
                 >
                   {t.secondary}
                 </Link>
@@ -285,7 +286,7 @@ export default async function AboutPage({
                   {t.studioNote.items.map((item) => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300"
+                      className="rounded-2xl border border-white/10 bg-white/4 px-4 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-zinc-300"
                     >
                       {item}
                     </div>
@@ -361,7 +362,7 @@ export default async function AboutPage({
               {t.matters.items.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl transition hover:border-emerald-400/30 hover:bg-white/[0.055]"
+                  className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl transition hover:border-emerald-400/30 hover:bg-white/5.5"
                 >
                   <h3 className="text-lg font-bold text-white">{item.title}</h3>
                   <p className="mt-3 leading-7 text-zinc-400">{item.text}</p>
@@ -391,7 +392,7 @@ export default async function AboutPage({
                   {t.details.points.map((point) => (
                     <div
                       key={point}
-                      className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-zinc-300"
+                      className="rounded-2xl border border-white/10 bg-white/4 px-5 py-4 text-zinc-300"
                     >
                       <span className="mr-3 text-emerald-400">+</span>
                       {point}
@@ -421,7 +422,7 @@ export default async function AboutPage({
 
               <Link
                 href={`/${lang}/projects`}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                className="rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
               >
                 {t.final.secondary}
               </Link>

@@ -50,7 +50,7 @@ export default function CountryCodeSelect({
   return (
     <div
       ref={wrapperRef}
-      className="relative w-[112px] shrink-0 border-r border-white/10 sm:w-[180px]"
+      className="relative w-28 shrink-0 border-r border-white/10 sm:w-45"
     >
       <button
         type="button"
@@ -81,7 +81,7 @@ export default function CountryCodeSelect({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute z-50 mt-2 max-h-72 w-[220px] overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl sm:w-full"
+            className="absolute z-50 mt-2 max-h-72 w-55 overflow-y-auto rounded-2xl border border-white/10 bg-[#111] shadow-2xl sm:w-full"
           >
             {countries.map((country) => (
               <button
