@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -58,9 +59,11 @@ export default function Navbar({ lang }: { lang: Lang }) {
           <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/15 bg-black/55 shadow-[0_0_25px_rgba(52,211,153,0.18)] transition group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(52,211,153,0.35)]">
             <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.18),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
 
-            <img
+            <Image
               src="/logo-icon.png"
               alt="FlowCraft Studio logo"
+              width={28}
+              height={28}
               className="relative z-10 h-7 w-7 object-contain"
             />
           </span>

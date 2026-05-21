@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 type Lang = "ro" | "en";
 
 export default async function RestaurantDemoPage({

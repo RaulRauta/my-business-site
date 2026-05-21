@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 type Lang = "ro" | "en";
@@ -226,10 +227,13 @@ export default async function NorthStudioPage({
           <div className="relative">
             <div className="absolute -left-6 -top-6 h-40 w-40 rounded-full bg-[#c9d6bd] blur-3xl" />
             <div className="relative overflow-hidden rounded-[2.5rem] border border-black/10 bg-white p-3 shadow-[0_30px_100px_rgba(0,0,0,0.12)]">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1600&auto=format&fit=crop"
                 alt="North Studio barber shop"
-                className="h-[520px] w-full rounded-[2rem] object-cover"
+                width={1600}
+                height={1040}
+                priority
+                className="h-130 w-full rounded-4xl object-cover"
               />
             </div>
           </div>
@@ -257,7 +261,7 @@ export default async function NorthStudioPage({
             {t.services.map((service) => (
               <article
                 key={service.name}
-                className="group rounded-[2rem] border border-black/10 bg-white p-7 shadow-[0_20px_70px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#6f7f63]/40 hover:shadow-[0_24px_90px_rgba(0,0,0,0.1)]"
+                className="group rounded-4xl border border-black/10 bg-white p-7 shadow-[0_20px_70px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#6f7f63]/40 hover:shadow-[0_24px_90px_rgba(0,0,0,0.1)]"
               >
                 <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef2e8] text-lg font-black text-[#6f7f63] transition group-hover:bg-[#6f7f63] group-hover:text-white">
                   ✂
@@ -282,16 +286,20 @@ export default async function NorthStudioPage({
       <section id="studio" className="px-6 py-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div className="grid gap-5 sm:grid-cols-2">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop"
               alt="North Studio interior"
-              className="h-80 w-full rounded-[2rem] object-cover shadow-[0_24px_80px_rgba(0,0,0,0.08)]"
+              width={1200}
+              height={800}
+              className="h-80 w-full rounded-4xl object-cover shadow-[0_24px_80px_rgba(0,0,0,0.08)]"
             />
 
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=1200&auto=format&fit=crop"
               alt="Barber tools"
-              className="h-80 w-full rounded-[2rem] object-cover shadow-[0_24px_80px_rgba(0,0,0,0.08)] sm:mt-12"
+              width={1200}
+              height={800}
+              className="h-80 w-full rounded-4xl object-cover shadow-[0_24px_80px_rgba(0,0,0,0.08)] sm:mt-12"
             />
           </div>
 
@@ -312,7 +320,7 @@ export default async function NorthStudioPage({
               {t.studioStats.map(([value, label]) => (
                 <div
                   key={label}
-                  className="rounded-[1.5rem] border border-black/10 bg-white p-5 shadow-[0_20px_70px_rgba(0,0,0,0.05)]"
+                  className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_20px_70px_rgba(0,0,0,0.05)]"
                 >
                   <p className="text-3xl font-black tracking-tight">{value}</p>
                   <p className="mt-2 text-sm font-semibold text-black/45">

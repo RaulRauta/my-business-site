@@ -1,9 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
-
-type Lang = "ro" | "en";
 
 export default async function HomePage({
   params,
@@ -124,9 +123,11 @@ export default async function HomePage({
                   <div className="relative pt-4">
                     <div className="flex items-start justify-between">
                       <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/20 bg-black/55 shadow-[0_0_25px_rgba(52,211,153,0.18)]">
-                        <img
+                        <Image
                           src="/logo-icon.png"
                           alt="Flowcraft logo"
+                          width={36}
+                          height={36}
                           className="h-9 w-9 object-contain"
                         />
                       </div>
@@ -188,9 +189,11 @@ export default async function HomePage({
                 <div className="relative">
                   <div className="relative min-h-[82px]">
                     <div className="absolute left-1 top-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.35rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_35px_rgba(52,211,153,0.16)]">
-                      <img
+                      <Image
                         src="/logo-icon.png"
                         alt="Flowcraft logo"
+                        width={44}
+                        height={44}
                         className="h-11 w-11 object-contain"
                       />
                     </div>

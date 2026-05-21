@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,7 +8,14 @@ export const metadata: Metadata = {
     "Demo premium pentru o cafenea modernă, construit cu atmosferă cinematică, meniu elegant, galerie editorială și sistem de rezervare.",
 };
 
-function MorrowNavbar({ t }: { t: any }) {
+type MorrowNavCopy = {
+  menu: string;
+  gallery: string;
+  visit: string;
+  reserve: string;
+};
+
+function MorrowNavbar({ t }: { t: MorrowNavCopy }) {
   return (
     <header className="fixed left-0 top-0 z-[999] w-full px-4 pt-4">
       <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-full border border-[#d9b46f]/15 bg-[#0f0906]/90 px-5 py-3 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
@@ -314,10 +322,13 @@ export default async function MorrowCafeDemo({
       {/* Hero */}
       <section className="relative flex min-h-screen items-start overflow-hidden px-6 pb-24 pt-44 md:pt-48">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1800&auto=format&fit=crop"
             alt="Morrow Café interior"
-            className="h-full w-full scale-[1.03] object-cover opacity-35 saturate-[0.9]"
+            fill
+            priority
+            sizes="100vw"
+            className="scale-[1.03] object-cover opacity-35 saturate-[0.9]"
           />
           <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-[#d9b46f]/10 blur-[140px]" />
 
@@ -389,10 +400,12 @@ export default async function MorrowCafeDemo({
                 className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl shadow-black/20 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-[#d9b46f]/35 hover:bg-white/[0.06] hover:shadow-[0_25px_90px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <img
+                  <Image
                     src={menuImages[index]}
                     alt={item.name}
-                    className="h-full w-full object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-transparent to-transparent" />
 
@@ -447,11 +460,13 @@ export default async function MorrowCafeDemo({
           </div>
 
           <div className="grid gap-5 md:grid-cols-4 md:grid-rows-[220px_220px]">
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 md:col-span-2 md:row-span-2">
-              <img
+            <div className="group relative h-80 overflow-hidden rounded-[2rem] border border-white/10 md:col-span-2 md:row-span-2 md:h-auto md:min-h-[440px]">
+              <Image
                 src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1400&auto=format&fit=crop"
                 alt="Coffee shop interior"
-                className="h-80 min-h-0 w-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100 md:h-full md:min-h-[440px]"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a]/70 via-transparent to-transparent" />
               <p className="absolute bottom-6 left-6 text-sm uppercase tracking-[0.3em] text-[#f3d19c]">
@@ -479,12 +494,14 @@ export default async function MorrowCafeDemo({
             ].map((image) => (
               <div
                 key={image.label}
-                className="group relative overflow-hidden rounded-[2rem] border border-white/10"
+                className="group relative h-56 overflow-hidden rounded-[2rem] border border-white/10 md:h-auto"
               >
-                <img
+                <Image
                   src={image.src}
                   alt={image.label}
-                  className="h-56 w-full object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100 md:h-full"
+                  fill
+                  sizes="(min-width: 768px) 25vw, 100vw"
+                  className="object-cover opacity-85 transition duration-700 group-hover:scale-110 group-hover:opacity-100"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a]/65 via-transparent to-transparent" />
                 <p className="absolute bottom-5 left-5 text-xs uppercase tracking-[0.25em] text-[#f3d19c]">
@@ -542,10 +559,12 @@ export default async function MorrowCafeDemo({
         <div className="relative mx-auto max-w-7xl">
           <div className="grid overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#1b120d]/85 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl lg:grid-cols-[0.9fr_1.1fr]">
             <div className="relative min-h-[520px] overflow-hidden p-8 md:p-10">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1400&auto=format&fit=crop"
                 alt="Morrow Café location"
-                className="absolute inset-0 h-full w-full object-cover opacity-35"
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover opacity-35"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#120d0a] via-[#120d0a]/75 to-transparent" />
