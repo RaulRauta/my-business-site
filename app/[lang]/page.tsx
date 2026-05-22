@@ -4,6 +4,24 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
 
+type Lang = "ro" | "en";
+
+type ExploreItem = {
+  href: string;
+  title: string;
+  text: string;
+  label: string;
+};
+
+type DemoItem = {
+  href: string;
+  badge: string;
+  title: string;
+  text: string;
+  tags: string[];
+  tone: "amber" | "gold";
+};
+
 export default async function HomePage({
   params,
 }: {
@@ -15,439 +33,451 @@ export default async function HomePage({
     notFound();
   }
 
+  const currentLang = lang as Lang;
+
   const t = {
     ro: {
-      badge: "Web Design",
-      title: "Site-uri clare, moderne și orientate spre clienți.",
+      badge: "Digital Experience Studio",
+      title: "Experiențe digitale construite cu claritate, ritm și atmosferă.",
       subtitle:
-        "Construiesc site-uri care explică rapid ce oferi, inspiră încredere și îi conduc pe vizitatori spre acțiune.",
-      cta: "Hai să discutăm",
+        "FlowCraftStudio creează website-uri moderne care prezintă business-ul clar, inspiră încredere și transformă prima impresie într-un motiv de contact.",
+      cta: "Începe un proiect",
       secondary: "Vezi serviciile",
-      sloganLabel: "Flowcraft concept",
-      slogan: "Flow-ul care îți aduce rezultate.",
+      heroNote: "Digital experiences / mobile-first / conversion flow",
+      previewLabel: "Live studio preview",
+      previewTitle: "Website experience",
+      previewText:
+        "Structură, design și interacțiuni rafinate într-un flow clar pentru client.",
+      previewStats: ["Claritate", "Mobile-first", "Polish"],
+      sloganLabel: "FlowCraft signature",
+      slogan: "Un site bun nu doar arată bine. Se simte intenționat.",
+      sloganText:
+        "Fiecare secțiune are un rol: prezintă, construiește încredere sau conduce vizitatorul spre acțiune.",
       explore: "Explorează",
       exploreTitle:
-        "Vezi cum îți pot transforma ideea într-un site care vinde.",
+        "Un flow complet pentru un business care vrea să pară serios online.",
       points: [
-        "Primul impact decide dacă omul rămâne",
-        "Claritatea bate design-ul complicat",
-        "Site-ul trebuie să vândă, nu doar să arate bine",
+        "Prima impresie decide dacă oamenii rămân.",
+        "Claritatea face oferta ușor de înțeles.",
+        "Mobile-ul trebuie să se simtă natural, nu doar redimensionat.",
       ],
+      demosBadge: "Live concepts",
+      demosTitle: "Demo-uri care arată cum poate prinde formă un brand.",
+      demosText:
+        "Concepte interactive construite pentru restaurante, cafenele și business-uri moderne care au nevoie de prezentare, atmosferă și acțiune.",
+      finalTitle: "Ai un business care merită o prezență online mai bună?",
+      finalText:
+        "Construim o experiență digitală care lucrează pentru tine, nu doar există pe internet.",
+      finalSecondary: "Explorează proiectele",
     },
     en: {
-      badge: "Web Design",
-      title: "Clear, modern websites built for customers.",
+      badge: "Digital Experience Studio",
+      title: "Digital experiences built with clarity, rhythm and atmosphere.",
       subtitle:
-        "I build websites that explain your offer fast, build trust and guide visitors toward action.",
-      cta: "Let’s talk",
+        "FlowCraftStudio creates modern websites that present your business clearly, build trust and turn the first impression into a reason to get in touch.",
+      cta: "Start a Project",
       secondary: "View services",
-      sloganLabel: "Flowcraft concept",
-      slogan: "The flow that brings you results.",
+      heroNote: "Digital experiences / mobile-first / conversion flow",
+      previewLabel: "Live studio preview",
+      previewTitle: "Website experience",
+      previewText:
+        "Structure, design and refined interactions shaped into a clear customer flow.",
+      previewStats: ["Clarity", "Mobile-first", "Polish"],
+      sloganLabel: "FlowCraft signature",
+      slogan: "A good website does not just look polished. It feels intentional.",
+      sloganText:
+        "Every section has a role: present, build trust or guide the visitor toward action.",
       explore: "Explore",
-      exploreTitle: "See exactly what I can build for your business.",
+      exploreTitle:
+        "A complete flow for a business that wants to feel serious online.",
       points: [
-        "First impression decides if people stay",
-        "Clarity beats complexity",
-        "A website should sell, not just look good",
+        "First impression decides if people stay.",
+        "Clarity makes the offer easy to understand.",
+        "Mobile should feel natural, not merely resized.",
       ],
+      demosBadge: "Live concepts",
+      demosTitle: "Demos that show how a brand can take shape.",
+      demosText:
+        "Interactive concepts built for restaurants, cafés and modern businesses that need presentation, atmosphere and action.",
+      finalTitle: "Have a business that deserves a better online presence?",
+      finalText:
+        "We build a digital experience that works for you, not just exists on the internet.",
+      finalSecondary: "Explore projects",
     },
-  }[lang];
+  }[currentLang];
 
-  const exploreItems = [
+  const exploreItems: ExploreItem[] = [
     {
-      href: `/${lang}/services`,
-      title: lang === "ro" ? "Servicii" : "Services",
+      href: `/${currentLang}/services`,
+      title: currentLang === "ro" ? "Pachete clare" : "Clear packages",
+      label: currentLang === "ro" ? "Servicii" : "Services",
       text:
-        lang === "ro"
-          ? "Site-uri de prezentare, landing pages, redesign, mentenanță și CMS."
-          : "Presentation websites, landing pages, redesign, maintenance and CMS.",
+        currentLang === "ro"
+          ? "Alege o direcție potrivită pentru etapa business-ului tău."
+          : "Choose a direction that fits the current stage of your business.",
     },
     {
-      href: `/${lang}/about`,
-      title: "About",
+      href: `/${currentLang}/process`,
+      title:
+        currentLang === "ro" ? "Proces structurat" : "Structured process",
+      label: currentLang === "ro" ? "Proces" : "Process",
       text:
-        lang === "ro"
-          ? "Află cum a apărut FlowCraft Studio și modul în care construiesc proiectele."
-          : "Learn how FlowCraft Studio started and how I approach building projects.",
+        currentLang === "ro"
+          ? "Colaborare clară, de la discovery până la lansare."
+          : "Clear collaboration, from discovery to launch.",
     },
     {
-      href: `/${lang}/process`,
-      title: lang === "ro" ? "Cum lucrez" : "Process",
+      href: `/${currentLang}/projects`,
+      title:
+        currentLang === "ro" ? "Demo-uri explorabile" : "Explorable demos",
+      label: "Projects",
       text:
-        lang === "ro"
-          ? "Pașii clari prin care transformăm ideea ta într-un site funcțional."
-          : "The clear steps that turn your idea into a working website.",
+        currentLang === "ro"
+          ? "Vezi concepte live create pentru business-uri reale."
+          : "View live concepts crafted for real business use cases.",
     },
     {
-      href: `/${lang}/projects`,
-      title: "Projects",
+      href: `/${currentLang}/about`,
+      title:
+        currentLang === "ro" ? "Perspectivă de studio" : "Studio perspective",
+      label: "About",
       text:
-        lang === "ro"
-          ? "Proiecte și concepte construite cu scop, nu doar pentru aspect."
-          : "Projects and concepts built with purpose, not just looks.",
+        currentLang === "ro"
+          ? "Află cum sunt gândite claritatea, atmosfera și detaliile."
+          : "See how clarity, atmosphere and details are approached.",
+    },
+  ];
+
+  const demos: DemoItem[] = [
+    {
+      href: `/${currentLang}/projects/morrow-cafe`,
+      badge: "Flagship Demo",
+      title:
+        currentLang === "ro"
+          ? "Morrow Café / hospitality cinematic"
+          : "Morrow Café / hospitality cinematic",
+      text:
+        currentLang === "ro"
+          ? "Un demo cald, editorial, construit pentru atmosferă, meniu și rezervare."
+          : "A warm editorial demo built around atmosphere, menu and booking.",
+      tags: ["Hospitality", "Refined UI", "Mobile-first"],
+      tone: "gold",
     },
     {
-      href: `/${lang}/contact`,
-      title: "Contact",
+      href: `/${currentLang}/demo/restaurant`,
+      badge: "Live Demo",
+      title:
+        currentLang === "ro"
+          ? "Restaurant Concept / fine dining flow"
+          : "Restaurant Concept / fine dining flow",
       text:
-        lang === "ro"
-          ? "Trimite-mi detaliile și îți răspund cu o direcție clară."
-          : "Send me the details and I’ll reply with a clear direction.",
+        currentLang === "ro"
+          ? "O structură cinematică pentru restaurante care vor prezentare și conversie."
+          : "A cinematic structure for restaurants that need presentation and conversion.",
+      tags: ["Restaurant", "Bookings", "Experience"],
+      tone: "amber",
     },
   ];
 
   return (
     <>
-      <Navbar lang={lang} />
+      <Navbar lang={currentLang} />
 
-      <main className="px-6 pt-28 pb-24 md:pt-32">
-        <section className="mx-auto max-w-7xl">
-          {/* HERO */}
-          <div className="grid gap-12 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
+      <main className="relative overflow-hidden px-6 pb-24 pt-28 md:pt-32">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.13),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(34,211,238,0.08),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_38%,rgba(8,8,8,1)_100%)]" />
+        <div className="pointer-events-none absolute left-0 top-40 h-px w-full bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
+        <div className="pointer-events-none absolute right-[-15%] top-28 h-80 w-[46rem] rotate-[-18deg] bg-linear-to-r from-transparent via-emerald-400/10 to-transparent blur-3xl" />
+
+        <section className="relative mx-auto max-w-7xl">
+          <div className="grid gap-12 xl:grid-cols-[1.02fr_0.98fr] xl:items-center">
             <div>
-              <div className="flex items-center gap-4">
-                <span className="h-px w-10 bg-emerald-400/40" />
-
+              <div className="animate-[revealUp_0.8s_ease-out_both] flex items-center gap-4">
+                <span className="h-px w-10 bg-emerald-400/50" />
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                   {t.badge}
                 </p>
               </div>
 
-              {/* MOBILE / TABLET BRAND CARD */}
-              <div className="mx-auto mt-8 w-full max-w-95 animate-[heroReveal_0.9s_ease-out_0.28s_both] xl:hidden">
-                <div className="relative overflow-hidden rounded-4xl border border-emerald-400/15 bg-black/45 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl">
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(34,211,238,0.12),transparent_45%)]" />
-
-                  <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
-
-                  <div className="relative pt-4">
-                    <div className="flex items-start justify-between">
-                      <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/20 bg-black/55 shadow-[0_0_25px_rgba(52,211,153,0.18)]">
-                        <Image
-                          src="/logo-icon.png"
-                          alt="Flowcraft logo"
-                          width={36}
-                          height={36}
-                          className="h-9 w-9 object-contain"
-                        />
-                      </div>
-
-                      <p className="rounded-full border border-white/10 bg-white/4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
-                        Web Growth
-                      </p>
-                    </div>
-
-                    <div className="mt-7">
-                      <h2 className="mt-3 text-4xl font-black leading-none tracking-tight text-white">
-                        FlowCraft Studio
-                      </h2>
-
-                      <p className="mt-5 max-w-70 text-base leading-7 text-zinc-400">
-                        {lang === "ro"
-                          ? "Structură, design și experiență construite într-un flow clar pentru client."
-                          : "Structure, design and experience built into a clear customer flow."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <h1 className="mt-8 max-w-4xl animate-[heroReveal_0.8s_ease-out_both] text-4xl font-bold tracking-tight text-white md:text-6xl">
+              <h1 className="mt-8 max-w-5xl animate-[revealUp_0.9s_ease-out_0.08s_both] text-5xl font-black leading-[0.94] tracking-tight text-white md:text-7xl">
                 {t.title}
               </h1>
 
-              <p className="mt-6 max-w-2xl animate-[heroReveal_0.8s_ease-out_0.12s_both] text-lg leading-8 text-zinc-300">
+              <p className="mt-7 max-w-2xl animate-[revealUp_0.9s_ease-out_0.18s_both] text-lg leading-8 text-zinc-300 md:text-xl">
                 {t.subtitle}
               </p>
 
-              <div className="mt-10 flex animate-[heroReveal_0.8s_ease-out_0.22s_both] flex-col items-start gap-4 sm:flex-row">
+              <div className="mt-9 flex animate-[revealUp_0.9s_ease-out_0.28s_both] flex-wrap gap-3">
+                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+                  {t.heroNote}
+                </span>
+              </div>
+
+              <div className="mt-10 flex animate-[revealUp_0.9s_ease-out_0.36s_both] flex-col items-start gap-4 sm:flex-row">
                 <Link
-                  href={`/${lang}/contact`}
-                  className="inline-flex w-fit items-center justify-center rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.5)]"
+                  href={`/${currentLang}/contact`}
+                  className="group inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_0_65px_rgba(52,211,153,0.45)] sm:w-fit"
                 >
                   {t.cta}
+                  <span className="ml-2 transition group-hover:translate-x-1">
+                    -&gt;
+                  </span>
                 </Link>
 
                 <Link
-                  href={`/${lang}/services`}
-                  className="inline-flex w-fit items-center justify-center rounded-full border border-white/10 bg-white/4 px-7 py-3 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/8"
+                  href={`/${currentLang}/services`}
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-white/[0.08] sm:w-fit"
                 >
                   {t.secondary}
                 </Link>
               </div>
             </div>
 
-            {/* DESKTOP BRAND BANNER */}
-            <div className="relative hidden animate-[heroReveal_0.9s_ease-out_0.25s_both] xl:block">
-              <div className="absolute -inset-8 rounded-full bg-emerald-400/10 blur-3xl" />
+            <div className="relative animate-[revealUp_1s_ease-out_0.22s_both]">
+              <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-emerald-400/12 via-cyan-300/5 to-transparent blur-3xl" />
+              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/45 p-4 shadow-[0_0_100px_rgba(52,211,153,0.12)] backdrop-blur-xl md:p-6">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.12),transparent_42%)]" />
+                <div className="pointer-events-none absolute inset-y-0 left-[-70%] w-[60%] animate-[signatureSweep_6s_ease-in-out_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
-              <div className="relative animate-[softFloat_6s_ease-in-out_infinite] overflow-hidden rounded-4xl border border-emerald-400/15 bg-black/35 p-8 shadow-[0_0_80px_rgba(52,211,153,0.12)] backdrop-blur-xl">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.14),transparent_40%)]" />
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#070b0b]/80">
+                  <div className="flex items-center gap-2 border-b border-white/10 bg-black/50 px-4 py-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+                    <div className="ml-3 flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500">
+                      flowcraftstudio.app
+                    </div>
+                  </div>
 
-                <div className="pointer-events-none absolute inset-y-0 left-[-60%] w-[70%] animate-[scanShine_5s_linear_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
+                  <div className="relative p-5 md:p-7">
+                    <div className="flex items-start justify-between gap-5">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/20 bg-black/55 shadow-[0_0_28px_rgba(52,211,153,0.18)]">
+                          <Image
+                            src="/logo-icon.png"
+                            alt="Flowcraft logo"
+                            width={36}
+                            height={36}
+                            className="h-9 w-9 object-contain"
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                            {t.previewLabel}
+                          </p>
+                          <p className="mt-1 text-xs text-zinc-500">
+                            FlowCraftStudio
+                          </p>
+                        </div>
+                      </div>
 
-                <div className="relative">
-                  <div className="relative min-h-20.5">
-                    <div className="absolute left-1 top-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.35rem] border border-emerald-400/15 bg-black/55 shadow-[0_0_35px_rgba(52,211,153,0.16)]">
-                      <Image
-                        src="/logo-icon.png"
-                        alt="Flowcraft logo"
-                        width={44}
-                        height={44}
-                        className="h-11 w-11 object-contain"
-                      />
+                      <div className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-zinc-400 sm:block">
+                        2026
+                      </div>
                     </div>
 
-                    <p className="absolute right-1 top-5 rounded-full border border-white/10 bg-white/4 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-400">
-                      Web Growth
-                    </p>
-                  </div>
+                    <div className="mt-14">
+                      <h2 className="max-w-md text-4xl font-black leading-none tracking-tight text-white md:text-5xl">
+                        {t.previewTitle}
+                      </h2>
+                      <p className="mt-5 max-w-md leading-7 text-zinc-400">
+                        {t.previewText}
+                      </p>
+                    </div>
 
-                  <div className="mt-16">
-                    <p className="text-sm font-semibold uppercase tracking-[0.45em] text-emerald-400/70">
-                      Find your Flow
-                    </p>
-
-                    <h2 className="mt-4 text-5xl font-black tracking-tight text-white">
-                      FlowCraft Studio
-                    </h2>
-
-                    <p className="mt-6 max-w-md leading-7 text-zinc-400">
-                      {lang === "ro"
-                        ? "Structură, design și experiență construite într-un flow clar pentru client."
-                        : "Structure, design and experience built into a clear customer flow."}
-                    </p>
-                  </div>
-
-                  <div className="mt-10 grid grid-cols-3 gap-3">
-                    {[
-                      lang === "ro" ? "Claritate" : "Clarity",
-                      "UX",
-                      lang === "ro" ? "Conversie" : "Conversion",
-                    ].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-2xl border border-white/10 bg-white/4 px-4 py-4 text-center text-sm font-semibold text-zinc-300"
-                      >
-                        {item}
-                      </div>
-                    ))}
+                    <div className="mt-9 grid grid-cols-3 gap-3">
+                      {t.previewStats.map((item) => (
+                        <div
+                          key={item}
+                          className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center text-xs font-semibold text-zinc-300 md:text-sm"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* HERO CARD */}
-          <div className="mt-16 rounded-3xl border border-emerald-400/10 bg-black/35 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <div className="space-y-4">
+          <div className="relative mt-20">
+            <div className="absolute inset-x-0 -top-8 h-px bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
+            <div className="rounded-[2rem] border border-emerald-400/10 bg-black/35 p-7 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-400/70">
                 {t.sloganLabel}
               </p>
 
-              <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white drop-shadow-[0_0_12px_rgba(52,211,153,0.2)] md:text-4xl">
-                {t.slogan}
-              </h2>
+              <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                  {t.slogan}
+                </h2>
 
-              <p className="max-w-2xl text-zinc-400">
-                {lang === "ro"
-                  ? "Design clar. Experiență fluidă. Rezultate reale."
-                  : "Clear design. Smooth experience. Real results."}
-              </p>
+                <p className="max-w-2xl text-lg leading-8 text-zinc-400">
+                  {t.sloganText}
+                </p>
+              </div>
             </div>
+          </div>
 
-            <div className="mt-16">
+          <section className="relative mt-24">
+            <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-linear-to-r from-transparent via-cyan-300/15 to-transparent" />
+            <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                 {t.explore}
               </p>
-
-              <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
                 {t.exploreTitle}
               </h2>
-
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
-                {exploreItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="group rounded-3xl border border-emerald-400/10 bg-black/35 p-7 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_55px_rgba(52,211,153,0.12)]"
-                  >
-                    <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-400 ring-1 ring-emerald-400/20 transition group-hover:bg-emerald-400 group-hover:text-black">
-                      →
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-white">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-4 leading-7 text-zinc-400">{item.text}</p>
-                  </Link>
-                ))}
-              </div>
             </div>
-          </div>
 
-          {/* WHY SECTION */}
-          <div className="mt-20 grid gap-6 md:grid-cols-3">
-            {t.points.map((point) => (
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {exploreItems.map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group animate-[revealUp_0.8s_ease-out_both] rounded-3xl border border-white/10 bg-black/30 p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-emerald-400/40 hover:bg-white/[0.045] hover:shadow-[0_0_70px_rgba(52,211,153,0.12)]"
+                  style={{ animationDelay: `${index * 90}ms` }}
+                >
+                  <div className="mb-7 flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400/80">
+                      {item.label}
+                    </span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm text-zinc-400 transition group-hover:border-emerald-400/40 group-hover:text-emerald-300">
+                      -&gt;
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-zinc-400">{item.text}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="relative mt-24 grid gap-5 md:grid-cols-3">
+            {t.points.map((point, index) => (
               <div
                 key={point}
-                className="rounded-3xl border border-white/10 bg-black/30 p-6 text-zinc-300 backdrop-blur-xl transition hover:border-emerald-400/40 hover:shadow-[0_0_40px_rgba(52,211,153,0.1)]"
+                className="group rounded-3xl border border-white/10 bg-black/30 p-6 text-zinc-300 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_50px_rgba(52,211,153,0.1)]"
               >
-                <span className="text-lg text-emerald-400">✦</span>
-                <p className="mt-3">{point}</p>
+                <div className="mb-5 h-10 w-10 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 shadow-[0_0_25px_rgba(52,211,153,0.1)] transition group-hover:bg-emerald-400/20" />
+                <p className="text-lg leading-8">{point}</p>
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-600">
+                  0{index + 1}
+                </p>
               </div>
             ))}
-          </div>
+          </section>
 
-          {/* LIVE DEMOS */}
-          <div className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {lang === "ro" ? "Live Concepts" : "Live Concepts"}
-            </p>
+          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/40 p-7 shadow-[0_0_90px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/35 to-transparent" />
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                  {t.demosBadge}
+                </p>
+                <h2 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                  {t.demosTitle}
+                </h2>
+              </div>
 
-            <h2 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {lang === "ro"
-                ? "Vezi cum ar putea arăta viitorul tău site."
-                : "See what your future website could look like."}
-            </h2>
+              <p className="max-w-md leading-7 text-zinc-400">{t.demosText}</p>
+            </div>
 
-            <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
-              {lang === "ro"
-                ? "Concepte interactive și demo-uri construite pentru business-uri moderne."
-                : "Interactive concepts and demo experiences built for modern businesses."}
-            </p>
+            <div className="mt-10 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
+              {demos.map((demo) => (
+                <Link
+                  key={demo.href}
+                  href={demo.href}
+                  className={`group relative overflow-hidden rounded-[2rem] border bg-black/45 p-6 shadow-[0_0_70px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1.5 sm:p-8 ${
+                    demo.tone === "gold"
+                      ? "border-[#d9b46f]/20 hover:border-[#d9b46f]/45 hover:shadow-[0_0_95px_rgba(217,180,111,0.14)]"
+                      : "border-amber-300/20 hover:border-amber-300/45 hover:shadow-[0_0_95px_rgba(251,191,36,0.13)]"
+                  }`}
+                >
+                  <div
+                    className={`pointer-events-none absolute inset-0 ${
+                      demo.tone === "gold"
+                        ? "bg-[radial-gradient(circle_at_25%_15%,rgba(217,180,111,0.17),transparent_36%)]"
+                        : "bg-[radial-gradient(circle_at_25%_15%,rgba(251,191,36,0.16),transparent_36%)]"
+                    }`}
+                  />
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-              {/* RESTAURANT DEMO */}
-              <Link
-                href={`/${lang}/demo/restaurant`}
-                className="group relative overflow-hidden rounded-4xl border border-amber-300/20 bg-black/55 p-6 shadow-[0_0_80px_rgba(251,191,36,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-amber-300/50 hover:shadow-[0_0_100px_rgba(251,191,36,0.14)]"
-              >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_80%_80%,rgba(255,140,0,0.12),transparent_40%)]" />
-
-                <div className="relative">
-                  <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">
-                      {lang === "ro"
-                        ? "Flagship Live Demo"
-                        : "Flagship Live Demo"}
-                    </span>
-
-                    <span className="text-sm font-medium text-zinc-500 transition group-hover:text-amber-200">
-                      Open Live Demo →
-                    </span>
-                  </div>
-
-                  <div className="mt-10 sm:mt-14">
-                    <h3 className="max-w-xl text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
-                      {lang === "ro"
-                        ? "Fine dining cinematic construit pentru experiență."
-                        : "Cinematic fine dining built around experience."}
-                    </h3>
-
-                    <p className="mt-6 max-w-xl leading-8 text-zinc-400">
-                      {lang === "ro"
-                        ? "Concept cinematic construit pentru atmosferă, rezervări și experiență."
-                        : "A cinematic concept built for atmosphere, bookings and experience."}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
-                    {[
-                      "Fine Dining",
-                      "Reservations",
-                      "Atmosphere",
-                      "Mobile UX",
-                    ].map((item) => (
+                  <div className="relative">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                       <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs text-zinc-300 sm:px-4 sm:py-2 sm:text-sm"
+                        className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] ${
+                          demo.tone === "gold"
+                            ? "border-[#d9b46f]/20 bg-[#d9b46f]/10 text-[#f3d19c]"
+                            : "border-amber-300/20 bg-amber-300/10 text-amber-200"
+                        }`}
                       >
-                        {item}
+                        {demo.badge}
                       </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-
-              {/* COFFEE DEMO */}
-              <Link
-                href={`/${lang}/projects/morrow-cafe`}
-                className="group relative overflow-hidden rounded-4xl border border-[#d9b46f]/20 bg-black/35 p-6 shadow-[0_0_70px_rgba(217,180,111,0.08)] transition duration-500 sm:p-8 hover:-translate-y-1 hover:border-[#d9b46f]/45 hover:shadow-[0_0_90px_rgba(217,180,111,0.14)]"
-              >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,70,30,0.18),transparent_35%),radial-gradient(circle_at_80%_70%,rgba(255,200,120,0.08),transparent_40%)]" />
-
-                <div className="relative flex h-full flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#f3d19c]">
-                        {lang === "ro" ? "Coffee Demo" : "Coffee Demo"}
-                      </span>
-
-                      <span className="text-sm font-medium text-zinc-500 transition group-hover:text-[#f3d19c]">
-                        Open Live Demo →
+                      <span className="text-sm font-semibold text-zinc-500 transition group-hover:text-white">
+                        Open Live Demo -&gt;
                       </span>
                     </div>
 
-                    <h3 className="mt-10 text-2xl font-black tracking-tight text-white sm:mt-12 sm:text-3xl">
-                      {lang === "ro"
-                        ? "Morrow Café — specialty coffee cinematic."
-                        : "Morrow Café — specialty coffee cinematic."}
-                    </h3>
+                    <div className="mt-12">
+                      <h3 className="max-w-2xl text-3xl font-black tracking-tight text-white md:text-5xl">
+                        {demo.title}
+                      </h3>
+                      <p className="mt-5 max-w-xl leading-8 text-zinc-400">
+                        {demo.text}
+                      </p>
+                    </div>
 
-                    <p className="mt-5 leading-8 text-zinc-400">
-                      {lang === "ro"
-                        ? "Concept premium construit pentru cafenele moderne, branding elegant și experiență hospitality."
-                        : "A premium concept built for modern cafés, elegant branding and hospitality experience."}
-                    </p>
+                    <div className="mt-8 flex flex-wrap gap-2">
+                      {demo.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-
-                  <div className="mt-10 flex flex-wrap gap-2">
-                    {[
-                      "Specialty Coffee",
-                      "Hospitality",
-                      "Luxury UI",
-                      "Editorial Style",
-                    ].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/4 px-3 py-1.5 text-xs text-zinc-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              ))}
             </div>
-          </div>
+          </section>
 
-          {/* FINAL CTA */}
-          <div className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <h2 className="max-w-2xl text-3xl font-bold text-white">
-              {lang === "ro"
-                ? "Ai un business și vrei mai mulți clienți?"
-                : "Have a business and want more clients?"}
-            </h2>
+          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_90px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(52,211,153,0.08),transparent)]" />
+            <div className="relative">
+              <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                {t.finalTitle}
+              </h2>
 
-            <p className="mt-4 max-w-2xl text-zinc-400">
-              {lang === "ro"
-                ? "Construim un site care lucrează pentru tine, nu doar există."
-                : "We can build a website that works for you, not just exists."}
-            </p>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+                {t.finalText}
+              </p>
 
-            <Link
-              href={`/${lang}/contact`}
-              className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
-            >
-              {t.cta}
-            </Link>
-          </div>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href={`/${currentLang}/contact`}
+                  className="rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                >
+                  {t.cta}
+                </Link>
+
+                <Link
+                  href={`/${currentLang}/projects`}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                >
+                  {t.finalSecondary}
+                </Link>
+              </div>
+            </div>
+          </section>
         </section>
       </main>
 
-      <Footer lang={lang} />
+      <Footer lang={currentLang} />
     </>
   );
 }

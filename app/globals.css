@@ -273,6 +273,49 @@ body {
   }
 }
 
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes studioFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-0.4deg);
+  }
+}
+
+@keyframes signatureSweep {
+  0%,
+  18% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  38% {
+    opacity: 1;
+  }
+
+  72%,
+  100% {
+    transform: translateX(260%);
+    opacity: 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
