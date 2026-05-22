@@ -66,6 +66,8 @@ export default function ContactPage({
       phoneError: "Număr invalid. Alege prefixul și introdu un număr valid.",
       serviceError: "Selectează ce ai nevoie.",
       sideTitle: "Ce se întâmplă după?",
+      liveStatus: "Disponibil pentru proiecte noi",
+      replyTime: "Răspuns de obicei în 24h",
       steps: [
         "Îmi trimiți detaliile despre business.",
         "Analizez ce ai nevoie.",
@@ -89,6 +91,8 @@ export default function ContactPage({
       phoneError: "Invalid number. Choose the prefix and enter a valid number.",
       serviceError: "Please select what you need.",
       sideTitle: "What happens next?",
+      liveStatus: "Available for new projects",
+      replyTime: "Usually replying within 24h",
       steps: [
         "You send me the details about your business.",
         "I analyze what you need.",
@@ -110,8 +114,8 @@ export default function ContactPage({
     },
     custom: {
       label: "Custom",
-      ro: "Pentru proiecte premium cu funcționalități și structură complet personalizate.",
-      en: "For premium projects with fully custom structure and functionality.",
+      ro: "Pentru proiecte complexe, cu funcționalități și structură complet personalizate.",
+      en: "For complex projects with fully custom structure and functionality.",
     },
   } as const;
 
@@ -195,18 +199,31 @@ export default function ContactPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="min-h-screen overflow-x-hidden px-4 py-20 sm:px-6 md:py-28">
-        <section className="mx-auto grid w-full max-w-7xl min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:gap-12">
-          <div className="w-full min-w-0 text-left">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
-              {t.badge}
-            </p>
+      <main className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 md:py-28">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.08),transparent_28%),radial-gradient(circle_at_90%_24%,rgba(34,211,238,0.045),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_45%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-40 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
+
+        <section className="relative mx-auto grid w-full max-w-7xl min-w-0 gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] lg:gap-16">
+          <div className="relative w-full min-w-0 text-left">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                {t.badge}
+              </p>
+
+              <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold text-emerald-300 shadow-[0_0_18px_rgba(52,211,153,0.08)]">
+                <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.8)]" />
+                {t.liveStatus}
+              </span>
+            </div>
 
             <h1 className="mt-5 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
               {t.title}
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg text-zinc-300">{t.subtitle}</p>
+            <p className="mt-4 text-sm font-medium text-zinc-500">
+              {t.replyTime}
+            </p>
             {selectedPackageInfo && (
               <div className="mx-auto mt-10 w-full min-w-0 rounded-3xl border border-emerald-400/20 bg-black/35 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:p-6 lg:mx-0 lg:max-w-none">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
@@ -222,7 +239,7 @@ export default function ContactPage({
                       className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
                         chosenPackage === pack
                           ? "border-emerald-400 bg-emerald-400 text-black shadow-[0_0_30px_rgba(52,211,153,0.35)]"
-                          : "border-white/10 bg-black/30 text-zinc-300 hover:border-emerald-400/40 hover:bg-white/4 hover:text-white"
+                          : "border-white/10 bg-black/30 text-zinc-300 duration-300 hover:border-emerald-400/40 hover:bg-white/[0.04] hover:text-white hover:shadow-[0_0_24px_rgba(52,211,153,0.08)]"
                       }`}
                     >
                       {pack === "start" && "Start"}
@@ -252,8 +269,8 @@ export default function ContactPage({
 
                     {chosenPackage === "custom" &&
                       (lang === "ro"
-                        ? "Pentru proiecte premium cu funcționalități și structură complet personalizate."
-                        : "For premium projects with fully custom structure and functionality.")}
+                        ? "Pentru proiecte complexe, cu funcționalități și structură complet personalizate."
+                        : "For complex projects with fully custom structure and functionality.")}
                   </p>
                 </div>
               </div>
@@ -261,7 +278,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mt-12 grid w-full min-w-0 gap-5 text-left"
+              className="mt-14 grid w-full min-w-0 gap-5 rounded-3xl border border-white/10 bg-black/28 p-5 text-left shadow-[0_0_60px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-7"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -332,7 +349,7 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.name}
-                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
                 />
 
                 <input
@@ -341,11 +358,11 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.email}
-                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
                 />
               </div>
 
-              <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-black/30 focus-within:border-emerald-400/70 focus-within:shadow-[0_0_22px_rgba(52,211,153,0.18)]">
+              <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-black/35 transition duration-300 hover:border-white/18 focus-within:border-emerald-400/60 focus-within:bg-black/45 focus-within:shadow-[0_0_18px_rgba(52,211,153,0.12)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
@@ -413,7 +430,7 @@ export default function ContactPage({
                 autoComplete="off"
                 placeholder={t.message}
                 rows={7}
-                className="block w-full min-w-0 resize-none rounded-2xl border border-white/10 bg-black/30 px-5 py-4 outline-none transition placeholder:text-zinc-500 focus:border-emerald-400/70 focus:bg-black/40 focus:shadow-[0_0_22px_rgba(52,211,153,0.18)]"
+                className="block w-full min-w-0 resize-none rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
               />
 
               <AnimatePresence>
@@ -447,15 +464,15 @@ export default function ContactPage({
               <button
                 type="submit"
                 disabled={loading}
-                className="rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black transition hover:bg-emerald-300 disabled:opacity-60"
+                className="rounded-full bg-emerald-400 px-7 py-4 font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_0_42px_rgba(52,211,153,0.28)] disabled:opacity-60"
               >
                 {loading ? t.loading : t.button}
               </button>
             </form>
           </div>
 
-          <aside className="w-full min-w-0 rounded-3xl border border-emerald-400/10 bg-black/35 p-5 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl sm:p-8 lg:sticky lg:top-28 lg:h-fit">
-            <div className="min-w-0 rounded-2xl border border-white/10 bg-white/4 p-5 sm:p-6">
+          <aside className="w-full min-w-0 lg:sticky lg:top-28 lg:h-fit">
+            <div className="min-w-0 border-b border-white/10 pb-8">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                 {lang === "ro" ? "Contact direct" : "Direct contact"}
               </p>
@@ -472,7 +489,7 @@ export default function ContactPage({
                   : "You can use the form or contact me directly by email or phone."}
               </p>
 
-              <div className="group min-w-0 rounded-2xl border border-white/10 bg-black/30 px-4 py-4 sm:px-5">
+              <div className="group mt-7 min-w-0">
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   Email
                 </p>
@@ -481,7 +498,7 @@ export default function ContactPage({
                 </p>
               </div>
 
-              <div className="group min-w-0 rounded-2xl border border-white/10 bg-black/30 px-4 py-4 sm:px-5">
+              <div className="group mt-6 min-w-0">
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   {lang === "ro" ? "Telefon" : "Phone"}
                 </p>
@@ -489,18 +506,30 @@ export default function ContactPage({
               </div>
             </div>
 
-            <div className="mt-5 min-w-0 rounded-2xl border border-white/10 bg-white/4 p-5 sm:p-6">
+            <div className="relative mt-10 min-w-0">
               <h3 className="text-xl font-bold text-white">{t.sideTitle}</h3>
 
-              <div className="mt-6 space-y-5">
+              <div className="relative mt-6 space-y-5">
+                <div className="absolute left-4 top-4 h-[calc(100%-2rem)] w-px bg-linear-to-b from-emerald-400/0 via-emerald-400/30 to-emerald-400/0" />
                 {t.steps.map((step, index) => (
-                  <div key={step} className="flex gap-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-400 font-bold text-black shadow-[0_0_20px_rgba(52,211,153,0.35)]">
+                  <motion.div
+                    key={step}
+                    initial={{ opacity: 0, x: 12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.45,
+                      delay: index * 0.08,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="relative flex gap-4"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-400/35 bg-[#0d1b17] font-bold text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.16)]">
                       {index + 1}
                     </div>
 
                     <p className="pt-1 leading-7 text-zinc-300">{step}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
