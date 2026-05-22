@@ -44,7 +44,8 @@ export default async function HomePage({
       cta: "Începe un proiect",
       secondary: "Vezi serviciile",
       heroNote: "Digital experiences / mobile-first / conversion flow",
-      previewLabel: "Live studio preview",
+      motto: "Find your Flow",
+      previewLabel: "Find your Flow",
       previewTitle: "Website experience",
       previewText:
         "Structură, design și interacțiuni rafinate într-un flow clar pentru client.",
@@ -78,7 +79,8 @@ export default async function HomePage({
       cta: "Start a Project",
       secondary: "View services",
       heroNote: "Digital experiences / mobile-first / conversion flow",
-      previewLabel: "Live studio preview",
+      motto: "Find your Flow",
+      previewLabel: "Find your Flow",
       previewTitle: "Website experience",
       previewText:
         "Structure, design and refined interactions shaped into a clear customer flow.",
@@ -210,6 +212,7 @@ export default async function HomePage({
                 <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
                   {t.heroNote}
                 </span>
+
               </div>
 
               <div className="mt-10 flex animate-[revealUp_0.9s_ease-out_0.36s_both] flex-col items-start gap-4 sm:flex-row">
