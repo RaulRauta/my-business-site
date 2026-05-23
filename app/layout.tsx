@@ -21,33 +21,44 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://flowcraftstudio.app"),
 
   title: {
-    default: "FlowCraft Studio | Web Design pentru business-uri moderne",
+    default: "FlowCraftStudio — Premium Web Experiences",
     template: "%s | FlowCraft Studio",
   },
 
   description:
-    "FlowCraft Studio creează site-uri moderne, rapide și clare pentru restaurante, cafenele și business-uri locale care vor mai mulți clienți.",
+    "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
 
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    shortcut: "/favicon.ico",
+    apple: "/logo-icon.png",
   },
 
   openGraph: {
-    title: "FlowCraft Studio | Web Design pentru business-uri moderne",
+    title: "FlowCraftStudio — Premium Web Experiences",
     description:
-      "Site-uri moderne, rapide și orientate spre conversie pentru business-uri locale.",
+      "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
     url: "https://flowcraftstudio.app",
     siteName: "FlowCraft Studio",
     type: "website",
-    locale: "ro_RO",
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FlowCraftStudio — Premium Web Experiences",
+        type: "image/png",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "FlowCraft Studio",
+    title: "FlowCraftStudio — Premium Web Experiences",
     description:
-      "Site-uri moderne, rapide și orientate spre conversie pentru business-uri locale.",
+      "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
+    images: ["/opengraph-image.png"],
   },
 };
 
@@ -72,16 +83,16 @@ export default function RootLayout({
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
           {/* BASE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.16),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(34,211,238,0.14),transparent_38%),linear-gradient(180deg,#08111c_0%,#071018_45%,#05070c_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.1),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(34,211,238,0.08),transparent_38%),linear-gradient(180deg,#08111c_0%,#071018_45%,#05070c_100%)]" />
 
           {/* GLOW 1 */}
-          <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/30 blur-[150px] animate-[neonFloat_14s_ease-in-out_infinite]" />
+          <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/18 blur-[160px] animate-[neonFloat_14s_ease-in-out_infinite]" />
 
           {/* GLOW 2 */}
-          <div className="absolute bottom-[-18%] right-[-12%] h-[720px] w-[720px] rounded-full bg-cyan-400/25 blur-[170px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-18%] right-[-12%] h-[720px] w-[720px] rounded-full bg-cyan-400/14 blur-[180px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
 
           {/* GLOW 3 */}
-          <div className="absolute left-[35%] top-[28%] h-[560px] w-[560px] rounded-full bg-purple-500/18 blur-[150px] animate-[neonFloat_20s_ease-in-out_infinite]" />
+          <div className="absolute left-[35%] top-[28%] h-[560px] w-[560px] rounded-full bg-purple-500/10 blur-[160px] animate-[neonFloat_20s_ease-in-out_infinite]" />
 
           {/* VIGNETTE */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />

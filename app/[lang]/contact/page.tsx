@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import CustomSelect from "@/components/CustomSelect";
 import Footer from "@/components/Footer";
+import PageReveal from "@/components/PageReveal";
 import { useSearchParams } from "next/navigation";
 import CountryCodeSelect from "@/components/CountryCodeSelect";
 
@@ -199,11 +200,12 @@ export default function ContactPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 md:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.08),transparent_28%),radial-gradient(circle_at_90%_24%,rgba(34,211,238,0.045),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_45%)]" />
-        <div className="pointer-events-none absolute inset-x-0 top-40 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
+      <PageReveal>
+        <main className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 md:py-28">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.08),transparent_28%),radial-gradient(circle_at_90%_24%,rgba(34,211,238,0.045),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_45%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-40 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
 
-        <section className="relative mx-auto grid w-full max-w-7xl min-w-0 gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] lg:gap-16">
+          <section className="relative mx-auto grid w-full max-w-7xl min-w-0 gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] lg:gap-16">
           <div className="relative w-full min-w-0 text-left">
             <div className="flex flex-wrap items-center gap-3">
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -534,8 +536,9 @@ export default function ContactPage({
               </div>
             </div>
           </aside>
-        </section>
-      </main>
+          </section>
+        </main>
+      </PageReveal>
 
       <Footer lang={lang} />
     </>

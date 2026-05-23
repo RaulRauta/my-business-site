@@ -186,15 +186,15 @@ export default async function HomePage({
       <Navbar lang={currentLang} />
 
       <main className="relative overflow-hidden px-6 pb-24 pt-28 md:pt-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.13),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(34,211,238,0.08),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_38%,rgba(8,8,8,1)_100%)]" />
-        <div className="pointer-events-none absolute left-0 top-40 h-px w-full bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
-        <div className="pointer-events-none absolute right-[-15%] top-28 h-80 w-[46rem] rotate-[-18deg] bg-linear-to-r from-transparent via-emerald-400/10 to-transparent blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.08),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(34,211,238,0.055),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_38%,rgba(8,8,8,1)_100%)]" />
+        <div className="pointer-events-none absolute left-0 top-40 h-px w-full bg-linear-to-r from-transparent via-emerald-400/14 to-transparent" />
+        <div className="pointer-events-none absolute right-[-15%] top-28 h-80 w-[46rem] rotate-[-18deg] bg-linear-to-r from-transparent via-emerald-400/5 to-transparent blur-3xl" />
 
         <section className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 xl:grid-cols-[1.02fr_0.98fr] xl:items-center">
             <div>
               <div className="animate-[revealUp_0.8s_ease-out_both] flex items-center gap-4">
-                <span className="h-px w-10 bg-emerald-400/50" />
+                <span className="h-px w-10 bg-emerald-400/35" />
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                   {t.badge}
                 </p>
@@ -209,7 +209,7 @@ export default async function HomePage({
               </p>
 
               <div className="mt-9 flex animate-[revealUp_0.9s_ease-out_0.28s_both] flex-wrap gap-3">
-                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+                <span className="rounded-full border border-emerald-400/14 bg-emerald-400/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
                   {t.heroNote}
                 </span>
 
@@ -218,7 +218,7 @@ export default async function HomePage({
               <div className="mt-10 flex animate-[revealUp_0.9s_ease-out_0.36s_both] flex-col items-start gap-4 sm:flex-row">
                 <Link
                   href={`/${currentLang}/contact`}
-                  className="group inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_0_65px_rgba(52,211,153,0.45)] sm:w-fit"
+                  className="group inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.14)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_0_46px_rgba(52,211,153,0.24)] sm:w-fit"
                 >
                   {t.cta}
                   <span className="ml-2 transition group-hover:translate-x-1">
@@ -228,7 +228,7 @@ export default async function HomePage({
 
                 <Link
                   href={`/${currentLang}/services`}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-white/[0.08] sm:w-fit"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/22 hover:bg-white/[0.08] sm:w-fit"
                 >
                   {t.secondary}
                 </Link>
@@ -236,9 +236,9 @@ export default async function HomePage({
             </div>
 
             <div className="relative animate-[revealUp_1s_ease-out_0.22s_both]">
-              <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-emerald-400/12 via-cyan-300/5 to-transparent blur-3xl" />
-              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/15 bg-black/45 p-4 shadow-[0_0_100px_rgba(52,211,153,0.12)] backdrop-blur-xl md:p-6">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.12),transparent_42%)]" />
+              <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-emerald-400/7 via-cyan-300/3 to-transparent blur-3xl" />
+              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/45 p-4 shadow-[0_0_78px_rgba(52,211,153,0.07)] backdrop-blur-xl md:p-6">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(52,211,153,0.1),transparent_34%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.07),transparent_42%)]" />
                 <div className="pointer-events-none absolute inset-y-0 left-[-70%] w-[60%] animate-[signatureSweep_6s_ease-in-out_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#070b0b]/80">
@@ -254,7 +254,7 @@ export default async function HomePage({
                   <div className="relative p-5 md:p-7">
                     <div className="flex items-start justify-between gap-5">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/20 bg-black/55 shadow-[0_0_28px_rgba(52,211,153,0.18)]">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/12 bg-black/55 shadow-[0_0_22px_rgba(52,211,153,0.08)]">
                           <Image
                             src="/logo-icon.png"
                             alt="Flowcraft logo"
@@ -304,8 +304,8 @@ export default async function HomePage({
           </div>
 
           <div className="relative mt-20">
-            <div className="absolute inset-x-0 -top-8 h-px bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
-            <div className="rounded-[2rem] border border-emerald-400/10 bg-black/35 p-7 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+            <div className="absolute inset-x-0 -top-8 h-px bg-linear-to-r from-transparent via-emerald-400/14 to-transparent" />
+            <div className="rounded-[2rem] border border-white/10 bg-black/35 p-7 shadow-[0_0_70px_rgba(0,0,0,0.24)] backdrop-blur-xl md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-400/70">
                 {t.sloganLabel}
               </p>
@@ -338,14 +338,14 @@ export default async function HomePage({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group animate-[revealUp_0.8s_ease-out_both] rounded-3xl border border-white/10 bg-black/30 p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-emerald-400/40 hover:bg-white/[0.045] hover:shadow-[0_0_70px_rgba(52,211,153,0.12)]"
+                  className="group animate-[revealUp_0.8s_ease-out_both] rounded-3xl border border-white/10 bg-black/30 p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-emerald-400/22 hover:bg-white/[0.045] hover:shadow-[0_0_54px_rgba(52,211,153,0.07)]"
                   style={{ animationDelay: `${index * 90}ms` }}
                 >
                   <div className="mb-7 flex items-center justify-between">
                     <span className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400/80">
                       {item.label}
                     </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm text-zinc-400 transition group-hover:border-emerald-400/40 group-hover:text-emerald-300">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm text-zinc-400 transition group-hover:border-emerald-400/22 group-hover:text-emerald-300">
                       -&gt;
                     </span>
                   </div>
@@ -363,9 +363,9 @@ export default async function HomePage({
             {t.points.map((point, index) => (
               <div
                 key={point}
-                className="group rounded-3xl border border-white/10 bg-black/30 p-6 text-zinc-300 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_50px_rgba(52,211,153,0.1)]"
+                className="group rounded-3xl border border-white/10 bg-black/30 p-6 text-zinc-300 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/22 hover:shadow-[0_0_42px_rgba(52,211,153,0.06)]"
               >
-                <div className="mb-5 h-10 w-10 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 shadow-[0_0_25px_rgba(52,211,153,0.1)] transition group-hover:bg-emerald-400/20" />
+                <div className="mb-5 h-10 w-10 rounded-2xl border border-emerald-400/14 bg-emerald-400/6 shadow-[0_0_20px_rgba(52,211,153,0.06)] transition group-hover:bg-emerald-400/12" />
                 <p className="text-lg leading-8">{point}</p>
                 <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-600">
                   0{index + 1}
@@ -374,8 +374,8 @@ export default async function HomePage({
             ))}
           </section>
 
-          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/40 p-7 shadow-[0_0_90px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/35 to-transparent" />
+          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-white/10 bg-black/40 p-7 shadow-[0_0_76px_rgba(0,0,0,0.25)] backdrop-blur-xl md:p-10">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/20 to-transparent" />
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -449,8 +449,8 @@ export default async function HomePage({
             </div>
           </section>
 
-          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_90px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(52,211,153,0.08),transparent)]" />
+          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-white/10 bg-black/40 p-8 shadow-[0_0_76px_rgba(0,0,0,0.25)] backdrop-blur-xl md:p-10">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(52,211,153,0.04),transparent)]" />
             <div className="relative">
               <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
                 {t.finalTitle}
@@ -463,14 +463,14 @@ export default async function HomePage({
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href={`/${currentLang}/contact`}
-                  className="rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                  className="rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.14)] transition hover:bg-emerald-300 hover:shadow-[0_0_44px_rgba(52,211,153,0.24)]"
                 >
                   {t.cta}
                 </Link>
 
                 <Link
                   href={`/${currentLang}/projects`}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white transition hover:border-emerald-400/22 hover:bg-white/[0.08]"
                 >
                   {t.finalSecondary}
                 </Link>

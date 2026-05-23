@@ -6,8 +6,8 @@ type ProjectPreviewProps = {
 
 const variantStyles = {
   blog: {
-    glow: "rgba(52,211,153,0.16)",
-    accent: "bg-emerald-400/25",
+    glow: "rgba(52,211,153,0.08)",
+    accent: "bg-emerald-400/14",
     text: "text-emerald-300/70",
   },
   cafe: {
@@ -54,7 +54,7 @@ export default function ProjectPreview({
       <div className="relative flex items-center gap-2 border-b border-white/10 bg-black/50 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/55" />
 
         <div className="ml-3 h-6 flex-1 rounded-full border border-white/10 bg-white/4" />
 
@@ -79,7 +79,7 @@ export default function ProjectPreview({
                   key={item}
                   className="rounded-2xl border border-white/10 bg-white/4 p-3"
                 >
-                  <div className="h-14 rounded-xl bg-emerald-400/10" />
+                  <div className="h-14 rounded-xl bg-emerald-400/6" />
                   <div className="mt-3 h-2 w-3/4 rounded-full bg-white/15" />
                   <div className="mt-2 h-2 w-1/2 rounded-full bg-white/10" />
                 </div>
@@ -108,7 +108,7 @@ export default function ProjectPreview({
           {variant === "landing" && (
             <div className="mt-7 grid grid-cols-[1fr_0.85fr] gap-4">
               <div>
-                <div className="h-9 w-32 rounded-full bg-emerald-400/25" />
+                <div className="h-9 w-32 rounded-full bg-emerald-400/14" />
                 <div className="mt-4 h-3 w-full rounded-full bg-white/10" />
                 <div className="mt-2 h-3 w-3/4 rounded-full bg-white/10" />
               </div>

@@ -79,12 +79,12 @@ const accentClasses = {
       "border-[#d9b46f]/20 bg-[#d9b46f]/10 text-[#f3d19c] hover:border-[#d9b46f]/45 hover:bg-[#d9b46f]/15",
   },
   green: {
-    border: "border-emerald-400/15 hover:border-emerald-400/40",
-    shadow: "hover:shadow-[0_0_80px_rgba(52,211,153,0.13)]",
-    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(52,211,153,0.14),transparent_38%)]",
+    border: "border-emerald-400/12 hover:border-emerald-400/24",
+    shadow: "hover:shadow-[0_0_60px_rgba(52,211,153,0.07)]",
+    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(52,211,153,0.08),transparent_38%)]",
     text: "text-emerald-300",
     button:
-      "border-emerald-400/20 bg-emerald-400/10 text-emerald-300 hover:border-emerald-400/40 hover:bg-emerald-400/15",
+      "border-emerald-400/16 bg-emerald-400/6 text-emerald-300 hover:border-emerald-400/24 hover:bg-emerald-400/10",
   },
   cyan: {
     border: "border-cyan-300/15 hover:border-cyan-300/40",
@@ -239,7 +239,7 @@ function ProjectDetailsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 22, scale: 0.96 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_130px_rgba(52,211,153,0.18)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
+        className={`relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
@@ -268,7 +268,7 @@ function ProjectDetailsModal({
               type="button"
               onClick={onClose}
               aria-label={copy.closeDetails}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white transition hover:border-emerald-400/40 hover:bg-white/[0.08]"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-xl text-white transition hover:border-emerald-400/22 hover:bg-white/[0.08]"
             >
               ×
             </button>
@@ -302,7 +302,7 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded-[2rem] border bg-black/35 shadow-[0_0_45px_rgba(0,0,0,0.24)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 ${accent.border} ${accent.shadow}`}
+      className={`group relative overflow-hidden rounded-[2rem] border bg-black/35 shadow-[0_0_42px_rgba(0,0,0,0.24)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${accent.border} ${accent.shadow}`}
     >
       <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
       {experimental && (
@@ -350,7 +350,7 @@ function ProjectCard({
             <button
               type="button"
               onClick={() => onDetails(project)}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-white transition hover:border-emerald-400/35 hover:bg-white/[0.08]"
+              className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-white transition hover:border-emerald-400/22 hover:bg-white/[0.08]"
             >
               {copy.details}
             </button>
@@ -403,7 +403,7 @@ export default function ProjectsShowroom({
   return (
     <>
       <section className="relative mt-20 overflow-hidden rounded-[2.2rem] border border-[#d9b46f]/20 bg-black/40 shadow-[0_0_110px_rgba(217,180,111,0.1)] backdrop-blur-xl">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(217,180,111,0.17),transparent_36%),radial-gradient(circle_at_82%_74%,rgba(52,211,153,0.09),transparent_42%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(217,180,111,0.15),transparent_36%),radial-gradient(circle_at_82%_74%,rgba(52,211,153,0.045),transparent_42%)]" />
         <div className="relative grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="p-7 md:p-10">
             <span className="inline-flex rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#f3d19c]">
@@ -477,7 +477,7 @@ export default function ProjectsShowroom({
       </section>
 
       <section className="relative mt-24">
-        <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-linear-to-r from-transparent via-emerald-400/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-linear-to-r from-transparent via-emerald-400/12 to-transparent" />
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">

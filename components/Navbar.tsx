@@ -47,7 +47,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           : "border-b border-white/5 bg-black/25 backdrop-blur-md"
       }`}
     >
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/28 to-transparent" />
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         {/* LOGO */}
@@ -56,8 +56,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3"
         >
-          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/15 bg-black/55 shadow-[0_0_25px_rgba(52,211,153,0.18)] transition group-hover:scale-105 group-hover:shadow-[0_0_35px_rgba(52,211,153,0.35)]">
-            <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.18),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/12 bg-black/55 shadow-[0_0_20px_rgba(52,211,153,0.08)] transition group-hover:scale-105 group-hover:border-emerald-400/22 group-hover:shadow-[0_0_28px_rgba(52,211,153,0.16)]">
+            <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.1),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
 
             <Image
               src="/logo-icon.png"
@@ -80,7 +80,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden items-center rounded-full border border-emerald-400/10 bg-black/35 p-1 shadow-[0_0_30px_rgba(52,211,153,0.08)] md:flex">
+        <nav className="hidden items-center rounded-full border border-white/10 bg-black/35 p-1 shadow-[0_0_26px_rgba(0,0,0,0.28)] md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -95,7 +95,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                 {isActive && (
                   <motion.span
                     layoutId="nav-active-pill"
-                    className="absolute inset-0 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.5)]"
+                    className="absolute inset-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.26)]"
                     transition={{
                       type: "spring",
                       stiffness: 700,
@@ -126,7 +126,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               {lang === "ro" && (
                 <motion.span
                   layoutId="lang-active-pill"
-                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_22px_rgba(52,211,153,0.45)] md:block"
+                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] md:block"
                   transition={{
                     type: "spring",
                     stiffness: 700,
@@ -151,7 +151,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               {lang === "en" && (
                 <motion.span
                   layoutId="lang-active-pill"
-                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_22px_rgba(52,211,153,0.45)] md:block"
+                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] md:block"
                   transition={{
                     type: "spring",
                     stiffness: 700,
@@ -168,7 +168,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           {/* DESKTOP CTA */}
           <Link
             href={`/${lang}/contact`}
-            className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_25px_rgba(255,255,255,0.12)] transition hover:bg-emerald-400 hover:shadow-[0_0_35px_rgba(52,211,153,0.55)] lg:block"
+            className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_22px_rgba(255,255,255,0.1)] transition hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(52,211,153,0.24)] lg:block"
           >
             {lang === "ro" ? "Let’s talk" : "Let’s talk"}
           </Link>
@@ -186,12 +186,12 @@ export default function Navbar({ lang }: { lang: Lang }) {
                   rotate: menuOpen ? 45 : 0,
                   y: menuOpen ? 6 : 0,
                 }}
-                className="absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
               />
 
               <motion.span
                 animate={{ opacity: menuOpen ? 0 : 1 }}
-                className="absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
               />
 
               <motion.span
@@ -199,7 +199,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                   rotate: menuOpen ? -45 : 0,
                   y: menuOpen ? -6 : 0,
                 }}
-                className="absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.75)]"
+                className="absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
               />
             </span>
           </button>
@@ -214,7 +214,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-6 mb-5 rounded-3xl border border-emerald-400/10 bg-black/60 p-4 shadow-[0_0_45px_rgba(52,211,153,0.1)] backdrop-blur-xl md:hidden"
+            className="mx-6 mb-5 rounded-3xl border border-white/10 bg-black/60 p-4 shadow-[0_0_38px_rgba(0,0,0,0.3)] backdrop-blur-xl md:hidden"
           >
             <div className="grid gap-2">
               {navItems.map((item) => {
@@ -227,7 +227,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                     onClick={() => setMenuOpen(false)}
                     className={`rounded-2xl px-5 py-4 text-base font-semibold transition ${
                       isActive
-                        ? "bg-emerald-400 text-black shadow-[0_0_24px_rgba(52,211,153,0.35)]"
+                        ? "bg-emerald-400 text-black shadow-[0_0_18px_rgba(52,211,153,0.18)]"
                         : "bg-white/4 text-zinc-300 hover:bg-white/8 hover:text-white"
                     }`}
                   >

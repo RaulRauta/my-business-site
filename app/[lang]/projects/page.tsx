@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageReveal from "@/components/PageReveal";
 import ProjectsShowroom, {
   type ShowroomProject,
 } from "@/components/ProjectsShowroom";
@@ -393,11 +394,12 @@ export default async function ProjectsPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="relative overflow-hidden px-6 py-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.12),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(34,211,238,0.08),transparent_30%),linear-gradient(180deg,transparent,rgba(8,8,8,1)_35%)]" />
-        <div className="pointer-events-none absolute left-0 top-56 h-px w-full bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
+      <PageReveal>
+        <main className="relative overflow-hidden px-6 py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.12),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(34,211,238,0.08),transparent_30%),linear-gradient(180deg,transparent,rgba(8,8,8,1)_35%)]" />
+          <div className="pointer-events-none absolute left-0 top-56 h-px w-full bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
 
-        <section className="relative mx-auto max-w-7xl">
+          <section className="relative mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -448,8 +450,9 @@ export default async function ProjectsPage({
             demos={t.demos}
             wip={t.wip}
           />
-        </section>
-      </main>
+          </section>
+        </main>
+      </PageReveal>
 
       <Footer lang={lang} />
     </>
