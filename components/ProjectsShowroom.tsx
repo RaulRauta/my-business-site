@@ -231,7 +231,7 @@ function ProjectDetailsModal({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.22 }}
-      className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[999] flex items-center justify-center overflow-hidden overscroll-none bg-black/70 p-4 backdrop-blur-md"
       style={{
         height: "100vh",
         transform: `translateY(${lockedScrollY}px)`,
@@ -246,7 +246,7 @@ function ProjectDetailsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 22, scale: 0.96 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative max-h-[calc(100dvh-2rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl [-webkit-overflow-scrolling:touch] sm:p-7 md:p-8 ${accent.border}`}
+        className={`relative max-h-[90dvh] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl [-webkit-overflow-scrolling:touch] sm:p-7 md:p-8 ${accent.border}`}
         onClick={(event) => event.stopPropagation()}
       >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />

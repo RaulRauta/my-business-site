@@ -27,7 +27,11 @@ body {
 
 html,
 body {
-  background: #080808;
+  overscroll-behavior-y: none;
+  background: #050505;
+}
+
+body {
   overflow-x: hidden;
 }
 

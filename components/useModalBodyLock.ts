@@ -13,14 +13,12 @@ export default function useModalBodyLock(
     }
 
     const previousBodyStyles = {
-      overflow: document.body.style.overflow,
       position: document.body.style.position,
       top: document.body.style.top,
       left: document.body.style.left,
       right: document.body.style.right,
       width: document.body.style.width,
     };
-    const previousHtmlOverflow = document.documentElement.style.overflow;
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -40,13 +38,13 @@ export default function useModalBodyLock(
 
     return () => {
       document.body.classList.remove("modal-open");
-      document.body.style.overflow = previousBodyStyles.overflow;
+      document.body.style.overflow = "";
       document.body.style.position = previousBodyStyles.position;
       document.body.style.top = previousBodyStyles.top;
       document.body.style.left = previousBodyStyles.left;
       document.body.style.right = previousBodyStyles.right;
       document.body.style.width = previousBodyStyles.width;
-      document.documentElement.style.overflow = previousHtmlOverflow;
+      document.documentElement.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
 
       window.requestAnimationFrame(() => {

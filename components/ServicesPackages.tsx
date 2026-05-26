@@ -161,7 +161,7 @@ export default function ServicesPackages({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[999] flex items-center justify-center overflow-hidden overscroll-none bg-black/70 p-4 backdrop-blur-md"
             style={{
               height: "100vh",
               transform: `translateY(${lockedScrollY}px)`,
@@ -176,7 +176,7 @@ export default function ServicesPackages({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 14, scale: 0.96 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto overscroll-contain rounded-[2rem] border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] [-webkit-overflow-scrolling:touch] sm:p-8"
+              className="relative max-h-[90dvh] w-full max-w-2xl overflow-y-auto overscroll-contain rounded-[2rem] border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] [-webkit-overflow-scrolling:touch] sm:p-8"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(52,211,153,0.09),transparent_34%),radial-gradient(circle_at_90%_25%,rgba(34,211,238,0.07),transparent_36%)]" />
