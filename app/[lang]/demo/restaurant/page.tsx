@@ -17,14 +17,14 @@ export default async function RestaurantDemoPage({
       heroTitle:
         "Foc, atmosferă și fine dining într-un spațiu construit pentru experiență.",
       heroText:
-        "AURELIA combină atmosfera cinematică, plating-ul modern și experiența premium într-un spațiu creat pentru seri memorabile.",
+        "AURELIA combină atmosfera cinematică, plating-ul modern și o experiență rafinată într-un spațiu creat pentru seri memorabile.",
       heroButton: "Rezervă o masă",
 
       menuBadge: "Meniu",
       menuTitle: "Preparatele semnătură",
 
       storyBadge: "Experiență",
-      storyTitle: "Ingrediente simple. Experiență premium.",
+      storyTitle: "Ingrediente simple. Experiență rafinată.",
       storyText:
         "Acest demo arată cum poate arăta un site pentru un restaurant care vrea să transmită atmosferă, rafinament și claritate.",
 
@@ -47,14 +47,14 @@ export default async function RestaurantDemoPage({
       heroTitle:
         "Fire, atmosphere and fine dining built around the experience.",
       heroText:
-        "AURELIA blends cinematic atmosphere, modern plating and premium dining into a space designed for memorable evenings.",
+        "AURELIA blends cinematic atmosphere, modern plating and refined dining into a space designed for memorable evenings.",
       heroButton: "Book a table",
 
       menuBadge: "Menu",
       menuTitle: "Signature dishes",
 
       storyBadge: "Story",
-      storyTitle: "Simple ingredients. Premium experience.",
+      storyTitle: "Simple ingredients. Refined experience.",
       storyText:
         "This demo shows how a website can look for a restaurant that wants to communicate atmosphere, elegance and clarity.",
 
@@ -686,8 +686,8 @@ export default async function RestaurantDemoPage({
 
             <p className="mt-6 max-w-md leading-7 text-zinc-500">
               {lang === "ro"
-                ? "Concept demo creat pentru prezentarea unui website premium de restaurant."
-                : "Demo concept created to showcase a premium restaurant website."}
+                ? "Concept demo creat pentru prezentarea unui website rafinat de restaurant."
+                : "Demo concept created to showcase a refined restaurant website."}
             </p>
           </div>
 

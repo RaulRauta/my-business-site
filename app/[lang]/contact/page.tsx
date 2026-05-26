@@ -362,6 +362,15 @@ export default function ContactPage({
                   placeholder={t.email}
                   className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
                 />
+
+                <input
+                  name="business"
+                  type="text"
+                  required
+                  autoComplete="off"
+                  placeholder={t.business}
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)] lg:col-span-2"
+                />
               </div>
 
               <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-black/35 transition duration-300 hover:border-white/18 focus-within:border-emerald-400/60 focus-within:bg-black/45 focus-within:shadow-[0_0_18px_rgba(52,211,153,0.12)]">
@@ -376,6 +385,7 @@ export default function ContactPage({
                     name="phoneNumber"
                     type="tel"
                     inputMode="numeric"
+                    required
                     autoComplete="off"
                     value={phoneNumber}
                     onChange={(e) => {

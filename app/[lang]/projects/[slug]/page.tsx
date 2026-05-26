@@ -40,7 +40,7 @@ const projects = {
       solution:
         "Modelul este construit în jurul experienței vizuale, cu secțiuni clare pentru atmosferă, meniu, locație și contact.",
       features: [
-        "Hero vizual premium",
+        "Hero vizual rafinat",
         "Secțiune meniu",
         "Galerie imagine",
         "CTA rezervare",
@@ -105,7 +105,7 @@ const projects = {
       solution:
         "The model is built around visual experience, with clear sections for atmosphere, menu, location and contact.",
       features: [
-        "Premium visual hero",
+        "Refined visual hero",
         "Menu section",
         "Image gallery",
         "Booking CTA",
@@ -235,7 +235,7 @@ export default async function PortfolioProjectPage({
               </div>
 
               {/* DESKTOP PREVIEW */}
-              <div className="hidden h-140rflow-hidden bg-black md:block">
+              <div className="hidden h-140 overflow-hidden bg-black md:block">
                 <iframe
                   src={project.liveUrl}
                   title={project.title}

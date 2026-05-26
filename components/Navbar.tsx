@@ -30,8 +30,11 @@ export default function Navbar({ lang }: { lang: Lang }) {
   const navItems = [
     { href: `/${lang}/services`, label: t.navServices },
     { href: `/${lang}/process`, label: t.navProcess },
-    { href: `/${lang}/projects`, label: "Projects" },
-    { href: `/${lang}/about`, label: "About" },
+    {
+      href: `/${lang}/projects`,
+      label: lang === "ro" ? "Proiecte" : "Projects",
+    },
+    { href: `/${lang}/about`, label: lang === "ro" ? "Despre" : "About" },
     { href: `/${lang}/contact`, label: t.navContact },
   ];
 
@@ -172,7 +175,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             href={`/${lang}/contact`}
             className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_22px_rgba(255,255,255,0.1)] transition hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(52,211,153,0.24)] lg:block"
           >
-            {lang === "ro" ? "Let’s talk" : "Let’s talk"}
+            {lang === "ro" ? "Hai sa vorbim" : "Let’s talk"}
           </Link>
 
           {/* MOBILE HAMBURGER */}

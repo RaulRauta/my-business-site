@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://flowcraftstudio.app"),
 
   title: {
-    default: "FlowCraftStudio — Premium Web Experiences",
+    default: "FlowCraftStudio — Cinematic Web Experiences",
     template: "%s | FlowCraft Studio",
   },
 
   description:
-    "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
+    "Cinematic websites crafted for modern brands, restaurants and digital experiences.",
 
   icons: {
     icon: [{ url: "/favicon.ico", sizes: "any" }],
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "FlowCraftStudio — Premium Web Experiences",
+    title: "FlowCraftStudio — Cinematic Web Experiences",
     description:
-      "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
+      "Cinematic websites crafted for modern brands, restaurants and digital experiences.",
     url: "https://flowcraftstudio.app",
     siteName: "FlowCraft Studio",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "FlowCraftStudio — Premium Web Experiences",
+        alt: "FlowCraftStudio — Cinematic Web Experiences",
         type: "image/png",
       },
     ],
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "FlowCraftStudio — Premium Web Experiences",
+    title: "FlowCraftStudio — Cinematic Web Experiences",
     description:
-      "Premium cinematic websites crafted for modern brands, restaurants and digital experiences.",
+      "Cinematic websites crafted for modern brands, restaurants and digital experiences.",
     images: ["/opengraph-image.png"],
   },
 };

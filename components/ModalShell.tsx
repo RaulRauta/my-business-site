@@ -39,7 +39,7 @@ export default function ModalShell({
           className="fixed inset-0 z-[999] overflow-hidden overscroll-none bg-black/70 backdrop-blur-md touch-none"
           onClick={onClose}
         >
-          <div className="flex min-h-[100dvh] items-start justify-center px-4 pb-6 pt-[5dvh] sm:items-center sm:pt-6">
+          <div className="flex min-h-[100dvh] items-start justify-center px-4 pb-6 pt-[4dvh] sm:items-center sm:pt-6">
             <motion.div
               ref={panelRef}
               role="dialog"
@@ -49,7 +49,7 @@ export default function ModalShell({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 14, scale: 0.96 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative max-h-[90dvh] w-full touch-pan-y overflow-y-auto overscroll-contain rounded-[2rem] [-webkit-overflow-scrolling:touch] ${className}`}
+              className={`relative max-h-[84dvh] w-full touch-pan-y overflow-y-auto overscroll-contain rounded-[2rem] [-webkit-overflow-scrolling:touch] sm:max-h-[90dvh] ${className}`}
               onClick={(event) => event.stopPropagation()}
             >
               {children}

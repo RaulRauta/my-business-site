@@ -7,7 +7,7 @@ type Lang = "ro" | "en";
 export const metadata: Metadata = {
   title: "North Studio Demo | FlowCraft Studio",
   description:
-    "Demo clean premium pentru barber shop modern, cu servicii, echipă, galerie și programări.",
+    "Demo clean pentru barber shop modern, cu servicii, echipă, galerie și programări.",
 };
 
 export default async function NorthStudioPage({
@@ -30,7 +30,7 @@ export default async function NorthStudioPage({
       bookingButton: "Trimite cererea",
       bookingNote: "Răspuns în aceeași zi, în timpul programului.",
       servicesBadge: "Servicii",
-      servicesTitle: "Servicii clare, prezentate premium.",
+      servicesTitle: "Servicii clare, prezentate cu grijă.",
       servicesText:
         "O structură simplă care ajută clientul să înțeleagă rapid ce poate rezerva.",
       services: [
@@ -70,7 +70,7 @@ export default async function NorthStudioPage({
       badge: "Barber Studio",
       title: "Tunsori precise. Grooming modern.",
       subtitle:
-        "Un demo luminos și premium pentru barber shop-uri care vor o imagine curată, încredere și programări rapide.",
+        "Un demo luminos pentru barber shop-uri care vor o imagine curată, încredere și programări rapide.",
       cta: "Programează-te",
       secondary: "Vezi serviciile",
     },
@@ -126,7 +126,7 @@ export default async function NorthStudioPage({
       badge: "Barber Studio",
       title: "Precision cuts. Modern grooming.",
       subtitle:
-        "A bright premium demo for barber shops that want a clean image, trust and fast bookings.",
+        "A bright polished demo for barber shops that want a clean image, trust and fast bookings.",
       cta: "Book now",
       secondary: "View services",
     },

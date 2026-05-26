@@ -30,12 +30,12 @@ export default async function ServicesPage({
     ro: {
       badge: "Servicii",
       title:
-        "Pachete clare pentru un site care arată premium și aduce acțiune.",
+        "Pachete clare pentru un site rafinat, construit să aducă acțiune.",
       subtitle:
         "Alegi direcția potrivită, vezi ce primești și pornești cu o structură construită pentru încredere, claritate și conversie.",
       cta: "Începe un proiect",
       secondary: "Vezi procesul",
-      heroNote: "Ofertă premium, fără haos tehnic",
+      heroNote: "Ofertă clară, fără haos tehnic",
 
       packages: {
         badge: "Pachete",
@@ -94,7 +94,7 @@ export default async function ServicesPage({
               "Pentru business-uri care vor o prezență mai puternică, mai multă claritate și o structură orientată spre conversie.",
             benefits: [
               "Website multi-secțiune",
-              "Direcție vizuală premium",
+              "Direcție vizuală rafinată",
               "Microinteracțiuni",
               "Flow pentru rezervări/contact",
               "Finisaj mobile-first",
@@ -103,7 +103,7 @@ export default async function ServicesPage({
               "Business-uri care au deja o ofertă clară și vor un site care să prezinte brandul mai bine, să creeze încredere și să conducă vizitatorii spre cerere, rezervare sau contact.",
             included: [
               "Website multi-secțiune",
-              "Direcție vizuală premium",
+              "Direcție vizuală rafinată",
               "Animații și microinteracțiuni mai puternice",
               "Secțiune de contact / rezervări",
               "Structură SEO de bază",
@@ -136,7 +136,7 @@ export default async function ServicesPage({
               "Scalabil pe termen lung",
             ],
             perfectFor:
-              "Branduri, concepte premium sau proiecte care au nevoie de o experiență digitală distinctă, funcționalități speciale sau o structură care poate crește în timp.",
+              "Branduri, concepte speciale sau proiecte care au nevoie de o experiență digitală distinctă, funcționalități speciale sau o structură care poate crește în timp.",
             included: [
               "Structură personalizată pentru website",
               "Direcție UI/UX avansată",
@@ -173,7 +173,7 @@ export default async function ServicesPage({
             text: "Nu doar redimensionare responsive, ci o experiență care se simte naturală pe telefon.",
           },
           {
-            title: "Identitate vizuală premium",
+            title: "Identitate vizuală memorabilă",
             text: "Culori, ritm, spacing și detalii care fac site-ul să pară coerent și memorabil.",
           },
           {
@@ -208,7 +208,7 @@ export default async function ServicesPage({
           {
             step: "03",
             title: "Design direction",
-            text: "Construiesc direcția vizuală: premium, clară și potrivită pentru brand.",
+            text: "Construiesc direcția vizuală: clară, rafinată și potrivită pentru brand.",
           },
           {
             step: "04",
@@ -268,12 +268,12 @@ export default async function ServicesPage({
 
     en: {
       badge: "Services",
-      title: "Clear packages for a premium website built to drive action.",
+      title: "Clear packages for a polished website built to drive action.",
       subtitle:
         "Choose the right direction, understand what you get and start with a structure built for trust, clarity and conversion.",
       cta: "Start a project",
       secondary: "See process",
-      heroNote: "Premium offer, no technical chaos",
+      heroNote: "Clear offer, no technical chaos",
 
       packages: {
         badge: "Packages",
@@ -327,7 +327,7 @@ export default async function ServicesPage({
               "For businesses that want a stronger brand presence, more clarity and a conversion-focused structure.",
             benefits: [
               "Multi-section website",
-              "Premium visual direction",
+              "Refined visual direction",
               "Microinteractions",
               "Booking / contact flow",
               "Mobile-first polish",
@@ -336,7 +336,7 @@ export default async function ServicesPage({
               "Businesses with a clear offer that want a website to present the brand better, build trust and guide visitors toward requests, bookings or contact.",
             included: [
               "Multi-section website",
-              "Premium visual direction",
+              "Refined visual direction",
               "Stronger animations and microinteractions",
               "Contact / reservation / booking section",
               "Basic SEO structure",
@@ -369,7 +369,7 @@ export default async function ServicesPage({
               "Scalable long-term",
             ],
             perfectFor:
-              "Brands, premium concepts or projects that need a distinct digital experience, special features or a structure that can scale over time.",
+              "Brands, special concepts or projects that need a distinct digital experience, special features or a structure that can scale over time.",
             included: [
               "Custom website structure",
               "Advanced UI/UX direction",
@@ -406,7 +406,7 @@ export default async function ServicesPage({
             text: "Not just responsive resizing, but an experience that feels natural on a phone.",
           },
           {
-            title: "Premium visual identity",
+            title: "Memorable visual identity",
             text: "Colors, rhythm, spacing and details that make the website feel coherent and memorable.",
           },
           {
@@ -441,7 +441,7 @@ export default async function ServicesPage({
           {
             step: "03",
             title: "Design direction",
-            text: "I build the visual direction: premium, clear and aligned with your brand.",
+            text: "I build the visual direction: clear, refined and aligned with your brand.",
           },
           {
             step: "04",
@@ -551,8 +551,8 @@ export default async function ServicesPage({
 
                 <p className="mt-4 leading-7 text-zinc-400">
                   {lang === "ro"
-                    ? "Strategie, structură, design și dezvoltare într-un flow coerent, construit pentru business-uri care vor să pară mai clare și mai premium online."
-                    : "Strategy, structure, design and development in one coherent flow, built for businesses that want to feel clearer and more premium online."}
+                    ? "Strategie, structură, design și dezvoltare într-un flow coerent, construit pentru business-uri care vor să pară mai clare și mai serioase online."
+                    : "Strategy, structure, design and development in one coherent flow, built for businesses that want to feel clearer and more established online."}
                 </p>
               </div>
             </div>

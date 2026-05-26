@@ -33,7 +33,7 @@ export default async function ProcessPage({
   const t = {
     ro: {
       badge: "Proces",
-      title: "Fiecare experiență premium începe cu un proces clar.",
+      title: "Fiecare experiență memorabilă începe cu un proces clar.",
       subtitle:
         "Construim site-uri prin colaborare, structură și atenție la detalii, de la prima conversație până la lansare.",
       cta: "Începe un proiect",
@@ -49,7 +49,7 @@ export default async function ProcessPage({
       intro: {
         badge: "Filosofie",
         title: "Mai mult decât construirea unui site.",
-        text: "Un site premium nu înseamnă doar pagini frumoase. Înseamnă branding coerent, experiență pentru utilizator, structură orientată spre conversie, prezentare clară, încredere și detalii care se simt bine pe mobil.",
+        text: "Un site bun nu înseamnă doar pagini frumoase. Înseamnă branding coerent, experiență pentru utilizator, structură orientată spre conversie, prezentare clară, încredere și detalii care se simt bine pe mobil.",
         highlights: [
           "Branding și prezentare",
           "Experiență mobile-first",
@@ -91,7 +91,7 @@ export default async function ProcessPage({
             number: "03",
             title: "Design Direction",
             kicker: "Dăm formă atmosferei",
-            text: "Stabilim identitatea vizuală premium: tipografie, spațiere, culori, ritm și senzația interactivă a site-ului.",
+            text: "Stabilim direcția vizuală: tipografie, spațiere, culori, ritm și senzația interactivă a site-ului.",
             points: [
               "identitate vizuală",
               "tipografie",
@@ -192,7 +192,7 @@ export default async function ProcessPage({
 
       final: {
         title: "Hai să construim ceva ce clienții tăi își amintesc.",
-        text: "FlowCraftStudio creează experiențe digitale premium, construite să îți reprezinte business-ul la cel mai bun nivel.",
+        text: "FlowCraftStudio creează experiențe digitale construite să îți reprezinte business-ul la cel mai bun nivel.",
         primary: "Începe un proiect",
         secondary: "Vezi proiectele",
       },
@@ -200,7 +200,7 @@ export default async function ProcessPage({
 
     en: {
       badge: "Process",
-      title: "Every premium experience starts with a clear process.",
+      title: "Every memorable experience starts with a clear process.",
       subtitle:
         "We build websites through collaboration, structure and attention to detail, from the first conversation to launch.",
       cta: "Start a project",
@@ -216,7 +216,7 @@ export default async function ProcessPage({
       intro: {
         badge: "Philosophy",
         title: "More than just building a website.",
-        text: "A premium website is not just a set of good-looking pages. It means coherent branding, user experience, conversion-focused structure, clear presentation, trust and details that feel right on mobile.",
+        text: "A strong website is not just a set of good-looking pages. It means coherent branding, user experience, conversion-focused structure, clear presentation, trust and details that feel right on mobile.",
         highlights: [
           "Branding and presentation",
           "Mobile-first experience",
@@ -258,7 +258,7 @@ export default async function ProcessPage({
             number: "03",
             title: "Design Direction",
             kicker: "Shaping the atmosphere",
-            text: "We define the premium visual identity: typography, spacing, colors, rhythm and the interactive feeling of the website.",
+            text: "We define the visual direction: typography, spacing, colors, rhythm and the interactive feeling of the website.",
             points: ["visual identity", "typography", "spacing", "atmosphere"],
           },
           {
@@ -353,7 +353,7 @@ export default async function ProcessPage({
 
       final: {
         title: "Let’s build something your customers remember.",
-        text: "FlowCraftStudio creates premium digital experiences designed to represent your business at its best.",
+        text: "FlowCraftStudio creates digital experiences designed to represent your business at its best.",
         primary: "Start a project",
         secondary: "View projects",
       },

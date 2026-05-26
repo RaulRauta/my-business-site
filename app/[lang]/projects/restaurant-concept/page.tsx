@@ -16,7 +16,7 @@ export default async function RestaurantConceptPage({
       badge: "Demo Concept",
       title: "Restaurant Concept",
       subtitle:
-        "Un model de site pentru restaurante care vor să arate premium, să prezinte meniul clar și să ducă vizitatorul spre rezervare.",
+        "Un model de site pentru restaurante care vor să arate rafinat, să prezinte meniul clar și să ducă vizitatorul spre rezervare.",
       cta: "Vreau un site asemănător",
       back: "Înapoi la Projects",
       sections: [
@@ -52,7 +52,7 @@ export default async function RestaurantConceptPage({
       badge: "Demo Concept",
       title: "Restaurant Concept",
       subtitle:
-        "A website model for restaurants that want to look premium, present the menu clearly and guide visitors toward booking.",
+        "A website model for restaurants that want to look refined, present the menu clearly and guide visitors toward booking.",
       cta: "I want something similar",
       back: "Back to Projects",
       sections: [

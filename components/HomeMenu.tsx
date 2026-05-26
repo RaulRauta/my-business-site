@@ -34,8 +34,8 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
     },
     { href: `/${lang}/process`, label: lang === "ro" ? "Proces" : "Process" },
     {
-      href: `/${lang}/portfolio`,
-      label: lang === "ro" ? "Portofoliu" : "Portfolio",
+      href: `/${lang}/projects`,
+      label: lang === "ro" ? "Proiecte" : "Projects",
     },
     { href: `/${lang}/contact`, label: "Contact" },
   ];

@@ -115,10 +115,15 @@ function DemoLink({
   children: React.ReactNode;
 }) {
   if (project.disabledDemo) {
+    const disabledClassName = className
+      .split(" ")
+      .filter((item) => !item.startsWith("hover:") && !item.startsWith("group-hover:"))
+      .join(" ");
+
     return (
       <span
         aria-disabled="true"
-        className={`${className} cursor-default`}
+        className={`${disabledClassName} cursor-not-allowed opacity-65`}
       >
         {children}
       </span>

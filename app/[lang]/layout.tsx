@@ -2,9 +2,22 @@
 
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { use, useEffect } from "react";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}) {
   const pathname = usePathname();
+  const { lang: routeLang } = use(params);
+  const lang = routeLang === "en" ? "en" : "ro";
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   return (
     <div className="min-h-screen text-white">

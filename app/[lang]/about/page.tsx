@@ -111,7 +111,7 @@ export default async function AboutPage({
       details: {
         badge: "De ce detaliile contează",
         title: "Oamenii simt când un site este construit intenționat.",
-        text: "Utilizatorii judecă repede. Un spacing grăbit, un buton neclar sau o experiență slabă pe mobil pot schimba percepția înainte ca cineva să citească tot conținutul. Un website premium creează încredere prin felul în care se mișcă, respiră și conduce atenția. Nu trebuie să fie zgomotos. Trebuie să pară sigur pe el.",
+        text: "Utilizatorii judecă repede. Un spacing grăbit, un buton neclar sau o experiență slabă pe mobil pot schimba percepția înainte ca cineva să citească tot conținutul. Un website bine construit creează încredere prin felul în care se mișcă, respiră și conduce atenția. Nu trebuie să fie zgomotos. Trebuie să pară sigur pe el.",
         points: [
           "Prezentarea influențează încrederea.",
           "Experiența pe mobil decide deseori prima impresie.",
@@ -214,7 +214,7 @@ export default async function AboutPage({
       details: {
         badge: "Why details matter",
         title: "People can feel when a website is built with intention.",
-        text: "Users judge quickly. Rushed spacing, an unclear button or a weak mobile experience can shift perception before someone reads all the content. A premium website builds trust through how it moves, breathes and guides attention. It does not need to be loud. It needs to feel sure of itself.",
+        text: "Users judge quickly. Rushed spacing, an unclear button or a weak mobile experience can shift perception before someone reads all the content. A well-crafted website builds trust through how it moves, breathes and guides attention. It does not need to be loud. It needs to feel sure of itself.",
         points: [
           "Presentation influences trust.",
           "Mobile experience often shapes the first impression.",

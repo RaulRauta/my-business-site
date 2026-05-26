@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Morrow Café Demo | FlowCraft Studio",
   description:
-    "Demo premium pentru o cafenea modernă, construit cu atmosferă cinematică, meniu elegant, galerie editorială și sistem de rezervare.",
+    "Demo pentru o cafenea modernă, construit cu atmosferă cinematică, meniu elegant, galerie editorială și sistem de rezervare.",
 };
 
 type MorrowNavCopy = {
