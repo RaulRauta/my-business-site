@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageReveal from "@/components/PageReveal";
 
 type Lang = "ro" | "en";
 
@@ -363,8 +364,9 @@ export default async function ProcessPage({
     <>
       <Navbar lang={lang} />
 
-      <main className="px-6 py-24">
-        <section className="mx-auto max-w-7xl">
+      <PageReveal>
+        <main className="px-6 py-24">
+          <section className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -589,8 +591,9 @@ export default async function ProcessPage({
               </Link>
             </div>
           </section>
-        </section>
-      </main>
+          </section>
+        </main>
+      </PageReveal>
 
       <Footer lang={lang} />
     </>

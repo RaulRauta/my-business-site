@@ -48,11 +48,28 @@ export default function ServicesPackages({
   const [selectedPackage, setSelectedPackage] = useState<ServicePackage | null>(
     null,
   );
+  const [lockedScrollY, setLockedScrollY] = useState(0);
+
+  function openPackage(pack: ServicePackage) {
+    setLockedScrollY(window.scrollY);
+    setSelectedPackage(pack);
+  }
 
   useEffect(() => {
     if (!selectedPackage) {
       return;
     }
+
+    const scrollY = lockedScrollY;
+    const previousBodyStyles = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width,
+    };
+    const previousHtmlOverflow = document.documentElement.style.overflow;
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -61,13 +78,29 @@ export default function ServicesPackages({
     }
 
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyStyles.overflow;
+      document.body.style.position = previousBodyStyles.position;
+      document.body.style.top = previousBodyStyles.top;
+      document.body.style.left = previousBodyStyles.left;
+      document.body.style.right = previousBodyStyles.right;
+      document.body.style.width = previousBodyStyles.width;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       window.removeEventListener("keydown", handleKeyDown);
+
+      window.requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
     };
-  }, [selectedPackage]);
+  }, [lockedScrollY, selectedPackage]);
 
   return (
     <section className="mt-16">
@@ -90,7 +123,7 @@ export default function ServicesPackages({
           <button
             key={pack.id}
             type="button"
-            onClick={() => setSelectedPackage(pack)}
+            onClick={() => openPackage(pack)}
             className={`group relative flex min-h-130 flex-col overflow-hidden rounded-3xl border p-7 text-left backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:scale-[1.005] focus:outline-none focus:ring-2 focus:ring-emerald-400/45 ${
               pack.featured
                 ? "border-emerald-400/26 bg-emerald-400/5 shadow-[0_0_76px_rgba(52,211,153,0.09)] hover:border-emerald-400/34 hover:shadow-[0_0_92px_rgba(52,211,153,0.14)]"
@@ -168,16 +201,23 @@ export default function ServicesPackages({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-1000 flex items-end justify-center bg-black/75 px-4 py-4 backdrop-blur-xl sm:items-center sm:py-8"
-            onMouseDown={() => setSelectedPackage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+            style={{
+              height: "100vh",
+              transform: `translateY(${lockedScrollY}px)`,
+            }}
+            onClick={() => setSelectedPackage(null)}
           >
             <motion.div
-              initial={{ opacity: 0, y: 34, scale: 0.96 }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-package-modal-title"
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 24, scale: 0.96 }}
+              exit={{ opacity: 0, y: 14, scale: 0.96 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-4xl border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] sm:p-8"
-              onMouseDown={(event) => event.stopPropagation()}
+              className="relative max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-y-auto overscroll-contain rounded-[2rem] border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] [-webkit-overflow-scrolling:touch] sm:p-8"
+              onClick={(event) => event.stopPropagation()}
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(52,211,153,0.09),transparent_34%),radial-gradient(circle_at_90%_25%,rgba(34,211,238,0.07),transparent_36%)]" />
 
@@ -188,7 +228,10 @@ export default function ServicesPackages({
                       {selectedPackage.eyebrow}
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+                    <h3
+                      id="service-package-modal-title"
+                      className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl"
+                    >
                       {selectedPackage.name}
                     </h3>
                   </div>
