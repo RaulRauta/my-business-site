@@ -231,24 +231,25 @@ function ProjectDetailsModal({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.22 }}
-      className="fixed inset-0 z-[999] flex items-center justify-center overflow-hidden overscroll-none bg-black/70 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[999] overflow-hidden overscroll-none bg-black/70 backdrop-blur-md touch-none"
       style={{
         height: "100vh",
         transform: `translateY(${lockedScrollY}px)`,
       }}
       onClick={onClose}
     >
-      <motion.div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="project-details-title"
-        initial={{ opacity: 0, y: 28, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 22, scale: 0.96 }}
-        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative max-h-[90dvh] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl [-webkit-overflow-scrolling:touch] sm:p-7 md:p-8 ${accent.border}`}
-        onClick={(event) => event.stopPropagation()}
-      >
+      <div className="flex min-h-[100dvh] items-start justify-center px-4 pb-6 pt-[12dvh] sm:items-center sm:pt-6">
+        <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-details-title"
+          initial={{ opacity: 0, y: 28, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 22, scale: 0.96 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className={`relative max-h-[90dvh] w-full max-w-5xl touch-pan-y overflow-y-auto overscroll-contain rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl [-webkit-overflow-scrolling:touch] sm:p-7 md:p-8 ${accent.border}`}
+          onClick={(event) => event.stopPropagation()}
+        >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/35 to-transparent" />
 
@@ -285,7 +286,8 @@ function ProjectDetailsModal({
             <ProjectDetailsContent project={project} copy={copy} />
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
