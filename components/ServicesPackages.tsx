@@ -81,10 +81,10 @@ export default function ServicesPackages({
             onClick={() => openPackage(pack)}
             className={`group relative flex min-h-130 flex-col overflow-hidden rounded-3xl border p-7 text-left backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:scale-[1.005] focus:outline-none focus:ring-2 focus:ring-emerald-400/45 ${
               pack.featured
-                ? "border-emerald-400/26 bg-emerald-400/5 shadow-[0_0_76px_rgba(52,211,153,0.09)] hover:border-emerald-400/34 hover:shadow-[0_0_92px_rgba(52,211,153,0.14)]"
+                ? "border-emerald-400/30 bg-emerald-400/8 shadow-[0_0_76px_rgba(52,211,153,0.12)] hover:border-emerald-400/38 hover:shadow-[0_0_92px_rgba(52,211,153,0.16)]"
                 : pack.id === "custom"
-                  ? "border-cyan-400/14 bg-black/42 shadow-[0_0_66px_rgba(34,211,238,0.05)] hover:border-cyan-300/28 hover:shadow-[0_0_80px_rgba(34,211,238,0.09)]"
-                  : "border-white/10 bg-black/35 shadow-[0_0_66px_rgba(0,0,0,0.25)] hover:border-emerald-400/22 hover:shadow-[0_0_70px_rgba(52,211,153,0.07)]"
+                  ? "border-cyan-400/18 bg-cyan-400/7 shadow-[0_0_66px_rgba(34,211,238,0.08)] hover:border-cyan-300/32 hover:shadow-[0_0_80px_rgba(34,211,238,0.12)]"
+                  : "border-emerald-400/12 bg-emerald-400/5 shadow-[0_0_66px_rgba(52,211,153,0.06)] hover:border-emerald-400/26 hover:shadow-[0_0_70px_rgba(52,211,153,0.1)]"
             }`}
           >
             <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(52,211,153,0.08),transparent_34%),radial-gradient(circle_at_85%_80%,rgba(34,211,238,0.055),transparent_38%)] opacity-60 transition group-hover:opacity-90" />
@@ -153,7 +153,7 @@ export default function ServicesPackages({
         isOpen={Boolean(selectedPackage)}
         onClose={closePackage}
         labelledBy="service-package-modal-title"
-        className="max-w-2xl border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] sm:p-8"
+        className="max-w-2xl border border-emerald-400/18 bg-[#071824]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.13)] sm:p-8"
       >
         {selectedPackage && (
           <>
@@ -185,7 +185,7 @@ export default function ServicesPackages({
                 </div>
 
                 <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-                  <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                  <div className="rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-5">
                     <p className="text-sm font-semibold text-emerald-400">
                       {copy.perfectFor}
                     </p>
@@ -203,7 +203,7 @@ export default function ServicesPackages({
                     </div>
                   </div>
 
-                  <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                  <div className="rounded-3xl border border-cyan-300/12 bg-cyan-300/5 p-5">
                     <p className="text-sm font-semibold text-emerald-400">
                       {copy.included}
                     </p>

@@ -79,23 +79,23 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative min-h-screen overflow-x-hidden bg-[#08111c] text-white">
+      <body className="relative min-h-screen overflow-x-hidden bg-[#081824] text-white">
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
           {/* BASE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.1),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(34,211,238,0.08),transparent_38%),linear-gradient(180deg,#08111c_0%,#071018_45%,#05070c_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.16),transparent_38%),radial-gradient(circle_at_82%_14%,rgba(34,211,238,0.13),transparent_36%),radial-gradient(circle_at_48%_52%,rgba(14,165,233,0.07),transparent_42%),linear-gradient(180deg,#081824_0%,#071722_45%,#06101a_100%)]" />
 
           {/* GLOW 1 */}
-          <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/18 blur-[160px] animate-[neonFloat_14s_ease-in-out_infinite]" />
+          <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/24 blur-[150px] animate-[neonFloat_14s_ease-in-out_infinite]" />
 
           {/* GLOW 2 */}
-          <div className="absolute bottom-[-18%] right-[-12%] h-[720px] w-[720px] rounded-full bg-cyan-400/14 blur-[180px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-18%] right-[-12%] h-[720px] w-[720px] rounded-full bg-cyan-400/20 blur-[165px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
 
           {/* GLOW 3 */}
-          <div className="absolute left-[35%] top-[28%] h-[560px] w-[560px] rounded-full bg-purple-500/10 blur-[160px] animate-[neonFloat_20s_ease-in-out_infinite]" />
+          <div className="absolute left-[35%] top-[28%] h-[560px] w-[560px] rounded-full bg-teal-300/12 blur-[150px] animate-[neonFloat_20s_ease-in-out_infinite]" />
 
           {/* VIGNETTE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.22)_100%)]" />
         </div>
 
         <Intro />

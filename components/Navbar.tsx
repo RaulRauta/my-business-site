@@ -48,8 +48,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
       data-modal-shell
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-emerald-400/10 bg-black/70 shadow-[0_12px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
-          : "border-b border-white/5 bg-black/25 backdrop-blur-md"
+          ? "border-b border-emerald-400/14 bg-[#06151f]/78 shadow-[0_12px_70px_rgba(0,0,0,0.38)] backdrop-blur-2xl"
+          : "border-b border-cyan-300/8 bg-[#071824]/42 backdrop-blur-md"
       }`}
     >
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/28 to-transparent" />
@@ -61,7 +61,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3"
         >
-          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/12 bg-black/55 shadow-[0_0_20px_rgba(52,211,153,0.08)] transition group-hover:scale-105 group-hover:border-emerald-400/22 group-hover:shadow-[0_0_28px_rgba(52,211,153,0.16)]">
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/16 bg-emerald-400/8 shadow-[0_0_20px_rgba(52,211,153,0.1)] transition group-hover:scale-105 group-hover:border-emerald-400/28 group-hover:shadow-[0_0_28px_rgba(52,211,153,0.18)]">
             <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.1),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
 
             <Image
@@ -85,7 +85,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden items-center rounded-full border border-white/10 bg-black/35 p-1 shadow-[0_0_26px_rgba(0,0,0,0.28)] md:flex">
+        <nav className="hidden items-center rounded-full border border-cyan-300/12 bg-cyan-300/6 p-1 shadow-[0_0_26px_rgba(34,211,238,0.08)] md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -118,7 +118,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
         <div className="flex items-center gap-3">
           {/* LANGUAGE SWITCH */}
-          <div className="flex items-center rounded-full border border-cyan-400/10 bg-black/35 p-1 shadow-[0_0_25px_rgba(34,211,238,0.08)]">
+          <div className="flex items-center rounded-full border border-cyan-400/14 bg-cyan-400/7 p-1 shadow-[0_0_25px_rgba(34,211,238,0.1)]">
             <Link
               href={switchLang("ro")}
               onClick={() => setMenuOpen(false)}
@@ -182,7 +182,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/10 bg-black/35 shadow-[0_0_25px_rgba(52,211,153,0.08)] md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/14 bg-emerald-400/8 shadow-[0_0_25px_rgba(52,211,153,0.1)] md:hidden"
             aria-label="Open menu"
           >
             <span className="relative h-4 w-4">
@@ -219,7 +219,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-6 mb-5 rounded-3xl border border-white/10 bg-black/60 p-4 shadow-[0_0_38px_rgba(0,0,0,0.3)] backdrop-blur-xl md:hidden"
+            className="mx-6 mb-5 rounded-3xl border border-emerald-400/14 bg-[#06151f]/82 p-4 shadow-[0_0_38px_rgba(52,211,153,0.08)] backdrop-blur-xl md:hidden"
           >
             <div className="grid gap-2">
               {navItems.map((item) => {

@@ -8,11 +8,11 @@ export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-emerald-400/10 bg-black/50 px-6 py-16 text-zinc-400 backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(52,211,153,0.09),transparent_35%),radial-gradient(circle_at_85%_35%,rgba(34,211,238,0.06),transparent_30%)]" />
+    <footer className="relative overflow-hidden border-t border-emerald-400/14 bg-[#06151f]/62 px-6 py-16 text-zinc-400 backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_85%_35%,rgba(34,211,238,0.11),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-14 rounded-3xl border border-white/10 bg-black/40 p-8 shadow-[0_0_62px_rgba(0,0,0,0.26)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
+        <div className="mb-14 rounded-3xl border border-emerald-400/12 bg-emerald-400/6 p-8 shadow-[0_0_62px_rgba(52,211,153,0.08)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
               {lang === "ro" ? "Următorul pas" : "Next step"}

@@ -269,7 +269,7 @@ export default async function AboutPage({
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/35 p-7 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_82%_80%,rgba(34,211,238,0.12),transparent_40%)]" />
               <div className="relative">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
@@ -309,7 +309,7 @@ export default async function AboutPage({
               </h2>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-black/35 p-7 shadow-[0_0_70px_rgba(52,211,153,0.07)] backdrop-blur-xl md:p-8">
+            <div className="rounded-3xl border border-cyan-300/12 bg-cyan-300/5 p-7 shadow-[0_0_70px_rgba(34,211,238,0.07)] backdrop-blur-xl md:p-8">
               <p className="text-lg leading-8 text-zinc-300">{t.what.text}</p>
             </div>
           </section>
@@ -332,7 +332,7 @@ export default async function AboutPage({
                 {t.work.items.map((item, index) => (
                   <article
                     key={item.title}
-                    className={`group rounded-3xl border border-white/10 bg-black/30 p-6 shadow-[0_0_45px_rgba(0,0,0,0.2)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.12)] ${
+                    className={`group rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-6 shadow-[0_0_45px_rgba(52,211,153,0.06)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.12)] ${
                       index % 2 === 1 ? "lg:ml-10" : ""
                     }`}
                   >
@@ -373,7 +373,7 @@ export default async function AboutPage({
             </div>
           </section>
 
-          <section className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/10 bg-black/40 p-7 shadow-[0_0_90px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+          <section className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_90px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -405,7 +405,7 @@ export default async function AboutPage({
             </div>
           </section>
 
-          <section className="mt-24 rounded-3xl border border-emerald-400/10 bg-black/40 p-8 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
+          <section className="mt-24 rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-8 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-10">
             <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
               {t.final.title}
             </h2>

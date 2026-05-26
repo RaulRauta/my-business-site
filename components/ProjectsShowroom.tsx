@@ -188,7 +188,7 @@ function ProjectDetailsContent({
 
       <DemoLink
         project={project}
-        className="group/preview block overflow-hidden rounded-3xl border border-white/10 bg-black/40 transition hover:border-white/20"
+        className="group/preview block overflow-hidden rounded-3xl border border-cyan-300/12 bg-cyan-300/6 transition hover:border-cyan-200/24"
       >
         <ProjectPreview
           variant={project.preview}
@@ -233,7 +233,7 @@ function ProjectDetailsModal({
       isOpen={Boolean(project)}
       onClose={onClose}
       labelledBy="project-details-title"
-      className={`max-w-5xl border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
+      className={`max-w-5xl border bg-[#071824]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.11)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
     >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/35 to-transparent" />
@@ -294,7 +294,7 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded-[2rem] border bg-black/35 shadow-[0_0_42px_rgba(0,0,0,0.24)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${accent.border} ${accent.shadow}`}
+      className={`group relative overflow-hidden rounded-[2rem] border bg-cyan-300/5 shadow-[0_0_42px_rgba(34,211,238,0.06)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${accent.border} ${accent.shadow}`}
     >
       <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
       {experimental && (
@@ -382,7 +382,7 @@ export default function ProjectsShowroom({
 
   return (
     <>
-      <section className="relative mt-20 overflow-hidden rounded-[2.2rem] border border-[#d9b46f]/20 bg-black/40 shadow-[0_0_110px_rgba(217,180,111,0.1)] backdrop-blur-xl">
+      <section className="relative mt-20 overflow-hidden rounded-[2.2rem] border border-[#d9b46f]/24 bg-[#d9b46f]/7 shadow-[0_0_110px_rgba(217,180,111,0.12)] backdrop-blur-xl">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(217,180,111,0.15),transparent_36%),radial-gradient(circle_at_82%_74%,rgba(52,211,153,0.045),transparent_42%)]" />
         <div className="relative grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="p-7 md:p-10">

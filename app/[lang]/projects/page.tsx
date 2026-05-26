@@ -396,7 +396,7 @@ export default async function ProjectsPage({
 
       <PageReveal>
         <main className="relative overflow-hidden px-6 py-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.12),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(34,211,238,0.08),transparent_30%),linear-gradient(180deg,transparent,rgba(8,8,8,1)_35%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.16),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(34,211,238,0.12),transparent_30%),linear-gradient(180deg,transparent,rgba(7,18,28,0.9)_38%)]" />
           <div className="pointer-events-none absolute left-0 top-56 h-px w-full bg-linear-to-r from-transparent via-emerald-400/25 to-transparent" />
 
           <section className="relative mx-auto max-w-7xl">
@@ -431,7 +431,7 @@ export default async function ProjectsPage({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 rounded-3xl border border-emerald-400/10 bg-black/35 p-5 shadow-[0_0_80px_rgba(52,211,153,0.08)] backdrop-blur-xl">
+            <div className="grid grid-cols-2 gap-3 rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-5 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl">
               {t.proof.map((item) => (
                 <div
                   key={item}

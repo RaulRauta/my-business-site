@@ -202,7 +202,7 @@ export default function ContactPage({
 
       <PageReveal>
         <main className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 md:py-28">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.08),transparent_28%),radial-gradient(circle_at_90%_24%,rgba(34,211,238,0.045),transparent_32%),linear-gradient(180deg,rgba(8,8,8,0)_0%,rgba(8,8,8,1)_45%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(52,211,153,0.13),transparent_28%),radial-gradient(circle_at_90%_24%,rgba(34,211,238,0.09),transparent_32%),linear-gradient(180deg,rgba(8,24,36,0)_0%,rgba(7,18,28,0.88)_48%)]" />
           <div className="pointer-events-none absolute inset-x-0 top-40 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
 
           <section className="relative mx-auto grid w-full max-w-7xl min-w-0 gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.72fr)] lg:gap-16">
@@ -227,7 +227,7 @@ export default function ContactPage({
               {t.replyTime}
             </p>
             {selectedPackageInfo && (
-              <div className="mx-auto mt-10 w-full min-w-0 rounded-3xl border border-emerald-400/20 bg-black/35 p-5 shadow-[0_0_55px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:p-6 lg:mx-0 lg:max-w-none">
+              <div className="mx-auto mt-10 w-full min-w-0 rounded-3xl border border-emerald-400/22 bg-emerald-400/7 p-5 shadow-[0_0_55px_rgba(52,211,153,0.12)] backdrop-blur-xl sm:p-6 lg:mx-0 lg:max-w-none">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
                   {lang === "ro" ? "Pachet selectat" : "Selected package"}
                 </p>
@@ -280,7 +280,7 @@ export default function ContactPage({
 
             <form
               autoComplete="off"
-              className="mt-14 grid w-full min-w-0 gap-5 rounded-3xl border border-white/10 bg-black/28 p-5 text-left shadow-[0_0_60px_rgba(0,0,0,0.22)] backdrop-blur-xl sm:p-7"
+              className="mt-14 grid w-full min-w-0 gap-5 rounded-3xl border border-cyan-300/12 bg-cyan-300/5 p-5 text-left shadow-[0_0_60px_rgba(34,211,238,0.06)] backdrop-blur-xl sm:p-7"
               onSubmit={async (e) => {
                 e.preventDefault();
 
@@ -351,7 +351,7 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.name}
-                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-[#071824]/58 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-cyan-300/22 focus:border-emerald-400/60 focus:bg-emerald-400/7 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
                 />
 
                 <input
@@ -360,7 +360,7 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.email}
-                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-[#071824]/58 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-cyan-300/22 focus:border-emerald-400/60 focus:bg-emerald-400/7 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
                 />
 
                 <input
@@ -369,11 +369,11 @@ export default function ContactPage({
                   required
                   autoComplete="off"
                   placeholder={t.business}
-                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)] lg:col-span-2"
+                  className="block w-full min-w-0 rounded-2xl border border-white/10 bg-[#071824]/58 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-cyan-300/22 focus:border-emerald-400/60 focus:bg-emerald-400/7 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)] lg:col-span-2"
                 />
               </div>
 
-              <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-black/35 transition duration-300 hover:border-white/18 focus-within:border-emerald-400/60 focus-within:bg-black/45 focus-within:shadow-[0_0_18px_rgba(52,211,153,0.12)]">
+              <div className="relative flex w-full min-w-0 overflow-visible rounded-2xl border border-white/10 bg-[#071824]/58 transition duration-300 hover:border-cyan-300/22 focus-within:border-emerald-400/60 focus-within:bg-emerald-400/7 focus-within:shadow-[0_0_18px_rgba(52,211,153,0.12)]">
                 <CountryCodeSelect
                   lang={lang}
                   value={countryCode}
@@ -442,7 +442,7 @@ export default function ContactPage({
                 autoComplete="off"
                 placeholder={t.message}
                 rows={7}
-                className="block w-full min-w-0 resize-none rounded-2xl border border-white/10 bg-black/35 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-white/18 focus:border-emerald-400/60 focus:bg-black/45 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
+                className="block w-full min-w-0 resize-none rounded-2xl border border-white/10 bg-[#071824]/58 px-5 py-4 outline-none transition duration-300 placeholder:text-zinc-500 hover:border-cyan-300/22 focus:border-emerald-400/60 focus:bg-emerald-400/7 focus:shadow-[0_0_18px_rgba(52,211,153,0.12)]"
               />
 
               <AnimatePresence>
