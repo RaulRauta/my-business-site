@@ -39,6 +39,14 @@ body {
   font-family: var(--font-inter);
 }
 
+body.modal-open [data-modal-shell],
+body.modal-open [data-main-navbar] {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-18px);
+}
+
 @keyframes footerLine {
   0% {
     transform: translateX(-120%);

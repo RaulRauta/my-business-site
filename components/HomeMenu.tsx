@@ -45,7 +45,7 @@ export default function HomeMenu({ lang }: { lang: Lang }) {
   }
 
   return (
-    <div ref={menuRef} className="fixed right-6 top-6 z-50">
+    <div ref={menuRef} data-modal-shell className="fixed right-6 top-6 z-50">
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}

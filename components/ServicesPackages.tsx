@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import useModalBodyLock from "@/components/useModalBodyLock";
 
 export type ServicePackage = {
   id: "start" | "growth" | "custom";
@@ -55,52 +56,11 @@ export default function ServicesPackages({
     setSelectedPackage(pack);
   }
 
-  useEffect(() => {
-    if (!selectedPackage) {
-      return;
-    }
+  const closePackage = useCallback(() => {
+    setSelectedPackage(null);
+  }, []);
 
-    const scrollY = lockedScrollY;
-    const previousBodyStyles = {
-      overflow: document.body.style.overflow,
-      position: document.body.style.position,
-      top: document.body.style.top,
-      left: document.body.style.left,
-      right: document.body.style.right,
-      width: document.body.style.width,
-    };
-    const previousHtmlOverflow = document.documentElement.style.overflow;
-
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setSelectedPackage(null);
-      }
-    }
-
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousBodyStyles.overflow;
-      document.body.style.position = previousBodyStyles.position;
-      document.body.style.top = previousBodyStyles.top;
-      document.body.style.left = previousBodyStyles.left;
-      document.body.style.right = previousBodyStyles.right;
-      document.body.style.width = previousBodyStyles.width;
-      document.documentElement.style.overflow = previousHtmlOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-
-      window.requestAnimationFrame(() => {
-        window.scrollTo(0, scrollY);
-      });
-    };
-  }, [lockedScrollY, selectedPackage]);
+  useModalBodyLock(Boolean(selectedPackage), lockedScrollY, closePackage);
 
   return (
     <section className="mt-16">
@@ -201,7 +161,7 @@ export default function ServicesPackages({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
             style={{
               height: "100vh",
               transform: `translateY(${lockedScrollY}px)`,

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import ProjectPreview from "@/components/ProjectPreview";
+import useModalBodyLock from "@/components/useModalBodyLock";
 
 export type ProjectPreviewVariant =
   | "blog"
@@ -215,10 +216,12 @@ function ProjectDetailsModal({
   project,
   copy,
   onClose,
+  lockedScrollY,
 }: {
   project: ShowroomProject;
   copy: ShowroomCopy;
   onClose: () => void;
+  lockedScrollY: number;
 }) {
   const accent = accentClasses[project.accent];
 
@@ -228,8 +231,12 @@ function ProjectDetailsModal({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.22 }}
-      className="fixed inset-0 z-1000 flex items-end justify-center bg-black/75 px-4 py-4 backdrop-blur-xl sm:items-center sm:py-8"
-      onMouseDown={onClose}
+      className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+      style={{
+        height: "100vh",
+        transform: `translateY(${lockedScrollY}px)`,
+      }}
+      onClick={onClose}
     >
       <motion.div
         role="dialog"
@@ -239,8 +246,8 @@ function ProjectDetailsModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 22, scale: 0.96 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className={`relative max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
-        onMouseDown={(event) => event.stopPropagation()}
+        className={`relative max-h-[calc(100dvh-2rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-[2rem] border bg-[#07111c]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.08)] backdrop-blur-2xl [-webkit-overflow-scrolling:touch] sm:p-7 md:p-8 ${accent.border}`}
+        onClick={(event) => event.stopPropagation()}
       >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/35 to-transparent" />
@@ -378,27 +385,23 @@ export default function ProjectsShowroom({
 }: ProjectsShowroomProps) {
   const [selectedProject, setSelectedProject] =
     useState<ShowroomProject | null>(null);
+  const [lockedScrollY, setLockedScrollY] = useState(0);
   const featuredAccent = accentClasses[featured.accent];
 
-  useEffect(() => {
-    if (!selectedProject) {
-      return;
-    }
+  const openProjectDetails = useCallback((project: ShowroomProject) => {
+    setLockedScrollY(window.scrollY);
+    setSelectedProject(project);
+  }, []);
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setSelectedProject(null);
-      }
-    }
+  const closeProjectDetails = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
 
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedProject]);
+  useModalBodyLock(
+    Boolean(selectedProject),
+    lockedScrollY,
+    closeProjectDetails,
+  );
 
   return (
     <>
@@ -444,7 +447,7 @@ export default function ProjectsShowroom({
 
               <button
                 type="button"
-                onClick={() => setSelectedProject(featured)}
+                onClick={() => openProjectDetails(featured)}
                 className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3 font-semibold text-white transition hover:border-[#d9b46f]/40 hover:bg-white/[0.08]"
               >
                 {copy.details}
@@ -498,7 +501,7 @@ export default function ProjectsShowroom({
               key={project.slug}
               project={project}
               copy={copy}
-              onDetails={setSelectedProject}
+              onDetails={openProjectDetails}
             />
           ))}
         </div>
@@ -523,7 +526,7 @@ export default function ProjectsShowroom({
               key={project.slug}
               project={project}
               copy={copy}
-              onDetails={setSelectedProject}
+              onDetails={openProjectDetails}
               experimental
             />
           ))}
@@ -535,7 +538,8 @@ export default function ProjectsShowroom({
           <ProjectDetailsModal
             project={selectedProject}
             copy={copy}
-            onClose={() => setSelectedProject(null)}
+            onClose={closeProjectDetails}
+            lockedScrollY={lockedScrollY}
           />
         )}
       </AnimatePresence>

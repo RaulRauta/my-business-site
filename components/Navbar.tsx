@@ -41,6 +41,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
   return (
     <header
+      data-main-navbar
+      data-modal-shell
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
           ? "border-b border-emerald-400/10 bg-black/70 shadow-[0_12px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
