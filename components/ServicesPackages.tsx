@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useState } from "react";
-import useModalBodyLock from "@/components/useModalBodyLock";
+import ModalShell from "@/components/ModalShell";
 
 export type ServicePackage = {
   id: "start" | "growth" | "custom";
@@ -49,18 +48,14 @@ export default function ServicesPackages({
   const [selectedPackage, setSelectedPackage] = useState<ServicePackage | null>(
     null,
   );
-  const [lockedScrollY, setLockedScrollY] = useState(0);
 
   function openPackage(pack: ServicePackage) {
-    setLockedScrollY(window.scrollY);
     setSelectedPackage(pack);
   }
 
   const closePackage = useCallback(() => {
     setSelectedPackage(null);
   }, []);
-
-  useModalBodyLock(Boolean(selectedPackage), lockedScrollY, closePackage);
 
   return (
     <section className="mt-16">
@@ -154,32 +149,14 @@ export default function ServicesPackages({
 
       <p className="mt-5 text-sm leading-6 text-zinc-500">{copy.note}</p>
 
-      <AnimatePresence>
+      <ModalShell
+        isOpen={Boolean(selectedPackage)}
+        onClose={closePackage}
+        labelledBy="service-package-modal-title"
+        className="max-w-2xl border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] sm:p-8"
+      >
         {selectedPackage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.22 }}
-            className="fixed inset-0 z-[999] overflow-hidden overscroll-none bg-black/70 backdrop-blur-md touch-none"
-            style={{
-              height: "100vh",
-              transform: `translateY(${lockedScrollY}px)`,
-            }}
-            onClick={() => setSelectedPackage(null)}
-          >
-            <div className="flex min-h-[100dvh] items-start justify-center px-4 pb-6 pt-[12dvh] sm:items-center sm:pt-6">
-              <motion.div
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="service-package-modal-title"
-                initial={{ opacity: 0, y: 18, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 14, scale: 0.96 }}
-                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                className="relative max-h-[90dvh] w-full max-w-2xl touch-pan-y overflow-y-auto overscroll-contain rounded-[2rem] border border-emerald-400/14 bg-[#07111c]/95 p-5 shadow-[0_0_90px_rgba(52,211,153,0.1)] [-webkit-overflow-scrolling:touch] sm:p-8"
-                onClick={(event) => event.stopPropagation()}
-              >
+          <>
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(52,211,153,0.09),transparent_34%),radial-gradient(circle_at_90%_25%,rgba(34,211,238,0.07),transparent_36%)]" />
 
               <div className="relative z-10">
@@ -279,11 +256,9 @@ export default function ServicesPackages({
                   </button>
                 </div>
               </div>
-              </motion.div>
-            </div>
-          </motion.div>
+          </>
         )}
-      </AnimatePresence>
+      </ModalShell>
     </section>
   );
 }

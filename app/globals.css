@@ -51,6 +51,11 @@ body.modal-open [data-main-navbar] {
   transform: translateY(-18px);
 }
 
+body.modal-open {
+  overscroll-behavior-y: none;
+  touch-action: none;
+}
+
 @keyframes footerLine {
   0% {
     transform: translateX(-120%);
