@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { translations } from "@/lib/translations";
 
@@ -15,12 +14,23 @@ export default function Navbar({ lang }: { lang: Lang }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrolled((current) => {
+          const next = window.scrollY > 20;
+          return current === next ? current : next;
+        });
+        ticking = false;
+      });
     };
 
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -98,16 +108,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                 }`}
               >
                 {isActive && (
-                  <motion.span
-                    layoutId="nav-active-pill"
-                    className="absolute inset-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.26)]"
-                    transition={{
-                      type: "spring",
-                      stiffness: 700,
-                      damping: 45,
-                      mass: 0.6,
-                    }}
-                  />
+                  <span className="absolute inset-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.26)] transition-all duration-300" />
                 )}
 
                 <span className="relative z-10">{item.label}</span>
@@ -129,16 +130,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               }`}
             >
               {lang === "ro" && (
-                <motion.span
-                  layoutId="lang-active-pill"
-                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] md:block"
-                  transition={{
-                    type: "spring",
-                    stiffness: 700,
-                    damping: 45,
-                    mass: 0.6,
-                  }}
-                />
+                <span className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] transition-all duration-300 md:block" />
               )}
 
               <span className="relative z-10">RO</span>
@@ -154,16 +146,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               }`}
             >
               {lang === "en" && (
-                <motion.span
-                  layoutId="lang-active-pill"
-                  className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] md:block"
-                  transition={{
-                    type: "spring",
-                    stiffness: 700,
-                    damping: 45,
-                    mass: 0.6,
-                  }}
-                />
+                <span className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] transition-all duration-300 md:block" />
               )}
 
               <span className="relative z-10">EN</span>
@@ -186,25 +169,22 @@ export default function Navbar({ lang }: { lang: Lang }) {
             aria-label="Open menu"
           >
             <span className="relative h-4 w-4">
-              <motion.span
-                animate={{
-                  rotate: menuOpen ? 45 : 0,
-                  y: menuOpen ? 6 : 0,
-                }}
-                className="absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                  menuOpen ? "translate-y-1.5 rotate-45" : ""
+                }`}
               />
 
-              <motion.span
-                animate={{ opacity: menuOpen ? 0 : 1 }}
-                className="absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
+              <span
+                className={`absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                  menuOpen ? "opacity-0" : "opacity-100"
+                }`}
               />
 
-              <motion.span
-                animate={{
-                  rotate: menuOpen ? -45 : 0,
-                  y: menuOpen ? -6 : 0,
-                }}
-                className="absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)]"
+              <span
+                className={`absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                  menuOpen ? "-translate-y-1.5 -rotate-45" : ""
+                }`}
               />
             </span>
           </button>
@@ -212,15 +192,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
       </div>
 
       {/* MOBILE MENU */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-6 mb-5 rounded-3xl border border-emerald-400/14 bg-[#06151f]/82 p-4 shadow-[0_0_38px_rgba(52,211,153,0.08)] backdrop-blur-xl md:hidden"
-          >
+      {menuOpen && (
+        <div className="mx-6 mb-5 rounded-3xl border border-emerald-400/14 bg-[#06151f]/82 p-4 shadow-[0_0_38px_rgba(52,211,153,0.08)] backdrop-blur-xl transition duration-200 md:hidden">
             <div className="grid gap-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -241,9 +214,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
                 );
               })}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
     </header>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Intro from "@/components/Intro";
 import "./globals.css";
 import { Cormorant_Garamond } from "next/font/google";
 
@@ -97,8 +96,6 @@ export default function RootLayout({
           {/* VIGNETTE */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.22)_100%)]" />
         </div>
-
-        <Intro />
 
         {/* CONTENT */}
         <div className="relative z-10">{children}</div>
