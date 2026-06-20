@@ -79,11 +79,11 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative min-h-screen overflow-x-hidden bg-[#081824] text-white">
+      <body className="relative min-h-screen overflow-x-hidden bg-[#06131d] text-white">
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
           {/* BASE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.16),transparent_38%),radial-gradient(circle_at_82%_14%,rgba(34,211,238,0.13),transparent_36%),radial-gradient(circle_at_48%_52%,rgba(14,165,233,0.07),transparent_42%),linear-gradient(180deg,#081824_0%,#071722_45%,#06101a_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.14),transparent_38%),radial-gradient(circle_at_82%_14%,rgba(34,211,238,0.11),transparent_36%),radial-gradient(circle_at_48%_52%,rgba(14,165,233,0.06),transparent_42%),linear-gradient(180deg,#06131d_0%,#05121b_45%,#040b12_100%)]" />
 
           {/* GLOW 1 */}
           <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/24 blur-[150px] animate-[neonFloat_14s_ease-in-out_infinite]" />

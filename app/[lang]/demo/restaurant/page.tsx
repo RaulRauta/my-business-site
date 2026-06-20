@@ -124,11 +124,6 @@ export default async function RestaurantDemoPage({
 
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
-      <div className="relative z-60 bg-amber-200 px-3 py-2 text-center text-[10px] font-semibold leading-5 text-black sm:px-4 sm:text-xs">
-        {lang === "ro"
-          ? "Demo website creat de FlowCraft Studio — restaurant fictiv folosit pentru prezentare."
-          : "Demo website created by FlowCraft Studio — fictional restaurant used for presentation."}
-      </div>
       {/* NAVBAR */}
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="mx-auto mt-12 flex max-w-7xl items-center justify-between px-4 sm:mt-14">

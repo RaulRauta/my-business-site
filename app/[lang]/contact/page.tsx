@@ -514,7 +514,12 @@ export default function ContactPage({
                 <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                   {lang === "ro" ? "Telefon" : "Phone"}
                 </p>
-                <p className="mt-1 font-semibold text-white">+40 000 000 000</p>
+                <a
+                  href="tel:+40743419106"
+                  className="mt-1 inline-block font-semibold text-white transition-colors hover:text-emerald-300"
+                >
+                  +40 743 419 106
+                </a>
               </div>
             </div>
 
