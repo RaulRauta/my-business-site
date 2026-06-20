@@ -126,13 +126,13 @@ export default async function RestaurantDemoPage({
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       {/* NAVBAR */}
       <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto mt-12 flex max-w-7xl items-center justify-between px-4 sm:mt-14">
-          <div className="flex w-full items-center justify-between rounded-full border border-white/10 bg-black/45 px-5 py-3 shadow-[0_0_45px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-0 sm:mt-5 sm:px-4">
+          <div className="flex w-full items-center justify-between rounded-b-3xl border-b border-white/10 bg-black/65 px-4 py-3 shadow-[0_0_45px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:rounded-full sm:border sm:bg-black/55 sm:px-5 sm:py-3">
             <a href="#" className="group">
-              <p className="text-lg font-black tracking-tight text-white transition group-hover:text-amber-200">
+              <p className="text-base font-black tracking-tight text-white transition group-hover:text-amber-200 sm:text-lg">
                 AURELIA
               </p>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-amber-200/70">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-amber-200/70 sm:text-[10px] sm:tracking-[0.35em]">
                 Fire Dining
               </p>
             </a>
@@ -153,14 +153,14 @@ export default async function RestaurantDemoPage({
                 href="#menu"
                 className="rounded-full border border-white/10 bg-white/4 px-3 py-2 text-xs font-semibold text-zinc-300"
               >
-                Menu
+                {t.navMenu}
               </a>
 
               <a
                 href="#booking"
                 className="rounded-full bg-amber-200 px-4 py-2 text-xs font-semibold text-black"
               >
-                Book
+                {lang === "ro" ? "Rezervă" : "Book"}
               </a>
             </div>
             <a
@@ -174,7 +174,7 @@ export default async function RestaurantDemoPage({
       </header>
 
       {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-[100svh] overflow-hidden">
         {/* BACKGROUND IMAGE */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center animate-[slowZoom_18s_ease-in-out_infinite_alternate]" />
@@ -190,13 +190,13 @@ export default async function RestaurantDemoPage({
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-28 sm:py-32">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-4 pb-20 pt-24 sm:px-6 sm:py-32">
           <div className="max-w-3xl animate-[heroReveal_0.9s_ease-out_both]">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.38em] text-amber-200 sm:text-sm sm:tracking-[0.45em]">
-              AURELIA • FIRE DINING
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-200 sm:text-sm sm:tracking-[0.45em]">
+              AURELIA <span className="mx-1">•</span> FIRE DINING
             </p>
 
-            <h1 className="mt-6 text-[2.7rem] font-black leading-[0.92] tracking-tight text-white sm:mt-8 sm:text-6xl md:text-8xl">
+            <h1 className="mt-5 text-[clamp(2.35rem,12vw,4.4rem)] font-black leading-[0.94] tracking-tight text-white sm:mt-8 md:text-8xl">
               {t.heroTitle}
             </h1>
 
@@ -265,21 +265,21 @@ export default async function RestaurantDemoPage({
       </section>
 
       {/* MENU */}
-      <section id="menu" className="relative overflow-hidden px-6 py-28">
+      <section id="menu" className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(251,191,36,0.08),transparent_35%)]" />
 
         <div className="relative mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-200 sm:text-sm sm:tracking-[0.35em]">
                 {t.menuBadge}
               </p>
 
-              <h2 className="mt-5 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
+              <h2 className="mt-5 max-w-4xl text-3xl font-black tracking-tight sm:text-4xl md:text-6xl">
                 {t.menuTitle}
               </h2>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-6 sm:text-lg sm:leading-8">
                 {lang === "ro"
                   ? "Un meniu construit în jurul focului, ingredientelor sezoniere și plating-ului modern."
                   : "A menu built around fire, seasonal ingredients and modern plating."}
@@ -295,17 +295,17 @@ export default async function RestaurantDemoPage({
           </div>
 
           {/* CHEF HIGHLIGHTS */}
-          <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10">
+          <div className="mt-10 grid gap-6 sm:mt-16 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="group relative min-h-95 overflow-hidden rounded-[2rem] border border-white/10 sm:min-h-130 sm:rounded-[2.5rem]">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 p-8">
-                <p className="text-xs uppercase tracking-[0.35em] text-amber-200">
+              <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+                <p className="text-[10px] uppercase tracking-[0.28em] text-amber-200 sm:text-xs sm:tracking-[0.35em]">
                   Chef’s Highlight
                 </p>
 
-                <h3 className="mt-4 max-w-xl text-4xl font-black tracking-tight text-white">
+                <h3 className="mt-4 max-w-xl text-3xl font-black tracking-tight text-white sm:text-4xl">
                   Black Angus over open fire.
                 </h3>
 
@@ -349,12 +349,12 @@ export default async function RestaurantDemoPage({
                   className="group grid overflow-hidden rounded-4xl border border-white/10 bg-zinc-950/70 md:grid-cols-[0.8fr_1.2fr]"
                 >
                   <div
-                    className="min-h-55 bg-cover bg-center transition duration-700 group-hover:scale-105"
+                    className="min-h-45 bg-cover bg-center transition duration-700 group-hover:scale-105 sm:min-h-55"
                     style={{ backgroundImage: `url(${item.image})` }}
                   />
 
-                  <div className="p-7">
-                    <p className="text-xs uppercase tracking-[0.35em] text-amber-200/70">
+                  <div className="p-6 sm:p-7">
+                    <p className="text-[10px] uppercase tracking-[0.28em] text-amber-200/70 sm:text-xs sm:tracking-[0.35em]">
                       Signature
                     </p>
 
@@ -413,23 +413,23 @@ export default async function RestaurantDemoPage({
       </section>
 
       {/* EXPERIENCE */}
-      <section id="story" className="relative overflow-hidden px-6 py-28">
+      <section id="story" className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,191,36,0.08),transparent_35%)]" />
 
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-200 sm:text-sm sm:tracking-[0.35em]">
                 {lang === "ro" ? "Experiență" : "Experience"}
               </p>
 
-              <h2 className="mt-5 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">
+              <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-tight sm:text-4xl md:text-6xl">
                 {lang === "ro"
                   ? "Nu vii doar pentru mâncare. Vii pentru seară."
                   : "You do not come only for food. You come for the evening."}
               </h2>
 
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
+              <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-8 sm:text-lg sm:leading-8">
                 {lang === "ro"
                   ? "AURELIA este construită în jurul atmosferei: lumină caldă, foc deschis, plating modern și un ritm lent care lasă loc conversațiilor."
                   : "AURELIA is built around atmosphere: warm light, open fire, modern plating and a slower rhythm that leaves space for conversation."}
@@ -454,7 +454,7 @@ export default async function RestaurantDemoPage({
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10 sm:row-span-2">
+              <div className="group relative min-h-95 overflow-hidden rounded-[2rem] border border-white/10 sm:row-span-2 sm:min-h-130 sm:rounded-[2.5rem]">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-transparent" />
 
@@ -470,7 +470,7 @@ export default async function RestaurantDemoPage({
                 </div>
               </div>
 
-              <div className="group relative min-h-62.5 overflow-hidden rounded-4xl border border-white/10">
+              <div className="group relative min-h-48 overflow-hidden rounded-4xl border border-white/10 sm:min-h-62.5">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <p className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
@@ -478,7 +478,7 @@ export default async function RestaurantDemoPage({
                 </p>
               </div>
 
-              <div className="group relative min-h-62.5 overflow-hidden rounded-4xl border border-white/10">
+              <div className="group relative min-h-48 overflow-hidden rounded-4xl border border-white/10 sm:min-h-62.5">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <p className="absolute bottom-6 left-6 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
@@ -491,15 +491,15 @@ export default async function RestaurantDemoPage({
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" className="relative overflow-hidden px-6 py-28">
+      <section id="gallery" className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-amber-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-200 sm:text-sm sm:tracking-[0.35em]">
                 {t.galleryBadge}
               </p>
 
-              <h2 className="mt-5 max-w-3xl text-4xl font-black tracking-tight md:text-6xl">
+              <h2 className="mt-5 max-w-3xl text-3xl font-black tracking-tight sm:text-4xl md:text-6xl">
                 {t.galleryTitle}
               </h2>
             </div>
@@ -512,17 +512,17 @@ export default async function RestaurantDemoPage({
           </div>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="group relative min-h-130 overflow-hidden rounded-[2.5rem] border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/25 hover:shadow-[0_0_90px_rgba(251,191,36,0.08)]">
+            <div className="group relative min-h-95 overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_0_60px_rgba(0,0,0,0.25)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/25 hover:shadow-[0_0_90px_rgba(251,191,36,0.08)] sm:min-h-130 sm:rounded-[2.5rem]">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 p-8">
-                <div className="flex items-center gap-3">
-                  <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-amber-200 backdrop-blur-sm">
+              <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-amber-200 backdrop-blur-sm sm:tracking-[0.3em]">
                     Atmosphere
                   </span>
 
-                  <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-zinc-300 backdrop-blur-sm">
+                  <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-sm sm:tracking-[0.3em]">
                     Fine Dining
                   </span>
                 </div>
@@ -549,7 +549,7 @@ export default async function RestaurantDemoPage({
               ].map((item) => (
                 <div
                   key={item.image}
-                  className="group relative min-h-61.75 overflow-hidden rounded-4xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/20"
+                  className="group relative min-h-48 overflow-hidden rounded-4xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:border-amber-200/20 sm:min-h-61.75"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105"
@@ -580,7 +580,7 @@ export default async function RestaurantDemoPage({
 
         <div className="relative mx-auto grid max-w-6xl gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
           <div className="rounded-4xl border border-white/10 bg-black/45 p-7 backdrop-blur-xl sm:p-9">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-200 sm:tracking-[0.35em]">
               {t.reserveBadge}
             </p>
 
@@ -668,7 +668,7 @@ export default async function RestaurantDemoPage({
           </div>
         </div>
       </section>
-      <footer className="border-t border-white/10 px-6 py-14">
+      <footer className="border-t border-white/10 px-4 py-14 sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-2xl font-black tracking-tight text-white">

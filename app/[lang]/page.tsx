@@ -185,7 +185,7 @@ export default async function HomePage({
     <>
       <Navbar lang={currentLang} />
 
-      <main className="relative overflow-hidden px-6 pb-24 pt-28 md:pt-32">
+      <main className="relative overflow-hidden px-4 pb-20 pt-24 sm:px-6 sm:pb-24 sm:pt-28 md:pt-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.14),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(34,211,238,0.1),transparent_32%),linear-gradient(180deg,rgba(8,24,36,0)_0%,rgba(7,18,28,0.82)_42%,rgba(6,16,26,0.95)_100%)]" />
         <div className="pointer-events-none absolute left-0 top-40 h-px w-full bg-linear-to-r from-transparent via-emerald-400/24 to-transparent" />
         <div className="pointer-events-none absolute right-[-15%] top-28 h-80 w-[46rem] rotate-[-18deg] bg-linear-to-r from-transparent via-cyan-300/10 to-transparent blur-3xl" />
@@ -195,21 +195,21 @@ export default async function HomePage({
             <div>
               <div className="animate-[revealUp_0.8s_ease-out_both] flex items-center gap-4">
                 <span className="h-px w-10 bg-emerald-400/35" />
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
                   {t.badge}
                 </p>
               </div>
 
-              <h1 className="mt-8 max-w-5xl animate-[revealUp_0.9s_ease-out_0.08s_both] text-5xl font-black leading-[0.94] tracking-tight text-white md:text-7xl">
+              <h1 className="mt-7 max-w-5xl animate-[revealUp_0.9s_ease-out_0.08s_both] text-[clamp(2.55rem,11.5vw,4.6rem)] font-black leading-[0.96] tracking-tight text-white md:text-7xl">
                 {t.title}
               </h1>
 
-              <p className="mt-7 max-w-2xl animate-[revealUp_0.9s_ease-out_0.18s_both] text-lg leading-8 text-zinc-300 md:text-xl">
+              <p className="mt-6 max-w-2xl animate-[revealUp_0.9s_ease-out_0.18s_both] text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8 md:text-xl">
                 {t.subtitle}
               </p>
 
               <div className="mt-9 flex animate-[revealUp_0.9s_ease-out_0.28s_both] flex-wrap gap-3">
-                <span className="rounded-full border border-emerald-400/14 bg-emerald-400/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
+                <span className="rounded-full border border-emerald-400/14 bg-emerald-400/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-300 sm:text-xs sm:tracking-[0.22em]">
                   {t.heroNote}
                 </span>
 
@@ -236,22 +236,22 @@ export default async function HomePage({
             </div>
 
             <div className="relative animate-[revealUp_1s_ease-out_0.22s_both]">
-              <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-emerald-400/12 via-cyan-300/8 to-transparent blur-3xl" />
-              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[2rem] border border-emerald-400/16 bg-emerald-400/7 p-4 shadow-[0_0_78px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-6">
+              <div className="pointer-events-none absolute -inset-4 rounded-[2.5rem] bg-linear-to-br from-emerald-400/12 via-cyan-300/8 to-transparent blur-3xl sm:-inset-6" />
+              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[1.6rem] border border-emerald-400/16 bg-emerald-400/7 p-3 shadow-[0_0_78px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:rounded-[2rem] sm:p-4 md:p-6">
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(52,211,153,0.16),transparent_34%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.12),transparent_42%)]" />
                 <div className="pointer-events-none absolute inset-y-0 left-[-70%] w-[60%] animate-[signatureSweep_6s_ease-in-out_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
 
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-cyan-300/12 bg-[#071824]/82">
+                <div className="relative overflow-hidden rounded-[1.25rem] border border-cyan-300/12 bg-[#071824]/82 sm:rounded-[1.5rem]">
                   <div className="flex items-center gap-2 border-b border-cyan-300/10 bg-cyan-300/7 px-4 py-3">
                     <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
                     <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                    <div className="ml-3 flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs text-zinc-500">
+                    <div className="ml-2 min-w-0 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] text-zinc-500 sm:ml-3 sm:px-4 sm:text-xs">
                       flowcraftstudio.app
                     </div>
                   </div>
 
-                  <div className="relative p-5 md:p-7">
+                  <div className="relative p-4 sm:p-5 md:p-7">
                     <div className="flex items-start justify-between gap-5">
                       <div className="flex items-center gap-3">
                         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/16 bg-emerald-400/8 shadow-[0_0_22px_rgba(52,211,153,0.12)]">
@@ -264,7 +264,7 @@ export default async function HomePage({
                           />
                         </div>
                         <div>
-                          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">
+                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300 sm:text-sm sm:tracking-[0.3em]">
                             {t.previewLabel}
                           </p>
                           <p className="mt-1 text-xs text-zinc-500">
@@ -278,8 +278,8 @@ export default async function HomePage({
                       </div>
                     </div>
 
-                    <div className="mt-14">
-                      <h2 className="max-w-md text-4xl font-black leading-none tracking-tight text-white md:text-5xl">
+                    <div className="mt-10 sm:mt-14">
+                      <h2 className="max-w-md text-3xl font-black leading-none tracking-tight text-white sm:text-4xl md:text-5xl">
                         {t.previewTitle}
                       </h2>
                       <p className="mt-5 max-w-md leading-7 text-zinc-400">
@@ -287,11 +287,11 @@ export default async function HomePage({
                       </p>
                     </div>
 
-                    <div className="mt-9 grid grid-cols-3 gap-3">
+                    <div className="mt-7 grid grid-cols-3 gap-2 sm:mt-9 sm:gap-3">
                       {t.previewStats.map((item) => (
                         <div
                           key={item}
-                          className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center text-xs font-semibold text-zinc-300 md:text-sm"
+                          className="rounded-2xl border border-white/10 bg-white/[0.04] px-2 py-3 text-center text-[11px] font-semibold text-zinc-300 sm:px-3 sm:py-4 sm:text-xs md:text-sm"
                         >
                           {item}
                         </div>
@@ -305,17 +305,17 @@ export default async function HomePage({
 
           <div className="relative mt-20">
             <div className="absolute inset-x-0 -top-8 h-px bg-linear-to-r from-transparent via-emerald-400/14 to-transparent" />
-            <div className="rounded-[2rem] border border-emerald-400/12 bg-emerald-400/6 p-7 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-400/70">
+            <div className="rounded-[2rem] border border-emerald-400/12 bg-emerald-400/6 p-5 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl sm:p-7 md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400/70 sm:tracking-[0.4em]">
                 {t.sloganLabel}
               </p>
 
               <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-                <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                <h2 className="max-w-3xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
                   {t.slogan}
                 </h2>
 
-                <p className="max-w-2xl text-lg leading-8 text-zinc-400">
+                <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
                   {t.sloganText}
                 </p>
               </div>
@@ -325,10 +325,10 @@ export default async function HomePage({
           <section className="relative mt-24">
             <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-linear-to-r from-transparent via-cyan-300/15 to-transparent" />
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
                 {t.explore}
               </p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
                 {t.exploreTitle}
               </h2>
             </div>
@@ -374,14 +374,14 @@ export default async function HomePage({
             ))}
           </section>
 
-          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-cyan-300/12 bg-cyan-300/5 p-7 shadow-[0_0_76px_rgba(34,211,238,0.08)] backdrop-blur-xl md:p-10">
+          <section className="relative mt-20 overflow-hidden rounded-[2rem] border border-cyan-300/12 bg-cyan-300/5 p-5 shadow-[0_0_76px_rgba(34,211,238,0.08)] backdrop-blur-xl sm:mt-24 sm:p-7 md:p-10">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/20 to-transparent" />
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
                   {t.demosBadge}
                 </p>
-                <h2 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+                <h2 className="mt-4 max-w-4xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
                   {t.demosTitle}
                 </h2>
               </div>
@@ -394,7 +394,7 @@ export default async function HomePage({
                 <Link
                   key={demo.href}
                   href={demo.href}
-                  className={`group relative overflow-hidden rounded-[2rem] border bg-[#071824]/72 p-6 shadow-[0_0_70px_rgba(52,211,153,0.06)] transition duration-500 hover:-translate-y-1.5 sm:p-8 ${
+                  className={`group relative overflow-hidden rounded-[1.5rem] border bg-[#071824]/72 p-5 shadow-[0_0_70px_rgba(52,211,153,0.06)] transition duration-500 hover:-translate-y-1.5 sm:rounded-[2rem] sm:p-8 ${
                     demo.tone === "gold"
                       ? "border-[#d9b46f]/20 hover:border-[#d9b46f]/45 hover:shadow-[0_0_95px_rgba(217,180,111,0.14)]"
                       : "border-amber-300/20 hover:border-amber-300/45 hover:shadow-[0_0_95px_rgba(251,191,36,0.13)]"
@@ -411,7 +411,7 @@ export default async function HomePage({
                   <div className="relative">
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                       <span
-                        className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] ${
+                        className={`rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] sm:text-xs sm:tracking-[0.25em] ${
                           demo.tone === "gold"
                             ? "border-[#d9b46f]/20 bg-[#d9b46f]/10 text-[#f3d19c]"
                             : "border-amber-300/20 bg-amber-300/10 text-amber-200"
@@ -424,11 +424,11 @@ export default async function HomePage({
                       </span>
                     </div>
 
-                    <div className="mt-12">
-                      <h3 className="max-w-2xl text-3xl font-black tracking-tight text-white md:text-5xl">
+                    <div className="mt-9 sm:mt-12">
+                      <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl md:text-5xl">
                         {demo.title}
                       </h3>
-                      <p className="mt-5 max-w-xl leading-8 text-zinc-400">
+                      <p className="mt-4 max-w-xl leading-7 text-zinc-400 sm:mt-5 sm:leading-8">
                         {demo.text}
                       </p>
                     </div>
@@ -449,14 +449,14 @@ export default async function HomePage({
             </div>
           </section>
 
-          <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-emerald-400/14 bg-emerald-400/6 p-8 shadow-[0_0_76px_rgba(52,211,153,0.09)] backdrop-blur-xl md:p-10">
+          <section className="relative mt-20 overflow-hidden rounded-[2rem] border border-emerald-400/14 bg-emerald-400/6 p-5 shadow-[0_0_76px_rgba(52,211,153,0.09)] backdrop-blur-xl sm:mt-24 sm:p-8 md:p-10">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(52,211,153,0.09),rgba(34,211,238,0.055),transparent)]" />
             <div className="relative">
-              <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
+              <h2 className="max-w-3xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
                 {t.finalTitle}
               </h2>
 
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
                 {t.finalText}
               </p>
 
