@@ -8,11 +8,11 @@ export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/8 bg-[#040910]/78 px-4 py-16 text-zinc-400 backdrop-blur-xl sm:px-6">
+    <footer className="relative overflow-hidden border-t border-white/8 bg-[#07111a]/76 px-4 py-16 text-zinc-400 backdrop-blur-xl sm:px-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_0%,rgba(52,211,153,0.07),transparent_34%),radial-gradient(circle_at_86%_28%,rgba(34,211,238,0.055),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-14 rounded-[1.75rem] border border-white/8 bg-white/[0.035] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.24)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
+        <div className="mb-14 rounded-[1.75rem] border border-white/8 bg-white/[0.045] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.2)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
           <div>
             <p className="studio-label">
               {lang === "ro" ? "Următorul pas" : "Next step"}

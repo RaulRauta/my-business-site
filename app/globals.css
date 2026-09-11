@@ -28,7 +28,7 @@ body {
 html,
 body {
   overscroll-behavior-y: none;
-  background: #040910;
+  background: #07111a;
 }
 
 body {
@@ -340,9 +340,9 @@ html {
 .studio-surface {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.026)),
-    rgba(3, 9, 15, 0.72);
-  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.24);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.034)),
+    rgba(7, 18, 28, 0.74);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(18px);
 }
 

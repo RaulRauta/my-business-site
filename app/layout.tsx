@@ -78,11 +78,11 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative min-h-screen overflow-x-hidden bg-[#040910] text-white">
+      <body className="relative min-h-screen overflow-x-hidden bg-[#07111a] text-white">
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
           {/* BASE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.09),transparent_36%),radial-gradient(circle_at_82%_12%,rgba(34,211,238,0.075),transparent_34%),radial-gradient(circle_at_45%_48%,rgba(15,118,110,0.045),transparent_44%),linear-gradient(180deg,#06111a_0%,#040b12_48%,#03070c_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.105),transparent_36%),radial-gradient(circle_at_82%_12%,rgba(34,211,238,0.09),transparent_34%),radial-gradient(circle_at_45%_48%,rgba(15,118,110,0.055),transparent_44%),linear-gradient(180deg,#0a1823_0%,#06111a_48%,#050c14_100%)]" />
 
           {/* GLOW 1 */}
           <div className="absolute left-[-14%] top-[-18%] h-[660px] w-[660px] rounded-full bg-emerald-400/14 blur-[170px]" />
@@ -94,7 +94,7 @@ export default function RootLayout({
           <div className="absolute left-[34%] top-[32%] h-[520px] w-[520px] rounded-full bg-teal-300/7 blur-[170px]" />
 
           {/* VIGNETTE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.34)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.26)_100%)]" />
         </div>
 
         {/* CONTENT */}

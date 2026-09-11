@@ -153,7 +153,7 @@ export default async function HomePage({
       <Navbar lang={currentLang} />
 
       <main className="relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 md:pt-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_6%,rgba(52,211,153,0.08),transparent_30%),radial-gradient(circle_at_82%_16%,rgba(34,211,238,0.065),transparent_34%),linear-gradient(180deg,rgba(4,9,16,0)_0%,rgba(4,9,16,0.78)_42%,rgba(3,7,12,0.96)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_6%,rgba(52,211,153,0.09),transparent_30%),radial-gradient(circle_at_82%_16%,rgba(34,211,238,0.075),transparent_34%),linear-gradient(180deg,rgba(7,17,26,0)_0%,rgba(7,17,26,0.68)_42%,rgba(5,12,20,0.9)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 top-36 h-px bg-linear-to-r from-transparent via-white/12 to-transparent" />
 
         <section className="relative mx-auto grid max-w-7xl gap-12 pb-10 lg:min-h-[76vh] lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
@@ -204,12 +204,12 @@ export default async function HomePage({
             <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_18%,rgba(52,211,153,0.12),transparent_42%)] blur-3xl" />
 
             <div className="studio-surface relative overflow-hidden rounded-[2rem] p-4 sm:p-5">
-              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#050b12]/82">
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#09141f]/84">
                 <div className="flex items-center gap-2 border-b border-white/8 bg-white/[0.03] px-4 py-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-400/55" />
                   <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/55" />
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/65" />
-                  <span className="ml-2 min-w-0 flex-1 truncate rounded-full border border-white/8 bg-black/25 px-3 py-1.5 text-[11px] text-zinc-500">
+                  <span className="ml-2 min-w-0 flex-1 truncate rounded-full border border-white/8 bg-white/[0.035] px-3 py-1.5 text-[11px] text-zinc-500">
                     flowcraftstudio.app
                   </span>
                 </div>
@@ -324,7 +324,7 @@ export default async function HomePage({
                 ].map((step, index) => (
                   <div
                     key={step}
-                    className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-4"
+                    className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.035] px-4 py-4"
                   >
                     <span className="text-sm font-semibold text-zinc-300">
                       {step}
@@ -389,7 +389,7 @@ export default async function HomePage({
                     {demo.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-white/8 bg-black/20 px-3 py-1.5 text-xs text-zinc-300"
+                        className="rounded-full border border-white/8 bg-white/[0.035] px-3 py-1.5 text-xs text-zinc-300"
                       >
                         {tag}
                       </span>

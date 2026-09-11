@@ -58,8 +58,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
       data-modal-shell
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-white/10 bg-[#040910]/82 shadow-[0_18px_80px_rgba(0,0,0,0.36)] backdrop-blur-2xl"
-          : "border-b border-white/7 bg-[#040910]/42 backdrop-blur-md"
+          ? "border-b border-white/10 bg-[#07111a]/82 shadow-[0_18px_80px_rgba(0,0,0,0.3)] backdrop-blur-2xl"
+          : "border-b border-white/7 bg-[#07111a]/46 backdrop-blur-md"
       }`}
     >
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
@@ -193,7 +193,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="mx-4 mb-5 rounded-3xl border border-white/10 bg-[#040910]/88 p-3 shadow-[0_22px_70px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-200 md:hidden">
+        <div className="mx-4 mb-5 rounded-3xl border border-white/10 bg-[#07111a]/88 p-3 shadow-[0_22px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-200 md:hidden">
             <div className="grid gap-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
