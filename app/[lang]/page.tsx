@@ -6,20 +6,19 @@ import { notFound } from "next/navigation";
 
 type Lang = "ro" | "en";
 
-type ExploreItem = {
-  href: string;
+type Pillar = {
+  label: string;
   title: string;
   text: string;
-  label: string;
 };
 
 type DemoItem = {
   href: string;
-  badge: string;
+  eyebrow: string;
   title: string;
   text: string;
   tags: string[];
-  tone: "amber" | "gold";
+  tone: "gold" | "amber";
 };
 
 export default async function HomePage({
@@ -37,146 +36,114 @@ export default async function HomePage({
 
   const t = {
     ro: {
-      badge: "Digital Experience Studio",
-      title: "Experiențe digitale construite cu claritate, ritm și atmosferă.",
+      badge: "Digital experience studio",
+      title: "Website-uri construite cu claritate, atmosferă și intenție.",
       subtitle:
-        "FlowCraftStudio creează website-uri moderne care prezintă business-ul clar, inspiră încredere și transformă prima impresie într-un motiv de contact.",
+        "FlowCraftStudio creează experiențe digitale moderne pentru business-uri care vor să fie înțelese rapid, să inspire încredere și să transforme vizitatorii în clienți.",
       cta: "Începe un proiect",
       secondary: "Vezi serviciile",
-      heroNote: "Digital experiences / mobile-first / conversion flow",
       motto: "Find your Flow",
-      previewLabel: "Find your Flow",
-      previewTitle: "Website experience",
+      proof: ["Structură clară", "Mobile-first", "Design cu ritm"],
+      previewLabel: "Studio direction",
+      previewTitle: "Un site trebuie să ghideze, nu doar să impresioneze.",
       previewText:
-        "Structură, design și interacțiuni rafinate într-un flow clar pentru client.",
-      previewStats: ["Claritate", "Mobile-first", "Polish"],
-      sloganLabel: "FlowCraft signature",
-      slogan: "Un site bun nu doar arată bine. Se simte intenționat.",
-      sloganText:
-        "Fiecare secțiune are un rol: prezintă, construiește încredere sau conduce vizitatorul spre acțiune.",
-      explore: "Explorează",
-      exploreTitle:
-        "Un flow complet pentru un business care vrea să pară serios online.",
-      points: [
-        "Prima impresie decide dacă oamenii rămân.",
-        "Claritatea face oferta ușor de înțeles.",
-        "Mobile-ul trebuie să se simtă natural, nu doar redimensionat.",
-      ],
-      demosBadge: "Live concepts",
-      demosTitle: "Demo-uri care arată cum poate prinde formă un brand.",
-      demosText:
-        "Concepte interactive construite pentru restaurante, cafenele și business-uri moderne care au nevoie de prezentare, atmosferă și acțiune.",
-      finalTitle: "Ai un business care merită o prezență online mai bună?",
+        "Fiecare secțiune are un rol: să explice, să creeze încredere sau să ducă vizitatorul spre acțiune.",
+      pillarsLabel: "Ce construim",
+      pillarsTitle: "Mai puțin zgomot vizual. Mai multă direcție.",
+      processLabel: "FlowCraft method",
+      processTitle:
+        "Designul bun începe cu structură, apoi devine atmosferă.",
+      processText:
+        "Pornim de la business, public și obiectiv. Apoi construim flow-ul, ierarhia vizuală, interacțiunile și detaliile care fac experiența să pară completă.",
+      projectsLabel: "Live concepts",
+      projectsTitle: "Demo-uri construite ca experiențe reale.",
+      projectsText:
+        "Concepte explorabile pentru cafenele, restaurante și business-uri moderne, gândite să arate cum poate prinde formă un brand online.",
+      finalTitle: "Ai nevoie de un site care să pară la fel de serios ca business-ul tău?",
       finalText:
-        "Construim o experiență digitală care lucrează pentru tine, nu doar există pe internet.",
+        "Construim o direcție digitală clară, elegantă și ușor de folosit pe telefon.",
       finalSecondary: "Explorează proiectele",
     },
     en: {
-      badge: "Digital Experience Studio",
-      title: "Digital experiences built with clarity, rhythm and atmosphere.",
+      badge: "Digital experience studio",
+      title: "Websites built with clarity, atmosphere and intention.",
       subtitle:
-        "FlowCraftStudio creates modern websites that present your business clearly, build trust and turn the first impression into a reason to get in touch.",
+        "FlowCraftStudio creates modern digital experiences for businesses that need to be understood quickly, build trust and turn visitors into customers.",
       cta: "Start a Project",
       secondary: "View services",
-      heroNote: "Digital experiences / mobile-first / conversion flow",
       motto: "Find your Flow",
-      previewLabel: "Find your Flow",
-      previewTitle: "Website experience",
+      proof: ["Clear structure", "Mobile-first", "Designed rhythm"],
+      previewLabel: "Studio direction",
+      previewTitle: "A website should guide, not just impress.",
       previewText:
-        "Structure, design and refined interactions shaped into a clear customer flow.",
-      previewStats: ["Clarity", "Mobile-first", "Polish"],
-      sloganLabel: "FlowCraft signature",
-      slogan: "A good website does not just look polished. It feels intentional.",
-      sloganText:
-        "Every section has a role: present, build trust or guide the visitor toward action.",
-      explore: "Explore",
-      exploreTitle:
-        "A complete flow for a business that wants to feel serious online.",
-      points: [
-        "First impression decides if people stay.",
-        "Clarity makes the offer easy to understand.",
-        "Mobile should feel natural, not merely resized.",
-      ],
-      demosBadge: "Live concepts",
-      demosTitle: "Demos that show how a brand can take shape.",
-      demosText:
-        "Interactive concepts built for restaurants, cafés and modern businesses that need presentation, atmosphere and action.",
-      finalTitle: "Have a business that deserves a better online presence?",
+        "Every section has a role: explain, build trust or guide the visitor toward action.",
+      pillarsLabel: "What we build",
+      pillarsTitle: "Less visual noise. More direction.",
+      processLabel: "FlowCraft method",
+      processTitle:
+        "Good design starts with structure, then becomes atmosphere.",
+      processText:
+        "We start with the business, audience and goal. Then we shape the flow, hierarchy, interactions and details that make the experience feel complete.",
+      projectsLabel: "Live concepts",
+      projectsTitle: "Demos built as real experiences.",
+      projectsText:
+        "Explorable concepts for cafés, restaurants and modern businesses, designed to show how a brand can take shape online.",
+      finalTitle: "Need a website that feels as serious as your business?",
       finalText:
-        "We build a digital experience that works for you, not just exists on the internet.",
+        "We shape a clear, elegant digital direction that works naturally on mobile.",
       finalSecondary: "Explore projects",
     },
   }[currentLang];
 
-  const exploreItems: ExploreItem[] = [
+  const pillars: Pillar[] = [
     {
-      href: `/${currentLang}/services`,
-      title: currentLang === "ro" ? "Pachete clare" : "Clear packages",
-      label: currentLang === "ro" ? "Servicii" : "Services",
+      label: "01",
+      title: currentLang === "ro" ? "Claritate" : "Clarity",
       text:
         currentLang === "ro"
-          ? "Alege o direcție potrivită pentru etapa business-ului tău."
-          : "Choose a direction that fits the current stage of your business.",
+          ? "Oferta, secțiunile și acțiunile importante trebuie înțelese fără efort."
+          : "The offer, sections and key actions should be understood without effort.",
     },
     {
-      href: `/${currentLang}/process`,
-      title:
-        currentLang === "ro" ? "Proces structurat" : "Structured process",
-      label: currentLang === "ro" ? "Proces" : "Process",
+      label: "02",
+      title: currentLang === "ro" ? "Atmosferă" : "Atmosphere",
       text:
         currentLang === "ro"
-          ? "Colaborare clară, de la discovery până la lansare."
-          : "Clear collaboration, from discovery to launch.",
+          ? "Un site bun are ritm, contrast și o senzație vizuală memorabilă."
+          : "A good website has rhythm, contrast and a memorable visual feeling.",
     },
     {
-      href: `/${currentLang}/projects`,
-      title:
-        currentLang === "ro" ? "Demo-uri explorabile" : "Explorable demos",
-      label: "Projects",
+      label: "03",
+      title: "Conversion flow",
       text:
         currentLang === "ro"
-          ? "Vezi concepte live create pentru business-uri reale."
-          : "View live concepts crafted for real business use cases.",
-    },
-    {
-      href: `/${currentLang}/about`,
-      title:
-        currentLang === "ro" ? "Perspectivă de studio" : "Studio perspective",
-      label: "About",
-      text:
-        currentLang === "ro"
-          ? "Află cum sunt gândite claritatea, atmosfera și detaliile."
-          : "See how clarity, atmosphere and details are approached.",
+          ? "Designul trebuie să ducă natural spre contact, rezervare sau cerere."
+          : "The design should naturally guide people toward contact, booking or inquiry.",
     },
   ];
 
   const demos: DemoItem[] = [
     {
       href: `/${currentLang}/projects/morrow-cafe`,
-      badge: "Flagship Demo",
-      title:
-        currentLang === "ro"
-          ? "Morrow Café / hospitality cinematic"
-          : "Morrow Café / hospitality cinematic",
+      eyebrow: currentLang === "ro" ? "Cafenea / flagship concept" : "Café / flagship concept",
+      title: "Morrow Café",
       text:
         currentLang === "ro"
-          ? "Un demo cald, editorial, construit pentru atmosferă, meniu și rezervare."
-          : "A warm editorial demo built around atmosphere, menu and booking.",
-      tags: ["Hospitality", "Refined UI", "Mobile-first"],
+          ? "Un demo cald și editorial pentru o cafenea modernă, construit în jurul atmosferei, meniului și rezervării."
+          : "A warm editorial demo for a modern café, built around atmosphere, menu and booking.",
+      tags: ["Hospitality", "Mobile-first", "Editorial UI"],
       tone: "gold",
     },
     {
       href: `/${currentLang}/demo/restaurant`,
-      badge: "Live Demo",
-      title:
-        currentLang === "ro"
-          ? "Restaurant Concept / fine dining flow"
-          : "Restaurant Concept / fine dining flow",
+      eyebrow:
+        currentLang === "ro" ? "Restaurant / fine dining flow" : "Restaurant / fine dining flow",
+      title: "Restaurant Concept",
       text:
         currentLang === "ro"
-          ? "O structură cinematică pentru restaurante care vor prezentare și conversie."
-          : "A cinematic structure for restaurants that need presentation and conversion.",
-      tags: ["Restaurant", "Bookings", "Experience"],
+          ? "O structură cinematică pentru restaurante care au nevoie de prezentare clară și rezervare simplă."
+          : "A cinematic structure for restaurants that need clear presentation and simple booking.",
+      tags: ["Restaurant", "Booking", "Atmosphere"],
       tone: "amber",
     },
   ];
@@ -185,298 +152,281 @@ export default async function HomePage({
     <>
       <Navbar lang={currentLang} />
 
-      <main className="relative overflow-hidden px-4 pb-20 pt-24 sm:px-6 sm:pb-24 sm:pt-28 md:pt-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.14),transparent_30%),radial-gradient(circle_at_82%_18%,rgba(34,211,238,0.1),transparent_32%),linear-gradient(180deg,rgba(8,24,36,0)_0%,rgba(7,18,28,0.82)_42%,rgba(6,16,26,0.95)_100%)]" />
-        <div className="pointer-events-none absolute left-0 top-40 h-px w-full bg-linear-to-r from-transparent via-emerald-400/24 to-transparent" />
-        <div className="pointer-events-none absolute right-[-15%] top-28 h-80 w-[46rem] rotate-[-18deg] bg-linear-to-r from-transparent via-cyan-300/10 to-transparent blur-3xl" />
+      <main className="relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 md:pt-32">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_6%,rgba(52,211,153,0.08),transparent_30%),radial-gradient(circle_at_82%_16%,rgba(34,211,238,0.065),transparent_34%),linear-gradient(180deg,rgba(4,9,16,0)_0%,rgba(4,9,16,0.78)_42%,rgba(3,7,12,0.96)_100%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-36 h-px bg-linear-to-r from-transparent via-white/12 to-transparent" />
 
-        <section className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 xl:grid-cols-[1.02fr_0.98fr] xl:items-center">
-            <div>
-              <div className="animate-[revealUp_0.8s_ease-out_both] flex items-center gap-4">
-                <span className="h-px w-10 bg-emerald-400/35" />
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
-                  {t.badge}
-                </p>
-              </div>
-
-              <h1 className="mt-7 max-w-5xl animate-[revealUp_0.9s_ease-out_0.08s_both] text-[clamp(2.55rem,11.5vw,4.6rem)] font-black leading-[0.96] tracking-tight text-white md:text-7xl">
-                {t.title}
-              </h1>
-
-              <p className="mt-6 max-w-2xl animate-[revealUp_0.9s_ease-out_0.18s_both] text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8 md:text-xl">
-                {t.subtitle}
-              </p>
-
-              <div className="mt-9 flex animate-[revealUp_0.9s_ease-out_0.28s_both] flex-wrap gap-3">
-                <span className="rounded-full border border-emerald-400/14 bg-emerald-400/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-300 sm:text-xs sm:tracking-[0.22em]">
-                  {t.heroNote}
-                </span>
-
-              </div>
-
-              <div className="mt-10 flex animate-[revealUp_0.9s_ease-out_0.36s_both] flex-col items-start gap-4 sm:flex-row">
-                <Link
-                  href={`/${currentLang}/contact`}
-                  className="group inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.14)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 hover:shadow-[0_0_46px_rgba(52,211,153,0.24)] sm:w-fit"
-                >
-                  {t.cta}
-                  <span className="ml-2 transition group-hover:translate-x-1">
-                    -&gt;
-                  </span>
-                </Link>
-
-                <Link
-                  href={`/${currentLang}/services`}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/22 hover:bg-white/[0.08] sm:w-fit"
-                >
-                  {t.secondary}
-                </Link>
-              </div>
+        <section className="relative mx-auto grid max-w-7xl gap-12 pb-10 lg:min-h-[76vh] lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+          <div>
+            <div className="animate-[revealUp_0.55s_ease-out_both] flex flex-wrap items-center gap-3">
+              <span className="h-px w-10 bg-emerald-300/45" />
+              <p className="studio-label">{t.badge}</p>
             </div>
 
-            <div className="relative animate-[revealUp_1s_ease-out_0.22s_both]">
-              <div className="pointer-events-none absolute -inset-4 rounded-[2.5rem] bg-linear-to-br from-emerald-400/12 via-cyan-300/8 to-transparent blur-3xl sm:-inset-6" />
-              <div className="relative animate-[studioFloat_7s_ease-in-out_infinite] overflow-hidden rounded-[1.6rem] border border-emerald-400/16 bg-emerald-400/7 p-3 shadow-[0_0_78px_rgba(52,211,153,0.1)] backdrop-blur-xl sm:rounded-[2rem] sm:p-4 md:p-6">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(52,211,153,0.16),transparent_34%),radial-gradient(circle_at_80%_70%,rgba(34,211,238,0.12),transparent_42%)]" />
-                <div className="pointer-events-none absolute inset-y-0 left-[-70%] w-[60%] animate-[signatureSweep_6s_ease-in-out_infinite] bg-linear-to-r from-transparent via-white/10 to-transparent blur-2xl" />
+            <h1 className="mt-7 max-w-5xl animate-[revealUp_0.55s_ease-out_0.06s_both] text-[clamp(2.55rem,8.5vw,4.85rem)] font-black leading-[0.96] tracking-tight text-white">
+              {t.title}
+            </h1>
 
-                <div className="relative overflow-hidden rounded-[1.25rem] border border-cyan-300/12 bg-[#071824]/82 sm:rounded-[1.5rem]">
-                  <div className="flex items-center gap-2 border-b border-cyan-300/10 bg-cyan-300/7 px-4 py-3">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                    <div className="ml-2 min-w-0 flex-1 truncate rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] text-zinc-500 sm:ml-3 sm:px-4 sm:text-xs">
-                      flowcraftstudio.app
+            <p className="mt-7 max-w-2xl animate-[revealUp_0.55s_ease-out_0.12s_both] text-base leading-7 text-zinc-300 sm:text-lg sm:leading-8">
+              {t.subtitle}
+            </p>
+
+            <div className="mt-8 flex animate-[revealUp_0.55s_ease-out_0.18s_both] flex-wrap gap-2">
+              {t.proof.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs font-semibold text-zinc-300"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-10 flex animate-[revealUp_0.55s_ease-out_0.24s_both] flex-col gap-3 sm:flex-row">
+              <Link
+                href={`/${currentLang}/contact`}
+                className="inline-flex items-center justify-center rounded-full bg-emerald-300 px-7 py-3.5 font-semibold text-black shadow-[0_18px_50px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-white"
+              >
+                {t.cta}
+                <span className="ml-2">-&gt;</span>
+              </Link>
+
+              <Link
+                href={`/${currentLang}/services`}
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.035] px-7 py-3.5 font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/[0.065]"
+              >
+                {t.secondary}
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative animate-[revealUp_0.65s_ease-out_0.14s_both]">
+            <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_18%,rgba(52,211,153,0.12),transparent_42%)] blur-3xl" />
+
+            <div className="studio-surface relative overflow-hidden rounded-[2rem] p-4 sm:p-5">
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#050b12]/82">
+                <div className="flex items-center gap-2 border-b border-white/8 bg-white/[0.03] px-4 py-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/55" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/55" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/65" />
+                  <span className="ml-2 min-w-0 flex-1 truncate rounded-full border border-white/8 bg-black/25 px-3 py-1.5 text-[11px] text-zinc-500">
+                    flowcraftstudio.app
+                  </span>
+                </div>
+
+                <div className="p-5 sm:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04]">
+                        <Image
+                          src="/logo-icon.png"
+                          alt="FlowCraft Studio logo"
+                          width={36}
+                          height={36}
+                          className="h-9 w-9 object-contain"
+                          priority
+                        />
+                      </div>
+                      <div>
+                        <p className="studio-label text-[0.68rem]">
+                          {t.motto}
+                        </p>
+                        <p className="mt-1 text-xs text-zinc-500">
+                          FlowCraftStudio
+                        </p>
+                      </div>
                     </div>
+
+                    <span className="hidden rounded-full border border-white/8 bg-white/[0.035] px-3 py-2 text-xs text-zinc-500 sm:block">
+                      2026
+                    </span>
                   </div>
 
-                  <div className="relative p-4 sm:p-5 md:p-7">
-                    <div className="flex items-start justify-between gap-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/16 bg-emerald-400/8 shadow-[0_0_22px_rgba(52,211,153,0.12)]">
-                          <Image
-                            src="/logo-icon.png"
-                            alt="Flowcraft logo"
-                            width={36}
-                            height={36}
-                            className="h-9 w-9 object-contain"
-                          />
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300 sm:text-sm sm:tracking-[0.3em]">
-                            {t.previewLabel}
-                          </p>
-                          <p className="mt-1 text-xs text-zinc-500">
-                            FlowCraftStudio
-                          </p>
-                        </div>
+                  <div className="mt-12 max-w-lg">
+                    <p className="studio-label">{t.previewLabel}</p>
+                    <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+                      {t.previewTitle}
+                    </h2>
+                    <p className="mt-5 leading-7 text-zinc-400">
+                      {t.previewText}
+                    </p>
+                  </div>
+
+                  <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                    {t.proof.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-white/8 bg-white/[0.035] px-4 py-4 text-sm font-semibold text-zinc-300"
+                      >
+                        {item}
                       </div>
-
-                      <div className="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-zinc-400 sm:block">
-                        2026
-                      </div>
-                    </div>
-
-                    <div className="mt-10 sm:mt-14">
-                      <h2 className="max-w-md text-3xl font-black leading-none tracking-tight text-white sm:text-4xl md:text-5xl">
-                        {t.previewTitle}
-                      </h2>
-                      <p className="mt-5 max-w-md leading-7 text-zinc-400">
-                        {t.previewText}
-                      </p>
-                    </div>
-
-                    <div className="mt-7 grid grid-cols-3 gap-2 sm:mt-9 sm:gap-3">
-                      {t.previewStats.map((item) => (
-                        <div
-                          key={item}
-                          className="rounded-2xl border border-white/10 bg-white/[0.04] px-2 py-3 text-center text-[11px] font-semibold text-zinc-300 sm:px-3 sm:py-4 sm:text-xs md:text-sm"
-                        >
-                          {item}
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="relative mt-20">
-            <div className="absolute inset-x-0 -top-8 h-px bg-linear-to-r from-transparent via-emerald-400/14 to-transparent" />
-            <div className="rounded-[2rem] border border-emerald-400/12 bg-emerald-400/6 p-5 shadow-[0_0_70px_rgba(52,211,153,0.08)] backdrop-blur-xl sm:p-7 md:p-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400/70 sm:tracking-[0.4em]">
-                {t.sloganLabel}
-              </p>
+        <div className="studio-divider relative mx-auto max-w-7xl" />
 
-              <div className="mt-5 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-                <h2 className="max-w-3xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
-                  {t.slogan}
-                </h2>
+        <section className="relative mx-auto mt-20 max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="studio-label">{t.pillarsLabel}</p>
+              <h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                {t.pillarsTitle}
+              </h2>
+            </div>
+            <p className="max-w-2xl leading-7 text-zinc-400 lg:ml-auto">
+              {t.processText}
+            </p>
+          </div>
 
-                <p className="max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
-                  {t.sloganText}
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {pillars.map((pillar) => (
+              <div
+                key={pillar.label}
+                className="group rounded-[1.5rem] border border-white/8 bg-white/[0.028] p-6 transition duration-300 hover:-translate-y-1 hover:border-emerald-300/20 hover:bg-white/[0.045]"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300/70">
+                  {pillar.label}
                 </p>
+                <h3 className="mt-8 text-2xl font-bold tracking-tight text-white">
+                  {pillar.title}
+                </h3>
+                <p className="mt-4 leading-7 text-zinc-400">{pillar.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="relative mx-auto mt-20 max-w-7xl">
+          <div className="studio-surface overflow-hidden rounded-[2rem] p-6 sm:p-8 md:p-10">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div>
+                <p className="studio-label">{t.processLabel}</p>
+                <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                  {t.processTitle}
+                </h2>
+                <p className="mt-6 max-w-2xl leading-7 text-zinc-400">
+                  {t.processText}
+                </p>
+              </div>
+
+              <div className="grid gap-3">
+                {[
+                  currentLang === "ro" ? "Discovery" : "Discovery",
+                  currentLang === "ro" ? "Structură" : "Structure",
+                  currentLang === "ro" ? "Direcție vizuală" : "Visual direction",
+                  currentLang === "ro" ? "Development" : "Development",
+                  currentLang === "ro" ? "Polish & launch" : "Polish & launch",
+                ].map((step, index) => (
+                  <div
+                    key={step}
+                    className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-4"
+                  >
+                    <span className="text-sm font-semibold text-zinc-300">
+                      {step}
+                    </span>
+                    <span className="text-xs font-semibold tracking-[0.22em] text-emerald-300/60">
+                      0{index + 1}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
+        </section>
 
-          <section className="relative mt-24">
-            <div className="pointer-events-none absolute inset-x-0 top-12 h-px bg-linear-to-r from-transparent via-cyan-300/15 to-transparent" />
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
-                {t.explore}
-              </p>
-              <h2 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
-                {t.exploreTitle}
+        <section className="relative mx-auto mt-20 max-w-7xl">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="studio-label">{t.projectsLabel}</p>
+              <h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+                {t.projectsTitle}
               </h2>
             </div>
+            <p className="max-w-md leading-7 text-zinc-400">{t.projectsText}</p>
+          </div>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {exploreItems.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group animate-[revealUp_0.8s_ease-out_both] rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-6 backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-emerald-400/28 hover:bg-emerald-400/8 hover:shadow-[0_0_54px_rgba(52,211,153,0.1)]"
-                  style={{ animationDelay: `${index * 90}ms` }}
-                >
-                  <div className="mb-7 flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-[0.28em] text-emerald-400/80">
-                      {item.label}
-                    </span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm text-zinc-400 transition group-hover:border-emerald-400/22 group-hover:text-emerald-300">
-                      -&gt;
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold tracking-tight text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-zinc-400">{item.text}</p>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section className="relative mt-24 grid gap-5 md:grid-cols-3">
-            {t.points.map((point, index) => (
-              <div
-                key={point}
-                className="group rounded-3xl border border-cyan-300/12 bg-cyan-300/5 p-6 text-zinc-300 backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_42px_rgba(34,211,238,0.09)]"
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {demos.map((demo) => (
+              <Link
+                key={demo.href}
+                href={demo.href}
+                className={`group relative overflow-hidden rounded-[2rem] border bg-white/[0.028] p-5 transition duration-300 hover:-translate-y-1 sm:p-7 ${
+                  demo.tone === "gold"
+                    ? "border-[#d9b46f]/18 hover:border-[#d9b46f]/34"
+                    : "border-amber-300/18 hover:border-amber-300/34"
+                }`}
               >
-                <div className="mb-5 h-10 w-10 rounded-2xl border border-emerald-400/14 bg-emerald-400/6 shadow-[0_0_20px_rgba(52,211,153,0.06)] transition group-hover:bg-emerald-400/12" />
-                <p className="text-lg leading-8">{point}</p>
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-zinc-600">
-                  0{index + 1}
-                </p>
-              </div>
-            ))}
-          </section>
-
-          <section className="relative mt-20 overflow-hidden rounded-[2rem] border border-cyan-300/12 bg-cyan-300/5 p-5 shadow-[0_0_76px_rgba(34,211,238,0.08)] backdrop-blur-xl sm:mt-24 sm:p-7 md:p-10">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-emerald-400/20 to-transparent" />
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-400 sm:text-sm sm:tracking-[0.35em]">
-                  {t.demosBadge}
-                </p>
-                <h2 className="mt-4 max-w-4xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
-                  {t.demosTitle}
-                </h2>
-              </div>
-
-              <p className="max-w-md leading-7 text-zinc-400">{t.demosText}</p>
-            </div>
-
-            <div className="mt-10 grid gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-              {demos.map((demo) => (
-                <Link
-                  key={demo.href}
-                  href={demo.href}
-                  className={`group relative overflow-hidden rounded-[1.5rem] border bg-[#071824]/72 p-5 shadow-[0_0_70px_rgba(52,211,153,0.06)] transition duration-500 hover:-translate-y-1.5 sm:rounded-[2rem] sm:p-8 ${
+                <div
+                  className={`pointer-events-none absolute inset-0 opacity-70 ${
                     demo.tone === "gold"
-                      ? "border-[#d9b46f]/20 hover:border-[#d9b46f]/45 hover:shadow-[0_0_95px_rgba(217,180,111,0.14)]"
-                      : "border-amber-300/20 hover:border-amber-300/45 hover:shadow-[0_0_95px_rgba(251,191,36,0.13)]"
+                      ? "bg-[radial-gradient(circle_at_18%_12%,rgba(217,180,111,0.13),transparent_38%)]"
+                      : "bg-[radial-gradient(circle_at_18%_12%,rgba(251,191,36,0.12),transparent_38%)]"
                   }`}
-                >
-                  <div
-                    className={`pointer-events-none absolute inset-0 ${
-                      demo.tone === "gold"
-                        ? "bg-[radial-gradient(circle_at_25%_15%,rgba(217,180,111,0.17),transparent_36%)]"
-                        : "bg-[radial-gradient(circle_at_25%_15%,rgba(251,191,36,0.16),transparent_36%)]"
-                    }`}
-                  />
-
-                  <div className="relative">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                      <span
-                        className={`rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] sm:text-xs sm:tracking-[0.25em] ${
-                          demo.tone === "gold"
-                            ? "border-[#d9b46f]/20 bg-[#d9b46f]/10 text-[#f3d19c]"
-                            : "border-amber-300/20 bg-amber-300/10 text-amber-200"
-                        }`}
-                      >
-                        {demo.badge}
-                      </span>
-                      <span className="text-sm font-semibold text-zinc-500 transition group-hover:text-white">
-                        Open Live Demo -&gt;
-                      </span>
-                    </div>
-
-                    <div className="mt-9 sm:mt-12">
-                      <h3 className="max-w-2xl text-2xl font-black tracking-tight text-white sm:text-3xl md:text-5xl">
-                        {demo.title}
-                      </h3>
-                      <p className="mt-4 max-w-xl leading-7 text-zinc-400 sm:mt-5 sm:leading-8">
-                        {demo.text}
-                      </p>
-                    </div>
-
-                    <div className="mt-8 flex flex-wrap gap-2">
-                      {demo.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                />
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
+                      {demo.eyebrow}
+                    </p>
+                    <span className="text-sm font-semibold text-zinc-500 transition group-hover:text-white">
+                      Open demo -&gt;
+                    </span>
                   </div>
-                </Link>
-              ))}
+
+                  <h3 className="mt-10 text-3xl font-black tracking-tight text-white sm:text-4xl">
+                    {demo.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl leading-7 text-zinc-400">
+                    {demo.text}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {demo.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/8 bg-black/20 px-3 py-1.5 text-xs text-zinc-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="relative mx-auto mt-20 max-w-7xl">
+          <div className="overflow-hidden rounded-[2rem] border border-emerald-300/16 bg-[linear-gradient(135deg,rgba(52,211,153,0.095),rgba(34,211,238,0.045),rgba(255,255,255,0.025))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.24)] sm:p-8 md:p-10">
+            <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+              {t.finalTitle}
+            </h2>
+
+            <p className="mt-5 max-w-2xl leading-7 text-zinc-400">
+              {t.finalText}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href={`/${currentLang}/contact`}
+                className="rounded-full bg-emerald-300 px-7 py-3.5 text-center font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:bg-white"
+              >
+                {t.cta}
+              </Link>
+
+              <Link
+                href={`/${currentLang}/projects`}
+                className="rounded-full border border-white/10 bg-white/[0.035] px-7 py-3.5 text-center font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-white/[0.065]"
+              >
+                {t.finalSecondary}
+              </Link>
             </div>
-          </section>
-
-          <section className="relative mt-20 overflow-hidden rounded-[2rem] border border-emerald-400/14 bg-emerald-400/6 p-5 shadow-[0_0_76px_rgba(52,211,153,0.09)] backdrop-blur-xl sm:mt-24 sm:p-8 md:p-10">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(52,211,153,0.09),rgba(34,211,238,0.055),transparent)]" />
-            <div className="relative">
-              <h2 className="max-w-3xl text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-5xl">
-                {t.finalTitle}
-              </h2>
-
-              <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
-                {t.finalText}
-              </p>
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href={`/${currentLang}/contact`}
-                  className="rounded-full bg-emerald-400 px-7 py-3.5 text-center font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.14)] transition hover:bg-emerald-300 hover:shadow-[0_0_44px_rgba(52,211,153,0.24)]"
-                >
-                  {t.cta}
-                </Link>
-
-                <Link
-                  href={`/${currentLang}/projects`}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-7 py-3.5 text-center font-semibold text-white transition hover:border-emerald-400/22 hover:bg-white/[0.08]"
-                >
-                  {t.finalSecondary}
-                </Link>
-              </div>
-            </div>
-          </section>
+          </div>
         </section>
       </main>
 

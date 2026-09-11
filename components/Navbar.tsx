@@ -58,21 +58,21 @@ export default function Navbar({ lang }: { lang: Lang }) {
       data-modal-shell
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-emerald-400/14 bg-[#06151f]/78 shadow-[0_12px_70px_rgba(0,0,0,0.38)] backdrop-blur-2xl"
-          : "border-b border-cyan-300/8 bg-[#071824]/42 backdrop-blur-md"
+          ? "border-b border-white/10 bg-[#040910]/82 shadow-[0_18px_80px_rgba(0,0,0,0.36)] backdrop-blur-2xl"
+          : "border-b border-white/7 bg-[#040910]/42 backdrop-blur-md"
       }`}
     >
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/28 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-400/18 to-transparent" />
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         {/* LOGO */}
         <Link
           href={`/${lang}`}
           onClick={() => setMenuOpen(false)}
           className="group flex items-center gap-3"
         >
-          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-emerald-400/16 bg-emerald-400/8 shadow-[0_0_20px_rgba(52,211,153,0.1)] transition group-hover:scale-105 group-hover:border-emerald-400/28 group-hover:shadow-[0_0_28px_rgba(52,211,153,0.18)]">
-            <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.1),transparent_70%)] opacity-0 transition group-hover:opacity-100" />
+          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/[0.045] transition duration-300 group-hover:border-emerald-400/24 group-hover:bg-emerald-400/8">
+            <span className="absolute inset-0 bg-[radial-gradient(circle,rgba(52,211,153,0.12),transparent_70%)] opacity-0 transition duration-300 group-hover:opacity-100" />
 
             <Image
               src="/logo-icon.png"
@@ -84,18 +84,18 @@ export default function Navbar({ lang }: { lang: Lang }) {
           </span>
 
           <div className="hidden leading-tight sm:block">
-            <p className="text-base font-semibold tracking-tight text-white transition group-hover:text-emerald-400">
+            <p className="text-base font-semibold tracking-tight text-white transition group-hover:text-emerald-300">
               Flowcraft
             </p>
 
-            <p className="flow-text text-[10px] font-semibold tracking-[0.35em]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-emerald-300/70">
               Studio
             </p>
           </div>
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden items-center rounded-full border border-cyan-300/12 bg-cyan-300/6 p-1 shadow-[0_0_26px_rgba(34,211,238,0.08)] md:flex">
+        <nav className="hidden items-center rounded-full border border-white/8 bg-white/[0.035] p-1 shadow-[0_18px_60px_rgba(0,0,0,0.18)] md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
 
@@ -108,7 +108,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                 }`}
               >
                 {isActive && (
-                  <span className="absolute inset-0 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.26)] transition-all duration-300" />
+                  <span className="absolute inset-0 rounded-full bg-emerald-300 shadow-[0_0_16px_rgba(52,211,153,0.16)] transition-all duration-300" />
                 )}
 
                 <span className="relative z-10">{item.label}</span>
@@ -119,7 +119,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
         <div className="flex items-center gap-3">
           {/* LANGUAGE SWITCH */}
-          <div className="flex items-center rounded-full border border-cyan-400/14 bg-cyan-400/7 p-1 shadow-[0_0_25px_rgba(34,211,238,0.1)]">
+          <div className="flex items-center rounded-full border border-white/8 bg-white/[0.035] p-1">
             <Link
               href={switchLang("ro")}
               onClick={() => setMenuOpen(false)}
@@ -130,7 +130,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               }`}
             >
               {lang === "ro" && (
-                <span className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] transition-all duration-300 md:block" />
+                <span className="absolute inset-0 hidden rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(52,211,153,0.14)] transition-all duration-300 md:block" />
               )}
 
               <span className="relative z-10">RO</span>
@@ -146,7 +146,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
               }`}
             >
               {lang === "en" && (
-                <span className="absolute inset-0 hidden rounded-full bg-emerald-400 shadow-[0_0_16px_rgba(52,211,153,0.24)] transition-all duration-300 md:block" />
+                <span className="absolute inset-0 hidden rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(52,211,153,0.14)] transition-all duration-300 md:block" />
               )}
 
               <span className="relative z-10">EN</span>
@@ -156,33 +156,33 @@ export default function Navbar({ lang }: { lang: Lang }) {
           {/* DESKTOP CTA */}
           <Link
             href={`/${lang}/contact`}
-            className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_0_22px_rgba(255,255,255,0.1)] transition hover:bg-emerald-400 hover:shadow-[0_0_28px_rgba(52,211,153,0.24)] lg:block"
+            className="hidden rounded-full bg-white px-5 py-2 text-[14px] font-semibold tracking-tight text-black shadow-[0_12px_35px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-300 lg:block"
           >
-            {lang === "ro" ? "Hai sa vorbim" : "Let’s talk"}
+            {lang === "ro" ? "Hai să vorbim" : "Let’s talk"}
           </Link>
 
           {/* MOBILE HAMBURGER */}
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/14 bg-emerald-400/8 shadow-[0_0_25px_rgba(52,211,153,0.1)] md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.045] md:hidden"
             aria-label="Open menu"
           >
             <span className="relative h-4 w-4">
               <span
-                className={`absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                className={`absolute left-0 top-0 h-0.5 w-4 rounded-full bg-emerald-300 transition duration-300 ${
                   menuOpen ? "translate-y-1.5 rotate-45" : ""
                 }`}
               />
 
               <span
-                className={`absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                className={`absolute left-0 top-1.5 h-0.5 w-4 rounded-full bg-emerald-300 transition duration-300 ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
 
               <span
-                className={`absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.35)] transition duration-300 ${
+                className={`absolute left-0 top-3 h-0.5 w-4 rounded-full bg-emerald-300 transition duration-300 ${
                   menuOpen ? "-translate-y-1.5 -rotate-45" : ""
                 }`}
               />
@@ -193,7 +193,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="mx-6 mb-5 rounded-3xl border border-emerald-400/14 bg-[#06151f]/82 p-4 shadow-[0_0_38px_rgba(52,211,153,0.08)] backdrop-blur-xl transition duration-200 md:hidden">
+        <div className="mx-4 mb-5 rounded-3xl border border-white/10 bg-[#040910]/88 p-3 shadow-[0_22px_70px_rgba(0,0,0,0.32)] backdrop-blur-xl transition duration-200 md:hidden">
             <div className="grid gap-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
@@ -205,7 +205,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
                     onClick={() => setMenuOpen(false)}
                     className={`rounded-2xl px-5 py-4 text-base font-semibold transition ${
                       isActive
-                        ? "bg-emerald-400 text-black shadow-[0_0_18px_rgba(52,211,153,0.18)]"
+                        ? "bg-emerald-300 text-black shadow-[0_0_16px_rgba(52,211,153,0.14)]"
                         : "bg-white/4 text-zinc-300 hover:bg-white/8 hover:text-white"
                     }`}
                   >

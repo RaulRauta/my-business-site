@@ -78,23 +78,23 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative min-h-screen overflow-x-hidden bg-[#06131d] text-white">
+      <body className="relative min-h-screen overflow-x-hidden bg-[#040910] text-white">
         {/* BACKGROUND SYSTEM */}
         <div className="pointer-events-none fixed inset-0 z-0">
           {/* BASE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.14),transparent_38%),radial-gradient(circle_at_82%_14%,rgba(34,211,238,0.11),transparent_36%),radial-gradient(circle_at_48%_52%,rgba(14,165,233,0.06),transparent_42%),linear-gradient(180deg,#06131d_0%,#05121b_45%,#040b12_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(52,211,153,0.09),transparent_36%),radial-gradient(circle_at_82%_12%,rgba(34,211,238,0.075),transparent_34%),radial-gradient(circle_at_45%_48%,rgba(15,118,110,0.045),transparent_44%),linear-gradient(180deg,#06111a_0%,#040b12_48%,#03070c_100%)]" />
 
           {/* GLOW 1 */}
-          <div className="absolute left-[-12%] top-[-15%] h-[700px] w-[700px] rounded-full bg-emerald-400/24 blur-[150px] animate-[neonFloat_14s_ease-in-out_infinite]" />
+          <div className="absolute left-[-14%] top-[-18%] h-[660px] w-[660px] rounded-full bg-emerald-400/14 blur-[170px]" />
 
           {/* GLOW 2 */}
-          <div className="absolute bottom-[-18%] right-[-12%] h-[720px] w-[720px] rounded-full bg-cyan-400/20 blur-[165px] animate-[neonFloatReverse_18s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-20%] right-[-14%] h-[720px] w-[720px] rounded-full bg-cyan-400/12 blur-[190px]" />
 
           {/* GLOW 3 */}
-          <div className="absolute left-[35%] top-[28%] h-[560px] w-[560px] rounded-full bg-teal-300/12 blur-[150px] animate-[neonFloat_20s_ease-in-out_infinite]" />
+          <div className="absolute left-[34%] top-[32%] h-[520px] w-[520px] rounded-full bg-teal-300/7 blur-[170px]" />
 
           {/* VIGNETTE */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.22)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.34)_100%)]" />
         </div>
 
         {/* CONTENT */}

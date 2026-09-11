@@ -28,7 +28,7 @@ body {
 html,
 body {
   overscroll-behavior-y: none;
-  background: #050d15;
+  background: #040910;
 }
 
 body {
@@ -163,7 +163,7 @@ body.modal-open {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: flowText 3.5s ease-in-out infinite;
+  animation: flowText 8s ease-in-out infinite;
 }
 
 @keyframes flowText {
@@ -335,6 +335,45 @@ body.modal-open {
 
 html {
   scroll-behavior: smooth;
+}
+
+.studio-surface {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.026)),
+    rgba(3, 9, 15, 0.72);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.studio-label {
+  color: rgb(52 211 153 / 0.86);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.studio-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 211, 153, 0.18),
+    rgba(34, 211, 238, 0.14),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }
 
 @keyframes morrow-float {

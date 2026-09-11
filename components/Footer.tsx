@@ -8,13 +8,13 @@ export default function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-emerald-400/14 bg-[#06151f]/62 px-6 py-16 text-zinc-400 backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(52,211,153,0.14),transparent_35%),radial-gradient(circle_at_85%_35%,rgba(34,211,238,0.11),transparent_30%)]" />
+    <footer className="relative overflow-hidden border-t border-white/8 bg-[#040910]/78 px-4 py-16 text-zinc-400 backdrop-blur-xl sm:px-6">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_0%,rgba(52,211,153,0.07),transparent_34%),radial-gradient(circle_at_86%_28%,rgba(34,211,238,0.055),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-14 rounded-3xl border border-emerald-400/12 bg-emerald-400/6 p-8 shadow-[0_0_62px_rgba(52,211,153,0.08)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
+        <div className="mb-14 rounded-[1.75rem] border border-white/8 bg-white/[0.035] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.24)] backdrop-blur-xl md:flex md:items-center md:justify-between md:p-10">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
+            <p className="studio-label">
               {lang === "ro" ? "Următorul pas" : "Next step"}
             </p>
 
@@ -33,15 +33,13 @@ export default function Footer({ lang }: { lang: Lang }) {
 
           <Link
             href={`/${lang}/contact`}
-            className="mt-8 inline-block rounded-full bg-emerald-400 px-7 py-3 text-sm font-semibold text-black shadow-[0_0_28px_rgba(52,211,153,0.16)] transition hover:scale-[1.03] hover:bg-emerald-300 hover:shadow-[0_0_42px_rgba(52,211,153,0.26)] md:mt-0"
+            className="mt-8 inline-block rounded-full bg-emerald-300 px-7 py-3 text-sm font-semibold text-black shadow-[0_16px_46px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-0.5 hover:bg-white md:mt-0"
           >
             {lang === "ro" ? "Hai să discutăm" : "Let’s talk"}
           </Link>
         </div>
 
-        <div className="relative mb-12 h-px w-full overflow-hidden bg-emerald-400/10">
-          <div className="absolute left-0 top-0 h-full w-full animate-[scanLine_3s_linear_infinite] bg-linear-to-r from-transparent via-emerald-400/70 to-transparent" />
-        </div>
+        <div className="studio-divider mb-12" />
 
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr] md:items-start">
           <div>
@@ -49,7 +47,7 @@ export default function Footer({ lang }: { lang: Lang }) {
               <p className="text-xl font-semibold tracking-tight text-white">
                 Flowcraft
               </p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400/70">
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.35em] text-emerald-300/60">
                 Studio
               </p>
             </div>
@@ -78,11 +76,11 @@ export default function Footer({ lang }: { lang: Lang }) {
                 },
                 {
                   href: `/${lang}/projects`,
-                  label: "Projects",
+                  label: lang === "ro" ? "Proiecte" : "Projects",
                 },
                 {
                   href: `/${lang}/about`,
-                  label: "About",
+                  label: lang === "ro" ? "Despre" : "About",
                 },
                 {
                   href: `/${lang}/contact`,
@@ -121,7 +119,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-emerald-400/10 pt-6">
+        <div className="mt-12 border-t border-white/8 pt-6">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm md:flex-row md:items-center md:justify-between">
             <p className="text-zinc-500">
               © {year} Flowcraft Studio. All rights reserved.
@@ -129,7 +127,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
             <p className="text-zinc-600">
               {lang === "ro"
-                ? "Creat cu grija de FlowCraft Studio."
+                ? "Creat cu grijă de FlowCraft Studio."
                 : "Crafted by FlowCraft Studio."}
             </p>
           </div>
