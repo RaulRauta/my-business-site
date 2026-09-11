@@ -417,7 +417,7 @@ export default async function ProjectsPage({
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/${lang}/contact`}
-                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.45)]"
+                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_24px_rgba(52,211,153,0.16)] transition duration-300 hover:bg-emerald-300 hover:shadow-[0_0_36px_rgba(52,211,153,0.24)]"
                 >
                   {t.contact}
                 </Link>
@@ -431,7 +431,7 @@ export default async function ProjectsPage({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-5 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl">
+            <div className="grid grid-cols-2 gap-3 rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-5 shadow-[0_0_52px_rgba(52,211,153,0.07)] backdrop-blur-xl">
               {t.proof.map((item) => (
                 <div
                   key={item}

@@ -384,7 +384,7 @@ export default async function ProcessPage({
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href={`/${lang}/contact`}
-                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.45)]"
+                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_24px_rgba(52,211,153,0.16)] transition duration-300 hover:bg-emerald-300 hover:shadow-[0_0_34px_rgba(52,211,153,0.24)]"
                 >
                   {t.cta}
                 </Link>
@@ -398,7 +398,7 @@ export default async function ProcessPage({
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-7 shadow-[0_0_52px_rgba(52,211,153,0.07)] backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(52,211,153,0.18),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(34,211,238,0.12),transparent_40%)]" />
               <div className="relative">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
@@ -475,7 +475,7 @@ export default async function ProcessPage({
                 {t.journey.steps.map((step, index) => (
                   <article
                     key={step.number}
-                    className={`group relative grid gap-6 rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-6 shadow-[0_0_55px_rgba(52,211,153,0.06)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_80px_rgba(52,211,153,0.12)] md:grid-cols-[96px_1fr] ${
+                    className={`group relative grid gap-6 rounded-3xl border border-emerald-400/10 bg-emerald-400/5 p-6 shadow-[0_0_36px_rgba(52,211,153,0.045)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/24 hover:shadow-[0_0_52px_rgba(52,211,153,0.08)] md:grid-cols-[96px_1fr] ${
                       index % 2 === 1 ? "lg:ml-16" : "lg:mr-16"
                     }`}
                   >
@@ -530,7 +530,7 @@ export default async function ProcessPage({
               {t.expectations.items.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-3xl border border-cyan-300/12 bg-cyan-300/5 p-6 shadow-[0_0_45px_rgba(34,211,238,0.06)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.12)]"
+                  className="rounded-3xl border border-cyan-300/10 bg-cyan-300/5 p-6 shadow-[0_0_30px_rgba(34,211,238,0.045)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/24 hover:shadow-[0_0_44px_rgba(52,211,153,0.08)]"
                 >
                   <div className="mb-5 h-10 w-10 rounded-2xl bg-emerald-400/10 ring-1 ring-emerald-400/20" />
                   <h3 className="text-xl font-bold text-white">{item.title}</h3>
@@ -540,7 +540,7 @@ export default async function ProcessPage({
             </div>
           </section>
 
-          <section className="mt-24 grid gap-8 overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_90px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <section className="mt-24 grid gap-8 overflow-hidden rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-7 shadow-[0_0_58px_rgba(52,211,153,0.07)] backdrop-blur-xl md:p-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
                 {t.why.badge}
@@ -566,7 +566,7 @@ export default async function ProcessPage({
             </div>
           </section>
 
-          <section className="mt-24 rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-8 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-10">
+          <section className="mt-24 rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-8 shadow-[0_0_52px_rgba(52,211,153,0.07)] backdrop-blur-xl md:p-10">
             <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white md:text-5xl">
               {t.final.title}
             </h2>
@@ -578,7 +578,7 @@ export default async function ProcessPage({
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href={`/${lang}/contact`}
-                className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_24px_rgba(52,211,153,0.16)] transition duration-300 hover:bg-emerald-300 hover:shadow-[0_0_36px_rgba(52,211,153,0.24)]"
               >
                 {t.final.primary}
               </Link>

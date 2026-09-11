@@ -64,20 +64,20 @@ type ProjectsShowroomProps = {
 
 const accentClasses = {
   warm: {
-    border: "border-amber-300/20 hover:border-amber-300/45",
-    shadow: "hover:shadow-[0_0_85px_rgba(251,191,36,0.14)]",
-    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(251,191,36,0.15),transparent_38%)]",
+    border: "border-amber-300/16 hover:border-amber-300/30",
+    shadow: "hover:shadow-[0_0_52px_rgba(251,191,36,0.08)]",
+    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(251,191,36,0.1),transparent_38%)]",
     text: "text-amber-200",
     button:
-      "border-amber-300/20 bg-amber-300/10 text-amber-100 hover:border-amber-300/45 hover:bg-amber-300/15",
+      "border-amber-300/18 bg-amber-300/8 text-amber-100 hover:border-amber-300/30 hover:bg-amber-300/12",
   },
   gold: {
-    border: "border-[#d9b46f]/20 hover:border-[#d9b46f]/45",
-    shadow: "hover:shadow-[0_0_90px_rgba(217,180,111,0.15)]",
-    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(217,180,111,0.17),transparent_38%)]",
+    border: "border-[#d9b46f]/18 hover:border-[#d9b46f]/32",
+    shadow: "hover:shadow-[0_0_54px_rgba(217,180,111,0.09)]",
+    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(217,180,111,0.11),transparent_38%)]",
     text: "text-[#f3d19c]",
     button:
-      "border-[#d9b46f]/20 bg-[#d9b46f]/10 text-[#f3d19c] hover:border-[#d9b46f]/45 hover:bg-[#d9b46f]/15",
+      "border-[#d9b46f]/18 bg-[#d9b46f]/8 text-[#f3d19c] hover:border-[#d9b46f]/32 hover:bg-[#d9b46f]/12",
   },
   green: {
     border: "border-emerald-400/12 hover:border-emerald-400/24",
@@ -88,20 +88,20 @@ const accentClasses = {
       "border-emerald-400/16 bg-emerald-400/6 text-emerald-300 hover:border-emerald-400/24 hover:bg-emerald-400/10",
   },
   cyan: {
-    border: "border-cyan-300/15 hover:border-cyan-300/40",
-    shadow: "hover:shadow-[0_0_80px_rgba(34,211,238,0.12)]",
-    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(34,211,238,0.13),transparent_38%)]",
+    border: "border-cyan-300/12 hover:border-cyan-300/26",
+    shadow: "hover:shadow-[0_0_50px_rgba(34,211,238,0.08)]",
+    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(34,211,238,0.09),transparent_38%)]",
     text: "text-cyan-200",
     button:
-      "border-cyan-300/20 bg-cyan-300/10 text-cyan-200 hover:border-cyan-300/40 hover:bg-cyan-300/15",
+      "border-cyan-300/18 bg-cyan-300/8 text-cyan-200 hover:border-cyan-300/28 hover:bg-cyan-300/12",
   },
   sage: {
-    border: "border-[#a8b897]/20 hover:border-[#a8b897]/45",
-    shadow: "hover:shadow-[0_0_82px_rgba(168,184,151,0.14)]",
-    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(168,184,151,0.15),transparent_38%)]",
+    border: "border-[#a8b897]/18 hover:border-[#a8b897]/32",
+    shadow: "hover:shadow-[0_0_52px_rgba(168,184,151,0.09)]",
+    glow: "bg-[radial-gradient(circle_at_25%_12%,rgba(168,184,151,0.1),transparent_38%)]",
     text: "text-[#d8e4cd]",
     button:
-      "border-[#a8b897]/20 bg-[#a8b897]/10 text-[#d8e4cd] hover:border-[#a8b897]/40 hover:bg-[#a8b897]/15",
+      "border-[#a8b897]/18 bg-[#a8b897]/8 text-[#d8e4cd] hover:border-[#a8b897]/32 hover:bg-[#a8b897]/12",
   },
 };
 
@@ -233,7 +233,7 @@ function ProjectDetailsModal({
       isOpen={Boolean(project)}
       onClose={onClose}
       labelledBy="project-details-title"
-      className={`max-w-5xl border bg-[#071824]/95 p-5 shadow-[0_0_96px_rgba(52,211,153,0.11)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
+      className={`max-w-5xl border bg-[#091824]/95 p-5 shadow-[0_0_68px_rgba(52,211,153,0.08)] backdrop-blur-2xl sm:p-7 md:p-8 ${accent.border}`}
     >
         <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
         <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/35 to-transparent" />
@@ -290,11 +290,11 @@ function ProjectCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+      initial={{ opacity: 0, y: 14, filter: "blur(5px)" }}
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded-[2rem] border bg-cyan-300/5 shadow-[0_0_42px_rgba(34,211,238,0.06)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 ${accent.border} ${accent.shadow}`}
+      transition={{ duration: 0.44, ease: [0.22, 1, 0.36, 1] }}
+      className={`group relative overflow-hidden rounded-[2rem] border bg-white/[0.035] shadow-[0_0_30px_rgba(34,211,238,0.04)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.045] ${accent.border} ${accent.shadow}`}
     >
       <div className={`pointer-events-none absolute inset-0 ${accent.glow}`} />
       {experimental && (
@@ -382,8 +382,8 @@ export default function ProjectsShowroom({
 
   return (
     <>
-      <section className="relative mt-20 overflow-hidden rounded-[2.2rem] border border-[#d9b46f]/24 bg-[#d9b46f]/7 shadow-[0_0_110px_rgba(217,180,111,0.12)] backdrop-blur-xl">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(217,180,111,0.15),transparent_36%),radial-gradient(circle_at_82%_74%,rgba(52,211,153,0.045),transparent_42%)]" />
+      <section className="relative mt-20 overflow-hidden rounded-[2.2rem] border border-[#d9b46f]/20 bg-[#d9b46f]/6 shadow-[0_0_72px_rgba(217,180,111,0.08)] backdrop-blur-xl">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(217,180,111,0.1),transparent_36%),radial-gradient(circle_at_82%_74%,rgba(52,211,153,0.035),transparent_42%)]" />
         <div className="relative grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="p-7 md:p-10">
             <span className="inline-flex rounded-full border border-[#d9b46f]/20 bg-[#d9b46f]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#f3d19c]">
@@ -417,7 +417,7 @@ export default function ProjectsShowroom({
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <DemoLink
                 project={featured}
-                className="rounded-full bg-[#d9b46f] px-7 py-3 text-center font-semibold text-[#120d0a] shadow-[0_0_35px_rgba(217,180,111,0.22)] transition hover:bg-white hover:shadow-[0_0_55px_rgba(217,180,111,0.35)]"
+                className="rounded-full bg-[#d9b46f] px-7 py-3 text-center font-semibold text-[#120d0a] shadow-[0_0_24px_rgba(217,180,111,0.16)] transition duration-300 hover:bg-white hover:shadow-[0_0_36px_rgba(217,180,111,0.24)]"
               >
                 {copy.viewDemo}
               </DemoLink>
@@ -436,7 +436,7 @@ export default function ProjectsShowroom({
             project={featured}
             className="group relative block border-t border-white/10 lg:border-l lg:border-t-0"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(217,180,111,0.18),transparent_45%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(217,180,111,0.11),transparent_45%)]" />
             <div className="relative p-5 md:p-8">
               <ProjectPreview
                 variant={featured.preview}

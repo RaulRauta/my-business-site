@@ -42,7 +42,7 @@ export default function ProjectPreview({
 
   return (
     <div
-      className={`relative ${height} overflow-hidden border-b border-white/10 bg-black/45`}
+      className={`relative ${height} overflow-hidden border-b border-white/10 bg-[#07111a]/72`}
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -51,7 +51,7 @@ export default function ProjectPreview({
         }}
       />
 
-      <div className="relative flex items-center gap-2 border-b border-white/10 bg-black/50 px-4 py-3">
+      <div className="relative flex items-center gap-2 border-b border-white/10 bg-white/[0.035] px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/55" />
@@ -68,7 +68,7 @@ export default function ProjectPreview({
       </div>
 
       <div className="relative p-5 md:p-6">
-        <div className="relative transition duration-700 group-hover:-translate-y-1">
+        <div className="relative transition duration-500 group-hover:-translate-y-0.5">
           <div className={`h-6 w-3/4 rounded-full ${styles.accent}`} />
           <div className="mt-3 h-3 w-1/2 rounded-full bg-white/10" />
 

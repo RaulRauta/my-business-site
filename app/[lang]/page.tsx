@@ -3,6 +3,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { notFound } from "next/navigation";
+import { Fragment } from "react";
 
 type Lang = "ro" | "en";
 
@@ -19,6 +20,10 @@ type DemoItem = {
   text: string;
   tags: string[];
   tone: "gold" | "amber";
+  preview: {
+    line: string;
+    detail: string;
+  };
 };
 
 export default async function HomePage({
@@ -133,6 +138,10 @@ export default async function HomePage({
           : "A warm editorial demo for a modern café, built around atmosphere, menu and booking.",
       tags: ["Hospitality", "Mobile-first", "Editorial UI"],
       tone: "gold",
+      preview: {
+        line: currentLang === "ro" ? "Meniu / atmosferă / rezervare" : "Menu / atmosphere / booking",
+        detail: currentLang === "ro" ? "Cafenea modernă" : "Modern café",
+      },
     },
     {
       href: `/${currentLang}/demo/restaurant`,
@@ -145,6 +154,10 @@ export default async function HomePage({
           : "A cinematic structure for restaurants that need clear presentation and simple booking.",
       tags: ["Restaurant", "Booking", "Atmosphere"],
       tone: "amber",
+      preview: {
+        line: currentLang === "ro" ? "Fine dining / booking / experiență" : "Fine dining / booking / experience",
+        detail: currentLang === "ro" ? "Restaurant cinematic" : "Cinematic restaurant",
+      },
     },
   ];
 
@@ -204,6 +217,7 @@ export default async function HomePage({
             <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_45%_18%,rgba(52,211,153,0.12),transparent_42%)] blur-3xl" />
 
             <div className="studio-surface relative overflow-hidden rounded-[2rem] p-4 sm:p-5">
+              <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-emerald-300/35 to-transparent" />
               <div className="relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-[#09141f]/84">
                 <div className="flex items-center gap-2 border-b border-white/8 bg-white/[0.03] px-4 py-3">
                   <span className="h-2.5 w-2.5 rounded-full bg-red-400/55" />
@@ -250,6 +264,33 @@ export default async function HomePage({
                     <p className="mt-5 leading-7 text-zinc-400">
                       {t.previewText}
                     </p>
+                  </div>
+
+                  <div className="mt-8 overflow-hidden rounded-2xl border border-emerald-300/12 bg-[linear-gradient(135deg,rgba(52,211,153,0.09),rgba(34,211,238,0.04),rgba(255,255,255,0.025))] p-4">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/70">
+                        Flow map
+                      </p>
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_18px_rgba(52,211,153,0.45)]" />
+                    </div>
+                    <div className="mt-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2">
+                      {[
+                        currentLang === "ro" ? "Prim contact" : "First impression",
+                        currentLang === "ro" ? "Încredere" : "Trust",
+                        currentLang === "ro" ? "Acțiune" : "Action",
+                      ].map((item, index) => (
+                        <Fragment key={item}>
+                          <div
+                            className="rounded-xl border border-white/8 bg-white/[0.045] px-3 py-3 text-center text-[11px] font-semibold text-zinc-300"
+                          >
+                            {item}
+                          </div>
+                          {index < 2 && (
+                            <div className="h-px w-5 bg-linear-to-r from-emerald-300/20 to-cyan-300/30" />
+                          )}
+                        </Fragment>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="mt-10 grid gap-3 sm:grid-cols-3">
@@ -355,7 +396,7 @@ export default async function HomePage({
               <Link
                 key={demo.href}
                 href={demo.href}
-                className={`group relative overflow-hidden rounded-[2rem] border bg-white/[0.028] p-5 transition duration-300 hover:-translate-y-1 sm:p-7 ${
+                className={`group relative overflow-hidden rounded-[2rem] border bg-white/[0.032] p-5 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.045] sm:p-7 ${
                   demo.tone === "gold"
                     ? "border-[#d9b46f]/18 hover:border-[#d9b46f]/34"
                     : "border-amber-300/18 hover:border-amber-300/34"
@@ -369,6 +410,49 @@ export default async function HomePage({
                   }`}
                 />
                 <div className="relative">
+                  <div
+                    className={`mb-7 overflow-hidden rounded-[1.35rem] border border-white/8 ${
+                      demo.tone === "gold"
+                        ? "bg-[#21170f]/70"
+                        : "bg-[#1f150a]/70"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 border-b border-white/8 bg-black/18 px-4 py-3">
+                      <span className="h-2 w-2 rounded-full bg-white/18" />
+                      <span className="h-2 w-2 rounded-full bg-white/18" />
+                      <span className="h-2 w-2 rounded-full bg-white/18" />
+                      <span className="ml-auto text-[10px] font-semibold uppercase tracking-[0.24em] text-white/35">
+                        Live preview
+                      </span>
+                    </div>
+                    <div className="relative h-44 overflow-hidden p-4">
+                      <div
+                        className={`absolute inset-0 transition duration-500 group-hover:scale-[1.025] ${
+                          demo.tone === "gold"
+                            ? "bg-[radial-gradient(circle_at_22%_12%,rgba(217,180,111,0.22),transparent_34%),linear-gradient(135deg,rgba(217,180,111,0.12),rgba(255,255,255,0.04))]"
+                            : "bg-[radial-gradient(circle_at_22%_12%,rgba(251,191,36,0.2),transparent_34%),linear-gradient(135deg,rgba(251,191,36,0.11),rgba(255,255,255,0.04))]"
+                        }`}
+                      />
+                      <div className="relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-black/20 p-4 backdrop-blur-sm">
+                        <div>
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-white/45">
+                            {demo.preview.detail}
+                          </p>
+                          <p className="mt-3 max-w-[13rem] text-xl font-black leading-tight tracking-tight text-white">
+                            {demo.title}
+                          </p>
+                        </div>
+                        <div>
+                          <div className="h-1.5 w-24 rounded-full bg-white/40" />
+                          <div className="mt-2 h-1.5 w-36 rounded-full bg-white/18" />
+                          <p className="mt-4 text-xs font-semibold text-white/55">
+                            {demo.preview.line}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between gap-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
                       {demo.eyebrow}

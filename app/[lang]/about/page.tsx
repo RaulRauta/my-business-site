@@ -255,7 +255,7 @@ export default async function AboutPage({
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <Link
                   href={`/${lang}/contact`}
-                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_50px_rgba(52,211,153,0.45)]"
+                  className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_24px_rgba(52,211,153,0.16)] transition duration-300 hover:bg-emerald-300 hover:shadow-[0_0_34px_rgba(52,211,153,0.24)]"
                 >
                   {t.cta}
                 </Link>
@@ -269,7 +269,7 @@ export default async function AboutPage({
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_80px_rgba(52,211,153,0.1)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-7 shadow-[0_0_52px_rgba(52,211,153,0.07)] backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_10%,rgba(52,211,153,0.18),transparent_34%),radial-gradient(circle_at_82%_80%,rgba(34,211,238,0.12),transparent_40%)]" />
               <div className="relative">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
@@ -332,7 +332,7 @@ export default async function AboutPage({
                 {t.work.items.map((item, index) => (
                   <article
                     key={item.title}
-                    className={`group rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-6 shadow-[0_0_45px_rgba(52,211,153,0.06)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_70px_rgba(52,211,153,0.12)] ${
+                    className={`group rounded-3xl border border-emerald-400/10 bg-emerald-400/5 p-6 shadow-[0_0_32px_rgba(52,211,153,0.045)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/24 hover:shadow-[0_0_44px_rgba(52,211,153,0.08)] ${
                       index % 2 === 1 ? "lg:ml-10" : ""
                     }`}
                   >
@@ -373,7 +373,7 @@ export default async function AboutPage({
             </div>
           </section>
 
-          <section className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/14 bg-emerald-400/6 p-7 shadow-[0_0_90px_rgba(52,211,153,0.1)] backdrop-blur-xl md:p-10">
+          <section className="mt-24 overflow-hidden rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-7 shadow-[0_0_58px_rgba(52,211,153,0.07)] backdrop-blur-xl md:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-400">
@@ -417,7 +417,7 @@ export default async function AboutPage({
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href={`/${lang}/contact`}
-                className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_35px_rgba(52,211,153,0.25)] transition hover:bg-emerald-300 hover:shadow-[0_0_55px_rgba(52,211,153,0.5)]"
+                className="rounded-full bg-emerald-400 px-7 py-3 text-center font-semibold text-black shadow-[0_0_24px_rgba(52,211,153,0.16)] transition duration-300 hover:bg-emerald-300 hover:shadow-[0_0_36px_rgba(52,211,153,0.24)]"
               >
                 {t.final.primary}
               </Link>
