@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { connection } from "next/server";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageReveal from "@/components/PageReveal";
@@ -7,6 +8,19 @@ import ServicesPackages, {
 } from "@/components/ServicesPackages";
 
 type Lang = "ro" | "en";
+
+const packagePrices = { start: 300, growth: 600 };
+
+const blackFriday = {
+  discountPercent: 25,
+  lastDay: "2026-11-30",
+  expiresAt: Date.parse("2026-12-01T00:00:00+02:00"),
+};
+
+async function getBlackFridayCampaign() {
+  await connection();
+  return Date.now() < blackFriday.expiresAt ? blackFriday : null;
+}
 
 type SimpleItem = {
   title: string;
@@ -25,6 +39,7 @@ export default async function ServicesPage({
   params: Promise<{ lang: Lang }>;
 }) {
   const { lang } = await params;
+  const campaign = await getBlackFridayCampaign();
 
   const t = {
     ro: {
@@ -43,6 +58,11 @@ export default async function ServicesPage({
         text: "Pachetele sunt gândite ca puncte clare de pornire. Fiecare poate fi ajustat în funcție de brand, obiectiv și complexitate.",
         startingFrom: "Începând de la",
         customPricing: "Preț",
+        customPrice: "Personalizat",
+        campaignTitle: "Reducere la pachetele Start și Growth",
+        campaignUntil: "Valabilă până pe",
+        regularPrice: "Preț inițial",
+        salePrice: "Preț redus",
         mostPopular: "Cel mai ales",
         viewDetails: "Vezi detalii",
         perfectFor: "Perfect pentru",
@@ -57,7 +77,7 @@ export default async function ServicesPage({
             id: "start",
             name: "Start",
             eyebrow: "Prezență clară",
-            price: "300€",
+            price: packagePrices.start,
             description:
               "Pentru business-uri mici care au nevoie de o prezență online curată, rapidă și profesionistă.",
             benefits: [
@@ -89,7 +109,7 @@ export default async function ServicesPage({
             id: "growth",
             name: "Growth",
             eyebrow: "Focus pe conversie",
-            price: "600€",
+            price: packagePrices.growth,
             description:
               "Pentru business-uri care vor o prezență mai puternică, mai multă claritate și o structură orientată spre conversie.",
             benefits: [
@@ -125,7 +145,7 @@ export default async function ServicesPage({
             id: "custom",
             name: "Experiență personalizată",
             eyebrow: "Sistem personalizat",
-            price: "Personalizat",
+            price: null,
             description:
               "Pentru branduri care au nevoie de ceva unic, avansat sau construit foarte specific în jurul experienței.",
             benefits: [
@@ -156,7 +176,7 @@ export default async function ServicesPage({
             ],
             cta: "Vezi detalii",
           },
-        ] as ServicePackage[],
+        ] satisfies ServicePackage[],
       },
 
       why: {
@@ -281,6 +301,11 @@ export default async function ServicesPage({
         text: "The packages are clear starting points. Each one can be adjusted depending on brand, goals and complexity.",
         startingFrom: "Starting from",
         customPricing: "Pricing",
+        customPrice: "Custom",
+        campaignTitle: "Save on Start and Growth packages",
+        campaignUntil: "Available through",
+        regularPrice: "Original price",
+        salePrice: "Sale price",
         mostPopular: "Most Popular",
         viewDetails: "Explore package",
         perfectFor: "Perfect for",
@@ -295,7 +320,7 @@ export default async function ServicesPage({
             id: "start",
             name: "Start",
             eyebrow: "Clean presence",
-            price: "300€",
+            price: packagePrices.start,
             description:
               "For small businesses that need a clean, fast and professional online presence.",
             benefits: [
@@ -322,7 +347,7 @@ export default async function ServicesPage({
             id: "growth",
             name: "Growth",
             eyebrow: "Conversion focus",
-            price: "600€",
+            price: packagePrices.growth,
             description:
               "For businesses that want a stronger brand presence, more clarity and a conversion-focused structure.",
             benefits: [
@@ -358,7 +383,7 @@ export default async function ServicesPage({
             id: "custom",
             name: "Custom Experience",
             eyebrow: "Tailored system",
-            price: "Custom",
+            price: null,
             description:
               "For brands that need something unique, advanced or highly tailored around the experience.",
             benefits: [
@@ -389,7 +414,7 @@ export default async function ServicesPage({
             ],
             cta: "Explore package",
           },
-        ] as ServicePackage[],
+        ] satisfies ServicePackage[],
       },
 
       why: {
@@ -562,6 +587,7 @@ export default async function ServicesPage({
             lang={lang}
             packages={t.packages.items}
             copy={t.packages}
+            campaign={campaign}
           />
 
           <section className="mt-24">

@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ModalShell from "@/components/ModalShell";
 
 export type ServicePackage = {
   id: "start" | "growth" | "custom";
   name: string;
   eyebrow: string;
-  price: string;
+  price: number | null;
   description: string;
   benefits: string[];
   perfectFor: string;
@@ -19,9 +19,16 @@ export type ServicePackage = {
   featured?: boolean;
 };
 
+type Campaign = {
+  discountPercent: number;
+  lastDay: string;
+  expiresAt: number;
+};
+
 type ServicesPackagesProps = {
   lang: "ro" | "en";
   packages: ServicePackage[];
+  campaign: Campaign | null;
   copy: {
     badge: string;
     title: string;
@@ -37,17 +44,101 @@ type ServicesPackagesProps = {
     close: string;
     note: string;
     customPricing: string;
+    customPrice: string;
+    campaignTitle: string;
+    campaignUntil: string;
+    regularPrice: string;
+    salePrice: string;
   };
 };
+
+function PackagePrice({
+  price,
+  campaign,
+  copy,
+  currency,
+}: {
+  price: ServicePackage["price"];
+  campaign: Campaign | null;
+  copy: ServicesPackagesProps["copy"];
+  currency: Intl.NumberFormat;
+}) {
+  const showDiscount = campaign !== null && price !== null;
+  const currentPrice = showDiscount
+    ? price * (1 - campaign.discountPercent / 100)
+    : price;
+
+  return (
+    <span className="block">
+      <span className="block text-sm text-zinc-400">
+        {price === null ? copy.customPricing : copy.startingFrom}
+      </span>
+      <span className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        {showDiscount && (
+          <span className="text-lg text-zinc-400">
+            <span className="sr-only">{copy.regularPrice}: </span>
+            <del>{currency.format(price)}</del>
+          </span>
+        )}
+        <span
+          className={`text-4xl font-black tabular-nums ${showDiscount ? "text-[#f5d59d]" : "text-white"}`}
+        >
+          {showDiscount && <span className="sr-only">{copy.salePrice}: </span>}
+          {currentPrice === null
+            ? copy.customPrice
+            : currency.format(currentPrice)}
+        </span>
+      </span>
+    </span>
+  );
+}
 
 export default function ServicesPackages({
   lang,
   packages,
   copy,
+  campaign,
 }: ServicesPackagesProps) {
   const [selectedPackage, setSelectedPackage] = useState<ServicePackage | null>(
     null,
   );
+  const [expiredAt, setExpiredAt] = useState<number | null>(null);
+  const expiresAt = campaign?.expiresAt;
+  const activeCampaign =
+    campaign && campaign.expiresAt !== expiredAt ? campaign : null;
+  const locale = lang === "ro" ? "ro-RO" : "en-IE";
+  const currency = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "EUR",
+    currencyDisplay: "narrowSymbol",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  });
+
+  useEffect(() => {
+    if (expiresAt === undefined) return;
+
+    const deadline = expiresAt;
+    let timeout: ReturnType<typeof setTimeout>;
+    function checkExpiration() {
+      clearTimeout(timeout);
+      const remaining = deadline - Date.now();
+      if (remaining <= 0) {
+        setExpiredAt(deadline);
+      } else {
+        timeout = setTimeout(checkExpiration, Math.min(remaining, 2_147_483_647));
+      }
+    }
+
+    timeout = setTimeout(checkExpiration, 0);
+    window.addEventListener("pageshow", checkExpiration);
+    document.addEventListener("visibilitychange", checkExpiration);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("pageshow", checkExpiration);
+      document.removeEventListener("visibilitychange", checkExpiration);
+    };
+  }, [expiresAt]);
 
   function openPackage(pack: ServicePackage) {
     setSelectedPackage(pack);
@@ -73,7 +164,34 @@ export default function ServicesPackages({
         <p className="max-w-xl leading-7 text-zinc-400">{copy.text}</p>
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+      {activeCampaign && (
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 rounded-lg border border-[#d9b46f]/25 bg-linear-to-r from-[#d9b46f]/10 to-transparent px-4 py-4 sm:px-6">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span className="text-2xl font-bold tabular-nums text-[#f5d59d]">
+              -{activeCampaign.discountPercent}%
+            </span>
+            <div>
+              <p className="text-sm font-semibold text-[#f5d59d]">Black Friday</p>
+              <p className="text-sm text-zinc-300">{copy.campaignTitle}</p>
+            </div>
+          </div>
+          <p className="text-sm text-zinc-300">
+            {copy.campaignUntil}{" "}
+            <time
+              dateTime={activeCampaign.lastDay}
+              className="font-semibold text-white"
+            >
+              {new Intl.DateTimeFormat(locale, {
+                day: "numeric",
+                month: "long",
+                timeZone: "UTC",
+              }).format(new Date(activeCampaign.lastDay))}
+            </time>
+          </p>
+        </div>
+      )}
+
+      <div className={`grid gap-6 lg:grid-cols-3 ${activeCampaign ? "mt-5" : "mt-10"}`}>
         {packages.map((pack) => (
           <button
             key={pack.id}
@@ -90,7 +208,7 @@ export default function ServicesPackages({
             <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(52,211,153,0.08),transparent_34%),radial-gradient(circle_at_85%_80%,rgba(34,211,238,0.055),transparent_38%)] opacity-60 transition group-hover:opacity-90" />
             <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent opacity-45" />
 
-            <span className="relative z-10 flex items-center justify-between gap-4">
+            <span className="relative z-10 flex flex-wrap items-center gap-2">
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-zinc-300">
                 {pack.eyebrow}
               </span>
@@ -107,12 +225,13 @@ export default function ServicesPackages({
                 {pack.name}
               </span>
 
-              <span className="mt-5 block text-sm uppercase tracking-[0.25em] text-zinc-500">
-                {pack.id === "custom" ? copy.customPricing : copy.startingFrom}
-              </span>
-
-              <span className="mt-1 block text-4xl font-black tracking-tight text-white">
-                {pack.price}
+              <span className="mt-5 block">
+                <PackagePrice
+                  price={pack.price}
+                  campaign={activeCampaign}
+                  copy={copy}
+                  currency={currency}
+                />
               </span>
 
               <span className="mt-6 block min-h-21 leading-7 text-zinc-400">
@@ -183,6 +302,20 @@ export default function ServicesPackages({
                     ×
                   </button>
                 </div>
+
+                {activeCampaign && selectedPackage.price !== null && (
+                  <div className="mt-5 border-l border-[#d9b46f]/40 pl-4">
+                    <p className="mb-2 text-sm font-semibold text-[#f5d59d]">
+                      Black Friday · -{activeCampaign.discountPercent}%
+                    </p>
+                    <PackagePrice
+                      price={selectedPackage.price}
+                      campaign={activeCampaign}
+                      copy={copy}
+                      currency={currency}
+                    />
+                  </div>
+                )}
 
                 <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
                   <div className="rounded-3xl border border-emerald-400/12 bg-emerald-400/5 p-5">
